@@ -13,7 +13,6 @@ dependencies = [
   "exa-py",
   "httpx",
   "openai",
-  "google-genai",
   "jinja2",
   "playwright",
   "rapidfuzz",

@@ -29,6 +29,13 @@
       "skillPath": "skills/exa-search/SKILL.md",
       "computedHash": "a452d10d01c9fd5a8b3dd2cc3854d9afa1003f22b2f310d4c672354395cdb3e5"
     },
+    "ponytail": {
+      "source": "DietrichGebert/ponytail",
+      "commit": "ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10",
+      "sourceType": "github",
+      "skillPath": "skills/ponytail/SKILL.md",
+      "computedHash": "56d72677aca02689ac89bd48734e8c19b40ab86716d1257eaf5f1238b43cda6b"
+    },
     "python-testing-patterns": {
       "source": "wshobson/agents",
       "commit": "51b9ae3ac68d9c236549a9b57f5dca7e6c0c168c",

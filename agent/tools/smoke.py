@@ -13,7 +13,7 @@ from agent.config import COMPOSIO_TOOL_SLUGS, get_settings
 _KEYLIKE = re.compile(r"(sk-[A-Za-z0-9_\-]{8,}|AIza[A-Za-z0-9_\-]{10,}|[A-Za-z0-9_\-]{32,})")
 
 
-_SECRET_ENV = ("COMPOSIO_API_KEY", "OPENAI_API_KEY", "GEMINI_API_KEY", "EXA_API_KEY")
+_SECRET_ENV = ("COMPOSIO_API_KEY", "OPENAI_API_KEY", "META_API_KEY", "EXA_API_KEY")
 
 
 def scrub(msg: object) -> str:
@@ -40,7 +40,7 @@ async def _run() -> int:
 
     s = get_settings()
     keys = {"COMPOSIO_API_KEY": s.composio_api_key, "OPENAI_API_KEY": s.openai_api_key,
-            "GEMINI_API_KEY": s.gemini_api_key, "EXA_API_KEY": s.exa_api_key}
+            "META_API_KEY": s.meta_api_key, "EXA_API_KEY": s.exa_api_key}
     print("Keys:", ", ".join(f"{k}={'present' if v else 'missing'}" for k, v in keys.items()))
     print(f"Backend: {s.tool_backend} | slugs: {COMPOSIO_TOOL_SLUGS}")
 
@@ -108,16 +108,16 @@ async def _run() -> int:
         except Exception as e:
             print(f"catalog FAILED: {_err(e)}")
 
-    if s.gemini_api_key:
+    if s.meta_api_key:
         try:
             from agent.llm import verify_claim
 
             r, usage = await verify_claim('Reply with JSON {"ok": true}.', _Ping)
-            print(f"gemini[{s.verifier_model}]: ok={r.ok} usage={usage}")
+            print(f"meta[{s.verifier_model}]: ok={r.ok} usage={usage}")
         except Exception as e:
-            print(f"gemini FAILED: {_err(e)}")
+            print(f"meta FAILED: {_err(e)}")
     else:
-        print("SKIPPED: Gemini verifier ping (GEMINI_API_KEY missing)")
+        print("SKIPPED: Meta verifier ping (META_API_KEY missing)")
     if s.openai_api_key:
         try:
             from agent.llm import extract_json

@@ -10,7 +10,7 @@ from agent.tools.direct_tools import html_to_text
 
 
 def _settings(**kw):
-    d = dict(composio_api_key=None, openai_api_key=None, gemini_api_key=None, exa_api_key=None)
+    d = dict(composio_api_key=None, openai_api_key=None, meta_api_key=None, exa_api_key=None)
     d.update(kw)
     return Settings(**d)
 
@@ -73,11 +73,11 @@ def test_get_tools_backend(patch_settings):
 
     patch_settings(tool_backend="direct")
     s, sc, cat = base.get_tools()
-    assert isinstance(s, dt.ExaSearch) and isinstance(sc, dt.HttpxScrape) and isinstance(cat, base.NullCatalog)
+    assert isinstance(s, dt.ExaSearch) and isinstance(sc, dt.HttpxScrape) and isinstance(cat, ct.DocsCatalog)
     s, sc, cat = base.get_tools("composio")
     assert isinstance(s, ct.ComposioSearch)
     patch_settings(composio_api_key="k", tool_backend="direct")
-    assert isinstance(base.get_tools()[2], ct.ComposioCatalog)
+    assert isinstance(base.get_tools()[2], ct.FallbackCatalog)
     assert asyncio.run(base.NullCatalog().has_toolkit("x")) == ("unknown", None)
 
 
@@ -225,10 +225,43 @@ def test_llm_missing_key_fails_fast_without_retry(monkeypatch):
     from agent import llm
 
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.delenv("META_API_KEY", raising=False)
     t0 = time.monotonic()
     with pytest.raises(RuntimeError, match="OPENAI_API_KEY"):
         asyncio.run(llm.extract_json("s", "u", smoke._Ping))
-    with pytest.raises(RuntimeError, match="GEMINI_API_KEY"):
+    with pytest.raises(RuntimeError, match="META_API_KEY"):
         asyncio.run(llm.verify_claim("p", smoke._Ping))
     assert time.monotonic() - t0 < 0.5
+
+
+def test_exa_search_caches_empty_and_caps_inflight(patch_settings, monkeypatch):
+    import threading
+    import time
+    import types
+
+    from agent.tools import direct_tools as dt
+
+    patch_settings()
+    monkeypatch.setenv("EXA_API_KEY", "test-key-not-real")
+    monkeypatch.setattr(dt, "EXA_MAX_INFLIGHT", 2)
+    lock, state = threading.Lock(), {"cur": 0, "max": 0, "calls": 0}
+
+    def fake_sync(self, query, n, include_domains):
+        with lock:
+            state["cur"] += 1
+            state["calls"] += 1
+            state["max"] = max(state["max"], state["cur"])
+        time.sleep(0.02)
+        with lock:
+            state["cur"] -= 1
+        return types.SimpleNamespace(results=[])
+
+    monkeypatch.setattr(dt.ExaSearch, "_search_sync", fake_sync)
+
+    async def go():
+        return await asyncio.gather(*(dt.ExaSearch().search(f"q{i}", n=3) for i in range(6)))
+
+    assert asyncio.run(go()) == [[]] * 6
+    assert state["max"] <= 2 and state["calls"] == 6
+    asyncio.run(go())  # second run: all six answered from cache, even though empty
+    assert state["calls"] == 6

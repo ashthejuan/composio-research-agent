@@ -43,13 +43,13 @@ def require(name: str) -> str:
 class Settings:
     composio_api_key: Optional[str] = field(default=None, repr=False)
     openai_api_key: Optional[str] = field(default=None, repr=False)
-    gemini_api_key: Optional[str] = field(default=None, repr=False)
+    meta_api_key: Optional[str] = field(default=None, repr=False)
     exa_api_key: Optional[str] = field(default=None, repr=False)
     composio_user_id: str = "app-intel-agent"
     composio_account: Optional[str] = "instant_account"
     tool_backend: Literal["composio", "direct"] = "composio"
     extractor_model: str = "gpt-5"
-    verifier_model: str = "gemini-4-neon"
+    verifier_model: str = "muse-spark-1.3-contributor"
     concurrency: int = 8
 
     ROOT: Path = ROOT
@@ -72,12 +72,12 @@ def get_settings() -> Settings:
     return Settings(
         composio_api_key=e("COMPOSIO_API_KEY") or None,
         openai_api_key=e("OPENAI_API_KEY") or None,
-        gemini_api_key=e("GEMINI_API_KEY") or None,
+        meta_api_key=e("META_API_KEY") or None,
         exa_api_key=e("EXA_API_KEY") or None,
         composio_user_id=e("COMPOSIO_USER_ID") or "app-intel-agent",
         composio_account=e("COMPOSIO_ACCOUNT") or None if "COMPOSIO_ACCOUNT" in os.environ else "instant_account",
         tool_backend=e("TOOL_BACKEND") or "composio",  # type: ignore[arg-type]
         extractor_model=e("EXTRACTOR_MODEL") or "gpt-5",
-        verifier_model=e("VERIFIER_MODEL") or "gemini-4-neon",
+        verifier_model=e("VERIFIER_MODEL") or "muse-spark-1.3-contributor",
         concurrency=int(e("CONCURRENCY") or 8),
     )

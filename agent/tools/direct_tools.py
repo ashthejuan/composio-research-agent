@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import asyncio
+import os
+import weakref
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 
@@ -67,28 +69,49 @@ def html_to_text(html: str) -> tuple[str, str]:
     return p.title.strip(), "\n".join(l for l in lines if l)
 
 
+# Process-wide cap on in-flight Exa requests. Per-app search concurrency (4) x app concurrency (8)
+# would otherwise allow 32 simultaneous calls and trip Exa's per-key QPS limit (429s). One semaphore
+# per event loop: asyncio primitives are loop-bound and tests run several loops.
+EXA_MAX_INFLIGHT = int(os.environ.get("EXA_MAX_INFLIGHT", "") or 5)
+EXA_TIMEOUT_S = 60.0
+_exa_sems: "weakref.WeakKeyDictionary[asyncio.AbstractEventLoop, asyncio.Semaphore]" = weakref.WeakKeyDictionary()
+
+
+def _exa_sem() -> asyncio.Semaphore:
+    loop = asyncio.get_running_loop()
+    sem = _exa_sems.get(loop)
+    if sem is None:
+        sem = _exa_sems[loop] = asyncio.Semaphore(EXA_MAX_INFLIGHT)
+    return sem
+
+
 class ExaSearch:
     def _search_sync(self, query: str, n: int, include_domains):
         from exa_py import Exa
 
         # exa-py 2.x: search_and_contents is deprecated; search(contents=...) is the replacement.
-        kw: dict = {"num_results": n, "contents": {"text": {"max_characters": 800}}}
+        kw: dict = {"num_results": n, "contents": {"text": {"max_characters": 8000}}}
         if include_domains:
             kw["include_domains"] = include_domains
-        return Exa(api_key=require("EXA_API_KEY")).search(query, **kw)
+        # exa-py defaults to a 600 s request timeout; with 3 retries one stuck call could pin an
+        # EXA_MAX_INFLIGHT slot for 30 min. Bound it (the cache key does not include the timeout).
+        return Exa(api_key=require("EXA_API_KEY"), timeout=EXA_TIMEOUT_S).search(query, **kw)
 
     async def search(self, query: str, n: int = 8, include_domains: list[str] | None = None) -> list[SearchResult]:
         args = {"query": query, "n": n, "domains": sorted(include_domains or [])}
         cache = get_cache()
-        hit = cache.get("exa.search", args)
+        hit = cache.get("exa.search.v2", args)
         if hit is not None:
             return [SearchResult(**r) for r in hit]
         require("EXA_API_KEY")  # fail fast: a missing key is not worth three backoff retries
-        resp = await _retry(asyncio.to_thread)(self._search_sync, query, n, include_domains)
-        out = [SearchResult(url=r.url, title=r.title or "", snippet=(getattr(r, "text", None) or "")[:500],
+        async with _exa_sem():
+            resp = await _retry(asyncio.to_thread)(self._search_sync, query, n, include_domains)
+        out = [SearchResult(url=r.url, title=r.title or "", snippet=(getattr(r, "text", None) or "")[:8000],
                             published=getattr(r, "published_date", None)) for r in resp.results]
-        if out:
-            cache.set("exa.search", args, [r.to_dict() for r in out])
+        # A successful empty answer is cached too: otherwise every re-run repeats the call (and its
+        # widened fallback), breaking "re-running a single app makes no new search calls". Errors raise
+        # above and are never cached.
+        cache.set("exa.search.v2", args, [r.to_dict() for r in out])
         return out
 
 

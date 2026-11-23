@@ -1,0 +1,52 @@
+{
+  "pass": "dryrun",
+  "record_pass": "pass1",
+  "started_at": "2026-11-23T12:31:53.174077Z",
+  "finished_at": "2026-11-23T12:32:35.292858Z",
+  "duration_s": 42.119,
+  "backend": "direct",
+  "extractor_model": "gpt-6-luna",
+  "concurrency": 8,
+  "git_commit": "c1d9411b60644f3e165e4d7c2f374fd42043b11a",
+  "apps_total": 3,
+  "ok": 3,
+  "failed": [],
+  "skipped": 0,
+  "totals": {
+    "tool_calls": 51,
+    "tokens_in": 29880,
+    "tokens_out": 8889,
+    "cost_usd": 0.0,
+    "cost_priced": false,
+    "cache": {
+      "hits": 7,
+      "misses": 43
+    }
+  },
+  "apps": [
+    {
+      "id": 56,
+      "name": "Firecrawl",
+      "unknown_fields_count": 4,
+      "errors_count": 0,
+      "record_confidence": "medium",
+      "composio_toolkit": "available"
+    },
+    {
+      "id": 73,
+      "name": "Linear",
+      "unknown_fields_count": 4,
+      "errors_count": 0,
+      "record_confidence": "medium",
+      "composio_toolkit": "available"
+    },
+    {
+      "id": 76,
+      "name": "Monday.com",
+      "unknown_fields_count": 5,
+      "errors_count": 0,
+      "record_confidence": "medium",
+      "composio_toolkit": "available"
+    }
+  ]
+}

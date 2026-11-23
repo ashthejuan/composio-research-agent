@@ -6,7 +6,9 @@
     "website": "https://salesforce.com",
     "hint": "salesforce.com",
     "official_domains": [
-      "salesforce.com"
+      "salesforce.com",
+      "github.com/forcedotcom",
+      "github.com/salesforce"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -19,7 +21,8 @@
     "hint": "hubspot.com",
     "official_domains": [
       "hubspot.com",
-      "developers.hubspot.com"
+      "developers.hubspot.com",
+      "github.com/HubSpot"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -31,7 +34,8 @@
     "website": "https://pipedrive.com",
     "hint": "pipedrive.com",
     "official_domains": [
-      "pipedrive.com"
+      "pipedrive.com",
+      "github.com/pipedrive"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -43,7 +47,8 @@
     "website": "https://attio.com",
     "hint": "attio.com",
     "official_domains": [
-      "attio.com"
+      "attio.com",
+      "github.com/attio"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -69,7 +74,8 @@
     "hint": "podio.com",
     "official_domains": [
       "podio.com",
-      "developers.podio.com"
+      "developers.podio.com",
+      "github.com/podio"
     ],
     "kind": "saas_api",
     "notes": "Owned by Citrix/Cloud Software Group; developer docs on developers.podio.com."
@@ -81,7 +87,8 @@
     "website": "https://zoho.com/crm",
     "hint": "zoho.com/crm",
     "official_domains": [
-      "zoho.com"
+      "zoho.com",
+      "github.com/zoho"
     ],
     "kind": "saas_api",
     "notes": "Multiple data-center domains (zoho.eu, zoho.in) may host regional docs."
@@ -94,7 +101,8 @@
     "hint": "close.com",
     "official_domains": [
       "close.com",
-      "developer.close.com"
+      "developer.close.com",
+      "github.com/closeio"
     ],
     "kind": "saas_api",
     "notes": "Name is generic; ensure results are for Close CRM."
@@ -132,7 +140,8 @@
     "website": "https://zendesk.com",
     "hint": "zendesk.com",
     "official_domains": [
-      "zendesk.com"
+      "zendesk.com",
+      "github.com/zendesk"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -145,7 +154,8 @@
     "hint": "intercom.com",
     "official_domains": [
       "intercom.com",
-      "intercom.io"
+      "intercom.io",
+      "github.com/intercom"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -171,7 +181,8 @@
     "hint": "front.com",
     "official_domains": [
       "front.com",
-      "frontapp.com"
+      "frontapp.com",
+      "github.com/frontapp"
     ],
     "kind": "saas_api",
     "notes": "Name is generic; ensure results are for Front (frontapp)."
@@ -208,7 +219,8 @@
     "website": "https://plain.com",
     "hint": "plain.com",
     "official_domains": [
-      "plain.com"
+      "plain.com",
+      "github.com/team-plain"
     ],
     "kind": "saas_api",
     "notes": "Name is generic; ensure results are for Plain support platform."
@@ -221,7 +233,8 @@
     "hint": "helpscout.com",
     "official_domains": [
       "helpscout.com",
-      "helpscout.net"
+      "helpscout.net",
+      "github.com/helpscout"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -233,7 +246,8 @@
     "website": "https://gorgias.com",
     "hint": "gorgias.com",
     "official_domains": [
-      "gorgias.com"
+      "gorgias.com",
+      "github.com/gorgias"
     ],
     "kind": "saas_api",
     "notes": "Developer docs at developers.gorgias.com."
@@ -259,7 +273,9 @@
     "hint": "slack.com",
     "official_domains": [
       "slack.com",
-      "slack.dev"
+      "slack.dev",
+      "github.com/slackapi",
+      "github.com/slackhq"
     ],
     "kind": "saas_api",
     "notes": "Docs at api.slack.com / docs.slack.dev."
@@ -271,7 +287,9 @@
     "website": "https://twilio.com",
     "hint": "twilio.com",
     "official_domains": [
-      "twilio.com"
+      "twilio.com",
+      "github.com/twilio",
+      "github.com/twilio-labs"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -283,7 +301,8 @@
     "website": "https://zoho.com/cliq",
     "hint": "zoho.com/cliq",
     "official_domains": [
-      "zoho.com"
+      "zoho.com",
+      "github.com/zoho"
     ],
     "kind": "saas_api",
     "notes": "Multiple data-center domains may host regional docs."
@@ -298,7 +317,8 @@
       "larksuite.com",
       "larksuite.cn",
       "feishu.cn",
-      "larksuite.net"
+      "larksuite.net",
+      "github.com/larksuite"
     ],
     "kind": "saas_api",
     "notes": "Lark international vs Feishu (China) are separate platforms; prefer open.larksuite.com."
@@ -325,7 +345,8 @@
     "official_domains": [
       "discord.com",
       "discord.dev",
-      "discordapp.com"
+      "discordapp.com",
+      "github.com/discord"
     ],
     "kind": "saas_api",
     "notes": "Developer docs at discord.com/developers."
@@ -338,7 +359,8 @@
     "hint": "core.telegram.org",
     "official_domains": [
       "telegram.org",
-      "t.me"
+      "t.me",
+      "github.com/TelegramMessenger"
     ],
     "kind": "saas_api",
     "notes": "Two APIs: Bot API and TDLib/MTProto user API; specify which was researched."
@@ -353,7 +375,9 @@
       "facebook.com",
       "meta.com",
       "whatsapp.com",
-      "fb.com"
+      "fb.com",
+      "github.com/WhatsApp",
+      "github.com/facebook"
     ],
     "kind": "saas_api",
     "notes": "Meta-hosted Cloud API; Business Platform requires Meta business verification for production."
@@ -365,7 +389,8 @@
     "website": "https://aircall.io",
     "hint": "aircall.io",
     "official_domains": [
-      "aircall.io"
+      "aircall.io",
+      "github.com/aircall"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -378,7 +403,8 @@
     "hint": "developer.vonage.com",
     "official_domains": [
       "vonage.com",
-      "nexmo.com"
+      "nexmo.com",
+      "github.com/Vonage"
     ],
     "kind": "saas_api",
     "notes": "Formerly Nexmo; Ericsson-owned."
@@ -391,7 +417,8 @@
     "hint": "developers.google.com/google-ads",
     "official_domains": [
       "google.com",
-      "googleapis.com"
+      "googleapis.com",
+      "github.com/googleads"
     ],
     "kind": "saas_api",
     "notes": "Requires developer token approval; docs on developers.google.com."
@@ -405,7 +432,8 @@
     "official_domains": [
       "facebook.com",
       "meta.com",
-      "fb.com"
+      "fb.com",
+      "github.com/facebook"
     ],
     "kind": "saas_api",
     "notes": "Marketing API; app review and business verification gates likely."
@@ -418,7 +446,8 @@
     "hint": "learn.microsoft.com/linkedin/marketing",
     "official_domains": [
       "linkedin.com",
-      "learn.microsoft.com"
+      "learn.microsoft.com",
+      "github.com/linkedin"
     ],
     "kind": "saas_api",
     "notes": "Docs hosted on learn.microsoft.com; Marketing Developer Platform access is partner-gated."
@@ -432,7 +461,8 @@
     "official_domains": [
       "gohighlevel.com",
       "highlevel.stoplight.io",
-      "leadconnectorhq.com"
+      "leadconnectorhq.com",
+      "github.com/GoHighLevel"
     ],
     "kind": "saas_api",
     "notes": "Now branded HighLevel; docs on stoplight and marketplace.gohighlevel.com."
@@ -445,7 +475,8 @@
     "hint": "mailchimp.com/developer",
     "official_domains": [
       "mailchimp.com",
-      "intuit.com"
+      "intuit.com",
+      "github.com/mailchimp"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -457,7 +488,8 @@
     "website": "https://klaviyo.com",
     "hint": "developers.klaviyo.com",
     "official_domains": [
-      "klaviyo.com"
+      "klaviyo.com",
+      "github.com/klaviyo"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -469,7 +501,8 @@
     "website": "https://systeme.io",
     "hint": "systeme.io (funnel builder)",
     "official_domains": [
-      "systeme.io"
+      "systeme.io",
+      "github.com/systemeio"
     ],
     "kind": "saas_api",
     "notes": "API documentation may be limited."
@@ -481,7 +514,8 @@
     "website": "https://pinterest.com",
     "hint": "developers.pinterest.com",
     "official_domains": [
-      "pinterest.com"
+      "pinterest.com",
+      "github.com/pinterest"
     ],
     "kind": "saas_api",
     "notes": "Trial access then standard access requires app review."
@@ -509,7 +543,9 @@
     "hint": "sendgrid.com",
     "official_domains": [
       "sendgrid.com",
-      "twilio.com"
+      "twilio.com",
+      "github.com/sendgrid",
+      "github.com/twilio"
     ],
     "kind": "saas_api",
     "notes": "Owned by Twilio; docs on twilio.com/docs/sendgrid."
@@ -522,7 +558,8 @@
     "hint": "shopify.dev",
     "official_domains": [
       "shopify.dev",
-      "shopify.com"
+      "shopify.com",
+      "github.com/Shopify"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -548,7 +585,8 @@
     "website": "https://bigcommerce.com",
     "hint": "developer.bigcommerce.com",
     "official_domains": [
-      "bigcommerce.com"
+      "bigcommerce.com",
+      "github.com/bigcommerce"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -561,7 +599,9 @@
     "hint": "developer.salesforce.com/docs/commerce",
     "official_domains": [
       "salesforce.com",
-      "demandware.net"
+      "demandware.net",
+      "github.com/SalesforceCommerceCloud",
+      "github.com/salesforce"
     ],
     "kind": "enterprise_platform",
     "notes": "Distinguish sandbox/dev access from licensed production access."
@@ -574,7 +614,9 @@
     "hint": "developer.adobe.com/commerce",
     "official_domains": [
       "adobe.com",
-      "magento.com"
+      "magento.com",
+      "github.com/magento",
+      "github.com/adobe-commerce"
     ],
     "kind": "enterprise_platform",
     "notes": "Distinguish sandbox/dev access from licensed production access; Open Source edition is self-hosted."
@@ -586,7 +628,8 @@
     "website": "https://squarespace.com",
     "hint": "developers.squarespace.com",
     "official_domains": [
-      "squarespace.com"
+      "squarespace.com",
+      "github.com/Squarespace"
     ],
     "kind": "saas_api",
     "notes": "Commerce APIs require Commerce plan; OAuth requires approval."
@@ -599,7 +642,8 @@
     "hint": "api-docs.ecwid.com",
     "official_domains": [
       "ecwid.com",
-      "lightspeedhq.com"
+      "lightspeedhq.com",
+      "github.com/Ecwid"
     ],
     "kind": "saas_api",
     "notes": "Owned by Lightspeed."
@@ -611,7 +655,8 @@
     "website": "https://gumroad.com",
     "hint": "gumroad.com/api",
     "official_domains": [
-      "gumroad.com"
+      "gumroad.com",
+      "github.com/gumroad"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -624,7 +669,8 @@
     "hint": "developer-docs.amazon.com/sp-api",
     "official_domains": [
       "amazon.com",
-      "developer-docs.amazon.com"
+      "developer-docs.amazon.com",
+      "github.com/amzn"
     ],
     "kind": "saas_api",
     "notes": "SP-API registration requires seller account and developer approval."
@@ -648,7 +694,8 @@
     "website": "https://dataforseo.com",
     "hint": "docs.dataforseo.com",
     "official_domains": [
-      "dataforseo.com"
+      "dataforseo.com",
+      "github.com/dataforseo"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -660,7 +707,8 @@
     "website": "https://seranking.com",
     "hint": "seranking.com/api",
     "official_domains": [
-      "seranking.com"
+      "seranking.com",
+      "github.com/seranking"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -672,7 +720,8 @@
     "website": "https://ahrefs.com",
     "hint": "ahrefs.com/api",
     "official_domains": [
-      "ahrefs.com"
+      "ahrefs.com",
+      "github.com/ahrefs"
     ],
     "kind": "saas_api",
     "notes": "API access tied to paid plans."
@@ -684,7 +733,8 @@
     "website": "https://mrscraper.com",
     "hint": "docs.mrscraper.com",
     "official_domains": [
-      "mrscraper.com"
+      "mrscraper.com",
+      "github.com/mrscraper"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -696,7 +746,8 @@
     "website": "https://apify.com",
     "hint": "docs.apify.com",
     "official_domains": [
-      "apify.com"
+      "apify.com",
+      "github.com/apify"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -722,7 +773,8 @@
     "website": "https://brightdata.com",
     "hint": "brightdata.com",
     "official_domains": [
-      "brightdata.com"
+      "brightdata.com",
+      "github.com/brightdata"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -773,7 +825,8 @@
     "official_domains": [
       "github.com",
       "githubusercontent.com",
-      "github.blog"
+      "github.blog",
+      "github.com/github"
     ],
     "kind": "saas_api",
     "notes": "Docs on docs.github.com (subdomain of github.com)."
@@ -785,7 +838,8 @@
     "website": "https://vercel.com",
     "hint": "vercel.com/docs/rest-api",
     "official_domains": [
-      "vercel.com"
+      "vercel.com",
+      "github.com/vercel"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -797,7 +851,8 @@
     "website": "https://netlify.com",
     "hint": "docs.netlify.com/api",
     "official_domains": [
-      "netlify.com"
+      "netlify.com",
+      "github.com/netlify"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -809,7 +864,8 @@
     "website": "https://cloudflare.com",
     "hint": "developers.cloudflare.com/api",
     "official_domains": [
-      "cloudflare.com"
+      "cloudflare.com",
+      "github.com/cloudflare"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -848,7 +904,9 @@
     "website": "https://snowflake.com",
     "hint": "docs.snowflake.com",
     "official_domains": [
-      "snowflake.com"
+      "snowflake.com",
+      "github.com/snowflakedb",
+      "github.com/Snowflake-Labs"
     ],
     "kind": "enterprise_platform",
     "notes": "Account-based platform; no free public API without an account/trial."
@@ -860,7 +918,9 @@
     "website": "https://mongodb.com",
     "hint": "mongodb.com/docs/atlas/api",
     "official_domains": [
-      "mongodb.com"
+      "mongodb.com",
+      "github.com/mongodb",
+      "github.com/mongodb-js"
     ],
     "kind": "saas_api",
     "notes": "Atlas Administration API vs Data API; specify which."
@@ -873,7 +933,8 @@
     "hint": "docs.datadoghq.com/api",
     "official_domains": [
       "datadoghq.com",
-      "datadoghq.eu"
+      "datadoghq.eu",
+      "github.com/DataDog"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -899,7 +960,8 @@
     "hint": "developers.notion.com",
     "official_domains": [
       "notion.so",
-      "notion.com"
+      "notion.com",
+      "github.com/makenotion"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -911,7 +973,8 @@
     "website": "https://airtable.com",
     "hint": "airtable.com/developers",
     "official_domains": [
-      "airtable.com"
+      "airtable.com",
+      "github.com/Airtable"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -923,7 +986,8 @@
     "website": "https://linear.app",
     "hint": "developers.linear.app",
     "official_domains": [
-      "linear.app"
+      "linear.app",
+      "github.com/linear"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -936,7 +1000,9 @@
     "hint": "developer.atlassian.com",
     "official_domains": [
       "atlassian.com",
-      "atlassian.net"
+      "atlassian.net",
+      "github.com/atlassian",
+      "github.com/atlassian-labs"
     ],
     "kind": "saas_api",
     "notes": "Jira Cloud vs Data Center/Server REST APIs differ."
@@ -948,7 +1014,8 @@
     "website": "https://asana.com",
     "hint": "developers.asana.com",
     "official_domains": [
-      "asana.com"
+      "asana.com",
+      "github.com/Asana"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -960,7 +1027,8 @@
     "website": "https://monday.com",
     "hint": "developer.monday.com",
     "official_domains": [
-      "monday.com"
+      "monday.com",
+      "github.com/mondaycom"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -972,7 +1040,8 @@
     "website": "https://clickup.com",
     "hint": "clickup.com/api",
     "official_domains": [
-      "clickup.com"
+      "clickup.com",
+      "github.com/clickup"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -984,7 +1053,8 @@
     "website": "https://coda.io",
     "hint": "coda.io/developers",
     "official_domains": [
-      "coda.io"
+      "coda.io",
+      "github.com/codahq"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -996,7 +1066,9 @@
     "website": "https://smartsheet.com",
     "hint": "smartsheet.com/developers",
     "official_domains": [
-      "smartsheet.com"
+      "smartsheet.com",
+      "github.com/smartsheet",
+      "github.com/smartsheet-platform"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -1009,7 +1081,8 @@
     "hint": "harvestapp.com (help.getharvest.com/api-v2)",
     "official_domains": [
       "getharvest.com",
-      "harvestapp.com"
+      "harvestapp.com",
+      "github.com/harvesthq"
     ],
     "kind": "saas_api",
     "notes": "Docs at help.getharvest.com/api-v2; OAuth on id.getharvest.com."
@@ -1021,7 +1094,8 @@
     "website": "https://stripe.com",
     "hint": "stripe.com/docs/api",
     "official_domains": [
-      "stripe.com"
+      "stripe.com",
+      "github.com/stripe"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -1033,7 +1107,8 @@
     "website": "https://plaid.com",
     "hint": "plaid.com/docs",
     "official_domains": [
-      "plaid.com"
+      "plaid.com",
+      "github.com/plaid"
     ],
     "kind": "saas_api",
     "notes": "Production access requires application approval."
@@ -1087,7 +1162,8 @@
     "hint": "developer.intuit.com",
     "official_domains": [
       "intuit.com",
-      "quickbooks.com"
+      "quickbooks.com",
+      "github.com/intuit"
     ],
     "kind": "saas_api",
     "notes": "QuickBooks Online API via Intuit Developer."
@@ -1099,7 +1175,8 @@
     "website": "https://xero.com",
     "hint": "developer.xero.com",
     "official_domains": [
-      "xero.com"
+      "xero.com",
+      "github.com/XeroAPI"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -1111,7 +1188,8 @@
     "website": "https://brex.com",
     "hint": "developer.brex.com",
     "official_domains": [
-      "brex.com"
+      "brex.com",
+      "github.com/brexhq"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -1136,7 +1214,8 @@
     "hint": "pitchbook.com (research API)",
     "official_domains": [
       "pitchbook.com",
-      "morningstar.com"
+      "morningstar.com",
+      "github.com/PitchBook"
     ],
     "kind": "enterprise_platform",
     "notes": "Enterprise subscription data provider; API access sales-gated."
@@ -1162,7 +1241,8 @@
     "website": "https://otter.ai",
     "hint": "help.otter.ai (MCP server)",
     "official_domains": [
-      "otter.ai"
+      "otter.ai",
+      "github.com/Otter-AI"
     ],
     "kind": "saas_api",
     "notes": "Hint points to an MCP server; verify whether a public REST API exists."
@@ -1199,7 +1279,8 @@
     "website": "https://reducto.ai",
     "hint": "reducto.ai (document parsing)",
     "official_domains": [
-      "reducto.ai"
+      "reducto.ai",
+      "github.com/reductoai"
     ],
     "kind": "saas_api",
     "notes": ""
@@ -1212,7 +1293,8 @@
     "hint": "docs.devin.ai (MCP)",
     "official_domains": [
       "devin.ai",
-      "cognition.ai"
+      "cognition.ai",
+      "github.com/CognitionAI"
     ],
     "kind": "saas_api",
     "notes": "Cognition product; hint points to MCP."
@@ -1224,7 +1306,8 @@
     "website": "https://higgsfield.ai",
     "hint": "higgsfield.ai/cli (content suite)",
     "official_domains": [
-      "higgsfield.ai"
+      "higgsfield.ai",
+      "github.com/higgsfield-ai"
     ],
     "kind": "saas_api",
     "notes": "Low documentation expected; prefer unknown over inference."

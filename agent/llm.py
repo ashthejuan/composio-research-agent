@@ -1,7 +1,7 @@
-"""LLM clients: OpenAI extractor (structured outputs) and Gemini verifier. No import-time calls."""
+"""LLM clients: OpenAI extractor and Meta Model API verifier. No import-time calls."""
 from __future__ import annotations
 
-from typing import Any, TypeVar
+from typing import TypeVar
 
 from pydantic import BaseModel
 from tenacity import retry, stop_after_attempt, wait_exponential
@@ -10,6 +10,8 @@ from agent.config import get_settings, require
 
 T = TypeVar("T", bound=BaseModel)
 _retry = retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=1, max=8), reraise=True)
+
+_META_BASE_URL = "https://api.meta.ai/v1"
 
 
 async def extract_json(system: str, user: str, schema: type[T]) -> tuple[T, dict[str, int]]:
@@ -37,32 +39,29 @@ async def _extract(key: str, system: str, user: str, schema: type[T]) -> tuple[T
 
 
 async def verify_claim(prompt: str, schema: type[T]) -> tuple[T, dict[str, int]]:
-    """Gemini structured JSON output. Returns (parsed model, usage tokens)."""
-    key = require("GEMINI_API_KEY")
+    """Meta Model API structured JSON (OpenAI-compatible). Returns (parsed model, usage tokens)."""
+    key = require("META_API_KEY")
     return await _verify(key, prompt, schema)
 
 
 @_retry
 async def _verify(key: str, prompt: str, schema: type[T]) -> tuple[T, dict[str, int]]:
-    from google import genai
+    from openai import AsyncOpenAI
 
     s = get_settings()
-    client = genai.Client(api_key=key)
-    try:
-        async with client.aio as aclient:
-            resp = await aclient.models.generate_content(
-                model=s.verifier_model,
-                contents=prompt,
-                config={"response_mime_type": "application/json", "response_schema": schema},
-            )
-    finally:
-        client.close()
-    parsed: Any = resp.parsed
-    if not isinstance(parsed, schema):
-        parsed = schema.model_validate_json(resp.text or "")
-    um = resp.usage_metadata
-    # Thinking tokens are billed as output on Gemini; count them so cost totals are honest.
-    usage = {"input_tokens": getattr(um, "prompt_token_count", 0) or 0,
-             "output_tokens": (getattr(um, "candidates_token_count", 0) or 0)
-             + (getattr(um, "thoughts_token_count", 0) or 0)}
-    return parsed, usage
+    async with AsyncOpenAI(api_key=key, base_url=_META_BASE_URL) as client:
+        resp = await client.chat.completions.parse(
+            model=s.verifier_model,
+            messages=[{"role": "user", "content": prompt}],
+            response_format=schema,
+        )
+    msg = resp.choices[0].message
+    if msg.parsed is None:
+        raise RuntimeError("verifier returned no parsed output (refusal or truncation)")
+    u = resp.usage
+    # Reasoning tokens are billed as completion/output on Muse Spark.
+    usage = {
+        "input_tokens": getattr(u, "prompt_tokens", 0) or 0,
+        "output_tokens": getattr(u, "completion_tokens", 0) or 0,
+    }
+    return msg.parsed, usage

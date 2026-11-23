@@ -1,0 +1,4 @@
+[2026-11-23 18:06:46,368][WARNING] composio catalog unavailable (AuthenticationError); coverage will be 'unknown'
+YouTube Transcript             ━━━━━━━━━━━━━━━━━ 100/100 ok=100 failed=0 0:07:33
+ok=100 failed=0 skipped=0 cost=$0.0000 duration=453.7s
+exit=0

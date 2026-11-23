@@ -65,7 +65,9 @@ def get_tools(backend: Optional[str] = None) -> tuple[SearchTool, ScrapeTool, Ca
         raise ValueError(f"unknown tool backend {backend!r}")
     from agent.tools import composio_tools as ct
 
-    catalog: CatalogTool = ct.ComposioCatalog() if s.composio_api_key else NullCatalog()
+    catalog: CatalogTool = (
+        ct.FallbackCatalog(ct.ComposioCatalog(), ct.DocsCatalog()) if s.composio_api_key else ct.DocsCatalog()
+    )
     if backend == "composio":
         return ct.ComposioSearch(), ct.ComposioScrape(), catalog
     from agent.tools import direct_tools as dt

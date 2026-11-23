@@ -28,6 +28,23 @@ def test_path_prefix_domain():
     assert not is_official_url(app, "https://github.com/other/repo")
 
 
+def test_github_org_match_is_case_insensitive():
+    app = get_app("HubSpot")  # registry entry "github.com/HubSpot"
+    assert is_official_url(app, "https://github.com/hubspot/hubspot-api-python")
+    assert is_official_url(app, "https://github.com/HubSpot/hubspot-api-python")
+
+
+def test_bare_code_host_does_not_make_every_repo_official():
+    from agent.research import source_tier
+
+    app = get_app("GitHub")  # official_domains include bare "github.com" and "github.com/github"
+    assert not is_official_url(app, "https://github.com/randomuser/github-mcp")
+    assert source_tier(app, "https://github.com/randomuser/github-mcp") == "community"
+    assert source_tier(app, "https://github.com/github/github-mcp-server") == "official_github"
+    assert is_official_url(app, "https://github.com/pricing")  # the site's own pages stay official
+    assert is_official_url(app, "https://docs.github.com/en/rest")
+
+
 def test_official_domains_not_too_broad():
     from agent.registry import load_apps
 

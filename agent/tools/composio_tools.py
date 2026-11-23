@@ -22,17 +22,27 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 
 from agent.cache import get_cache
 from agent.config import COMPOSIO_TOOL_SLUGS, get_settings, require
-from agent.tools.base import CatalogStatus, PageContent, SearchResult
+from agent.tools.base import CatalogStatus, CatalogTool, PageContent, SearchResult
 
 # Manual app-name -> toolkit slug aliases (checked first).
 ALIASES: dict[str, list[str]] = {
     "zoho crm": ["zoho"],
     "google ads": ["googleads"],
     "meta ads": ["metaads", "facebook"],
-    "amazon selling partner": ["amazon"],
     "mongodb atlas": ["mongodb"],
     "monday.com": ["monday"],
+    # Docs list three highlevel_* toolkits (no bare "highlevel"; its page is legacy/deprecated tools).
+    # highlevel_location is the general CRM/marketing/conversations/calendar API; agency is admin-only.
+    "gohighlevel": ["highlevel_location", "highlevel_agency", "highlevel_mcp"],
+    "netlify": ["netlify_mcp"],
+    "pylon": ["pylon_mcp"],
+    "otter ai": ["otter_ai_mcp"],
+    "devin": ["devin_mcp"],
 }
+
+# Apps whose first-word fallback would hit a different product's toolkit (false positive).
+# "amazon" is a generic Amazon OAuth toolkit (no Selling Partner API tools), so SP-API is unavailable.
+NO_FIRST_WORD: set[str] = {"salesforce commerce cloud", "amazon selling partner"}
 
 log = logging.getLogger(__name__)
 
@@ -46,7 +56,7 @@ def slug_candidates(app_name: str) -> list[str]:
     words = re.findall(r"[a-z0-9]+", name)
     if words:
         out += ["".join(words), "_".join(words)]
-        if len(words) > 1:
+        if len(words) > 1 and name not in NO_FIRST_WORD:
             out.append(words[0])
     seen: set[str] = set()
     return [c for c in out if not (c in seen or seen.add(c))]
@@ -186,6 +196,8 @@ class ComposioScrape:
 class ComposioCatalog:
     """Toolkit coverage from the Composio catalog (AC-6). Fetches the full list once and caches it."""
 
+    source = "composio_catalog"
+
     def __init__(self) -> None:
         self._slugs: Optional[set[str]] = None
         self._lock = asyncio.Lock()
@@ -242,3 +254,97 @@ class ComposioCatalog:
             if c in slugs:
                 return "available", c
         return "unavailable", None
+
+
+_DOCS_URL = "https://docs.composio.dev/toolkits"
+# Slug must end at a delimiter (optionally after one "/"), so /toolkits/x/tools/..., /toolkits/x.png
+# and the bare /toolkits index never match.
+_SLUG_RE = re.compile(r"/toolkits/([a-z0-9_\-]+)(?=/?(?:[?#\"'\s<>)\\]|$))", re.I)
+
+
+def parse_docs_slugs(html: str) -> list[str]:
+    """Unique lowercase toolkit slugs found in the docs catalog page, in first-seen order."""
+    return list(dict.fromkeys(m.lower() for m in _SLUG_RE.findall(html)))
+
+
+def _norm(slug: str) -> str:
+    return re.sub(r"[_\-]", "", slug.lstrip("_").lower())
+
+
+class DocsCatalog:
+    """Toolkit coverage scraped from Composio's public docs catalog (no API key needed)."""
+
+    source = "composio_docs_catalog"  # read by research.catalog_lookup so the record is labelled right
+
+    def __init__(self, url: str = _DOCS_URL) -> None:
+        self._url = url
+        self._index: Optional[dict[str, str]] = None  # exact slug and normalised variant -> real slug
+        self._lock = asyncio.Lock()
+        self.last_error: Optional[BaseException] = None
+
+    @_retry
+    async def _fetch(self) -> list[str]:
+        import httpx
+
+        async with httpx.AsyncClient(timeout=30, follow_redirects=True) as c:
+            r = await c.get(self._url)
+            r.raise_for_status()
+        return parse_docs_slugs(r.text)
+
+    async def _load(self) -> dict[str, str]:
+        async with self._lock:
+            if self.last_error is not None:
+                raise self.last_error
+            if self._index is None:
+                cache = get_cache()
+                slugs = cache.get("composio.docs.toolkits", {})
+                if not slugs:
+                    try:
+                        slugs = await self._fetch()
+                    except Exception as e:
+                        self.last_error = e
+                        log.warning("composio docs catalog unavailable (%s)", type(e).__name__)
+                        raise
+                    if not slugs:
+                        self.last_error = RuntimeError("docs catalog parsed empty")
+                        raise self.last_error
+                    cache.set("composio.docs.toolkits", {}, slugs)
+                index: dict[str, str] = {}
+                for s in slugs:  # variants first so exact slugs always win
+                    index.setdefault(_norm(s), s)
+                for s in slugs:
+                    index[s] = s
+                self._index = index
+            return self._index
+
+    async def has_toolkit(self, app_name: str) -> tuple[CatalogStatus, Optional[str]]:
+        try:
+            index = await self._load()
+        except Exception:
+            return "unknown", None
+        for c in slug_candidates(app_name):
+            hit = index.get(c) or index.get(_norm(c))
+            if hit:
+                return "available", hit
+        return "unavailable", None
+
+
+class FallbackCatalog:
+    """Tries the primary catalog; if it cannot load ("unknown"), uses the secondary."""
+
+    def __init__(self, primary: CatalogTool, secondary: CatalogTool,
+                 primary_source: str = "composio_catalog",
+                 secondary_source: str = "composio_docs_catalog") -> None:
+        self._primary, self._secondary = primary, secondary
+        self._sources = (primary_source, secondary_source)
+
+    async def lookup(self, app_name: str) -> tuple[CatalogStatus, Optional[str], str]:
+        status, slug = await self._primary.has_toolkit(app_name)
+        if status != "unknown":
+            return status, slug, self._sources[0]
+        status, slug = await self._secondary.has_toolkit(app_name)
+        return status, slug, self._sources[1]
+
+    async def has_toolkit(self, app_name: str) -> tuple[CatalogStatus, Optional[str]]:
+        status, slug, _ = await self.lookup(app_name)
+        return status, slug

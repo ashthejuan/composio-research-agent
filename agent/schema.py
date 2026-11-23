@@ -198,7 +198,7 @@ class Claims(BaseModel):
 class ComposioToolkit(BaseModel):
     value: Literal["available", "unavailable", "unknown"] = "unknown"
     slug: Optional[str] = None
-    source: Literal["composio_catalog"] = "composio_catalog"
+    source: Literal["composio_catalog", "composio_docs_catalog"] = "composio_catalog"
 
 
 class DimensionScore(BaseModel):

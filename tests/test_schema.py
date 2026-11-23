@@ -123,5 +123,5 @@ def test_settings_repr_hides_keys():
     from agent.config import Settings
 
     s = Settings(composio_api_key="sekret1", openai_api_key="sekret2",
-                 gemini_api_key="sekret3", exa_api_key="sekret4")
+                 meta_api_key="sekret3", exa_api_key="sekret4")
     assert "sekret" not in repr(s)

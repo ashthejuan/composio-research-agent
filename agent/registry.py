@@ -96,17 +96,27 @@ def select(ids: str | None = None, category: str | None = None) -> list[App]:
     return apps
 
 
+_CODE_HOSTS = frozenset({"github.com", "gitlab.com"})
+
+
 def is_official_url(app: App, url: str) -> bool:
     """True if url's host is (a subdomain of) an official domain.
 
-    Entries containing "/" (e.g. "github.com/sherlock-project") match host + path prefix.
+    Entries containing "/" (e.g. "github.com/sherlock-project") match host + path prefix
+    (case-insensitive: GitHub org names are). A bare code-host entry such as "github.com" (the GitHub
+    app itself) covers the site's own pages (/pricing, /features) but not arbitrary owner/repo paths:
+    otherwise every community repo would count as official for that app.
     """
     parsed = urlparse(url if "//" in url else "//" + url)
     host = (parsed.hostname or "").lower()
     path = parsed.path or "/"
+    segments = [s for s in path.split("/") if s]
     for dom in app.official_domains:
         dom = dom.lower().strip().rstrip("/")
+        if dom in _CODE_HOSTS and host == dom and len(segments) >= 2:
+            continue  # owner/repo on a code host: only an org-path entry can make it official
         if "/" in dom:
+            path = path.lower()
             dhost, dpath = dom.split("/", 1)
             dpath = "/" + dpath
             if (host == dhost or host.endswith("." + dhost)) and (
