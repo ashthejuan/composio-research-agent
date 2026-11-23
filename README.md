@@ -49,7 +49,7 @@ Optional Composio path:
 | `COMPOSIO_API_KEY` | `ck_…` (Connect MCP) or `ak_…` (SDK) |
 | `TOOL_FALLBACK` | Set to `direct` to fall back if Composio auth fails |
 
-Never commit `.env`. Cache lives in `data/cache/` (gitignored).
+Cache lives in `data/cache/` (gitignored).
 
 ---
 
