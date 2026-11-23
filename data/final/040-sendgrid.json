@@ -256,19 +256,13 @@
       "note": ""
     },
     "mcp_official": {
-      "value": "yes",
+      "value": "no_found",
       "evidence": [
         {
           "url": "https://www.twilio.com/docs/ai/mcp",
           "quote": "The server is hosted by Twilio at mcp.twilio.com/docs—point your IDE at the URL.",
           "source_tier": "official_docs",
-          "fetched_at": "2026-11-23T12:38:12.158195Z"
-        },
-        {
-          "url": "https://www.twilio.com/docs/ai/mcp",
-          "quote": "Twilio SendGrid docs and support articles",
-          "source_tier": "official_docs",
-          "fetched_at": "2026-11-23T12:38:12.158195Z"
+          "fetched_at": null
         }
       ],
       "extractor_confidence": "high",
@@ -301,7 +295,7 @@
             "detail": "'server is hosted by Twilio at mcp.twilio.com/docs' and indexes 'Twilio SendGrid docs' shows vendor MCP."
           }
         ],
-        "notes": ""
+        "notes": "15-app MCP audit correction: mcp.twilio.com/docs is a documentation-search MCP only, and github.com/twilio-labs/mcp does not include SendGrid; only third-party/community MCPs exist."
       },
       "note": "Twilio's official MCP server indexes SendGrid documentation; it is read-only and does not execute API calls."
     },
@@ -586,7 +580,7 @@
     "source": "composio_docs_catalog"
   },
   "buildability": {
-    "score": 7,
+    "score": 6,
     "verdict": "moderate",
     "breakdown": {
       "api_availability": {
@@ -606,8 +600,8 @@
         "driver": "api_breadth=unknown, webhooks=yes"
       },
       "tooling_readiness": {
-        "score": 2,
-        "driver": "mcp_official=yes"
+        "score": 1,
+        "driver": "official_sdks=7, mcp_third_party=yes"
       }
     },
     "commercial_gate": false,

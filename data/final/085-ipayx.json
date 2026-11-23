@@ -297,18 +297,11 @@
       "note": "The API reference describes three endpoints."
     },
     "mcp_official": {
-      "value": "yes",
-      "evidence": [
-        {
-          "url": "https://www.ipayx.ai/developers",
-          "quote": "Officially listed on the MCP Registry (v1.4.0)",
-          "source_tier": "official_docs",
-          "fetched_at": "2026-11-23T12:42:50.273333Z"
-        }
-      ],
-      "extractor_confidence": "high",
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
       "verification": {
-        "status": "supported",
+        "status": "insufficient_evidence",
         "loops": [
           {
             "loop": "L1",
@@ -336,7 +329,7 @@
             "detail": "'Officially listed on the MCP Registry' plus vendor URL https://mcp.ipayx.ai/mcp proves official."
           }
         ],
-        "notes": ""
+        "notes": "15-app MCP audit correction: ipayx.ai/developers is an opaque SPA with no independently verifiable public MCP endpoint, auth spec, or vendor-maintained GitHub repository."
       },
       "note": ""
     },
@@ -593,8 +586,8 @@
     "source": "composio_docs_catalog"
   },
   "buildability": {
-    "score": 8,
-    "verdict": "easy",
+    "score": 6,
+    "verdict": "moderate",
     "breakdown": {
       "api_availability": {
         "score": 1,
@@ -613,12 +606,12 @@
         "driver": "api_breadth=narrow, webhooks=yes"
       },
       "tooling_readiness": {
-        "score": 2,
-        "driver": "mcp_official=yes"
+        "score": 0,
+        "driver": "mcp_official!=yes, no official SDK or 3p MCP"
       }
     },
     "commercial_gate": false,
-    "bucket": "easy_win"
+    "bucket": "moderate"
   },
   "record_confidence": "medium",
   "run": {

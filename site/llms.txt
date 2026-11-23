@@ -16,15 +16,15 @@ Each item in apps.json is an AppRecord:
 - buildability: score (0-10), verdict ("easy" | "moderate" | "difficult" | "blocked"), breakdown (5 anchored 0-2 dimensions with driver text), commercial_gate (bool), bucket ("easy_win" | "moderate" | "needs_outreach" | "technically_blocked").
 
 ## Opportunity Buckets (N=100)
-- Easy wins: 66 (9 without a Composio toolkit)
-- Moderate effort: 21
+- Easy wins: 64 (8 without a Composio toolkit)
+- Moderate effort: 23
 - Needs outreach / BD (commercial gate): 12
 - Technically blocked: 1
 
 ## Key Findings
 - 56 of 100 apps let a developer get credentials for free, but 16 of those still need an app review, marketplace listing, or partner program before you can serve many customers.
-- 89 of 100 apps publish an official MCP server. 15 of those are not in the Composio catalog yet — ready coverage opportunities.
-- 66 of 100 apps look ready to integrate today (score 8–10, no partnership gate). 9 of those are still missing from Composio.
+- 86 of 100 apps publish an official MCP server. 14 of those are not in the Composio catalog yet — ready coverage opportunities.
+- 64 of 100 apps look ready to integrate today (score 8–10, no partnership gate). 8 of those are still missing from Composio.
 - 12 of 100 apps require a partnership, sales contact, or partner program before you can build — 5 of those are not in Composio yet. The densest category is Finance and Fintech (4 apps).
 - The most common blocker is getting developer credentials (paid plans, admin approval, or partner signup) (48 of 100 apps, 48%).
 - 91 of 100 apps expose a REST API and 74 support OAuth 2.0 (37 of those still document an extra gate before production). 64 apps offer two or more ways to authenticate.
@@ -32,9 +32,9 @@ Each item in apps.json is an AppRecord:
 ## Accuracy & Verification Methodology
 - Golden set: 20 stratified apps (2 per category, 120 evaluated claims across 6 fields), human-confirmed from primary documentation.
 - Frozen scoring rules SHA-256: 8d32f4df9c1988c6bef1029cd7ca24f4e724d102ac1c59edbf3297cf633ca4d3
-- Pass 1 (raw research agent): 52.5%
-- Pass 2 (automated L1-L6 verification, independent Meta Muse Spark verifier + targeted re-research): 54.17%
-- Final (human-corrected on golden disagreements, reported separately): 100.0%
+- First-pass automated accuracy (Pass 1, raw research agent): 52.5% (63/120 claims)
+- Final automated verification accuracy (Pass 2, L1-L6 checks + independent Meta Muse Spark verifier): 54.17% (65/120 claims, +1.67 percentage points; introduced 3 regressions and filled 6 unknowns incorrectly)
+- Post-review corrected-sample agreement (Final): 100.0% agreement with human labels on that same 120-claim sample after 55 human corrections (quality-control step, NOT independently measured model accuracy; independent post-correction accuracy was not measured)
 - Holdout: skipped_per_prd_cut_line_1 — 5 apps were kept out of the hand-checked sample (Zoho CRM, Vonage, Squarespace, Paygent Connect, Grain). They are still in the full 100-app dataset; only the accuracy score above was measured on the 20 apps I labelled by hand.
 
 ## Repository

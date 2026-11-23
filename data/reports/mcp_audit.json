@@ -1,0 +1,180 @@
+{
+  "generated_at": "2026-11-23T16:35:15.624684+00:00",
+  "scope": "Targeted 15-application audit of apps originally classified as mcp_official=yes across all 10 categories (not a full 100-app re-verification).",
+  "summary": {
+    "audited": 15,
+    "confirmed_official": 12,
+    "vendor_hosted": 8,
+    "vendor_self_hosted": 4,
+    "reclassified_third_party_or_none": 2,
+    "insufficient_evidence": 1,
+    "corrections_made": 3
+  },
+  "items": [
+    {
+      "app_id": 3,
+      "app": "Pipedrive",
+      "category": "CRM and Sales",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://www.pipedrive.com/en/features/mcp-server",
+      "finding": "Confirmed vendor-hosted Pipedrive MCP server with OAuth."
+    },
+    {
+      "app_id": 20,
+      "app": "Gladly",
+      "category": "Support and Helpdesk",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://github.com/gladly/claude-plugin",
+      "finding": "Confirmed official Gladly MCP for Claude documented on gladly.com and maintained in github.com/gladly/claude-plugin (enabled per org)."
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "category": "Communications and Messaging",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://docs.slack.dev/ai/slack-mcp-server/",
+      "finding": "Confirmed official Slack-hosted MCP server."
+    },
+    {
+      "app_id": 22,
+      "app": "Twilio",
+      "category": "Communications and Messaging",
+      "classification": "vendor_self_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://github.com/twilio-labs/mcp",
+      "finding": "Confirmed vendor-maintained self-hosted API MCP (@twilio-alpha/mcp in twilio-labs/mcp); original citation pointed to docs-only mcp.twilio.com/docs."
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "category": "Marketing, Ads, Email and Social",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://mailchimp.com/help/use-mailchimp-connector-claude",
+      "finding": "Confirmed vendor-hosted Mailchimp MCP connector (ai-inc.mailchimp.com/claude/mcp/v2); original citation pointed to docs-site MCP."
+    },
+    {
+      "app_id": 40,
+      "app": "SendGrid",
+      "category": "Marketing, Ads, Email and Social",
+      "classification": "no_verified_official",
+      "original_value": "yes",
+      "audited_value": "no_found",
+      "corrected": true,
+      "url": "https://www.twilio.com/docs/ai/mcp",
+      "finding": "Reclassified to no_found: cited mcp.twilio.com/docs is documentation search only, and twilio-labs/mcp does not cover SendGrid; only third-party/community MCPs exist. Score updated 7 -> 6."
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "category": "Ecommerce",
+      "classification": "vendor_self_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://github.com/amzn/selling-partner-api-samples/blob/main/README.md",
+      "finding": "Confirmed official vendor-maintained local MCP servers in github.com/amzn/selling-partner-api-samples."
+    },
+    {
+      "app_id": 56,
+      "app": "Firecrawl",
+      "category": "Data, SEO and Scraping",
+      "classification": "vendor_self_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+      "finding": "Confirmed official Firecrawl MCP server (open-source repo + hosted option)."
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "category": "Developer, Infra and Data platforms",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://github.com/github/github-mcp-server",
+      "finding": "Confirmed official GitHub-hosted and self-hosted MCP server."
+    },
+    {
+      "app_id": 71,
+      "app": "Notion",
+      "category": "Productivity and Project Management",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://developers.notion.com/guides/mcp/get-started-with-mcp",
+      "finding": "Confirmed official Notion-hosted MCP at https://mcp.notion.com/mcp."
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "category": "Finance and Fintech",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://docs.stripe.com/mcp",
+      "finding": "Confirmed official Stripe-hosted MCP at https://mcp.stripe.com."
+    },
+    {
+      "app_id": 85,
+      "app": "iPayX",
+      "category": "Finance and Fintech",
+      "classification": "insufficient_evidence",
+      "original_value": "yes",
+      "audited_value": "unknown",
+      "corrected": true,
+      "url": "https://www.ipayx.ai/developers",
+      "finding": "Reclassified to unknown: opaque SPA with no independently verifiable public MCP endpoint, auth spec, or vendor GitHub repository. Score updated 8 -> 6 (easy_win -> moderate)."
+    },
+    {
+      "app_id": 86,
+      "app": "QuickBooks",
+      "category": "Finance and Fintech",
+      "classification": "vendor_self_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://github.com/intuit/quickbooks-online-mcp-server",
+      "finding": "Confirmed official Intuit-maintained open-source MCP server for QuickBooks Online."
+    },
+    {
+      "app_id": 94,
+      "app": "Consensus",
+      "category": "AI, Research and Media-native",
+      "classification": "vendor_hosted",
+      "original_value": "yes",
+      "audited_value": "yes",
+      "corrected": false,
+      "url": "https://github.com/Consensus-NLP/consensus-mcp",
+      "finding": "Confirmed official Consensus MCP server (Consensus-NLP org, hosted at https://mcp.consensus.app/mcp)."
+    },
+    {
+      "app_id": 99,
+      "app": "YouTube Transcript",
+      "category": "AI, Research and Media-native",
+      "classification": "third_party_mcp",
+      "original_value": "yes",
+      "audited_value": "no_found",
+      "corrected": true,
+      "url": "https://transcriptapi.com/docs/mcp/",
+      "finding": "Reclassified to no_found: transcriptapi.com is a third-party wrapper, not Google/YouTube; Google publishes no official YouTube MCP server. Score updated 8 -> 7 (easy_win -> moderate)."
+    }
+  ]
+}

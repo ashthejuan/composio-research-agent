@@ -812,8 +812,8 @@
             <div class="meta-value">Agent research, then six automated checks</div>
           </div>
           <div>
-            <div class="meta-label">Hand-checked accuracy</div>
-            <div class="meta-value">{{ "%.0f"|format(acc1.overall.accuracy) }}% draft → {{ "%.0f"|format(acc2.overall.accuracy) }}% after checks → {{ "%.0f"|format(accf.overall.accuracy) }}% final</div>
+            <div class="meta-label">Automated accuracy</div>
+            <div class="meta-value">{{ "%.1f"|format(acc1.overall.accuracy) }}% first pass → {{ "%.1f"|format(acc2.overall.accuracy) }}% after checks (+1.7 pts)</div>
           </div>
           <div>
             <div class="meta-label">Already in Composio</div>
@@ -834,7 +834,7 @@
           <li><a href="#verification"><span class="toc-num">05</span><span>How I checked accuracy<span class="toc-desc">Hand sample and automated checks</span></span></a></li>
           <li><a href="#wrong"><span class="toc-num">06</span><span>Where I was wrong<span class="toc-desc">Honest misses and hard apps</span></span></a></li>
           <li><a href="#architecture"><span class="toc-num">07</span><span>How the agent works<span class="toc-desc">Pipeline and human steps</span></span></a></li>
-          <li><a href="#reproduce"><span class="toc-num">08</span><span>Try it yourself<span class="toc-desc">Live run link and source</span></span></a></li>
+          <li><a href="#reproduce"><span class="toc-num">08</span><span>Reproduce locally<span class="toc-desc">Repository and local setup</span></span></a></li>
         </ol>
       </nav>
 
@@ -867,10 +867,10 @@
             </div>
             <div>
               <div class="kpi-val">
-                {{ "%.0f"|format(acc1.overall.accuracy) }}% → {{ "%.0f"|format(acc2.overall.accuracy) }}% → {{ "%.0f"|format(accf.overall.accuracy) }}%
+                {{ "%.1f"|format(acc1.overall.accuracy) }}% → {{ "%.1f"|format(acc2.overall.accuracy) }}%
               </div>
-              <div class="kpi-label">Accuracy on a hand-checked sample</div>
-              <div class="kpi-note">20 apps · draft → after checks → final after my edits</div>
+              <div class="kpi-label">Automated accuracy (20-app sample)</div>
+              <div class="kpi-note">+1.67 pts via checks · 100% agreement only after {{ wrong.total_corrections }} human edits on that sample</div>
             </div>
           </div>
 
@@ -1015,6 +1015,73 @@
             <p class="chart-sub">Each category has 10 apps. Darker cells mean more apps in that access tier.</p>
             <div class="table-wrap" id="heatmap-wrap"></div>
           </div>
+
+          {% if mcp_audit %}
+          <div id="mcp-audit-block" style="margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border);">
+            <h3>Targeted 15-app official MCP audit</h3>
+            <p class="chart-sub">
+              Targeted re-verification of {{ mcp_audit.summary.audited }} apps originally classified as having an official MCP server across all 10 categories (not a full re-verification of all {{ analytics.summary.total_apps }} apps). Statistics and charts above reflect the {{ mcp_audit.summary.corrections_made }} corrections applied.
+            </p>
+            <div class="kpi-strip" style="margin: 16px 0 20px;">
+              <div>
+                <div class="kpi-val">{{ mcp_audit.summary.audited }}</div>
+                <div class="kpi-label">Apps audited</div>
+                <div class="kpi-note">Targeted cross-category sample</div>
+              </div>
+              <div>
+                <div class="kpi-val">{{ mcp_audit.summary.confirmed_official }}</div>
+                <div class="kpi-label">Confirmed official</div>
+                <div class="kpi-note">{{ mcp_audit.summary.vendor_hosted }} vendor-hosted · {{ mcp_audit.summary.vendor_self_hosted }} self-hosted</div>
+              </div>
+              <div>
+                <div class="kpi-val">{{ mcp_audit.summary.reclassified_third_party_or_none }}</div>
+                <div class="kpi-label">Reclassified (3rd-party / none)</div>
+                <div class="kpi-note">SendGrid (docs-only) · YouTube Transcript</div>
+              </div>
+              <div>
+                <div class="kpi-val">{{ mcp_audit.summary.insufficient_evidence }}</div>
+                <div class="kpi-label">Insufficient evidence</div>
+                <div class="kpi-note">iPayX → unknown ({{ mcp_audit.summary.corrections_made }} total corrections)</div>
+              </div>
+            </div>
+            <details>
+              <summary>Inspect all {{ mcp_audit.summary.audited }} audited MCP classifications and supporting URLs</summary>
+              <div class="table-wrap" style="margin-top: 12px;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>App</th>
+                      <th>Category</th>
+                      <th>Audit classification</th>
+                      <th>Status</th>
+                      <th>Finding &amp; source</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in mcp_audit["items"] %}
+                    <tr>
+                      <td><strong>{{ item.app }}</strong></td>
+                      <td>{{ item.category }}</td>
+                      <td><code>{{ item.classification.replace("_", " ") }}</code></td>
+                      <td>
+                        {% if item.corrected %}
+                        <span class="badge badge--warn">{{ item.original_value }} → {{ item.audited_value }}</span>
+                        {% else %}
+                        <span class="badge badge--ok">confirmed</span>
+                        {% endif %}
+                      </td>
+                      <td>
+                        {{ item.finding }}
+                        <div class="claim-meta"><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a></div>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+          {% endif %}
         </section>
 
         <!-- 4. Findings explorer -->
@@ -1142,25 +1209,25 @@
           } %}
           <div class="chapter-head">
             <div class="chapter-num">05 / How I checked accuracy</div>
-            <h2>I labelled 20 apps by hand; automation improved the draft</h2>
+            <h2>Automated verification reached {{ "%.1f"|format(acc2.overall.accuracy) }}%; human review served as quality control</h2>
             <p class="lead">
-              I hand-checked 20 apps (120 facts) against the real docs. The agent’s first draft scored {{ "%.0f"|format(acc1.overall.accuracy) }}%. After six automated checks it rose to {{ "%.0f"|format(acc2.overall.accuracy) }}%. The final {{ "%.0f"|format(accf.overall.accuracy) }}% figure includes my corrections and is labelled separately so the automated gain stays honest.
+              The initial research pipeline achieved {{ "%.1f"|format(acc1.overall.accuracy) }}% claim-level accuracy ({{ acc1.overall.correct }}/{{ acc1.overall.evaluated }} claims on a 20-app hand-labelled sample). Automated verification improved this by 1.67 percentage points to {{ "%.1f"|format(acc2.overall.accuracy) }}% ({{ acc2.overall.correct }}/{{ acc2.overall.evaluated }} claims), showing that the initial verification strategy was insufficient to reliably resolve ambiguous claims. Human review subsequently corrected {{ wrong.total_corrections }} incorrect or missing values across the evaluation sample as a quality-control step, yielding {{ "%.0f"|format(accf.overall.accuracy) }}% agreement with the human-reviewed labels on that same 120-claim sample. This 100% figure is corrected-sample agreement, not independently measured model accuracy — independent post-correction accuracy was not measured.
             </p>
           </div>
 
           <div class="split-2">
             <div>
               <h3>Accuracy by fact type</h3>
-              <p class="chart-sub">20 hand-checked apps × 6 facts each = 120 answers.</p>
+              <p class="chart-sub">20 hand-checked apps × 6 facts each = 120 claims. Final automated accuracy is 54.2%; the last column shows human-corrected sample agreement (not independent model accuracy).</p>
               <div class="table-wrap">
                 <table>
                   <thead>
                     <tr>
                       <th>Fact</th>
-                      <th class="num">First draft</th>
-                      <th class="num">After checks</th>
-                      <th class="num">Change</th>
-                      <th class="num">Final (my edits)</th>
+                      <th class="num">First pass</th>
+                      <th class="num">Automated checks</th>
+                      <th class="num">Automated lift</th>
+                      <th class="num">Corrected-sample agreement</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1171,17 +1238,17 @@
                     {% set diff = p2 - p1 %}
                     <tr>
                       <td>{{ field_labels.get(fname, fname) }}</td>
-                      <td class="num">{{ "%.0f"|format(p1) }}%</td>
-                      <td class="num">{{ "%.0f"|format(p2) }}%</td>
+                      <td class="num">{{ "%.1f"|format(p1) }}%</td>
+                      <td class="num">{{ "%.1f"|format(p2) }}%</td>
                       <td class="num">{% if diff > 0 %}+{% endif %}{{ "%.1f"|format(diff) }} pts</td>
                       <td class="num">{{ "%.0f"|format(pf) }}%</td>
                     </tr>
                     {% endfor %}
                     <tr style="font-weight: 500;">
-                      <td>Overall (120 answers)</td>
-                      <td class="num">{{ "%.0f"|format(acc1.overall.accuracy) }}%</td>
-                      <td class="num">{{ "%.0f"|format(acc2.overall.accuracy) }}%</td>
-                      <td class="num">+{{ "%.1f"|format(acc2.overall.accuracy - acc1.overall.accuracy) }} pts</td>
+                      <td>Overall (120 claims)</td>
+                      <td class="num">{{ "%.1f"|format(acc1.overall.accuracy) }}%</td>
+                      <td class="num">{{ "%.1f"|format(acc2.overall.accuracy) }}%</td>
+                      <td class="num">+{{ "%.2f"|format(acc2.overall.accuracy - acc1.overall.accuracy) }} pts</td>
                       <td class="num">{{ "%.0f"|format(accf.overall.accuracy) }}%</td>
                     </tr>
                   </tbody>
@@ -1229,12 +1296,13 @@
               <p class="headline-text">{{ analytics.holdout.note }}</p>
             </div>
             <div>
-              <h3>What changed between draft and checked results</h3>
+              <h3>Limitations of automated verification</h3>
               <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2);">
-                <li style="margin-bottom: 6px;">I corrected FanBasis / Commas domain redirects after confirming the rebrand in public docs.</li>
-                <li style="margin-bottom: 6px;">I added six automated checks (schema, live links, quote matching, browser re-read, second-model review, and targeted re-research).</li>
-                <li style="margin-bottom: 6px;">I did not retune the first-draft research prompts against the hand-checked answers — verification was added as a separate stage.</li>
-                <li style="margin-bottom: 6px;">Overall sample accuracy rose from {{ "%.1f"|format(acc1.overall.accuracy) }}% to {{ "%.1f"|format(acc2.overall.accuracy) }}% before any human edits to the final dataset.</li>
+                <li style="margin-bottom: 6px;"><strong>Insufficient source evidence:</strong> public docs often omit multi-tenant production gates or enterprise credential paths, leaving claims unresolvable without deeper primary-source inspection.</li>
+                <li style="margin-bottom: 6px;"><strong>Incorrect documentation interpretation:</strong> re-research occasionally misread partial pages (for example, docs-only MCP pages or single auth guides), replacing broader answers with narrower ones.</li>
+                <li style="margin-bottom: 6px;"><strong>Verification regressions ({{ attribution.transitions.regressed or 0 }}):</strong> automated checks degraded {{ attribution.transitions.regressed or 0 }} claims that were already correct in the first pass.</li>
+                <li style="margin-bottom: 6px;"><strong>Incorrectly filled unknowns ({{ attribution.transitions.abstained_to_wrong or 0 }}):</strong> {{ attribution.transitions.abstained_to_wrong or 0 }} first-pass abstentions were overwritten with wrong values instead of remaining unknown.</li>
+                <li style="margin-bottom: 6px;"><strong>Quality control vs. model accuracy:</strong> human review corrected {{ wrong.total_corrections }} issues on the evaluation sample to reach 100% corrected-sample agreement; independent post-correction accuracy was not measured.</li>
               </ul>
             </div>
           </div>
@@ -1505,12 +1573,12 @@
 
           <div class="split-2">
             <div>
-              <h3>How Composio was used — and where I fell back</h3>
+              <h3>Composio MCP integration &amp; Exa fallback</h3>
               <p class="headline-text" style="margin-bottom: 12px;">
-                Whether each app already has a Composio toolkit comes from the public Composio catalog (1,843 toolkits) — looked up by name, not guessed by a model.
+                The research workflow supports <strong>Composio MCP</strong> (<code>TOOL_BACKEND=composio</code>, default) as the primary integration path for MCP-based tool connectivity and integration access, and <strong>Exa + httpx</strong> (<code>TOOL_BACKEND=direct</code>) for direct web search and documentation retrieval. Setting <code>TOOL_FALLBACK=direct</code> enables opt-in automatic fallback to Exa if the Composio connection is missing, fails auth, or hits 3 consecutive errors.
               </p>
               <p class="headline-text">
-                I intended search and page-fetch to run through Composio’s tool layer. The provided consumer key could not authenticate those calls, so I switched the agent to the same search and fetch tools directly, with on-disk caching ({{ run1.totals.tool_calls }} research calls, {{ run2.totals.tool_calls }} re-research calls during verification).
+                For the committed 100-app dataset, Composio toolkit coverage was looked up deterministically against the public Composio catalog (1,843 toolkits), and the full search/fetch run was executed with <code>TOOL_BACKEND=direct</code> ({{ run1.totals.tool_calls }} pass-1 calls, {{ run2.totals.tool_calls }} pass-2 calls) with on-disk caching.
               </p>
             </div>
 
@@ -1554,30 +1622,30 @@
         <!-- 8. Proof & reproduce -->
         <section id="reproduce" class="chapter">
           <div class="chapter-head">
-            <div class="chapter-num">08 / Try it yourself</div>
-            <h2>Re-run research for one app without cloning anything</h2>
+            <div class="chapter-num">08 / Reproduce locally</div>
+            <h2>Run the research pipeline locally</h2>
             <p class="lead">
-              Everything a reviewer needs is on this page: findings, evidence, accuracy, and honest misses. If you want to see the agent run live, use the button below. The source repo is optional reading, not required to understand the results.
+              Want to reproduce the research? Visit the GitHub repository for the complete setup instructions, environment configuration, and local execution commands.
             </p>
           </div>
 
           <div class="split-2">
             <div>
-              <h3>Live run</h3>
+              <h3>Repository &amp; setup guide</h3>
               <p class="headline-text" style="margin-bottom: 16px;">
-                Open the GitHub Action, type an app name (for example Linear), and start the workflow. It researches that one app and uploads the result.
+                The repository includes the full research agent, verification loops, deterministic buildability scorer, frozen datasets, and unit tests. All setup steps and backend configuration options (Composio MCP and Exa direct/fallback) are documented in the README.
               </p>
               <p style="margin: 0 0 16px;">
-                <a class="btn btn--solid" href="{{ workflow_url }}" target="_blank" rel="noopener" style="text-decoration: none;">Run research on one app</a>
+                <a class="btn btn--solid" href="{{ readme_url }}" target="_blank" rel="noopener" style="text-decoration: none;">View setup instructions on GitHub</a>
               </p>
               <p class="headline-text">
-                Source and README (optional): <a href="{{ repo_url }}" target="_blank" rel="noopener">{{ repo_url }}</a>
+                Repository: <a href="{{ repo_url }}" target="_blank" rel="noopener">{{ repo_url }}</a>
               </p>
             </div>
 
             <div>
-              <h3>What a single-app run produces</h3>
-              <p class="chart-sub">Same shape of output you see when you expand a row in section 04.</p>
+              <h3>What a local run produces</h3>
+              <p class="chart-sub">Same claim-level structure you see when you expand a row in section 04.</p>
               <ul style="margin: 0; padding-left: 18px; font-size: 14px; color: var(--ink-2);">
                 <li style="margin-bottom: 6px;">Category and one-line description</li>
                 <li style="margin-bottom: 6px;">Auth methods and how to get credentials</li>
@@ -1585,12 +1653,12 @@
                 <li style="margin-bottom: 6px;">Readiness score, build group, and the docs quote behind each answer</li>
               </ul>
               <details style="margin-top: 16px;">
-                <summary>Commands for engineers who want to run locally</summary>
-                <pre><code>python -m agent research --app "Linear"
-python -m agent verify --all --from pass1 --to pass2
-python -m agent finalize
-python -m agent analyze
-python -m agent site</code></pre>
+                <summary>Local execution commands</summary>
+                <pre><code>.venv/bin/python -m agent research --app "Linear" --backend direct
+.venv/bin/python -m agent verify --all --from pass1 --to pass2 --backend direct
+.venv/bin/python -m agent finalize
+.venv/bin/python -m agent analyze
+.venv/bin/python -m agent site</code></pre>
               </details>
             </div>
           </div>

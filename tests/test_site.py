@@ -52,7 +52,12 @@ def test_build_site_outputs_and_structure(tmp_path):
     # Scandinavian design guardrails: no uppercase CSS transform, no external CDN script required
     assert "text-transform: uppercase" not in index_html
     assert "cdnjs.cloudflare.com" not in index_html
-    assert "human-corrected" in index_html.lower()
+    assert "corrected-sample agreement" in index_html.lower()
+    assert "independent post-correction accuracy was not measured" in index_html.lower()
+    assert "Targeted 15-app official MCP audit" in index_html
+    assert "actions/workflows/research.yml" not in index_html
+    assert "Run research on one app" not in index_html
+    assert "https://github.com/ashthejuan/composio-research-agent#readme" in index_html
     assert "Download this view as CSV" in index_html
     assert "Agent architecture flowchart" in index_html
     assert "Rules fingerprint" not in index_html
@@ -60,4 +65,4 @@ def test_build_site_outputs_and_structure(tmp_path):
     cover = index_html.split('id="toc"', 1)[0]
     assert "PRD" not in cover
     assert "rules_sha" not in cover
-    assert "hand-checked" in index_html.lower() or "hand-checked" in index_html
+    assert "hand-checked" in index_html.lower() or "hand-labelled" in index_html.lower()

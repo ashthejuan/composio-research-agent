@@ -276,13 +276,13 @@
       "note": "The documented capabilities shown cover a small set of endpoint groups."
     },
     "mcp_official": {
-      "value": "yes",
+      "value": "no_found",
       "evidence": [
         {
           "url": "https://transcriptapi.com/docs/mcp/",
           "quote": "TranscriptAPI runs a hosted (remote) MCP server at https://transcriptapi.com/mcp.",
           "source_tier": "official_docs",
-          "fetched_at": "2026-11-23T12:43:45.521434Z"
+          "fetched_at": null
         }
       ],
       "extractor_confidence": "high",
@@ -315,7 +315,7 @@
             "detail": "Decisive phrase 'TranscriptAPI runs a hosted (remote) MCP server at https://transcriptapi.com/mcp'."
           }
         ],
-        "notes": ""
+        "notes": "15-app MCP audit correction: transcriptapi.com is a third-party wrapper for YouTube transcripts, not an official Google/YouTube MCP server (mcp_third_party=yes)."
       },
       "note": ""
     },
@@ -538,8 +538,8 @@
     "source": "composio_docs_catalog"
   },
   "buildability": {
-    "score": 8,
-    "verdict": "easy",
+    "score": 7,
+    "verdict": "moderate",
     "breakdown": {
       "api_availability": {
         "score": 1,
@@ -558,12 +558,12 @@
         "driver": "api_breadth=narrow, webhooks=unknown"
       },
       "tooling_readiness": {
-        "score": 2,
-        "driver": "mcp_official=yes"
+        "score": 1,
+        "driver": "mcp_third_party=yes"
       }
     },
     "commercial_gate": false,
-    "bucket": "easy_win"
+    "bucket": "moderate"
   },
   "record_confidence": "medium",
   "run": {

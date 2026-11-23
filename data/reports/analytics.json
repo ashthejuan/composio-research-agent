@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-23T16:16:31.640216+00:00",
+  "generated_at": "2026-11-23T16:37:57.467595+00:00",
   "summary": {
     "total_apps": 100,
     "scored_apps": 100,
     "commercial_gated": 12,
-    "easy_wins": 66,
-    "easy_wins_without_composio": 9,
+    "easy_wins": 64,
+    "easy_wins_without_composio": 8,
     "composio_available": 80,
     "composio_unavailable": 20,
-    "official_mcp_yes": 89,
+    "official_mcp_yes": 86,
     "self_serve_free": 56,
     "oauth2_supported": 74
   },
@@ -63,9 +63,9 @@
       "narrow": 12
     },
     "mcp_official": {
-      "yes": 89,
-      "unknown": 7,
-      "no_found": 4
+      "yes": 86,
+      "unknown": 8,
+      "no_found": 6
     },
     "mcp_third_party": {
       "yes": 66,
@@ -76,13 +76,13 @@
       "unavailable": 20
     },
     "verdict": {
-      "easy": 74,
-      "moderate": 25,
+      "easy": 72,
+      "moderate": 27,
       "blocked": 1
     },
     "bucket": {
-      "easy_win": 66,
-      "moderate": 21,
+      "easy_win": 64,
+      "moderate": 23,
       "needs_outreach": 12,
       "technically_blocked": 1
     },
@@ -96,8 +96,8 @@
       "no": 1
     },
     "verification_status": {
-      "supported": 1136,
-      "insufficient_evidence": 463,
+      "supported": 1135,
+      "insufficient_evidence": 464,
       "partially_supported": 1
     }
   },
@@ -269,14 +269,15 @@
         "moderate": 1
       },
       "Finance and Fintech": {
-        "easy_win": 5,
+        "easy_win": 4,
         "needs_outreach": 4,
-        "technically_blocked": 1
+        "technically_blocked": 1,
+        "moderate": 1
       },
       "AI, Research and Media-native": {
-        "moderate": 2,
+        "moderate": 3,
         "needs_outreach": 1,
-        "easy_win": 7
+        "easy_win": 6
       }
     }
   },
@@ -571,15 +572,15 @@
   "mcp_vs_composio": {
     "official_mcp_x_composio": {
       "yes": {
-        "available": 74,
-        "unavailable": 15
+        "available": 72,
+        "unavailable": 14
       },
       "unknown": {
         "available": 4,
-        "unavailable": 3
+        "unavailable": 4
       },
       "no_found": {
-        "available": 2,
+        "available": 4,
         "unavailable": 2
       }
     },
@@ -907,30 +908,6 @@
         "main_blocker_text": "Partner-program access is restricted to close ecosystem partners"
       },
       {
-        "app_id": 85,
-        "app": "iPayX",
-        "category": "Finance and Fintech",
-        "score": 8,
-        "verdict": "easy",
-        "bucket": "easy_win",
-        "commercial_gate": false,
-        "composio_toolkit": "unavailable",
-        "composio_slug": null,
-        "credential_access": "self_serve_free",
-        "production_gate": "unknown",
-        "auth_methods": [
-          "bearer_token"
-        ],
-        "api_type": [
-          "rest",
-          "rpc_websocket"
-        ],
-        "mcp_official": "yes",
-        "mcp_third_party": "unknown",
-        "main_blocker_type": "unknown",
-        "main_blocker_text": "unknown"
-      },
-      {
         "app_id": 95,
         "app": "Reducto",
         "category": "AI, Research and Media-native",
@@ -955,7 +932,7 @@
         "main_blocker_text": "unknown"
       }
     ],
-    "composio_without_official_mcp": 6
+    "composio_without_official_mcp": 8
   },
   "opportunities": {
     "easy_wins_without_composio": [
@@ -1126,30 +1103,6 @@
         "mcp_third_party": "yes",
         "main_blocker_type": "none",
         "main_blocker_text": "none"
-      },
-      {
-        "app_id": 85,
-        "app": "iPayX",
-        "category": "Finance and Fintech",
-        "score": 8,
-        "verdict": "easy",
-        "bucket": "easy_win",
-        "commercial_gate": false,
-        "composio_toolkit": "unavailable",
-        "composio_slug": null,
-        "credential_access": "self_serve_free",
-        "production_gate": "unknown",
-        "auth_methods": [
-          "bearer_token"
-        ],
-        "api_type": [
-          "rest",
-          "rpc_websocket"
-        ],
-        "mcp_official": "yes",
-        "mcp_third_party": "unknown",
-        "main_blocker_type": "unknown",
-        "main_blocker_text": "unknown"
       },
       {
         "app_id": 95,
@@ -1344,30 +1297,6 @@
         "mcp_third_party": "yes",
         "main_blocker_type": "none",
         "main_blocker_text": "none"
-      },
-      {
-        "app_id": 85,
-        "app": "iPayX",
-        "category": "Finance and Fintech",
-        "score": 8,
-        "verdict": "easy",
-        "bucket": "easy_win",
-        "commercial_gate": false,
-        "composio_toolkit": "unavailable",
-        "composio_slug": null,
-        "credential_access": "self_serve_free",
-        "production_gate": "unknown",
-        "auth_methods": [
-          "bearer_token"
-        ],
-        "api_type": [
-          "rest",
-          "rpc_websocket"
-        ],
-        "mcp_official": "yes",
-        "mcp_third_party": "unknown",
-        "main_blocker_type": "unknown",
-        "main_blocker_text": "unknown"
       },
       {
         "app_id": 95,
@@ -2742,30 +2671,6 @@
         "mcp_third_party": "unknown",
         "main_blocker_type": "access",
         "main_blocker_text": "Organization access requires endpoint-specific permissions assigned to the service user."
-      },
-      {
-        "app_id": 99,
-        "app": "YouTube Transcript",
-        "category": "AI, Research and Media-native",
-        "score": 8,
-        "verdict": "easy",
-        "bucket": "easy_win",
-        "commercial_gate": false,
-        "composio_toolkit": "available",
-        "composio_slug": "youtube_transcript",
-        "credential_access": "self_serve_free",
-        "production_gate": "unknown",
-        "auth_methods": [
-          "api_key",
-          "oauth2"
-        ],
-        "api_type": [
-          "rest"
-        ],
-        "mcp_official": "yes",
-        "mcp_third_party": "yes",
-        "main_blocker_type": "unknown",
-        "main_blocker_text": "unknown"
       }
     ],
     "outreach_targets": [
@@ -3324,31 +3229,6 @@
         "main_blocker_text": "Public app review and approval"
       },
       {
-        "app_id": 40,
-        "app": "SendGrid",
-        "category": "Marketing, Ads, Email and Social",
-        "score": 7,
-        "verdict": "moderate",
-        "bucket": "moderate",
-        "commercial_gate": false,
-        "composio_toolkit": "available",
-        "composio_slug": "sendgrid",
-        "credential_access": "self_serve_trial",
-        "production_gate": "unknown",
-        "auth_methods": [
-          "api_key",
-          "bearer_token",
-          "basic"
-        ],
-        "api_type": [
-          "rest"
-        ],
-        "mcp_official": "yes",
-        "mcp_third_party": "yes",
-        "main_blocker_type": "unknown",
-        "main_blocker_text": "unknown"
-      },
-      {
         "app_id": 52,
         "app": "SE Ranking",
         "category": "Data, SEO and Scraping",
@@ -3443,6 +3323,30 @@
         "mcp_third_party": "yes",
         "main_blocker_type": "commercial",
         "main_blocker_text": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account."
+      },
+      {
+        "app_id": 99,
+        "app": "YouTube Transcript",
+        "category": "AI, Research and Media-native",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "youtube_transcript",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "no_found",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
       },
       {
         "app_id": 8,
@@ -3541,6 +3445,31 @@
         "main_blocker_text": "LinkedIn review and approval of the Advertising API application"
       },
       {
+        "app_id": 40,
+        "app": "SendGrid",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "sendgrid",
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "bearer_token",
+          "basic"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "no_found",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
         "app_id": 41,
         "app": "Shopify",
         "category": "Ecommerce",
@@ -3585,6 +3514,30 @@
         "mcp_third_party": "yes",
         "main_blocker_type": "access",
         "main_blocker_text": "Commerce App review and registry publication"
+      },
+      {
+        "app_id": 85,
+        "app": "iPayX",
+        "category": "Finance and Fintech",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
       },
       {
         "app_id": 26,
@@ -3744,23 +3697,23 @@
     {
       "id": "mcp_adoption_vs_composio",
       "title": "Most apps already ship an official MCP server",
-      "text": "89 of 100 apps publish an official MCP server. 15 of those are not in the Composio catalog yet \u2014 ready coverage opportunities.",
+      "text": "86 of 100 apps publish an official MCP server. 14 of those are not in the Composio catalog yet \u2014 ready coverage opportunities.",
       "template": "{mcp_off} of {n} apps publish an official MCP server. {mcp_no_comp} of those are not in the Composio catalog yet \u2014 ready coverage opportunities.",
       "values": {
-        "mcp_off": 89,
+        "mcp_off": 86,
         "n": 100,
-        "mcp_no_comp": 15
+        "mcp_no_comp": 14
       }
     },
     {
       "id": "easy_wins_gap",
       "title": "Easy wins you can build without a sales call",
-      "text": "66 of 100 apps look ready to integrate today (score 8\u201310, no partnership gate). 9 of those are still missing from Composio.",
+      "text": "64 of 100 apps look ready to integrate today (score 8\u201310, no partnership gate). 8 of those are still missing from Composio.",
       "template": "{easy_total} of {n} apps look ready to integrate today (score 8\u201310, no partnership gate). {easy_no_comp} of those are still missing from Composio.",
       "values": {
-        "easy_total": 66,
+        "easy_total": 64,
         "n": 100,
-        "easy_no_comp": 9
+        "easy_no_comp": 8
       }
     },
     {

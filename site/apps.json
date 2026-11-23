@@ -25444,19 +25444,13 @@
         "note": ""
       },
       "mcp_official": {
-        "value": "yes",
+        "value": "no_found",
         "evidence": [
           {
             "url": "https://www.twilio.com/docs/ai/mcp",
             "quote": "The server is hosted by Twilio at mcp.twilio.com/docs—point your IDE at the URL.",
             "source_tier": "official_docs",
-            "fetched_at": "2026-11-23T12:38:12.158195Z"
-          },
-          {
-            "url": "https://www.twilio.com/docs/ai/mcp",
-            "quote": "Twilio SendGrid docs and support articles",
-            "source_tier": "official_docs",
-            "fetched_at": "2026-11-23T12:38:12.158195Z"
+            "fetched_at": null
           }
         ],
         "extractor_confidence": "high",
@@ -25489,7 +25483,7 @@
               "detail": "'server is hosted by Twilio at mcp.twilio.com/docs' and indexes 'Twilio SendGrid docs' shows vendor MCP."
             }
           ],
-          "notes": ""
+          "notes": "15-app MCP audit correction: mcp.twilio.com/docs is a documentation-search MCP only, and github.com/twilio-labs/mcp does not include SendGrid; only third-party/community MCPs exist."
         },
         "note": "Twilio's official MCP server indexes SendGrid documentation; it is read-only and does not execute API calls."
       },
@@ -25774,7 +25768,7 @@
       "source": "composio_docs_catalog"
     },
     "buildability": {
-      "score": 7,
+      "score": 6,
       "verdict": "moderate",
       "breakdown": {
         "api_availability": {
@@ -25794,8 +25788,8 @@
           "driver": "api_breadth=unknown, webhooks=yes"
         },
         "tooling_readiness": {
-          "score": 2,
-          "driver": "mcp_official=yes"
+          "score": 1,
+          "driver": "official_sdks=7, mcp_third_party=yes"
         }
       },
       "commercial_gate": false,
@@ -54419,18 +54413,11 @@
         "note": "The API reference describes three endpoints."
       },
       "mcp_official": {
-        "value": "yes",
-        "evidence": [
-          {
-            "url": "https://www.ipayx.ai/developers",
-            "quote": "Officially listed on the MCP Registry (v1.4.0)",
-            "source_tier": "official_docs",
-            "fetched_at": "2026-11-23T12:42:50.273333Z"
-          }
-        ],
-        "extractor_confidence": "high",
+        "value": "unknown",
+        "evidence": [],
+        "extractor_confidence": "low",
         "verification": {
-          "status": "supported",
+          "status": "insufficient_evidence",
           "loops": [
             {
               "loop": "L1",
@@ -54458,7 +54445,7 @@
               "detail": "'Officially listed on the MCP Registry' plus vendor URL https://mcp.ipayx.ai/mcp proves official."
             }
           ],
-          "notes": ""
+          "notes": "15-app MCP audit correction: ipayx.ai/developers is an opaque SPA with no independently verifiable public MCP endpoint, auth spec, or vendor-maintained GitHub repository."
         },
         "note": ""
       },
@@ -54715,8 +54702,8 @@
       "source": "composio_docs_catalog"
     },
     "buildability": {
-      "score": 8,
-      "verdict": "easy",
+      "score": 6,
+      "verdict": "moderate",
       "breakdown": {
         "api_availability": {
           "score": 1,
@@ -54735,12 +54722,12 @@
           "driver": "api_breadth=narrow, webhooks=yes"
         },
         "tooling_readiness": {
-          "score": 2,
-          "driver": "mcp_official=yes"
+          "score": 0,
+          "driver": "mcp_official!=yes, no official SDK or 3p MCP"
         }
       },
       "commercial_gate": false,
-      "bucket": "easy_win"
+      "bucket": "moderate"
     },
     "record_confidence": "medium",
     "run": {
@@ -63336,13 +63323,13 @@
         "note": "The documented capabilities shown cover a small set of endpoint groups."
       },
       "mcp_official": {
-        "value": "yes",
+        "value": "no_found",
         "evidence": [
           {
             "url": "https://transcriptapi.com/docs/mcp/",
             "quote": "TranscriptAPI runs a hosted (remote) MCP server at https://transcriptapi.com/mcp.",
             "source_tier": "official_docs",
-            "fetched_at": "2026-11-23T12:43:45.521434Z"
+            "fetched_at": null
           }
         ],
         "extractor_confidence": "high",
@@ -63375,7 +63362,7 @@
               "detail": "Decisive phrase 'TranscriptAPI runs a hosted (remote) MCP server at https://transcriptapi.com/mcp'."
             }
           ],
-          "notes": ""
+          "notes": "15-app MCP audit correction: transcriptapi.com is a third-party wrapper for YouTube transcripts, not an official Google/YouTube MCP server (mcp_third_party=yes)."
         },
         "note": ""
       },
@@ -63598,8 +63585,8 @@
       "source": "composio_docs_catalog"
     },
     "buildability": {
-      "score": 8,
-      "verdict": "easy",
+      "score": 7,
+      "verdict": "moderate",
       "breakdown": {
         "api_availability": {
           "score": 1,
@@ -63618,12 +63605,12 @@
           "driver": "api_breadth=narrow, webhooks=unknown"
         },
         "tooling_readiness": {
-          "score": 2,
-          "driver": "mcp_official=yes"
+          "score": 1,
+          "driver": "mcp_third_party=yes"
         }
       },
       "commercial_gate": false,
-      "bucket": "easy_win"
+      "bucket": "moderate"
     },
     "record_confidence": "medium",
     "run": {

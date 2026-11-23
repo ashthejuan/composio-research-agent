@@ -125,7 +125,7 @@ def test_headlines_update_dynamically_from_data(tmp_path):
     recs[0].composio_toolkit = ComposioToolkit(value="available", slug="alpha")
     h2 = {h["id"]: h["text"] for h in analytics.compute_analytics(recs, reports_dir=tmp_path)["headlines"]}
     assert h1["easy_wins_gap"] != h2["easy_wins_gap"]
-    assert "0 of them" in h2["easy_wins_gap"]
+    assert "0 of those" in h2["easy_wins_gap"]
 
 
 def test_sanity_check_catches_bad_bucket(tmp_path):

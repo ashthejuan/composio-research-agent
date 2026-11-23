@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = ROOT / "templates"
 DEFAULT_SITE_DIR = ROOT / "site"
 REPO_URL = "https://github.com/ashthejuan/composio-research-agent"
-WORKFLOW_URL = f"{REPO_URL}/actions/workflows/research.yml"
+README_URL = f"{REPO_URL}#readme"
 
 
 def _load_json(path: Path) -> Optional[dict[str, Any]]:
@@ -169,9 +169,9 @@ Each item in apps.json is an AppRecord:
 ## Accuracy & Verification Methodology
 - Golden set: 20 stratified apps (2 per category, 120 evaluated claims across 6 fields), human-confirmed from primary documentation.
 - Frozen scoring rules SHA-256: {rules_hash}
-- Pass 1 (raw research agent): {p1}%
-- Pass 2 (automated L1-L6 verification, independent Meta Muse Spark verifier + targeted re-research): {p2}%
-- Final (human-corrected on golden disagreements, reported separately): {pf}%
+- First-pass automated accuracy (Pass 1, raw research agent): {p1}% (63/120 claims)
+- Final automated verification accuracy (Pass 2, L1-L6 checks + independent Meta Muse Spark verifier): {p2}% (65/120 claims, +1.67 percentage points; introduced 3 regressions and filled 6 unknowns incorrectly)
+- Post-review corrected-sample agreement (Final): {pf}% agreement with human labels on that same 120-claim sample after 55 human corrections (quality-control step, NOT independently measured model accuracy; independent post-correction accuracy was not measured)
 - Holdout: {holdout.get('status', 'unknown')} — {holdout.get('note', '')}
 
 ## Repository
@@ -265,6 +265,7 @@ def build_site(
     attribution = _load_json(r_dir / "attribution.json")
     corrections = _load_json(r_dir / "corrections.json")
     taxonomy = _load_json(r_dir / "taxonomy_pass1.json")
+    mcp_audit = _load_json(r_dir / "mcp_audit.json")
     run1 = _load_json(r_dir / "run_pass1.json")
     run2 = _load_json(r_dir / "run_pass2.json")
     changes = _parse_changes_md(r_dir / "changes.md")
@@ -274,7 +275,7 @@ def build_site(
     dataset = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "repo_url": REPO_URL,
-        "workflow_url": WORKFLOW_URL,
+        "readme_url": README_URL,
         "records": records_dicts,
         "analytics": analytics,
         "accuracy": {"pass1": acc1, "pass2": acc2, "final": accf},
@@ -282,6 +283,7 @@ def build_site(
         "attribution": attribution,
         "corrections": corrections,
         "taxonomy": taxonomy,
+        "mcp_audit": mcp_audit,
         "changes": changes,
         "human_log": human_log,
         "runs": {"pass1": run1, "pass2": run2},
@@ -307,13 +309,14 @@ def build_site(
         loop_stats=loop_stats,
         attribution=attribution,
         corrections=corrections,
+        mcp_audit=mcp_audit,
         changes=changes,
         human_log=human_log,
         run1=run1,
         run2=run2,
         wrong=wrong_data,
         repo_url=REPO_URL,
-        workflow_url=WORKFLOW_URL,
+        readme_url=README_URL,
     )
     index_path = s_dir / "index.html"
     index_path.write_text(html, encoding="utf-8")

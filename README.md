@@ -8,7 +8,12 @@ Local copy: open [`site/index.html`](site/index.html) (or serve the `site/` fold
 
 **Headline finding:** most apps look technically easy to integrate, but free developer signup often still hides a ship gate — and several easy wins are not in the Composio catalog yet.
 
-**Accuracy (20-app hand sample):** 52.5% first draft → 54.2% after automated checks → 100% after my corrections on disagreements.
+**Accuracy (20-app hand-labelled sample, 120 claims):**
+- **First-pass automated accuracy:** `52.5%` (63/120 claims).
+- **Final automated verification accuracy:** `54.2%` (65/120 claims, `+1.67` percentage points; automated verification introduced `3` regressions and filled `6` unknowns incorrectly).
+- **Post-review corrected-sample agreement:** `100%` agreement with human-reviewed labels on that same 120-claim sample after `55` human quality-control corrections. This is corrected-sample agreement, **not** independently measured model accuracy (independent post-correction accuracy was not measured).
+
+**Targeted MCP audit:** A targeted 15-app audit of apps originally classified as `mcp_official=yes` (across all 10 categories; not a full 100-app re-verification) confirmed `12` official MCPs, reclassified `2` (SendGrid, YouTube Transcript) to `no_found`, and marked `1` (iPayX) `unknown` due to insufficient verifiable evidence — updating the official MCP count to **86/100** and recalculating affected buildability scores (`data/reports/mcp_audit.json`).
 
 ---
 
@@ -35,21 +40,41 @@ uv sync
 cp .env.example .env
 ```
 
-Edit `.env`. Minimum for a **direct** run (what this project used end-to-end):
+Edit `.env` to configure your models and research backend.
+
+### Research backends: Composio MCP (primary) and Exa (fallback / direct)
+
+The pipeline supports two research backends with distinct roles:
+
+- **Composio (`TOOL_BACKEND=composio`, default):** Primary integration path for MCP-based tool connectivity and integration access. Auto-detects key type: a consumer key (`ck_…`) routes through **Composio Connect MCP** (`https://connect.composio.dev/mcp`, running `EXA_SEARCH`, `EXA_GET_CONTENTS_ACTION`, and `FIRECRAWL_SCRAPE`); a project key (`ak_…`) routes through the **Composio Python SDK** (can also be forced via `TOOL_BACKEND=composio_sdk`).
+- **Exa + httpx (`TOOL_BACKEND=direct`):** Direct web search (Exa SDK) and documentation retrieval (`httpx`), with Playwright (`L4`) for JS-rendered pages during verification.
+- **Opt-in automatic fallback (`TOOL_FALLBACK=direct`):** Fallback is **off by default** (`TOOL_FALLBACK=` empty surfaces Composio errors). When `TOOL_FALLBACK=direct` is set alongside `TOOL_BACKEND=composio` and `EXA_API_KEY`, `agent/tools/fallback.py` automatically switches to the direct Exa + `httpx` backend on a missing Composio connection, upstream auth failure, or 3 consecutive primary errors, logging a warning once and recording per-backend call counts in the run manifest (`tool_backend_counts`).
+
+> **Execution history note:** The committed 100-app dataset in `data/pass1/`, `data/pass2/`, and `data/final/` was executed using `TOOL_BACKEND=direct` (Exa + `httpx`) because the configured Composio Exa connection returned upstream 401 authentication errors during the batch run. Composio toolkit availability was checked deterministically against the public Composio catalog (`docs.composio.dev/toolkits`, 1,843 slugs).
+
+#### Environment variables
 
 | Variable | Purpose |
 | --- | --- |
-| `OPENAI_API_KEY` | Research / extraction model |
-| `META_API_KEY` | Independent verifier (Meta Muse Spark) |
-| `EXA_API_KEY` | Search when `TOOL_BACKEND=direct` |
-| `TOOL_BACKEND` | `direct` (working path) or `composio` |
+| `OPENAI_API_KEY` | Research / extraction model (`EXTRACTOR_MODEL`, default `gpt-5`) |
+| `META_API_KEY` | Independent verifier (`VERIFIER_MODEL`, default `muse-spark-1.3-contributor` via `VERIFIER_BASE_URL`) |
+| `COMPOSIO_API_KEY` | Primary Composio backend: `ck_…` (Connect MCP) or `ak_…` (SDK) |
+| `COMPOSIO_MCP_URL` | Composio Connect MCP endpoint (default `https://connect.composio.dev/mcp`) |
+| `EXA_API_KEY` | Direct web search & docs retrieval (required for `TOOL_BACKEND=direct` or `TOOL_FALLBACK=direct`) |
+| `TOOL_BACKEND` | `composio` (default; auto-detects `ck_` MCP vs `ak_` SDK), `composio_sdk`, or `direct` |
+| `TOOL_FALLBACK` | Leave empty for strict mode, or set to `direct` for opt-in automatic fallback to Exa + `httpx` |
 
-Optional Composio path:
+#### Switching backends
 
-| Variable | Purpose |
-| --- | --- |
-| `COMPOSIO_API_KEY` | `ck_…` (Connect MCP) or `ak_…` (SDK) |
-| `TOOL_FALLBACK` | Set to `direct` to fall back if Composio auth fails |
+Set `TOOL_BACKEND` in `.env` or pass `--backend composio|composio_sdk|direct` on the CLI:
+
+```bash
+# Primary path (Composio MCP with ck_ key, optional automatic Exa fallback if TOOL_FALLBACK=direct)
+.venv/bin/python -m agent research --app "Linear" --backend composio
+
+# Direct Exa + httpx path
+.venv/bin/python -m agent research --app "Linear" --backend direct
+```
 
 Cache lives in `data/cache/` (gitignored).
 
@@ -170,11 +195,12 @@ You do **not** need to re-run the full 100-app pipeline to review the work:
 
 ---
 
-## Golden set (how I measured accuracy)
+## Golden set & accuracy framing
 
-1. I labelled **20 apps** (2 per category) from primary docs **before** scoring.
-2. Scoring rules in `data/golden/` were frozen; the same rules score pass 1, pass 2, and final.
-3. Pass 2 is automated only. Final accuracy includes my corrections and is reported separately so the automated lift stays honest.
+1. **20 stratified apps** (2 per category, 120 claims across 6 fields) were labelled from primary docs **before** scoring.
+2. Frozen scoring rules in `data/golden/_rules.md` score pass 1, pass 2, and final identically.
+3. **Final automated accuracy is 54.2%** (`65/120`), up `+1.67` percentage points from the `52.5%` (`63/120`) first pass — demonstrating that automated verification alone was insufficient to resolve ambiguous claims (it also introduced `3` regressions and filled `6` unknowns incorrectly).
+4. Human review acted as a **quality-control mechanism**, correcting `55` incorrect or missing values on the evaluation sample to reach `100%` corrected-sample agreement on that same 120-claim sample. Independent post-correction model accuracy was not measured.
 
 ---
 
@@ -198,9 +224,11 @@ tests/
 
 ## Known limitations
 
-- The provided Composio consumer key could not authenticate search/scrape MCP calls; I ran with `TOOL_BACKEND=direct` (Exa + httpx) and looked up Composio coverage from the public catalog.
-- Automated checks improved the sample slightly but also introduced a few regressions on multi-method auth — those are listed on the report under “Where I was wrong.”
-- Five apps were left out of the hand-checked sample (still in the full dataset); the report discloses them.
+- Automated verification improved claim accuracy by only 1.67 percentage points (52.5% → 54.2%) and introduced 3 regressions plus 6 incorrectly filled unknowns; insufficient source evidence and misread partial documentation pages remain the primary bottlenecks.
+- Human review achieved 100% agreement on the 120-claim evaluation sample after 55 corrections, which is a quality-control measure on that sample rather than independently measured post-correction model accuracy.
+- The 100-app batch run executed on `TOOL_BACKEND=direct` (Exa + `httpx`) because the configured Composio Exa connection returned upstream 401 authentication errors; Composio coverage came from the public catalog (`docs.composio.dev/toolkits`).
+- The targeted MCP audit covered 15 of the 89 originally-flagged `mcp_official=yes` apps (3 corrections applied); a full 100-app manual MCP re-audit was not run.
+- Five holdout apps were kept out of the 20-app hand-labelled sample (they remain in the 100-app dataset and are disclosed in the report).
 
 ---
 
