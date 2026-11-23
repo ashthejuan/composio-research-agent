@@ -1,0 +1,665 @@
+{
+  "app_id": 28,
+  "app": "WhatsApp Business",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://whatsapp.com",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Enterprise-grade APIs for messaging and calling on the WhatsApp Business Platform.",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/reference/",
+          "quote": "Drive revenue growth, boost efficiency, and deliver exceptional customer experiences with the WhatsApp Business Platform—our enterprise-grade APIs for messaging and calling.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:36.068715Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/cloud-api/reference/: fail (dead 400)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/cloud-api/reference/: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'enterprise-grade APIs for messaging and calling' matches claimed value verbatim, 11 words."
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4"
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api/",
+          "quote": "Bearer token for API authentication. This should be a valid access token obtained through the appropriate OAuth flow or system user token.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:41.031236Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Header requires 'Bearer token...obtained through the appropriate OAuth flow' showing oauth2, no other method listed."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Requests use bearer tokens; the documentation identifies OAuth flows as one way to obtain them."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources describe token types and test setup but do not establish whether working credentials are available free or require payment or approval."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/docs/whatsapp/solution-providers/app-review/sample-submission/",
+          "quote": "Once that has happened, your app is ready for public use, so you should begin the App Review process.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.983053Z"
+        },
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview",
+          "quote": "Before you can officially begin onboarding clients, submit your app for App Review and request Advanced access approval for any permissions your app requires.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:49:16.083537Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: fail (dead 400)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'your app is ready for public use, so you should begin the App Review process' requires review."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] Quote requires 'submit your app for App Review' before officially onboarding clients."
+          },
+          {
+            "loop": "L6",
+            "result": "confirmed",
+            "detail": "\"oauth_app_review\" confirmed by new source(s) https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview (attempt 1; was insufficient_evidence)"
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4; L6 confirmed via https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview"
+      },
+      "note": "The source describes App Review for Solution Partners and Tech Providers but is marked deprecated."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api/",
+          "quote": "POST | /{Version}/{Phone-Number-ID}/messages",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:41.031236Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'POST | /{Version}/{Phone-Number-ID}/messages' with Base URL shows REST HTTP API."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The reference documents HTTP endpoints."
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/reference/",
+          "quote": "Cloud API\nSend and receive WhatsApp messages, make WhatsApp calls, and more from your business phone number.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:36.068715Z"
+        },
+        {
+          "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/reference/",
+          "quote": "Business Management API\nProgrammatically manage your WhatsApp business account and its assets.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:36.068715Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/cloud-api/reference/: fail (dead 400); [1] developers.facebook.com/docs/whatsapp/cloud-api/reference/: fail (dead 400)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/cloud-api/reference/: pass (exact [exa.snippet]); [1] developers.facebook.com/docs/whatsapp/cloud-api/reference/: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "Excerpts list few APIs/topics but give no resource count to establish 10-30 medium range."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The overview shows several API families and capabilities but does not enumerate endpoint counts."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/mcp",
+          "quote": "Meta runs official remote Model Context Protocol (MCP) servers that bring Facebook, Instagram, WhatsApp, and Meta Ads capabilities to your agentic workflows.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:39.136137Z"
+        },
+        {
+          "url": "https://developers.facebook.com/documentation/mcp",
+          "quote": "WhatsApp Business Tools MCP",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:39.136137Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/mcp: pass (live 200); [1] developers.facebook.com/documentation/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/mcp: pass (exact [httpx.scrape+exa.snippet]); [1] developers.facebook.com/documentation/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Meta runs official remote' servers plus 'WhatsApp Business Tools MCP' URL proves vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/tkhattar14/whatsapp-business-mcp",
+          "quote": "A security-hardened Model Context Protocol (MCP) server for the official WhatsApp Business Cloud API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:39.136226Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/tkhattar14/whatsapp-business-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/tkhattar14/whatsapp-business-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo 'MCP server for WhatsApp Business Cloud API' by tkhattar14 shows community server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community GitHub repository publishes this MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
+          "quote": "You will need to set up a webhook endpoint in order to receive notifications about message statuses, such as read and delivered.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.583759Z"
+        },
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
+          "quote": "test phone number ID",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.583759Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/get-: pass (live 200); [1] developers.facebook.com/documentation/business-messaging/whatsapp/get-: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/get-: pass (exact [httpx.scrape+exa.snippet]); [1] developers.facebook.com/documentation/business-messaging/whatsapp/get-: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts cite 'test phone number ID' and 'sample webhook server for testing purposes', establishing test environment."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The getting-started guide includes test phone-number and webhook setup; it does not establish a free commercial tier."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
+          "quote": "You will need to set up a webhook endpoint in order to receive notifications about message statuses, such as read and delivered.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.583759Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/get-: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/get-: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'set up a webhook endpoint in order to receive notifications about message statuses' confirms webhooks."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention a WhatsApp SDK but do not identify vendor-maintained SDK languages."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "No concrete API rate limit is given in the sources."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "App Review and Advanced access approval required before onboarding clients",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview",
+          "quote": "Before you can officially begin onboarding clients, submit your app for App Review and request Advanced access approval for any permissions your app requires.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: fail (dead 400)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'your app is ready for public use, so you should begin the App Review process' shows App Review access gate."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"App Review and Advanced access approval required before onboarding cli] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"App Review and Advanced access approval required before onboarding cli] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"App Review and Advanced access approval required before onboarding cli] Quote 'Before you can officially begin onboarding clients, submit your app for App Review and request Advanced access approval' directly matches claim."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"App Review for public use\", \"type\": \"access\"} -> {\"text\": \"App Review and Advanced access approval required before onboarding clients\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was insufficient_evidence"
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4; L6 changed value (https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview)"
+      },
+      "note": "This approval is required before serving other businesses."
+    },
+    "docs_url": {
+      "value": "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api/",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api/",
+          "quote": "POST /{Version}/{Phone-Number-ID}/messages",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:41.031236Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL documents 'POST /{Version}/{Phone-Number-ID}/messages' Send Message reference."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official endpoint reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "whatsapp",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:48:45.869026Z",
+    "finished_at": "2026-11-23T14:49:55.678814Z",
+    "tool_calls": 23,
+    "tokens_in": 23953,
+    "tokens_out": 553,
+    "cost_usd": 0.002672,
+    "backend": "direct",
+    "verifier_tokens_in": 9023,
+    "verifier_tokens_out": 6353,
+    "l6_tool_calls": 23,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

@@ -174,9 +174,11 @@ class Claims(BaseModel):
 
     @classmethod
     def all_unknown(cls) -> "Claims":
-        s = Claim[str](value=UNKNOWN)
+        def s() -> "Claim[str]":  # fresh object per field: shared instances alias their ledgers
+            return Claim[str](value=UNKNOWN)
+
         return cls(
-            category=Claim[Union[Category, Literal["unknown"]]](value=UNKNOWN), description=s,
+            category=Claim[Union[Category, Literal["unknown"]]](value=UNKNOWN), description=s(),
             auth_methods=Claim[AuthMethods](value=[UNKNOWN]),
             credential_access=Claim[CredentialAccess](value=UNKNOWN),
             production_gate=Claim[ProductionGate](value=UNKNOWN),
@@ -187,10 +189,10 @@ class Claims(BaseModel):
             free_tier_or_sandbox=Claim[YesNo](value=UNKNOWN),
             webhooks=Claim[YesNo](value=UNKNOWN),
             official_sdks=Claim[StrSet](value=[UNKNOWN]),
-            rate_limit_note=s,
+            rate_limit_note=s(),
             open_source_self_host=Claim[YesNo](value=UNKNOWN),
             main_blocker=Claim[Blocker](value=Blocker(text=UNKNOWN, type="unknown")),
-            docs_url=s,
+            docs_url=s(),
         )
 
 
@@ -246,6 +248,11 @@ class RunInfo(BaseModel):
     tokens_out: int = 0
     cost_usd: float = 0.0
     backend: str = ""
+    # Pass-2 (verify) counters; 0 on pass-1 records.
+    verifier_tokens_in: int = 0
+    verifier_tokens_out: int = 0
+    l6_tool_calls: int = 0
+    l6_rerun_claims: int = 0
 
 
 class AppRecord(BaseModel):

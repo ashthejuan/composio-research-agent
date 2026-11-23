@@ -125,3 +125,12 @@ def test_settings_repr_hides_keys():
     s = Settings(composio_api_key="sekret1", openai_api_key="sekret2",
                  meta_api_key="sekret3", exa_api_key="sekret4")
     assert "sekret" not in repr(s)
+
+
+def test_all_unknown_claims_are_distinct_objects():
+    from agent.schema import Claims
+    c = Claims.all_unknown()
+    assert c.description is not c.rate_limit_note
+    assert c.description is not c.docs_url
+    c.description.note = "x"
+    assert c.docs_url.note == ""

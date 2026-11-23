@@ -1,0 +1,399 @@
+{
+  "pass": "pass2",
+  "records_dir": "/Users/ashthejuan/Documents/Coding Work/composio_takehome/data/pass2",
+  "fields": [
+    "auth_methods",
+    "credential_access",
+    "production_gate",
+    "api_type",
+    "mcp_official",
+    "main_blocker_type"
+  ],
+  "apps": 100,
+  "overall": {
+    "loops": {
+      "L1": {
+        "claims_checked": 600,
+        "flagged": 2,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L2": {
+        "claims_checked": 501,
+        "flagged": 3,
+        "values_changed": 0,
+        "errors": 1
+      },
+      "L3": {
+        "claims_checked": 501,
+        "flagged": 4,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L4": {
+        "claims_checked": 0,
+        "flagged": 0,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L5": {
+        "claims_checked": 501,
+        "flagged": 37,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L6": {
+        "claims_checked": 201,
+        "flagged": 0,
+        "values_changed": 85,
+        "errors": 0
+      }
+    },
+    "status_distribution": {
+      "supported": 492,
+      "partially_supported": 1,
+      "contradicted": 0,
+      "insufficient_evidence": 107,
+      "pending": 0
+    },
+    "claims": 600
+  },
+  "per_field": {
+    "auth_methods": {
+      "loops": {
+        "L1": {
+          "claims_checked": 100,
+          "flagged": 2,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L2": {
+          "claims_checked": 99,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L3": {
+          "claims_checked": 99,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L4": {
+          "claims_checked": 0,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L5": {
+          "claims_checked": 99,
+          "flagged": 17,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L6": {
+          "claims_checked": 22,
+          "flagged": 0,
+          "values_changed": 18,
+          "errors": 0
+        }
+      },
+      "status_distribution": {
+        "supported": 99,
+        "partially_supported": 0,
+        "contradicted": 0,
+        "insufficient_evidence": 1,
+        "pending": 0
+      },
+      "claims": 100
+    },
+    "credential_access": {
+      "loops": {
+        "L1": {
+          "claims_checked": 100,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L2": {
+          "claims_checked": 79,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L3": {
+          "claims_checked": 79,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L4": {
+          "claims_checked": 0,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L5": {
+          "claims_checked": 79,
+          "flagged": 2,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L6": {
+          "claims_checked": 38,
+          "flagged": 0,
+          "values_changed": 16,
+          "errors": 0
+        }
+      },
+      "status_distribution": {
+        "supported": 78,
+        "partially_supported": 0,
+        "contradicted": 0,
+        "insufficient_evidence": 22,
+        "pending": 0
+      },
+      "claims": 100
+    },
+    "production_gate": {
+      "loops": {
+        "L1": {
+          "claims_checked": 100,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L2": {
+          "claims_checked": 50,
+          "flagged": 1,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L3": {
+          "claims_checked": 50,
+          "flagged": 1,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L4": {
+          "claims_checked": 0,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L5": {
+          "claims_checked": 50,
+          "flagged": 4,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L6": {
+          "claims_checked": 75,
+          "flagged": 0,
+          "values_changed": 21,
+          "errors": 0
+        }
+      },
+      "status_distribution": {
+        "supported": 47,
+        "partially_supported": 0,
+        "contradicted": 0,
+        "insufficient_evidence": 53,
+        "pending": 0
+      },
+      "claims": 100
+    },
+    "api_type": {
+      "loops": {
+        "L1": {
+          "claims_checked": 100,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L2": {
+          "claims_checked": 99,
+          "flagged": 1,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L3": {
+          "claims_checked": 99,
+          "flagged": 1,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L4": {
+          "claims_checked": 0,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L5": {
+          "claims_checked": 99,
+          "flagged": 6,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L6": {
+          "claims_checked": 9,
+          "flagged": 0,
+          "values_changed": 3,
+          "errors": 0
+        }
+      },
+      "status_distribution": {
+        "supported": 96,
+        "partially_supported": 1,
+        "contradicted": 0,
+        "insufficient_evidence": 3,
+        "pending": 0
+      },
+      "claims": 100
+    },
+    "mcp_official": {
+      "loops": {
+        "L1": {
+          "claims_checked": 100,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L2": {
+          "claims_checked": 92,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 1
+        },
+        "L3": {
+          "claims_checked": 92,
+          "flagged": 1,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L4": {
+          "claims_checked": 0,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L5": {
+          "claims_checked": 92,
+          "flagged": 3,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L6": {
+          "claims_checked": 13,
+          "flagged": 0,
+          "values_changed": 2,
+          "errors": 0
+        }
+      },
+      "status_distribution": {
+        "supported": 91,
+        "partially_supported": 0,
+        "contradicted": 0,
+        "insufficient_evidence": 9,
+        "pending": 0
+      },
+      "claims": 100
+    },
+    "main_blocker_type": {
+      "loops": {
+        "L1": {
+          "claims_checked": 100,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L2": {
+          "claims_checked": 82,
+          "flagged": 1,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L3": {
+          "claims_checked": 82,
+          "flagged": 1,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L4": {
+          "claims_checked": 0,
+          "flagged": 0,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L5": {
+          "claims_checked": 82,
+          "flagged": 5,
+          "values_changed": 0,
+          "errors": 0
+        },
+        "L6": {
+          "claims_checked": 44,
+          "flagged": 0,
+          "values_changed": 25,
+          "errors": 0
+        }
+      },
+      "status_distribution": {
+        "supported": 81,
+        "partially_supported": 0,
+        "contradicted": 0,
+        "insufficient_evidence": 19,
+        "pending": 0
+      },
+      "claims": 100
+    }
+  },
+  "all_claims": {
+    "loops": {
+      "L1": {
+        "claims_checked": 1600,
+        "flagged": 5,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L2": {
+        "claims_checked": 1146,
+        "flagged": 10,
+        "values_changed": 0,
+        "errors": 1
+      },
+      "L3": {
+        "claims_checked": 1146,
+        "flagged": 16,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L4": {
+        "claims_checked": 0,
+        "flagged": 0,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L5": {
+        "claims_checked": 1046,
+        "flagged": 55,
+        "values_changed": 0,
+        "errors": 0
+      },
+      "L6": {
+        "claims_checked": 202,
+        "flagged": 0,
+        "values_changed": 86,
+        "errors": 0
+      }
+    },
+    "status_distribution": {
+      "supported": 1109,
+      "partially_supported": 1,
+      "contradicted": 0,
+      "insufficient_evidence": 490,
+      "pending": 0
+    },
+    "claims": 1600
+  }
+}

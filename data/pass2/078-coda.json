@@ -1,0 +1,597 @@
+{
+  "app_id": 78,
+  "app": "Coda",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://coda.io",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Docs workspace for teams and AI to work together.",
+      "evidence": [
+        {
+          "url": "https://coda.io/resources/guides/getting_started_with_coda_mcp",
+          "quote": "The best place for teams and AI to work together.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.011952Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] coda.io/resources/guides/getting_started_with_coda_mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] coda.io/resources/guides/getting_started_with_coda_mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Matches 'The best place for teams and AI to work together' under 'Coda is now Superhuman Docs'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source gives a short product description rather than a detailed feature summary."
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://coda.io/apis/v1/openapi.yaml",
+          "quote": "Authorization: Bearer <your API token>",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.009199Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] coda.io/apis/v1/openapi.yaml: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] coda.io/apis/v1/openapi.yaml: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts show only 'Authorization: Bearer <your API token>' with no OAuth flow mentioned."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This supports bearer-token authentication for the API; MCP OAuth is not counted as API authentication."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API",
+          "quote": "Coda has a public API available to all users.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:57:49.403896Z"
+        },
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555725230989-Billing-and-pricing-basics",
+          "quote": "Free - Choose this plan if you're just getting started on Coda.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:57:49.403991Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API: pass (live 200); [1] help.coda.io/hc/en-us/articles/39555725230989-Billing-and-pricing-basi: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API: pass (exact [httpx.scrape+exa.snippet]); [1] help.coda.io/hc/en-us/articles/39555725230989-Billing-and-pricing-basi: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] Decisive phrase 'public API available to all users' plus Free starter plan confirms self_serve_free."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"self_serve_free\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://help.coda.io/hc/en-us/articles/39555725230989-Billing-and-pricing-basics, https://help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API)"
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API",
+          "quote": "The Coda API is a RESTful API",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.500839Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'The Coda API is a RESTful API' directly establishing REST style."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API",
+          "quote": "- List and search Coda docs\n- Listing docs\n- Creating and copying docs\n- Listing tables within a doc\n- Retrieving rows\n- Inserting and updating rows",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.500839Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 9 doc/table/row/page operations, under ~10 threshold for narrow."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source lists several API capabilities, but does not establish the complete API surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://coda.io/resources/guides/getting_started_with_coda_mcp",
+          "quote": "With Superhuman Docs MCP (Model Context Protocol), your AI clients can move beyond chatting about work and start participating in it.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.011952Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] coda.io/resources/guides/getting_started_with_coda_mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] coda.io/resources/guides/getting_started_with_coda_mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'With Superhuman Docs MCP...' plus official guide to connect client via MCP shows vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/vish288/mcp-coda",
+          "quote": "MCP server for the Coda API",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:42:19.721574Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/vish288/mcp-coda: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/vish288/mcp-coda: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo describes 'MCP server for the Coda API' with 54 tools by non-vendor author."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The cited repository is community-maintained."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Free plan: 35 time-based and 100 event-based per month, per doc",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'Free plan: 35 time-based...' plus Free limits for storage, history, AI credits."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A Free plan is documented; no separate API sandbox is shown."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "Reading: 100 requests per 6 seconds; writing: 10 requests per 6 seconds; doc-content writes: 3 requests per 10 seconds.",
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Reading data (with the exceptions below): 100 requests per 6 seconds",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        },
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Writing data (POST/PUT/PATCH): 10 requests per 6 seconds",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        },
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Writing doc content data (POST/PUT/PATCH): 3 requests per 10 seconds",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (live 200); [1] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (live 200); [2] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (exact [httpx.scrape+exa.snippet]); [1] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (exact [httpx.scrape+exa.snippet]); [2] help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Three excerpts state 100/6s reading, 10/6s writing, 3/10s doc-content writes exactly."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://coda.io/apis/v1/openapi.yaml",
+      "evidence": [
+        {
+          "url": "https://coda.io/apis/v1/openapi.yaml",
+          "quote": "https://coda.io/apis/v1/openapi.yaml",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.009199Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] coda.io/apis/v1/openapi.yaml: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] coda.io/apis/v1/openapi.yaml: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Same URL returns 'openapi: 3.0.0' with title 'Superhuman Docs API' describing API for '(formerly Coda)' data."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official OpenAPI specification."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "coda",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:57:28.201372Z",
+    "finished_at": "2026-11-23T14:58:21.894957Z",
+    "tool_calls": 27,
+    "tokens_in": 33397,
+    "tokens_out": 1046,
+    "cost_usd": 0.003863,
+    "backend": "direct",
+    "verifier_tokens_in": 7548,
+    "verifier_tokens_out": 5435,
+    "l6_tool_calls": 27,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

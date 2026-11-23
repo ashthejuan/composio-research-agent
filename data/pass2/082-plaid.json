@@ -1,0 +1,631 @@
+{
+  "app_id": 82,
+  "app": "Plaid",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://plaid.com",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Connects applications to financial accounts and provides access to bank, investment, and liabilities data.",
+      "evidence": [
+        {
+          "url": "https://plaid.com/partners/",
+          "quote": "connect with financial accounts to access bank, investment, and liabilities data.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:31.310235Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/partners/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/partners/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'connect with financial accounts to access bank, investment, and liabilities data' matches claim verbatim, 14 words."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/api/",
+          "quote": "Almost all Plaid API endpoints require a client_id and secret. These may be sent either in the request body or in the headers PLAID-CLIENT-ID and PLAID-SECRET.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.889375Z"
+        },
+        {
+          "url": "https://plaid.com/docs/api/oauth/",
+          "quote": "The fields for the form are equivalent to the fields for JSON and conform to the OAuth 2.0 specification.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:58:31.755681Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"api_key\", \"oauth2\"]] [0] plaid.com/docs/api/: pass (live 200); [1] plaid.com/docs/api/oauth/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"api_key\", \"oauth2\"]] [0] plaid.com/docs/api/: pass (exact [httpx.scrape+exa.snippet]); [1] plaid.com/docs/api/oauth/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"api_key\", \"oauth2\"]] Excerpt1: 'client_id and secret' in 'PLAID-CLIENT-ID and PLAID-SECRET' supports api_key; Excerpt2: 'conform to the OAuth 2.0 specification' supports oauth2."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"unknown\"] -> [\"api_key\", \"oauth2\"] | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://plaid.com/docs/api/, https://plaid.com/docs/api/oauth/)"
+      },
+      "note": "OAuth 2.0 is documented for Plaid's OAuth service; it is distinct from the Link flow for bank connections."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/api/",
+          "quote": "create an account on the Plaid Dashboard. Once you've completed the signup process and acknowledged our terms, we'll provide a live client_id and secret via the Dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.889375Z"
+        },
+        {
+          "url": "https://plaid.com/docs/account/billing/",
+          "quote": "Trial – Best for exploring Plaid or building a hobby project. Free access",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.891611Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (live 200); [1] plaid.com/docs/account/billing/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (exact [httpx.scrape+exa.snippet]); [1] plaid.com/docs/account/billing/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'Trial ... Free access' and 'create an account on the Plaid Dashboard' gives 'live client_id and secret'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The docs describe free Trial access and credentials provided after Dashboard signup."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/link/oauth/",
+          "quote": "Wait for OAuth approval from Plaid",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:58:31.993137Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] [0] plaid.com/docs/link/oauth/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] [0] plaid.com/docs/link/oauth/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] Required steps lists 'Wait for OAuth approval from Plaid', proving vendor OAuth review required."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"oauth_app_review\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://plaid.com/docs/link/oauth/)"
+      },
+      "note": "The source requires OAuth approval but does not specify whether it applies to every multi-tenant app."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/api/",
+          "quote": "OpenAPI is a standard format for describing RESTful APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.889375Z"
+        },
+        {
+          "url": "https://plaid.com/docs/api/",
+          "quote": "The Plaid API is specified in our Plaid OpenAPI GitHub repo.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.889375Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (live 200); [1] plaid.com/docs/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (exact [httpx.scrape+exa.snippet]); [1] plaid.com/docs/api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'OpenAPI is ... describing RESTful APIs' + 'Plaid API is specified in our Plaid OpenAPI' and JSON over HTTP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The REST classification is supported indirectly through Plaid's OpenAPI specification."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/resources/mcp/",
+          "quote": "Plaid offers two Model Context Protocol (MCP) servers:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.893845Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/resources/mcp/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/resources/mcp/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Plaid offers two Model Context Protocol (MCP) servers' including remote server 'hosted by Plaid'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/crmchattie/plaid-mcp",
+          "quote": "MCP servers for the Plaid API, running on Cloudflare Workers.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:42:31.801083Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/crmchattie/plaid-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/crmchattie/plaid-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Non-Plaid repo describes 'MCP servers for the Plaid API, running on Cloudflare Workers' with 25 tools."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community repository describes MCP servers for Plaid."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/account/billing/",
+          "quote": "Trial – Best for exploring Plaid or building a hobby project. Free access, with a limit of 10 Production Items.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.891611Z"
+        },
+        {
+          "url": "https://plaid.com/docs/account/billing/",
+          "quote": "usage of Sandbox is always free.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.891611Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/account/billing/: pass (live 200); [1] plaid.com/docs/account/billing/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/account/billing/: pass (exact [httpx.scrape+exa.snippet]); [1] plaid.com/docs/account/billing/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Trial ... Free access, with limit of 10 Production Items' and 'usage of Sandbox is always free.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free Trial is available with a 10-Production-Item limit; Sandbox usage is free."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/api/",
+          "quote": "For documentation on specific API endpoints and webhooks, use the navigation menu or search.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.889375Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page lists 'API endpoints and webhooks' and says docs cover webhooks, confirming webhooks offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention client libraries and SDKs but do not identify their languages."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Production access request",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/account/billing/",
+          "quote": "To view pricing, apply for Production access.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.891611Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/account/billing/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/account/billing/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'To view pricing, apply for Production access' establishes Production access request gate matching access type."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Production access requires an application; the sources do not establish whether approval is required."
+    },
+    "docs_url": {
+      "value": "https://plaid.com/docs/api/",
+      "evidence": [
+        {
+          "url": "https://plaid.com/docs/api/",
+          "quote": "https://plaid.com/docs/api/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:29.889375Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] plaid.com/docs/api/: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source URL hosts 'API Reference Comprehensive reference for integrating with Plaid API endpoints' confirming docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "plaid",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:58:08.627925Z",
+    "finished_at": "2026-11-23T14:58:53.810830Z",
+    "tool_calls": 12,
+    "tokens_in": 11030,
+    "tokens_out": 1174,
+    "cost_usd": 0.00169,
+    "backend": "direct",
+    "verifier_tokens_in": 8519,
+    "verifier_tokens_out": 6729,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

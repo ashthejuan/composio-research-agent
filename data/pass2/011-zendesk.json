@@ -1,0 +1,647 @@
+{
+  "app_id": 11,
+  "app": "Zendesk",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://zendesk.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Customer service platform for managing and resolving customer enquiries across channels.",
+      "evidence": [
+        {
+          "url": "https://www.zendesk.com/pricing/",
+          "quote": "Manage and resolve customer enquiries across all channels in one place",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:28.990252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zendesk.com/pricing/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zendesk.com/pricing/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Manage and resolve customer enquiries across all channels in one place' matches claim almost verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests",
+          "quote": "use basic authentication with your email address and password, your email address and an API token, or an OAuth access token.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.262018Z"
+        },
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "you must create a separate OAuth client in Admin Center before configuring this connection.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenti: pass (live 200); [1] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenti: pass (exact [httpx.scrape+exa.snippet]); [1] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'use basic authentication with your email address... or an OAuth access token' with Bearer header, matching basic+oauth2."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API tokens are used with Basic authentication; OAuth clients are also supported."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/documentation/api-basics/getting-started/getting-a-trial-or-sponsored-account-for-development/",
+          "quote": "You can try out the Zendesk platform with a free, 14-day trial account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.365318Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/documentation/api-basics/getting-started/getting: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/documentation/api-basics/getting-started/getting: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'You can try out the Zendesk platform with a free, 14-day trial account' shows trial-only self-serve access."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source describes a free trial account, rather than a free permanent account."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "“Global” means Zendesk has approved the client for use across customer accounts.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        },
+        {
+          "url": "https://developer.zendesk.com/documentation/marketplace/",
+          "quote": "you may not use API tokens or regular OAuth tokens for authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.362291Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200); [1] developer.zendesk.com/documentation/marketplace/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet]); [1] developer.zendesk.com/documentation/marketplace/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Global means Zendesk has approved the client for use across customer accounts' shows vendor OAuth app approval."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A multi-customer app needs a global OAuth client; the sources do not detail the approval process."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/documentation/marketplace/",
+          "quote": "Integration apps are integrations built using our REST API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.362291Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/documentation/marketplace/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/documentation/marketplace/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Integration apps are integrations built using our REST API' documents REST; no other styles shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "You'll find APIs for ticketing, help center, live chat, voice, sales CRM as well as some features that span capabilities, such as omnichannel routing and custom data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        },
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "Apps Core APIApps Support APIApps Sell APIApps Chat API\nIntegration Services\nAPIs and trigger events information for building integrations with Zendesk Integration Services (ZIS)\nZIS Configs APIConnections APIZIS Inbound Webhooks APIZIS Links APIZIS Registry APITrigger events reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/api-reference/: pass (live 200); [1] developer.zendesk.com/api-reference/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/api-reference/: pass (exact [httpx.scrape+exa.snippet]); [1] developer.zendesk.com/api-reference/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'ticketing, help center, live chat, voice, sales CRM... omnichannel... custom data' plus many APIs, indicating broad surface."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The reference spans many product capabilities and API groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "Zendesk MCP Server",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Zendesk MCP Server' with Zendesk Bridge establishing connections shows vendor-operated MCP server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/fruggr/zendesk-mcp-server",
+          "quote": "zendesk-mcp-server",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:29.262138Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/fruggr/zendesk-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/fruggr/zendesk-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Repo 'zendesk-mcp-server' with 'Bring Zendesk deep into your AI assistant' proves third-party MCP server exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community Zendesk MCP server is documented."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/documentation/api-basics/getting-started/getting-a-trial-or-sponsored-account-for-development/",
+          "quote": "You can try out the Zendesk platform with a free, 14-day trial account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.365318Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/documentation/api-basics/getting-started/getting: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/documentation/api-basics/getting-started/getting: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'You can try out the Zendesk platform with a free, 14-day trial account' establishes free trial."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free 14-day trial is available."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "ZIS Inbound Webhooks API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/api-reference/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/api-reference/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Listing shows 'ZIS Inbound Webhooks API' plus trigger events, proving webhooks offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Approval of a global OAuth client for customer accounts",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "Zendesk has approved the client for use across customer accounts.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Zendesk has approved the client for use across customer accounts' shows global OAuth approval for multi-tenant access."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A global OAuth client is needed for use across customer accounts."
+    },
+    "docs_url": {
+      "value": "https://developer.zendesk.com/api-reference/",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "Welcome to the Zendesk API reference docs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/api-reference/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.zendesk.com/api-reference/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "URL hosts 'Welcome to the Zendesk API reference docs' with endpoints, confirming primary API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "zendesk",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:46:45.872862Z",
+    "finished_at": "2026-11-23T14:47:07.529237Z",
+    "tool_calls": 0,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "cost_usd": 0.0,
+    "backend": "direct",
+    "verifier_tokens_in": 7601,
+    "verifier_tokens_out": 5711,
+    "l6_tool_calls": 0,
+    "l6_rerun_claims": 0
+  },
+  "errors": []
+}

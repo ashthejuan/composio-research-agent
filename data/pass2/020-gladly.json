@@ -1,0 +1,601 @@
+{
+  "app_id": 20,
+  "app": "Gladly",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://gladly.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Customer service platform whose API manages customer profiles, conversations, tasks, and more.",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Gladly is a customer service platform built around people, not tickets.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Matches 'customer service platform built around people' + 'managing customer profiles, conversations, tasks, and more.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/rest/",
+          "quote": "Gladly API uses token-based Basic Authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:05.813904Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/rest/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/rest/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Gladly API uses token-based Basic Authentication' with 'Scheme basic' and no other method shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "admin_approval",
+      "evidence": [
+        {
+          "url": "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks",
+          "quote": "a Gladly Administrator should [create](https://help.gladly.com/docs/managing-users-and-roles) a new user with an API role + Agent and/or Administrator",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642180Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.gladly.com/docs/generate-api-tokens-and-create-webhooks: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.gladly.com/docs/generate-api-tokens-and-create-webhooks: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'a Gladly Administrator should create a new user with an API role' shows admin must grant access."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A Gladly Administrator must provision an API-role user for an integration to create API tokens."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "## REST API Resources",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'REST API Resources' + OpenAPI spec; no GraphQL/SOAP/RPC shown, SDKs don't change type."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "- **Agents** - Lookup agent profiles and availability\n- **Answers** - Public answers search/retrieval and answer management (CRUD)\n- **Audiences** - Brand/segment management for multi-brand organizations",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 20 resources Agents through Work Session Events, fitting medium ~10-30 definition."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation lists about 20 REST API resource groups, consistent with medium breadth."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/gladly/claude-plugin",
+          "quote": "Access: Gladly needs to have turned on the Gladly MCP for your organization.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:07.188250Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/gladly/claude-plugin: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/gladly/claude-plugin: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official gladly/claude-plugin says 'Gladly needs to have turned on the Gladly MCP' - vendor-operated."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The Gladly GitHub repository describes the vendor's MCP; organization enablement is required."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Sandbox: `https://{organization}.gladly.qa`",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'Sandbox: https://{organization}.gladly.qa' proving sandbox environment exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A sandbox environment is documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Subscribe to 35+ event types including agent status changes, conversation lifecycle, customer profile updates, task events, and payment requests.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Webhooks - Event notifications via POST' + 'Subscribe to 35+ event types' proves webhooks."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources list chat SDKs for web, iOS, and Android, but do not identify SDK programming languages."
+    },
+    "rate_limit_note": {
+      "value": "Default: 10 requests/second per method (GET, POST, PUT, PATCH, DELETE); Reports API: 10 requests/minute, 2 concurrent requests per organization.",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Default: 10 requests/second per method (GET, POST, PUT, PATCH, DELETE)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt lists both 'Default: 10 requests/second per method (GET, POST, PUT, PATCH, DELETE)' and Reports API limits verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The Reports API has a separate limit of 10 requests/minute and 2 concurrent requests per organization."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Administrator must provision an API-role user",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks",
+          "quote": "a Gladly Administrator should [create](https://help.gladly.com/docs/managing-users-and-roles) a new user with an API role + Agent and/or Administrator",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642180Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.gladly.com/docs/generate-api-tokens-and-create-webhooks: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.gladly.com/docs/generate-api-tokens-and-create-webhooks: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'a Gladly Administrator should create a new user with an API role' confirming admin-provisioned access gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The integration needs a user with the API role before it can create API tokens."
+    },
+    "docs_url": {
+      "value": "https://developer.gladly.com/rest/",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "- [REST API Reference](https://developer.gladly.com/rest/): Full interactive API documentation (OpenAPI/ReDoc)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.gladly.com/llms.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt labels 'REST API Reference (https://developer.gladly.com/rest/)' as Full interactive API documentation."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:47:53.103773Z",
+    "finished_at": "2026-11-23T14:48:20.350964Z",
+    "tool_calls": 12,
+    "tokens_in": 12104,
+    "tokens_out": 449,
+    "cost_usd": 0.001435,
+    "backend": "direct",
+    "verifier_tokens_in": 7052,
+    "verifier_tokens_out": 3349,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

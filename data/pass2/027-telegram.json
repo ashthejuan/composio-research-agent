@@ -1,0 +1,616 @@
+{
+  "app_id": 27,
+  "app": "Telegram",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://telegram.org",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Telegram is a cloud-based mobile and desktop messaging app focused on security and speed.",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/obtaining_api_id/",
+          "quote": "Telegram is a cloud-based mobile and desktop messaging app with a focus on security and speed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.822117Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/obtaining_api_id/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/obtaining_api_id/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote matches claim verbatim: 'cloud-based mobile and desktop messaging app with a focus on security and speed.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "session_other"
+      ],
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/bots/api",
+          "quote": "All queries to the Telegram Bot API must be served over HTTPS and need to be presented in this form: https://api.telegram.org/bot<token>/METHOD_NAME.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.827821Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/auth",
+          "quote": "Authorization is associated with a client's encryption key identifier: auth_key_id.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.706287Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/bots/api: pass (live 200); [1] core.telegram.org/api/auth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/bots/api: pass (exact [httpx.scrape+exa.snippet]); [1] core.telegram.org/api/auth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Token URL 'https://api.telegram.org/bot<token>/METHOD_NAME' plus 'Authorization is associated with...auth_key_id' both fit other, no OAuth/header/Bearer shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Covers the Bot API token-in-URL scheme and MTProto authorization; neither is documented here as OAuth or a Bearer header."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/obtaining_api_id/",
+          "quote": "Sign up for Telegram using an official application.\nLog in to your Telegram core: https://my.telegram.org.\nGo to \"API development tools\" and fill out the form.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.822117Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "You are welcome to use both APIs free of charge.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/obtaining_api_id/: pass (live 200); [1] core.telegram.org/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/obtaining_api_id/: pass (exact [httpx.scrape+exa.snippet]); [1] core.telegram.org/api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Flow 'Sign up...Go to API development tools' plus 'use both APIs free of charge' shows free self-serve credentials."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API ID and hash can be obtained through the developer's own Telegram account."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "This API is 100% open for all developers who wish to create Telegram applications on our platform.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/: pass (fuzzy 96 [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'It is 100% open for all developers' plus only 'register your application' indicates no review/listing gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The sources describe registration and terms of service, but no review, marketplace listing, or partner program requirement."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/bots/api",
+          "quote": "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.827821Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/bots",
+          "quote": "Working with bots, using the MTProto API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.697275Z"
+        },
+        {
+          "url": "https://core.telegram.org/bots/API",
+          "quote": "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:49:10.876615Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/invoking",
+          "quote": "re-initializing the session with initConnection and invoking getDifference.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:49:10.870080Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/bots/api: pass (live 200); [1] core.telegram.org/api/bots: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/bots/api: pass (exact [httpx.scrape+exa.snippet]); [1] core.telegram.org/api/bots: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "'The Bot API is an HTTP-based interface' supports rest, but 'using the MTProto API' does not state RPC/WebSocket."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"rest\", \"rpc_websocket\"]] [0] core.telegram.org/bots/API: pass (live 200); [1] core.telegram.org/api/invoking: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"rest\", \"rpc_websocket\"]] [0] core.telegram.org/bots/API: pass (exact [httpx.scrape+exa.snippet]); [1] core.telegram.org/api/invoking: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"rest\", \"rpc_websocket\"]] Excerpt1 'HTTP-based interface' supports rest; Excerpt2 'invokeWithLayer', 'initConnection', 'TCP socket' invoking methods supports rpc_websocket."
+          },
+          {
+            "loop": "L6",
+            "result": "confirmed",
+            "detail": "[\"rest\", \"rpc_websocket\"] confirmed by new source(s) https://core.telegram.org/api/invoking, https://core.telegram.org/bots/API (attempt 1; was partially_supported)"
+          }
+        ],
+        "notes": "L6 confirmed via https://core.telegram.org/api/invoking, https://core.telegram.org/bots/API"
+      },
+      "note": "This record covers both the HTTP Bot API and the MTProto API."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/chigwell/telegram-mcp",
+          "quote": "Telegram MCP server powered by Telethon to let MCP clients read chats, manage groups, and send/modify messages, media, contacts, and settings.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:36.460820Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/chigwell/telegram-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/chigwell/telegram-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Telegram MCP server powered by Telethon to let MCP clients...' proves community MCP server exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The cited repository is community-maintained, not an official Telegram MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "You are welcome to use both APIs free of charge.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "Telegram's Gateway API is completely free to test.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/: pass (live 200); [1] core.telegram.org/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/api/: pass (exact [httpx.scrape+exa.snippet]); [1] core.telegram.org/api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quotes 'use both APIs free of charge' and 'completely free to test' directly confirm free access."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The APIs are free to use; the Gateway API is explicitly free to test."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "none",
+        "type": "none"
+      },
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/obtaining_api_id/",
+          "quote": "You will get basic addresses as well as the api_id and api_hash parameters required for user authorization.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        },
+        {
+          "url": "https://core.telegram.org/bots/api",
+          "quote": "All queries to the Telegram Bot API must be served over HTTPS",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        },
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "This API is 100% open for all developers who wish to create Telegram applications on our platform.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] core.telegram.org/api/obtaining_api_id/: pass (live 200); [1] core.telegram.org/bots/api: pass (live 200); [2] core.telegram.org/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] core.telegram.org/api/obtaining_api_id/: pass (exact [httpx.scrape+exa.snippet]); [1] core.telegram.org/bots/api: pass (exact [httpx.scrape+exa.snippet]); [2] core.telegram.org/api/: pass (fuzzy 96 [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] 'You will get...api_id and api_hash' plus '100% open for all developers' free of charge shows self-serve documented API with no gate."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"none\", \"type\": \"none\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://core.telegram.org/api/, https://core.telegram.org/api/obtaining_api_id/, https://core.telegram.org/bots/api)"
+      },
+      "note": "Telegram offers both the Bot API and the MTProto user API; this conclusion is supported for the documented Bot API path."
+    },
+    "docs_url": {
+      "value": "https://core.telegram.org/bots/api",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/bots/api",
+          "quote": "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.827821Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/bots/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] core.telegram.org/bots/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL states 'The Bot API is an HTTP-based interface created for developers' confirming API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary Bot API reference; this record also includes the MTProto API."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "telegram",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:48:36.772051Z",
+    "finished_at": "2026-11-23T14:50:02.923756Z",
+    "tool_calls": 23,
+    "tokens_in": 22601,
+    "tokens_out": 1632,
+    "cost_usd": 0.003076,
+    "backend": "direct",
+    "verifier_tokens_in": 8769,
+    "verifier_tokens_out": 8799,
+    "l6_tool_calls": 23,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

@@ -120,6 +120,7 @@ class AccuracyReport(BaseModel):
     per_app: dict[str, dict[str, Any]] = Field(default_factory=dict)
     misses: list[dict[str, Any]] = Field(default_factory=list)
     excluded: list[dict[str, Any]] = Field(default_factory=list)
+    claim_outcomes: list[dict[str, Any]] = Field(default_factory=list)  # every scored claim (additive)
     taxonomy: dict[str, Any] = Field(default_factory=dict)
 
     def to_json(self) -> str:
@@ -199,6 +200,7 @@ def score(
     per_app: dict[str, dict] = {}
     misses: list[dict] = []
     excluded: list[dict] = []
+    claim_outcomes: list[dict] = []
     strict_rows: list[bool] = []
 
     for i in ids:
@@ -223,6 +225,10 @@ def score(
                 strict_rows.append(strict)
             info = {"app_id": i, "app": rec.app, "field": f, "golden": gf.value,
                     "agent": val, "golden_url": gf.url, "agent_evidence_urls": urls}
+            claim_outcomes.append({
+                "app_id": i, "app": rec.app, "field": f,
+                "outcome": "partial" if (outcome == "wrong" and partial) else outcome,
+                "golden": gf.value, "agent": val})
             if outcome == "excluded":
                 excluded.append({**info, "outcome": outcome, "note": gf.note})
             elif outcome != "correct":
@@ -242,5 +248,6 @@ def score(
         strict_auth_accuracy=(round(100 * sum(strict_rows) / len(strict_rows), 2)
                               if strict_rows else None),
         per_field={f: _counts([r for r in rows if r["field"] == f]) for f in GOLDEN_FIELDS},
-        per_app=per_app, misses=misses, excluded=excluded, taxonomy={},
+        per_app=per_app, misses=misses, excluded=excluded,
+        claim_outcomes=claim_outcomes, taxonomy={},
     )

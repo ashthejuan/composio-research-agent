@@ -1,0 +1,597 @@
+{
+  "app_id": 23,
+  "app": "Zoho Cliq",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://zoho.com/cliq",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Online collaboration, business, and productivity application.",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/developers/terms.html",
+          "quote": "online collaboration, business and productivity applications",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:14.343995Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/developers/terms.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/developers/terms.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'online collaboration, business and productivity applications' matching claimed value verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/help/restapi/v3/oauth/",
+          "quote": "An access token is an OAuth token",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:14.283499Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v3/oauth/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v3/oauth/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt documents 'OAuth 2.0 workflow' and 'An access token is an OAuth token' with no other methods shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API documentation describes OAuth 2.0 access tokens and consent."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/developer/rest-api.html",
+          "quote": "You can create a free account to get started.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:48:30.810435Z"
+        },
+        {
+          "url": "https://www.zoho.com/developer/rest-api.html",
+          "quote": "Get started by creating a self client.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:48:30.810435Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] www.zoho.com/developer/rest-api.html: pass (live 200); [1] www.zoho.com/developer/rest-api.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] www.zoho.com/developer/rest-api.html: pass (exact [httpx.scrape+exa.snippet]); [1] www.zoho.com/developer/rest-api.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] Quote 'You can create a free account to get started' to obtain credentials plus 'creating a self client' for own account proves self_serve_free."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"self_serve_free\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://www.zoho.com/developer/rest-api.html)"
+      },
+      "note": "Zoho states a free account and self client can be used to get started with its APIs."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/help/platform/cliq-extensions-publish.html",
+          "quote": "Once published, users with the extension installation link can install your extension for the organization.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:48:31.758698Z"
+        },
+        {
+          "url": "https://www.zoho.com/cliq/help/platform/cliq-extensions-publish.html",
+          "quote": "Suppose you need to showcase the developed Cliq extension in the Zoho marketplace. In that case, the User (admin) must submit the extension for review via Partner Console.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:48:31.758698Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"none\"] [0] www.zoho.com/cliq/help/platform/cliq-extensions-publish.html: pass (live 200); [1] www.zoho.com/cliq/help/platform/cliq-extensions-publish.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"none\"] [0] www.zoho.com/cliq/help/platform/cliq-extensions-publish.html: pass (exact [httpx.scrape+exa.snippet]); [1] www.zoho.com/cliq/help/platform/cliq-extensions-publish.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"none\"] Excerpt states 'Once published, users with the extension installation link can install' while review/Partner only 'to showcase' in marketplace."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"none\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://www.zoho.com/cliq/help/platform/cliq-extensions-publish.html)"
+      },
+      "note": "Marketplace review is described as conditional on showcasing an extension there; the sources do not specify review requirements for a standalone multi-tenant OAuth app."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/help/restapi/v2/",
+          "quote": "REST API Documentation",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:14.378486Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v2/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v2/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt header 'REST API Documentation' with 'REST ENDPOINTS' confirms REST style API."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The available excerpts do not establish the total number of API resource groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/mcp-server.html",
+          "quote": "Zoho Cliq MCP Server",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:14.351859Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/mcp-server.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/mcp-server.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official zoho.com page titles 'Zoho Cliq MCP Server' and says 'Cliq MCP Server exposes' tools."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/rohansen856/cliq-mcp",
+          "quote": "Core MCP server implementation",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:14.447172Z"
+        },
+        {
+          "url": "https://github.com/rohansen856/cliq-mcp",
+          "quote": "Cliq Integration",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:14.447172Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/rohansen856/cliq-mcp: pass (live 200); [1] github.com/rohansen856/cliq-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/rohansen856/cliq-mcp: pass (exact [httpx.scrape+exa.snippet]); [1] github.com/rohansen856/cliq-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo 'Cliq-MCP: AI WorkBuddy for Zoho Cliq' shows 'Core MCP server implementation'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community repository describes an MCP server with Zoho Cliq integration."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/pricing.html",
+          "quote": "Free Try NowGet Started",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:14.344060Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/pricing.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/pricing.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Pricing page shows 'Free Try Now' and 'Everything in the Free edition +' proving free tier."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The pricing page lists a Free plan; the sources do not state whether API access is included."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The available webhook reference is for a community project, not documentation establishing API webhook support."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "No concrete rate limit is given in the sources."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish that Zoho Cliq itself is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "End-user OAuth consent is required.",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/help/restapi/v3/oauth/",
+          "quote": "the access token is provided only after the user grants permission through consent.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:14.283499Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v3/oauth/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v3/oauth/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'the access token is provided only after the user grants permission through consent' matches claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API access requires end-user OAuth consent."
+    },
+    "docs_url": {
+      "value": "https://www.zoho.com/cliq/help/restapi/v2/",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/cliq/help/restapi/v2/",
+          "quote": "REST API Documentation",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:14.378486Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v2/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/cliq/help/restapi/v2/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "URL hosts 'REST API Documentation' with full endpoint list, confirming primary API reference."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "zoho_cliq",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:48:10.620204Z",
+    "finished_at": "2026-11-23T14:49:02.662707Z",
+    "tool_calls": 12,
+    "tokens_in": 9962,
+    "tokens_out": 790,
+    "cost_usd": 0.001391,
+    "backend": "direct",
+    "verifier_tokens_in": 7143,
+    "verifier_tokens_out": 5071,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

@@ -1,0 +1,568 @@
+{
+  "app_id": 96,
+  "app": "Devin",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "AI, Research and Media-native",
+      "evidence": [
+        {
+          "url": "https://devin.ai",
+          "quote": "Registry category (assignment.md): AI, Research and Media-native",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Devin integrates with the tools you already use, making it easy to incorporate AI-powered development into your existing workflows.",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/integrations/overview",
+          "quote": "Devin integrates with the tools you already use, making it easy to incorporate AI-powered development into your existing workflows.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.335400Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/integrations/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/integrations/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Exact verbatim quote matches claimed sentence word-for-word."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/api-reference/personal-access-tokens",
+          "quote": "-H \"Authorization: Bearer $YOUR_PAT\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T15:00:58.571159Z"
+        },
+        {
+          "url": "https://docs.devin.ai/api-reference/common-flows",
+          "quote": "-H \"Authorization: Bearer $DEVIN_API_KEY\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T15:00:58.305331Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/api-reference/authentication: pass (live 200); [1] docs.devin.ai/api-reference/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/api-reference/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] docs.devin.ai/api-reference/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "Excerpts show only 'Authorization: Bearer cog_' for both tokens; no separate api_key header/query method shown."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"bearer_token\"]] [0] docs.devin.ai/api-reference/personal-access-tokens: pass (live 200); [1] docs.devin.ai/api-reference/common-flows: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"bearer_token\"]] [0] docs.devin.ai/api-reference/personal-access-tokens: pass (exact [httpx.scrape+exa.snippet]); [1] docs.devin.ai/api-reference/common-flows: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"bearer_token\"]] Both excerpts show 'Authorization: Bearer $YOUR_PAT' and 'Bearer $DEVIN_API_KEY'; both token types used identically, no other method shown."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"api_key\", \"bearer_token\"] -> [\"bearer_token\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+          }
+        ],
+        "notes": "L6 changed value (https://docs.devin.ai/api-reference/common-flows, https://docs.devin.ai/api-reference/personal-access-tokens)"
+      },
+      "note": "Both personal access tokens and service user API keys are sent as Bearer tokens."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+          "quote": "Sign up for a Devin account at Devin.ai",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.934868Z"
+        },
+        {
+          "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+          "quote": "Generate an API key from your account settings",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.934868Z"
+        },
+        {
+          "url": "https://docs.devin.ai/admin/billing/self-serve",
+          "quote": "Devin has four self-serve plans you can sign up for directly at app.devin.ai.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.258096Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/work-with-devin/devin-mcp: pass (live 200); [1] docs.devin.ai/work-with-devin/devin-mcp: pass (live 200); [2] docs.devin.ai/admin/billing/self-serve: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/work-with-devin/devin-mcp: pass (exact [httpx.scrape+exa.snippet]); [1] docs.devin.ai/work-with-devin/devin-mcp: pass (exact [httpx.scrape+exa.snippet]); [2] docs.devin.ai/admin/billing/self-serve: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts say 'Sign up for a Devin account' + 'Generate an API key' and free self-serve plan exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The docs describe self-serve account signup and API-key generation; a free self-serve plan is available."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/api-reference/overview",
+          "quote": "Learn how to programmatically interact with Devin using our REST APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.098258Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/api-reference/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/api-reference/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'using our REST APIs' with REST base URLs; no other API styles mentioned."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+          "quote": "Set up the official Devin MCP server so external AI tools can manage sessions, playbooks, knowledge, and repository docs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.934868Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/work-with-devin/devin-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/work-with-devin/devin-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt says 'official Devin MCP server' with Base Server URL https://mcp.devin.ai/."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The community source describes a CLI, not a third-party MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/admin/billing/self-serve",
+          "quote": "| Free | Individuals trying Devin | Free | 1 |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.258096Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/admin/billing/self-serve: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/admin/billing/self-serve: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Table shows '| Free | Individuals trying Devin | Free |' plus Free plan description."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free self-serve plan is available."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Organization access requires endpoint-specific permissions assigned to the service user.",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/api-reference/v3/overview",
+          "quote": "Every API endpoint except `GET /v3/self` is gated by a specific permission. A service user gets its permissions from its assigned role",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T15:01:14.459357Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Organization access requires endpoint-specific permissions assigned to] [0] docs.devin.ai/api-reference/v3/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Organization access requires endpoint-specific permissions assigned to] [0] docs.devin.ai/api-reference/v3/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Organization access requires endpoint-specific permissions assigned to] Excerpt states 'Every API endpoint except GET /v3/self is gated by a specific permission' and service user gets permissions from assigned role."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Organization access requires endpoint-specific permissions assigned to the service user.\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://docs.devin.ai/api-reference/v3/overview)"
+      },
+      "note": "Required permissions vary by endpoint."
+    },
+    "docs_url": {
+      "value": "https://docs.devin.ai/api-reference/overview",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/api-reference/overview",
+          "quote": "url: https://docs.devin.ai/api-reference/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.098258Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.devin.ai/api-reference/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] docs.devin.ai/api-reference/overview: fail (quote not in text (best fuzzy 61) [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source URL equals claimed URL and page is 'API Overview' describing Devin REST APIs."
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4"
+      },
+      "note": "Official API overview documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "devin_mcp",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T15:00:30.592571Z",
+    "finished_at": "2026-11-23T15:01:36.808617Z",
+    "tool_calls": 23,
+    "tokens_in": 24905,
+    "tokens_out": 1048,
+    "cost_usd": 0.003015,
+    "backend": "direct",
+    "verifier_tokens_in": 7607,
+    "verifier_tokens_out": 6876,
+    "l6_tool_calls": 23,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

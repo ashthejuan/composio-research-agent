@@ -1,0 +1,5316 @@
+{
+  "rules_sha256": "8d32f4df9c1988c6bef1029cd7ca24f4e724d102ac1c59edbf3297cf633ca4d3",
+  "before_pass": "pass1",
+  "after_pass": "pass2",
+  "incomplete": false,
+  "unjoined": {
+    "before_only": 0,
+    "after_only": 0
+  },
+  "accuracy": {
+    "before": {
+      "overall": 52.5,
+      "per_field": {
+        "auth_methods": 55.0,
+        "credential_access": 40.0,
+        "production_gate": 25.0,
+        "api_type": 85.0,
+        "mcp_official": 85.0,
+        "main_blocker_type": 25.0
+      }
+    },
+    "after": {
+      "overall": 54.17,
+      "per_field": {
+        "auth_methods": 45.0,
+        "credential_access": 55.0,
+        "production_gate": 25.0,
+        "api_type": 85.0,
+        "mcp_official": 90.0,
+        "main_blocker_type": 25.0
+      }
+    }
+  },
+  "transitions": {
+    "unchanged_correct": 60,
+    "fixed": 5,
+    "unchanged_wrong": 19,
+    "unchanged_abstained": 27,
+    "regressed": 3,
+    "abstained_to_wrong": 6
+  },
+  "errors_caught_per_loop": {
+    "credited": {
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 5
+    },
+    "primary_trigger": {
+      "L1": 0,
+      "L2": 0,
+      "L3": 0,
+      "L4": 0,
+      "L5": 0,
+      "L6": 5,
+      "unattributed": 0
+    },
+    "fixed_total": 5,
+    "fixed_without_ledger": 0
+  },
+  "regressions": [
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "api_key"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "partial",
+      "before_value": [
+        "oauth2",
+        "api_key",
+        "bearer_token"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": true,
+      "transition": "regressed",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/docs/token: pass (live 200); [1] api.docs.dealcloud.com/docs/token: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/docs/token: pass (exact [httpx.scrape+exa.snippet]); [1] api.docs.dealcloud.com/docs/token: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "Supports oauth2 via 'OAuth2 Client Credentials flow to generate a bearer token'; apiKey only for token via 'providing its client_id, apiKey', bearer not separate static token."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"jwt_service_account\"]] [0] api.docs.dealcloud.com/sdk/intapp-rest-client: pass (live 200); [1] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200); [2] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200); [3] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200); [4] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"jwt_service_account\"]] [0] api.docs.dealcloud.com/sdk/intapp-rest-client: pass (exact [httpx.scrape+exa.snippet]); [1] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet]); [2] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet]); [3] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet]); [4] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"jwt_service_account\"]] 4 claimed match 'Multi-Auth OAuth2, API Key, Basic, JWT' but excerpts also list 'Entra ID, Okta' and 'Enterprise Auth...AWS SigV4' omitted."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] api.docs.dealcloud.com/sdk/python-1.X/configuration/authentication: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] api.docs.dealcloud.com/sdk/python-1.X/configuration/authentication: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] States 'uses OAuth2 client credentials for authentication' and page 'covers all available authentication methods' with no other type shown."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"oauth2\", \"api_key\", \"bearer_token\"] -> [\"oauth2\"] | attempt 2: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "jwt_service_account",
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "partial",
+      "before_value": [
+        "oauth2",
+        "jwt_service_account",
+        "bearer_token"
+      ],
+      "after_value": [
+        "jwt_service_account",
+        "oauth2",
+        "bearer_token",
+        "session_other"
+      ],
+      "value_changed": true,
+      "transition": "regressed",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (live 200); [1] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (live 200); [2] www.snowflake.com/en/developers/guides/getting-started-with-snowflake-: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (exact [httpx.scrape+exa.snippet]); [1] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (exact [httpx.scrape+exa.snippet]); [2] www.snowflake.com/en/developers/guides/getting-started-with-snowflake-: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "OAuth, KEYPAIR_JWT and Bearer <YOUR-PAT> support claims but 'Using workload identity federation' shows extra method omitted."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"]] [0] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200); [1] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200); [2] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200); [3] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"]] [0] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet]); [1] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet]); [2] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet]); [3] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"]] Lists 4: 'Generate a JWT token', 'Using OAuth', 'Authorization: Bearer token_secret' for PAT, 'Using workload identity federation' as other."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"oauth2\", \"jwt_service_account\", \"bearer_token\"] -> [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "auth_methods",
+      "golden": [
+        "api_key",
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "wrong",
+      "before_value": [
+        "api_key"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": true,
+      "transition": "regressed",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "Excerpt says 'through an API key or authentication token' - shows extra token method beyond api_key."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] pitchbook.com/help/pitchbook-premium-connector-north: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] pitchbook.com/help/pitchbook-premium-connector-north: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] Excerpt states 'Register OAuth client' then 'Authenticate with PitchBook' via identity provider, establishing OAuth flow."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"api_key\"] -> [\"oauth2\"] | attempt 2: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/docs/api-reference/latest/overview: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/docs/api-reference/latest/overview: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'GET /crm/objects/2026-09/contacts' at 'https://api.hubapi.com/' shows REST API."
+        }
+      ]
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "after_value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/docs/apps/legacy-apps/authentication/intro-to-a: pass (live 200); [1] developers.hubspot.com/docs/apps/developer-platform/build-apps/authent: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/docs/apps/legacy-apps/authentication/intro-to-a: pass (exact [httpx.scrape+exa.snippet]); [1] developers.hubspot.com/docs/apps/developer-platform/build-apps/authent: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'two ways to authenticate: OAuth, and private app access tokens' both via 'Authorization: Bearer'."
+        }
+      ]
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "correct",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "value_changed": true,
+      "transition": "fixed",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] developers.hubspot.com/docs/getting-started/account-types: pass (live 200); [1] developers.hubspot.com/docs/getting-started/account-types: pass (live 200); [2] developers.hubspot.com/docs/getting-started/account-types: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] developers.hubspot.com/docs/getting-started/account-types: pass (exact [httpx.scrape+exa.snippet]); [1] developers.hubspot.com/docs/getting-started/account-types: pass (exact [httpx.scrape+exa.snippet]); [2] developers.hubspot.com/docs/getting-started/account-types: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate \"self_serve_free\"] Standard account 'can be free or paid' to 'manage your apps, developer tooling' and 'test apps and integrations' using 'OAuth token' shows free self-serve API."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "\"unknown\" -> \"self_serve_free\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "technical",
+      "after_value": "technical",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/docs/apps/developer-platform/build-apps/authent: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/docs/apps/developer-platform/build-apps/authent: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'You\u2019ll need to set up and host an OAuth backend service' for multi-account requires hosting."
+        }
+      ]
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/ai-tools/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.hubspot.com/ai-tools/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'HubSpot offers two distinct MCP (Model Context Protocol) servers' proves vendor MCP."
+        }
+      ]
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "production_gate",
+      "golden": "marketplace_listing",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'Intapp REST Client' plus Schema/Data/Cells/Files endpoints show REST style; no GraphQL/SOAP shown."
+        }
+      ]
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "api_key"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "partial",
+      "before_value": [
+        "oauth2",
+        "api_key",
+        "bearer_token"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": true,
+      "transition": "regressed",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/docs/token: pass (live 200); [1] api.docs.dealcloud.com/docs/token: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/docs/token: pass (exact [httpx.scrape+exa.snippet]); [1] api.docs.dealcloud.com/docs/token: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "Supports oauth2 via 'OAuth2 Client Credentials flow to generate a bearer token'; apiKey only for token via 'providing its client_id, apiKey', bearer not separate static token."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"jwt_service_account\"]] [0] api.docs.dealcloud.com/sdk/intapp-rest-client: pass (live 200); [1] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200); [2] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200); [3] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200); [4] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"jwt_service_account\"]] [0] api.docs.dealcloud.com/sdk/intapp-rest-client: pass (exact [httpx.scrape+exa.snippet]); [1] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet]); [2] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet]); [3] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet]); [4] api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentica: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"jwt_service_account\"]] 4 claimed match 'Multi-Auth OAuth2, API Key, Basic, JWT' but excerpts also list 'Entra ID, Okta' and 'Enterprise Auth...AWS SigV4' omitted."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] api.docs.dealcloud.com/sdk/python-1.X/configuration/authentication: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] api.docs.dealcloud.com/sdk/python-1.X/configuration/authentication: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] States 'uses OAuth2 client credentials for authentication' and page 'covers all available authentication methods' with no other type shown."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"oauth2\", \"api_key\", \"bearer_token\"] -> [\"oauth2\"] | attempt 2: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "credential_access",
+      "golden": "contact_sales",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "main_blocker_type",
+      "golden": "access",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] api.docs.dealcloud.com/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'DealCloud MCP Server' on official docs describes vendor server that assistants connect to."
+        }
+      ]
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer.zendesk.com/documentation/marketplace/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer.zendesk.com/documentation/marketplace/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'Integration apps are integrations built using our REST API' documents REST; no other styles shown."
+        }
+      ]
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "basic",
+        "api_key"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "basic",
+        "oauth2"
+      ],
+      "after_value": [
+        "basic",
+        "oauth2"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenti: pass (live 200); [1] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenti: pass (exact [httpx.scrape+exa.snippet]); [1] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Lists 'use basic authentication with your email address... or an OAuth access token' with Bearer header, matching basic+oauth2."
+        }
+      ]
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "credential_access",
+      "golden": "self_serve_trial",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "self_serve_trial",
+      "after_value": "self_serve_trial",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer.zendesk.com/documentation/api-basics/getting-started/getting: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer.zendesk.com/documentation/api-basics/getting-started/getting: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'You can try out the Zendesk platform with a free, 14-day trial account' shows trial-only self-serve access."
+        }
+      ]
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "main_blocker_type",
+      "golden": "access",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'Zendesk has approved the client for use across customer accounts' shows global OAuth approval for multi-tenant access."
+        }
+      ]
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'Zendesk MCP Server' with Zendesk Bridge establishing connections shows vendor-operated MCP server."
+        }
+      ]
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "production_gate",
+      "golden": "oauth_app_review",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "oauth_app_review",
+      "after_value": "oauth_app_review",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule gate_official_evidence"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (live 200); [1] developer.zendesk.com/documentation/marketplace/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-extern: pass (exact [httpx.scrape+exa.snippet]); [1] developer.zendesk.com/documentation/marketplace/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'Global means Zendesk has approved the client for use across customer accounts' shows vendor OAuth app approval."
+        }
+      ]
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] www.usepylon.com/pylon-facts: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] www.usepylon.com/pylon-facts: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Excerpt states 'Developer platform: REST API' with no other style listed."
+        }
+      ]
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "auth_methods",
+      "golden": [
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "bearer_token"
+      ],
+      "after_value": [
+        "bearer_token"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/authentication: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/authentication: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Excerpt states 'The Pylon API uses Bearer authentication' with 'Authorization: Bearer <token>'."
+        }
+      ]
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "credential_access",
+      "golden": "paid_plan_required",
+      "before_outcome": "abstained",
+      "after_outcome": "wrong",
+      "before_value": "unknown",
+      "after_value": "contact_sales",
+      "value_changed": true,
+      "transition": "abstained_to_wrong",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"contact_sales\"] [0] www.usepylon.com/pricing: pass (live 200); [1] www.usepylon.com/pricing: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"contact_sales\"] [0] www.usepylon.com/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] www.usepylon.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate \"contact_sales\"] API listed in seat plans requiring 'Book a demo'/'Talk to sales'; trials require 'Your sales representative will work with you on setting up the demo organization.'"
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "\"unknown\" -> \"contact_sales\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.usepylon.com/pylon-docs/developer/api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.usepylon.com/pylon-docs/developer/api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'Only Admin users can create API tokens' matches text; admin-only creation is access-type gate."
+        }
+      ]
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.usepylon.com/pylon-docs/integrations/pylon-mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.usepylon.com/pylon-docs/integrations/pylon-mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'The Pylon MCP Server exposes Pylon data' with official mcp.usepylon.com URLs."
+        }
+      ]
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "api_type",
+      "golden": [
+        "rpc_websocket"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rpc_websocket"
+      ],
+      "after_value": [
+        "rpc_websocket"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/apis/web-api/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/apis/web-api/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Phrase \"collection of HTTP RPC-style methods\" plus \"not a REST API\" supports rpc_websocket."
+        }
+      ]
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/authentication/installing-with-oauth/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/authentication/installing-with-oauth/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Excerpt states \"Slack apps are installed with a v2 OAuth 2.0 flow\" documenting oauth2."
+        }
+      ]
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "self_serve_free",
+      "after_value": "self_serve_free",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] slack.dev/slack-developer-sandboxes/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] slack.dev/slack-developer-sandboxes/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Phrase \"free environment that can be used to build against Slack features\" shows free self-serve access."
+        }
+      ]
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "main_blocker_type",
+      "golden": "technical",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "access",
+      "after_value": "commercial",
+      "value_changed": true,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/authentication/installing-with-oauth/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/authentication/installing-with-oauth/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "insufficient_evidence",
+          "detail": "Excerpt lists 'Waiting for a user to approve your requested scopes' as routine OAuth step, never as single biggest obstacle."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Separate authorization is required for commercial distribution.\", \"typ] [0] slack.com/terms/api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Separate authorization is required for commercial distribution.\", \"typ] [0] slack.com/terms/api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Separate authorization is required for commercial distribution.\", \"typ] Quote 'You may not Commercially Distribute... unless authorised under separate agreement' directly supports commercial gate."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "{\"text\": \"User approval of requested OAuth scopes for each installation\", \"type\": \"access\"} -> {\"text\": \"Separate authorization is required for commercial distribution.\", \"type\": \"commercial\"} | attempt 1: re-researched value supported by verifier and grounded quote; was insufficient_evidence"
+        }
+      ]
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/ai/slack-mcp-server/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/ai/slack-mcp-server/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "\"MCP server offerings from Slack\" and \"develop with the Slack MCP server\" shows vendor MCP."
+        }
+      ]
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "production_gate",
+      "golden": "marketplace_listing",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "none",
+      "after_value": "none",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/authentication/installing-with-oauth/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.slack.dev/authentication/installing-with-oauth/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Phrase \"OAuth allows a user in any Slack workspace to install your app\" shows no review gate."
+        }
+      ]
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'POST | /{Version}/{Phone-Number-ID}/messages' with Base URL shows REST HTTP API."
+        }
+      ]
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "auth_methods",
+      "golden": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/business-messaging/whatsapp/refe: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Header requires 'Bearer token...obtained through the appropriate OAuth flow' showing oauth2, no other method listed."
+        }
+      ]
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "main_blocker_type",
+      "golden": "access",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [
+        "L2",
+        "L3",
+        "L6"
+      ],
+      "primary_trigger": "L2",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "fail",
+          "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: fail (dead 400)"
+        },
+        {
+          "loop": "L3",
+          "result": "fail",
+          "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'your app is ready for public use, so you should begin the App Review process' shows App Review access gate."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"App Review and Advanced access approval required before onboarding cli] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"App Review and Advanced access approval required before onboarding cli] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"App Review and Advanced access approval required before onboarding cli] Quote 'Before you can officially begin onboarding clients, submit your app for App Review and request Advanced access approval' directly matches claim."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "{\"text\": \"App Review for public use\", \"type\": \"access\"} -> {\"text\": \"App Review and Advanced access approval required before onboarding clients\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was insufficient_evidence"
+        }
+      ]
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/mcp: pass (live 200); [1] developers.facebook.com/documentation/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/mcp: pass (exact [httpx.scrape+exa.snippet]); [1] developers.facebook.com/documentation/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'Meta runs official remote' servers plus 'WhatsApp Business Tools MCP' URL proves vendor MCP."
+        }
+      ]
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "production_gate",
+      "golden": "oauth_app_review",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "oauth_app_review",
+      "after_value": "oauth_app_review",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [
+        "L2",
+        "L3"
+      ],
+      "primary_trigger": "L2",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule gate_official_evidence"
+        },
+        {
+          "loop": "L2",
+          "result": "fail",
+          "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: fail (dead 400)"
+        },
+        {
+          "loop": "L3",
+          "result": "fail",
+          "detail": "[0] developers.facebook.com/docs/whatsapp/solution-providers/app-review/sa: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'your app is ready for public use, so you should begin the App Review process' requires review."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] [0] developers.facebook.com/documentation/business-messaging/whatsapp/solu: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate \"oauth_app_review\"] Quote requires 'submit your app for App Review' before officially onboarding clients."
+        },
+        {
+          "loop": "L6",
+          "result": "confirmed",
+          "detail": "\"oauth_app_review\" confirmed by new source(s) https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/overview (attempt 1; was insufficient_evidence)"
+        }
+      ]
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [
+        "L5"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "insufficient_evidence",
+          "detail": "Excerpt only says 'collection of Graph API endpoints'; word REST never appears."
+        },
+        {
+          "loop": "L2",
+          "result": "fail",
+          "detail": "[L6 attempt 1 candidate [\"rest\"]] [0] developers.facebook.com/docs/marketing-api/reference/ad-account/ads/: fail (dead 400)"
+        },
+        {
+          "loop": "L3",
+          "result": "fail",
+          "detail": "[L6 attempt 1 candidate [\"rest\"]] [0] developers.facebook.com/docs/marketing-api/reference/ad-account/ads/: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate [\"rest\"]] States 'You can make a POST request to ads edge' with HTTP POST example, showing REST HTTP API."
+        },
+        {
+          "loop": "L2",
+          "result": "fail",
+          "detail": "[L6 attempt 2 candidate [\"rest\"]] [0] developers.facebook.com/docs/marketing-api/get-started/basic-ad-creati: fail (dead 400)"
+        },
+        {
+          "loop": "L3",
+          "result": "fail",
+          "detail": "[L6 attempt 2 candidate [\"rest\"]] [0] developers.facebook.com/docs/marketing-api/get-started/basic-ad-creati: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate [\"rest\"]] Shows 'send a POST request to the `/act_<AD_ACCOUNT_ID>/campaigns` endpoint' with curl POST, evidencing REST."
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "kept [\"rest\"] (insufficient_evidence) | a1: candidate [\"rest\"] rejected (L5 supported, grounded=no); a2: candidate [\"rest\"] rejected (L5 supported, grounded=no)"
+        }
+      ]
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/get-s: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/get-s: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Excerpt shows 'dialog/oauth' URL with scope=ads_management, proving OAuth 2.0 flow."
+        }
+      ]
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "main_blocker_type",
+      "golden": "access",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/get-s: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/get-s: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Same phrase requires app review for ad-management permissions, an access-type blocker."
+        }
+      ]
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'Meta runs official remote Model Context Protocol (MCP) servers' listing Meta Ads MCP."
+        }
+      ]
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "production_gate",
+      "golden": "oauth_app_review",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "oauth_app_review",
+      "after_value": "oauth_app_review",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule gate_official_evidence"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/get-s: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.facebook.com/documentation/ads-commerce/marketing-api/get-s: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Phrase 'you may need to submit your app for review' for ad management proves app review gate."
+        }
+      ]
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/api/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/api/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Reference lists 'get /account-exports', 'post /account-exports' etc., showing REST-style HTTP endpoints."
+        }
+      ]
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "auth_methods",
+      "golden": [
+        "api_key",
+        "oauth2",
+        "basic",
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "api_key",
+        "oauth2",
+        "basic"
+      ],
+      "after_value": [
+        "oauth2",
+        "api_key",
+        "basic",
+        "bearer_token"
+      ],
+      "value_changed": true,
+      "transition": "unchanged_correct",
+      "responsible_loops": [
+        "L1",
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L1",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "fail",
+          "detail": "rule oauth2_quote: oauth2 claimed but no quote mentions oauth/authoriz"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/api-concepts/authentication: pass (live 200); [1] mailchimp.com/developer/marketing/api-concepts/authentication: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/api-concepts/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] mailchimp.com/developer/marketing/api-concepts/authentication: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "Confirms api_key/OAuth2 via 'There are two kinds' and Basic, but also states 'or Bearer Authentication' which claim omits."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"bearer_token\"]] [0] mailchimp.com/developer/marketing/api-concepts/authentication/oauth-2: pass (live 200); [1] mailchimp.com/developer/marketing/guides/quick-start/: pass (live 200); [2] mailchimp.com/developer/marketing/docs/fundamentals/: pass (live 200); [3] mailchimp.com/developer/marketing/docs/fundamentals/: pass (live 200); [4] mailchimp.com/developer/marketing/docs/fundamentals/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"bearer_token\"]] [0] mailchimp.com/developer/marketing/api-concepts/authentication/oauth-2: pass (exact [httpx.scrape+exa.snippet]); [1] mailchimp.com/developer/marketing/guides/quick-start/: pass (exact [httpx.scrape+exa.snippet]); [2] mailchimp.com/developer/marketing/docs/fundamentals/: pass (exact [httpx.scrape+exa.snippet]); [3] mailchimp.com/developer/marketing/docs/fundamentals/: pass (exact [httpx.scrape+exa.snippet]); [4] mailchimp.com/developer/marketing/docs/fundamentals/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\", \"basic\", \"bearer_token\"]] Covers all four: 'authorization code flow' for oauth2, 'using an API key' for api_key, 'either use HTTP Basic Authentication or Bearer Authentication' for basic+bearer."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"api_key\", \"oauth2\", \"basic\"] -> [\"oauth2\", \"api_key\", \"basic\", \"bearer_token\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "self_serve_free",
+      "after_value": "self_serve_free",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/build/get-started/create-an-account: pass (live 200); [1] mailchimp.com/pricing/marketing/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/build/get-started/create-an-account: pass (exact [httpx.scrape+exa.snippet]); [1] mailchimp.com/pricing/marketing/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'Once you have an account and are logged in, you can get an API key' and pricing shows 'Free' plan exists."
+        }
+      ]
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "wrong",
+      "before_value": "unknown",
+      "after_value": "commercial",
+      "value_changed": true,
+      "transition": "abstained_to_wrong",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Integration Partner Program membership required for distribution\", \"ty] [0] mailchimp.com/developer/marketing/docs/integrations/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Integration Partner Program membership required for distribution\", \"ty] [0] mailchimp.com/developer/marketing/docs/integrations/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Integration Partner Program membership required for distribution\", \"ty] Quote 'you\u2019ll need to join the Integration Partner Program' to list in Marketplace supports partner-deal blocker."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Integration Partner Program membership required for distribution\", \"type\": \"commercial\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/build/ai-tools/mcp-server/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] mailchimp.com/developer/marketing/build/ai-tools/mcp-server/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Vendor docs state 'This documentation site is itself an MCP server' with connection URL."
+        }
+      ]
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "wrong",
+      "before_value": "unknown",
+      "after_value": "partner_program",
+      "value_changed": true,
+      "transition": "abstained_to_wrong",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"partner_program\"] [0] mailchimp.com/developer/marketing/docs/integrations/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"partner_program\"] [0] mailchimp.com/developer/marketing/docs/integrations/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate \"partner_program\"] Excerpt states \u201cyou'll need to join the Integration Partner Program\u201d to get integration in front of users."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "\"unknown\" -> \"partner_program\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] sell.amazon.com/developers: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] sell.amazon.com/developers: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'Selling Partner API (SP-API) is a REST-based API' directly confirms rest."
+        }
+      ]
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer-docs.amazon.com/sp-api/docs/authorize-public-applications: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer-docs.amazon.com/sp-api/docs/authorize-public-applications: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'Login with Amazon (LWA), which is Amazon's implementation of OAuth 2.0' confirms oauth2."
+        }
+      ]
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "credential_access",
+      "golden": "partner_gated",
+      "before_outcome": "abstained",
+      "after_outcome": "wrong",
+      "before_value": "unknown",
+      "after_value": "admin_approval",
+      "value_changed": true,
+      "transition": "abstained_to_wrong",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate \"admin_approval\"] [0] developer-docs.amazon.com/sp-api/lang-zh_CN/docs/register-as-a-private: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate \"admin_approval\"] [0] developer-docs.amazon.com/sp-api/lang-zh_CN/docs/register-as-a-private: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate \"admin_approval\"] Quote 'decision to grant or deny...made based on...Developer Profile' plus wait for next steps proves approval required."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "\"unknown\" -> \"admin_approval\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "main_blocker_type",
+      "golden": "access",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer-docs.amazon.com/sp-api/lang-US/docs/sp-api-registration-over: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer-docs.amazon.com/sp-api/lang-US/docs/sp-api-registration-over: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote: 'public developers must list their app in the Amazon Selling Partner Appstore' proves access listing requirement."
+        }
+      ]
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] github.com/amzn/selling-partner-api-samples/blob/main/README.md: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] github.com/amzn/selling-partner-api-samples/blob/main/README.md: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Official amzn repo states 'developer tools (including MCP servers and a local sandbox)' confirming vendor MCP."
+        }
+      ]
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "production_gate",
+      "golden": "marketplace_listing",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "marketplace_listing",
+      "after_value": "marketplace_listing",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule gate_official_evidence"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer-docs.amazon.com/sp-api/lang-US/docs/sp-api-registration-over: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer-docs.amazon.com/sp-api/lang-US/docs/sp-api-registration-over: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'public developers must list their app in the Amazon Selling Partner Appstore' requires marketplace_listing."
+        }
+      ]
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": [
+        "unknown"
+      ],
+      "after_value": [
+        "unknown"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"rest\"]] [0] commas.com/payments: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"rest\"]] [0] commas.com/payments: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "insufficient_evidence",
+          "detail": "[L6 attempt 1 candidate [\"rest\"]] Mentions 'REST API' but source is commas.com/payments about Commas, not fanbasis, so off-topic."
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: candidate [\"rest\"] rejected (L5 insufficient_evidence, grounded=yes); a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "auth_methods",
+      "golden": [
+        "api_key"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "api_key"
+      ],
+      "after_value": [
+        "api_key"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] github.com/subtain-haider/laravel-payments/blob/main/docs/gateways/fan: pass (blocked 429)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] github.com/subtain-haider/laravel-payments/blob/main/docs/gateways/fan: pass (exact [exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'single API key' 'Required for all API calls' and 'No OAuth, no client ID/secret pairs'"
+        }
+      ]
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "documentation",
+      "after_value": "documentation",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] dev-docs.fanbasis.com/login.html: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] dev-docs.fanbasis.com/login.html: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Page repeats 'Sign in to access API Docs' showing docs gated by login"
+        }
+      ]
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"yes\"] [0] commas.com/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"yes\"] [0] commas.com/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "insufficient_evidence",
+          "detail": "[L6 attempt 1 candidate \"yes\"] Excerpt only shows 'Run Commas from your AI assistant' for Commas; no mention of Fanbasis MCP server."
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: candidate \"yes\" rejected (L5 insufficient_evidence, grounded=yes); a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Labelled 'REST API' for research keywords/backlinks etc.; no other wire API style shown."
+        }
+      ]
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "auth_methods",
+      "golden": [
+        "api_key"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "after_value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/llms.txt: pass (live 200); [1] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/llms.txt: pass (exact [httpx.scrape+exa.snippet]); [1] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Shows both: 'as a bearer token in the Authorization' header and 'integrates with Ahrefs API via OAuth'."
+        }
+      ]
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "credential_access",
+      "golden": "paid_plan_required",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "paid_plan_required",
+      "after_value": "paid_plan_required",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/en/api/docs/introduction: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/en/api/docs/introduction: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'Ahrefs API is available on eligible paid plans' directly requires paid plan."
+        }
+      ]
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Excerpt shows Review/approval required: 'Once approved...Active' enables 'Live OAuth connections'."
+        }
+      ]
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/mcp/docs/introduction.md: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/mcp/docs/introduction.md: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'Ahrefs provides a hosted MCP server' proving vendor-operated MCP."
+        }
+      ]
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "oauth_app_review",
+      "after_value": "oauth_app_review",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule gate_official_evidence"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (live 200); [1] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (exact [httpx.scrape+exa.snippet]); [1] docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'Once approved, your app switches to Active' enables 'Live OAuth connections...in production' shows review gate."
+        }
+      ]
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "api_type",
+      "golden": [
+        "cli"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "cli"
+      ],
+      "after_value": [
+        "cli"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] sherlockproject.xyz/usage: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] sherlockproject.xyz/usage: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Excerpt shows CLI commands 'sherlock user123' and 'usage: sherlock [-h]...'"
+        }
+      ]
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "auth_methods",
+      "golden": [
+        "none"
+      ],
+      "before_outcome": "abstained",
+      "after_outcome": "correct",
+      "before_value": [
+        "unknown"
+      ],
+      "after_value": [
+        "none"
+      ],
+      "value_changed": true,
+      "transition": "fixed",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"none\"]] [0] sherlockproject.xyz/adding-sites: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"none\"]] [0] sherlockproject.xyz/adding-sites: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate [\"none\"]] Quote 'only unauthenticated API calls are supported' directly establishes no-auth-only set."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"unknown\"] -> [\"none\"] | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "main_blocker_type",
+      "golden": "technical",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "mcp_official",
+      "golden": "no_found",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "api_type",
+      "golden": [
+        "rest",
+        "graphql"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest",
+        "graphql"
+      ],
+      "after_value": [
+        "rest",
+        "graphql"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule graphql_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/rest/about-the-rest-api/about-the-openapi-descripti: pass (live 200); [1] docs.github.com/en/rest: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/rest/about-the-rest-api/about-the-openapi-descripti: pass (exact [httpx.scrape+exa.snippet]); [1] docs.github.com/en/rest: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'Comparing GitHub's REST API and GraphQL API' plus REST OpenAPI doc proves rest+graphql."
+        }
+      ]
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token",
+        "jwt_service_account"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2",
+        "basic"
+      ],
+      "value_changed": true,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/rest/authentication/authenticating-to-the-rest-api: pass (live 200); [1] docs.github.com/en/apps/oauth-apps/building-oauth-apps/authenticating-: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/rest/authentication/authenticating-to-the-rest-api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.github.com/en/apps/oauth-apps/building-oauth-apps/authenticating-: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "Bearer header and OAuth app shown, but 'JSON web token (JWT)' indicates extra jwt_service_account not listed."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] docs.github.com/en/authentication/keeping-your-account-and-data-secure: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] docs.github.com/en/authentication/keeping-your-account-and-data-secure: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\"]] Quote 'create an OAuth token with an OAuth app' supports oauth2, but excerpts also list personal access token, GitHub App, GITHUB_TOKEN, so set incomplete."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\", \"basic\"]] [0] docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oau: pass (live 200); [1] docs.github.com/en/rest/apps/oauth-applications: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\", \"basic\"]] [0] docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oau: pass (exact [httpx.scrape+exa.snippet]); [1] docs.github.com/en/rest/apps/oauth-applications: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\", \"basic\"]] Quotes 'Both OAuth apps and GitHub Apps use OAuth 2.0' and 'You must use Basic Authentication to use this endpoint' establish both methods."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"bearer_token\", \"oauth2\"] -> [\"oauth2\", \"basic\"] | attempt 2: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "self_serve_free",
+      "after_value": "self_serve_free",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/rest/authentication/authenticating-to-the-rest-api: pass (live 200); [1] github.com/pricing: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/rest/authentication/authenticating-to-the-rest-api: pass (exact [httpx.scrape+exa.snippet]); [1] github.com/pricing: fail (quote not in text (best fuzzy 80) [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'You can create a personal access token' plus Free $0 'Create a free organization' shows self-serve free."
+        }
+      ]
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/copilot/how-tos/provide-context/use-mcp/use-the-git: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.github.com/en/copilot/how-tos/provide-context/use-mcp/use-the-git: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'server provided and maintained by GitHub' directly proves vendor-official MCP server."
+        }
+      ]
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-res: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-res: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'These REST APIs are compliant with the OpenAPI specification' confirms rest; no other styles shown."
+        }
+      ]
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "jwt_service_account",
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "partial",
+      "before_value": [
+        "oauth2",
+        "jwt_service_account",
+        "bearer_token"
+      ],
+      "after_value": [
+        "jwt_service_account",
+        "oauth2",
+        "bearer_token",
+        "session_other"
+      ],
+      "value_changed": true,
+      "transition": "regressed",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (live 200); [1] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (live 200); [2] www.snowflake.com/en/developers/guides/getting-started-with-snowflake-: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (exact [httpx.scrape+exa.snippet]); [1] docs.snowflake.com/en/developer-guide/sql-api/authenticating: pass (exact [httpx.scrape+exa.snippet]); [2] www.snowflake.com/en/developers/guides/getting-started-with-snowflake-: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "OAuth, KEYPAIR_JWT and Bearer <YOUR-PAT> support claims but 'Using workload identity federation' shows extra method omitted."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"]] [0] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200); [1] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200); [2] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200); [3] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"]] [0] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet]); [1] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet]); [2] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet]); [3] docs.snowflake.com/en/developer-guide/snowflake-rest-api/authenticatio: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"]] Lists 4: 'Generate a JWT token', 'Using OAuth', 'Authorization: Bearer token_secret' for PAT, 'Using workload identity federation' as other."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"oauth2\", \"jwt_service_account\", \"bearer_token\"] -> [\"jwt_service_account\", \"oauth2\", \"bearer_token\", \"session_other\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "credential_access",
+      "golden": "self_serve_trial",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "self_serve_trial",
+      "after_value": "self_serve_trial",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/user-guide/admin-trial-account: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/user-guide/admin-trial-account: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'sign up for a free trial using the self-service form' plus 30 days shows self-serve time-limited trial."
+        }
+      ]
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "before_outcome": "abstained",
+      "after_outcome": "wrong",
+      "before_value": "unknown",
+      "after_value": "access",
+      "value_changed": true,
+      "transition": "abstained_to_wrong",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Customer account network policies must allow the integration\u2019s IP rang] [0] docs.snowflake.com/en/user-guide/programmatic-access-tokens: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Customer account network policies must allow the integration\u2019s IP rang] [0] docs.snowflake.com/en/user-guide/programmatic-access-tokens: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"Customer account network policies must allow the integration\u2019s IP rang] Quote requires 'network policy that allows requests from the IP address ranges of the third-party application' for PAT use."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Customer account network policies must allow the integration\u2019s IP ranges.\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'The Snowflake-managed MCP server lets AI agents securely retrieve data' proves vendor-operated server."
+        }
+      ]
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "api_type",
+      "golden": [
+        "graphql",
+        "rest"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer.atlassian.com/cloud/jira/platform/rest/v3/intro/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer.atlassian.com/cloud/jira/platform/rest/v3/intro/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'REST API v3' and 'The Jira REST API enables you to interact with Jira programmatically' directly documents rest style."
+        }
+      ]
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "auth_methods",
+      "golden": [
+        "basic",
+        "oauth2"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "oauth2",
+        "basic"
+      ],
+      "after_value": [
+        "oauth2",
+        "basic"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer.atlassian.com/cloud/jira/platform/security-for-other-integra: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer.atlassian.com/cloud/jira/platform/security-for-other-integra: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Page states 'there are two methods' namely 'OAuth 2.0 authorization code grants (3LO)' and 'Basic authentication' - exactly oauth2+basic."
+        }
+      ]
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "correct",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "value_changed": true,
+      "transition": "fixed",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate \"self_serve_free\"] [0] support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-you: pass (live 200); [1] www.atlassian.com/try/cloud/signup: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate \"self_serve_free\"] [0] support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-you: pass (exact [httpx.scrape+exa.snippet]); [1] www.atlassian.com/try/cloud/signup: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate \"self_serve_free\"] Self-generate: 'You generate the token from your Atlassian account' plus 'free for up to 10 users - no credit card needed'"
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "\"unknown\" -> \"self_serve_free\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "main_blocker_type",
+      "golden": "technical",
+      "before_outcome": "abstained",
+      "after_outcome": "wrong",
+      "before_value": "unknown",
+      "after_value": "none",
+      "value_changed": true,
+      "transition": "abstained_to_wrong",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] www.atlassian.com/try/cloud/signup: pass (live 200); [1] developer.atlassian.com/cloud/jira/platform/rest/v3/intro/: pass (live 200); [2] developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] www.atlassian.com/try/cloud/signup: pass (exact [httpx.scrape+exa.snippet]); [1] developer.atlassian.com/cloud/jira/platform/rest/v3/intro/: pass (exact [httpx.scrape+exa.snippet]); [2] developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] Free 'no credit card needed' + 'REST API v3' docs + self-generated API token and Marketplace only '(recommended)' proves self-serve with no mandatory gate."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"none\", \"type\": \"none\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developer.atlassian.com/cloud/rovo-mcp/: pass (live 200); [1] developer.atlassian.com/cloud/rovo-mcp/: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developer.atlassian.com/cloud/rovo-mcp/: pass (exact [httpx.scrape+exa.snippet]); [1] developer.atlassian.com/cloud/rovo-mcp/: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "'The Atlassian Rovo MCP Server is a cloud-hosted Model Context Protocol (MCP) server' on developer.atlassian.com proves vendor server."
+        }
+      ]
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "production_gate",
+      "golden": "oauth_app_review",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/reference/rest-api-reference: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/reference/rest-api-reference: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'The Asana API is a RESTful interface' with base URL; no other styles shown."
+        }
+      ]
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "after_value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/oauth: pass (live 200); [1] developers.asana.com/docs/quick-start: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/oauth: pass (exact [httpx.scrape+exa.snippet]); [1] developers.asana.com/docs/quick-start: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Shows 'authorization code grant flow' for oauth2 and PAT with 'authorization: Bearer ACCESS_TOKEN' for bearer_token."
+        }
+      ]
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "self_serve_free",
+      "after_value": "self_serve_free",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/overview: pass (live 200); [1] developers.asana.com/docs/authentication: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/overview: pass (exact [httpx.scrape+exa.snippet]); [1] developers.asana.com/docs/authentication: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Says 'create a free account' to test and create PAT/app in developer console, proving free self-serve."
+        }
+      ]
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/publish-your-app: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/publish-your-app: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Requires submit for review to \"Make your app available ... beyond your own organization\" - an access approval gate."
+        }
+      ]
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/using-asanas-mcp-server: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/using-asanas-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'Asana offers a Model Context Protocol (MCP) server' at mcp.asana.com/v2/mcp."
+        }
+      ]
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "production_gate",
+      "golden": "oauth_app_review",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "oauth_app_review",
+      "after_value": "oauth_app_review",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule gate_official_evidence"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/publish-your-app: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.asana.com/docs/publish-your-app: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Requires 'Submit for review' to 'Make your app available...beyond your own organization'."
+        }
+      ]
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.stripe.com/api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.stripe.com/api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'The Stripe API is organized around REST' directly confirms REST style."
+        }
+      ]
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "auth_methods",
+      "golden": [
+        "api_key",
+        "basic",
+        "bearer_token"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "api_key",
+        "basic",
+        "bearer_token",
+        "oauth2"
+      ],
+      "after_value": [
+        "api_key",
+        "oauth2"
+      ],
+      "value_changed": true,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule oauth2_quote"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.stripe.com/api/authentication: pass (live 200); [1] docs.stripe.com/api: pass (live 200); [2] docs.stripe.com/api: pass (live 200); [3] docs.stripe.com/stripe-apps/api-authentication/oauth: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.stripe.com/api/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] docs.stripe.com/api: pass (exact [httpx.scrape+exa.snippet]); [2] docs.stripe.com/api: pass (exact [httpx.scrape+exa.snippet]); [3] docs.stripe.com/stripe-apps/api-authentication/oauth: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "Excerpts prove 'API keys', 'HTTP Basic Auth' and 'Authorization: Bearer', but show no OAuth 2.0 flow."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"api_key\", \"oauth2\"]] [0] docs.stripe.com/keys: pass (live 200); [1] docs.stripe.com/stripe-apps/api-authentication: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"api_key\", \"oauth2\"]] [0] docs.stripe.com/keys: pass (exact [httpx.scrape+exa.snippet]); [1] docs.stripe.com/stripe-apps/api-authentication: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate [\"api_key\", \"oauth2\"]] Excerpts state 'Use API keys to authenticate API requests' and 'Use industry standard OAuth 2.0 to generate access tokens' with no other methods shown."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"api_key\", \"basic\", \"bearer_token\", \"oauth2\"] -> [\"api_key\", \"oauth2\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "correct",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "value_changed": true,
+      "transition": "fixed",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] docs.stripe.com/get-started: pass (live 200); [1] docs.stripe.com/api: pass (live 200); [2] stripe.com/pricing: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] docs.stripe.com/get-started: pass (exact [httpx.scrape+exa.snippet]); [1] docs.stripe.com/api: pass (exact [httpx.scrape+exa.snippet]); [2] stripe.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate \"self_serve_free\"] \u2018Set up a Stripe account and immediately start building\u2019 plus \u2018Get your API keys\u2019 and \u2018No setup fees\u2019 proves free self-serve API access."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "\"unknown\" -> \"self_serve_free\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.stripe.com/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.stripe.com/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Page documents vendor server at 'mcp.stripe.com'; quote 'Stripe\u2019s MCP server supports...'"
+        }
+      ]
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] [0] docs.stripe.com/stripe-apps/versions-and-releases: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] [0] docs.stripe.com/stripe-apps/versions-and-releases: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "insufficient_evidence",
+          "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] Quote only says 'To be listed in the App Marketplace, releases must go through App Review' and allows 'own account or to the App Marketplace'; never states listing is required to serve others."
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: candidate \"marketplace_listing\" rejected (L5 insufficient_evidence, grounded=yes)"
+        }
+      ]
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Decisive phrase 'The PitchBook API is a RESTful implementation' directly supports rest."
+        }
+      ]
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "auth_methods",
+      "golden": [
+        "api_key",
+        "bearer_token"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "wrong",
+      "before_value": [
+        "api_key"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": true,
+      "transition": "regressed",
+      "responsible_loops": [
+        "L5",
+        "L6"
+      ],
+      "primary_trigger": "L5",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "partially_supported",
+          "detail": "Excerpt says 'through an API key or authentication token' - shows extra token method beyond api_key."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] pitchbook.com/help/pitchbook-premium-connector-north: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] pitchbook.com/help/pitchbook-premium-connector-north: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 2 candidate [\"oauth2\"]] Excerpt states 'Register OAuth client' then 'Authenticate with PitchBook' via identity provider, establishing OAuth flow."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "[\"api_key\"] -> [\"oauth2\"] | attempt 2: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+        }
+      ]
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "credential_access",
+      "golden": "contact_sales",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "contact_sales",
+      "after_value": "contact_sales",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200); [1] pitchbook.com/help/PitchBook-api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet]); [1] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Decisive phrase 'requires a standalone contract agreement' indicates enterprise contract, i.e. contact_sales."
+        }
+      ]
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "commercial",
+      "after_value": "commercial",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Decisive phrase 'requires a standalone contract agreement' matches commercial blocker text."
+        }
+      ]
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/getting-started-with-pitchbook-premium-connector: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] pitchbook.com/help/getting-started-with-pitchbook-premium-connector: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Shows vendor operates 'PitchBook\u2019s Premium Connector (built on MCP server technology)'."
+        }
+      ]
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "production_gate",
+      "golden": "partner_program",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "before_outcome": "partial",
+      "after_outcome": "partial",
+      "before_value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "after_value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200); [1] developers.google.com/notebook/docs/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (exact [httpx.scrape+exa.snippet]); [1] developers.google.com/notebook/docs/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Shows 'REST API methods' and 'over Streamable HTTP (JSON-RPC 2.0)' covering rest + rpc."
+        }
+      ]
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [
+        "L1"
+      ],
+      "primary_trigger": "L1",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "fail",
+          "detail": "rule oauth2_quote: oauth2 claimed but no quote mentions oauth/authoriz"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.google.com/notebook/docs/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.google.com/notebook/docs/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Shows 'OAuth token generation' and '--scopes=\".../auth/notebook\"' with Bearer OAuth flow, no other method."
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] developers.google.com/notebook/docs/authentication: pass (live 200); [1] developers.google.com/notebook/docs/authentication: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] developers.google.com/notebook/docs/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developers.google.com/notebook/docs/authentication: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate [\"oauth2\"]] States 'uses OAuth 2.0 to authenticate' and 'doesn't accept API keys', requiring OAuth 2.0 Bearer token."
+        },
+        {
+          "loop": "L6",
+          "result": "confirmed",
+          "detail": "[\"oauth2\"] confirmed by new source(s) https://developers.google.com/notebook/docs/authentication (attempt 1; was insufficient_evidence)"
+        }
+      ]
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "credential_access",
+      "golden": "paid_plan_required",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "self_serve_trial",
+      "after_value": "self_serve_trial",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'free-trial tier: ... full-featured, 14-day trial subscription of 5000 licenses'."
+        }
+      ]
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "before_outcome": "wrong",
+      "after_outcome": "wrong",
+      "before_value": "access",
+      "after_value": "access",
+      "value_changed": false,
+      "transition": "unchanged_wrong",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule access_vs_blocker"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'require an authenticated user account with an active Gemini Notebook Enterprise license' matches access blocker."
+        }
+      ]
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "mcp_official",
+      "golden": "yes",
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": "yes",
+      "after_value": "yes",
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "rule mcp_yes_has_url"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] developers.google.com/notebook/docs/mcp: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] developers.google.com/notebook/docs/mcp: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "States 'provides a remote Model Context Protocol (MCP) server at https://notebook.googleapis.com/mcp'."
+        }
+      ]
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "api_type",
+      "golden": [
+        "cli"
+      ],
+      "before_outcome": "correct",
+      "after_outcome": "correct",
+      "before_value": [
+        "cli"
+      ],
+      "after_value": [
+        "cli"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_correct",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "pass",
+          "detail": "schema: valid"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[0] github.com/mermaid-js/mermaid-cli/blob/master/README.md: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[0] github.com/mermaid-js/mermaid-cli/blob/master/README.md: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "Quote 'This is a command-line interface (CLI) for mermaid' plus mmdc usage directly proves cli."
+        }
+      ]
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "auth_methods",
+      "golden": [
+        "none"
+      ],
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": [
+        "unknown"
+      ],
+      "after_value": [
+        "unknown"
+      ],
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "mcp_official",
+      "golden": "no_found",
+      "before_outcome": "abstained",
+      "after_outcome": "correct",
+      "before_value": "unknown",
+      "after_value": "no_found",
+      "value_changed": true,
+      "transition": "fixed",
+      "responsible_loops": [
+        "L6"
+      ],
+      "primary_trigger": "L6",
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L2",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"no_found\"] [0] mermaid.js.org/ecosystem/integrations-community.html: pass (live 200); [1] mermaid.js.org/ecosystem/integrations-community.html: pass (live 200)"
+        },
+        {
+          "loop": "L3",
+          "result": "pass",
+          "detail": "[L6 attempt 1 candidate \"no_found\"] [0] mermaid.js.org/ecosystem/integrations-community.html: pass (exact [httpx.scrape+exa.snippet]); [1] mermaid.js.org/ecosystem/integrations-community.html: pass (exact [httpx.scrape+exa.snippet])"
+        },
+        {
+          "loop": "L5",
+          "result": "supported",
+          "detail": "[L6 attempt 1 candidate \"no_found\"] Official integration is only 'Mermaid Chart'; 'MCP Server Mermaid' appears under 'Community integrations' LLM section, not official."
+        },
+        {
+          "loop": "L6",
+          "result": "changed",
+          "detail": "\"unknown\" -> \"no_found\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+        }
+      ]
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "production_gate",
+      "golden": "none",
+      "before_outcome": "abstained",
+      "after_outcome": "abstained",
+      "before_value": "unknown",
+      "after_value": "unknown",
+      "value_changed": false,
+      "transition": "unchanged_abstained",
+      "responsible_loops": [],
+      "primary_trigger": null,
+      "ledger": [
+        {
+          "loop": "L1",
+          "result": "skip",
+          "detail": "unknown claim"
+        },
+        {
+          "loop": "L6",
+          "result": "no_change",
+          "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+        }
+      ]
+    }
+  ]
+}

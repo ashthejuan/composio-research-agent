@@ -1,0 +1,600 @@
+{
+  "app_id": 64,
+  "app": "Cloudflare",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://cloudflare.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Global cloud network.",
+      "evidence": [
+        {
+          "url": "https://www.cloudflare.com/partners/technology-partners/",
+          "quote": "The integrated global cloud network",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:17.274626Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.cloudflare.com/partners/technology-partners/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.cloudflare.com/partners/technology-partners/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt contains 'The integrated global cloud network' matching 'Global cloud network.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/",
+          "quote": "Cloudflare uses the RFC standard ↗︎ Authorization: Bearer <API_TOKEN> interface.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.281726Z"
+        },
+        {
+          "url": "https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/",
+          "quote": "X-Auth-Key: <API_KEY>",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.281726Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/: pass (live 200); [1] developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/: pass (exact [httpx.scrape+exa.snippet]); [1] developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'Authorization: Bearer <API_TOKEN>' and 'X-Auth-Key: <API_KEY>' covering both methods."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API tokens use Bearer authentication; API keys are also supported."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clients/",
+          "quote": "Before an application can be made public, you must verify the client domain.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:55:12.680913Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"oauth_app_review\"] [0] developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clien: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"oauth_app_review\"] [0] developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clien: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate \"oauth_app_review\"] Requires 'Before an application can be made public, you must verify the client domain' - a verification gate for public use."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"oauth_app_review\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clients/)"
+      },
+      "note": "Public use requires client-domain verification; the source does not mention a separate app review."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "GET/accounts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'GET/accounts' plus POST/PUT/DELETE endpoints, demonstrating REST style."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/",
+          "quote": "| Native MCP (full schemas) | 2,594 | ~1,170,000 |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.385476Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/agents/model-context-protocol/cloudflare/ser: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/agents/model-context-protocol/cloudflare/ser: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'over 2,500 endpoints' and table '2,594' proving broad >30."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation reports 2,594 native tools for the API MCP server."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/",
+          "quote": "Cloudflare runs a catalog of managed remote MCP servers",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.385476Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/agents/model-context-protocol/cloudflare/ser: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/agents/model-context-protocol/cloudflare/ser: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Cloudflare runs a catalog of managed remote MCP servers' proves vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.cloudflare.com/plans/",
+          "quote": "Free\nFor personal or hobby projects that aren't business-critical.\n$0\n/month",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:16.898576Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.cloudflare.com/plans/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.cloudflare.com/plans/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'Free For personal or hobby projects' at '$0 /month' free plan."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The pricing page lists a $0 Free plan."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "typescript",
+        "python",
+        "go"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "TypeScript\n7.3.0\nnpm install cloudflare",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        },
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "Python\n5.10.0\npip install cloudflare",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        },
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "Go\nv7.15.0\ngo get -u github.com/cloudflare/cloudflare-go/v7@v7.15.0",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/api/: pass (live 200); [1] developers.cloudflare.com/api/: pass (live 200); [2] developers.cloudflare.com/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/api/: pass (exact [httpx.scrape+exa.snippet]); [1] developers.cloudflare.com/api/: pass (exact [httpx.scrape+exa.snippet]); [2] developers.cloudflare.com/api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'TypeScript npm install', 'Python pip install', 'Go go get' all three SDKs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Verify the client domain before making the OAuth app public",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clients/",
+          "quote": "Before an application can be made public, you must verify the client domain.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Verify the client domain before making the OAuth app public\", \"type\": ] [0] developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clien: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Verify the client domain before making the OAuth app public\", \"type\": ] [0] developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clien: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Verify the client domain before making the OAuth app public\", \"type\": ] Quote 'Before an application can be made public, you must verify the client domain' proves access gate for public use."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Verify the client domain before making the OAuth app public\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://developers.cloudflare.com/changelog/post/2026-06-03-public-oauth-clients/)"
+      },
+      "note": "Public visibility is needed for customers outside the account that created the app."
+    },
+    "docs_url": {
+      "value": "https://developers.cloudflare.com/api/",
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "https://developers.cloudflare.com/api/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.cloudflare.com/api/: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "Quote missing; text contains no URL string to confirm docs URL."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "cloudflare",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:54:47.106328Z",
+    "finished_at": "2026-11-23T14:55:54.583261Z",
+    "tool_calls": 29,
+    "tokens_in": 22421,
+    "tokens_out": 1403,
+    "cost_usd": 0.002944,
+    "backend": "direct",
+    "verifier_tokens_in": 6677,
+    "verifier_tokens_out": 5090,
+    "l6_tool_calls": 29,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

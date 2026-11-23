@@ -1,0 +1,568 @@
+{
+  "app_id": 86,
+  "app": "QuickBooks",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://quickbooks.intuit.com",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L1",
+            "result": "fail",
+            "detail": "rule description_when_docs: docs_url known but description empty/unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2",
+          "quote": "OAuth 2.0 is the only supported protocol.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:56.365332Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'OAuth 2.0 is the only supported protocol' and denies API keys and HTTP Basic Authentication."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2",
+          "quote": "please create a new developer account at our developer portal, and then create an app.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:56.365332Z"
+        },
+        {
+          "url": "https://blogs.intuit.com/2022/04/22/top-10-common-intuit-developer-questions/",
+          "quote": "Using the QuickBooks Online API is free.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:57.194821Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2: pass (live 200); [1] blogs.intuit.com/2022/04/22/top-10-common-intuit-developer-questions/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2: pass (exact [httpx.scrape+exa.snippet]); [1] blogs.intuit.com/2022/04/22/top-10-common-intuit-developer-questions/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'please create a new developer account...create an app' to get keys and 'Using the QuickBooks Online API is free.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The sources describe creating an app and obtaining API credentials through the developer portal; API use is stated to be free."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources describe review for App Store listing but do not establish that listing or review is required to serve customers."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://github.com/IntuitDeveloper/intuit-3p-ai-pilot",
+          "quote": "continue to use the QuickBooks Online REST API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:42:56.365374Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/IntuitDeveloper/intuit-3p-ai-pilot: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/IntuitDeveloper/intuit-3p-ai-pilot: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Directly instructs to 'continue to use the QuickBooks Online REST API.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source is a community-tier repository."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://github.com/intuit/quickbooks-online-mcp-server",
+          "quote": "It includes full CRUD operations for 29 entity types and 11 financial reports, giving you comprehensive access to QuickBooks Online functionality.",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:42:56.317395Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/intuit/quickbooks-online-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/intuit/quickbooks-online-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Cites 'full CRUD operations for 29 entity types and 11 financial reports' totaling ~40, meeting broad >30."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The scope evidence describes the MCP server's coverage of QuickBooks Online functionality."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/intuit/quickbooks-online-mcp-server",
+          "quote": "A comprehensive Model Context Protocol (MCP) server for QuickBooks Online",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:42:56.317395Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/intuit/quickbooks-online-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/intuit/quickbooks-online-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Intuit org repo (github.com/intuit) describes 'A comprehensive Model Context Protocol (MCP) server for QuickBooks Online'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Published in the intuit GitHub organization."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://blogs.intuit.com/2022/04/22/top-10-common-intuit-developer-questions/",
+          "quote": "You can create 10 unique QuickBooks Online sandbox companies for your development and testing needs.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:57.194821Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] blogs.intuit.com/2022/04/22/top-10-common-intuit-developer-questions/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] blogs.intuit.com/2022/04/22/top-10-common-intuit-developer-questions/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'You can create 10 unique QuickBooks Online sandbox companies for your development and testing needs.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Sandbox companies are available for development and testing."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/intuit/quickbooks-online-mcp-server",
+          "quote": "Note: this is a local MCP server. It runs as a stdio subprocess on the developer's or partner's machine",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:42:56.317395Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/intuit/quickbooks-online-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/intuit/quickbooks-online-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'this is a local MCP server. It runs as a stdio subprocess' with git clone and npm build steps."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source documents a locally runnable MCP server, not self-hosting of the QuickBooks Online SaaS product."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Company admin must authorize the OAuth connection",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2",
+          "quote": "Once the admin owner of the company clicks the button, your app will get the access token and refresh token for their company.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:56.365332Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.developer.intuit.com/s/article/Why-do-I-need-to-use-OAuth-2: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Once the admin owner of the company clicks the button, your app will get the access token' showing admin consent."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Each connected company requires its admin owner to authorize the OAuth connection."
+    },
+    "docs_url": {
+      "value": "https://developer.intuit.com/app/developer/qbo/docs/learn/rest-api-features",
+      "evidence": [
+        {
+          "url": "https://developer.intuit.com/app/developer/qbo/docs/learn/rest-api-features",
+          "quote": "Basic schema and data formats for the QuickBooks Online Accounting",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:55.161118Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.intuit.com/app/developer/qbo/docs/learn/rest-api-features: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] developer.intuit.com/app/developer/qbo/docs/learn/rest-api-features: fail (quote not in text (best fuzzy 39) [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "Quote not found; text only 'Compiling and pre-filling your Intuit info...' does not confirm API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official QuickBooks Online Accounting API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "quickbooks",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:58:53.812843Z",
+    "finished_at": "2026-11-23T15:00:05.174058Z",
+    "tool_calls": 12,
+    "tokens_in": 9261,
+    "tokens_out": 634,
+    "cost_usd": 0.001243,
+    "backend": "direct",
+    "verifier_tokens_in": 10846,
+    "verifier_tokens_out": 8353,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

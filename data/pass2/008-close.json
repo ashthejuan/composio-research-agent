@@ -1,0 +1,593 @@
+{
+  "app_id": 8,
+  "app": "Close",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://close.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A CRM with built-in calling, sales dialers, email, SMS, and AI agents.",
+      "evidence": [
+        {
+          "url": "https://close.com/pricing",
+          "quote": "Built-in calling, sales dialers, email, SMS, and AI Agents in one CRM.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:01.853217Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] close.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] close.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Built-in calling, sales dialers, email, SMS, and AI Agents in one CRM' matches claim verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "basic",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.close.com/api/overview",
+          "quote": "API Keys — Best for scripts, internal tools, and server-side integrations. Use HTTP Basic Auth with your API key as the username and an empty password.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.247064Z"
+        },
+        {
+          "url": "https://developer.close.com/api/overview",
+          "quote": "OAuth 2.0 — Best for user-facing integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.247064Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (live 200); [1] developer.close.com/api/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (exact [httpx.scrape+exa.snippet]); [1] developer.close.com/api/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Two methods are supported: 'Use HTTP Basic Auth with your API key as username' covers api_key+basic, plus 'OAuth 2.0'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API keys use HTTP Basic Auth; OAuth 2.0 is also supported."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developer.close.com/integrations/publish",
+          "quote": "We’ll review your app and reply by email.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.260754Z"
+        },
+        {
+          "url": "https://developer.close.com/integrations/publish",
+          "quote": "Once approved, your app will be marked as Public and any Close user will be able to authorize it.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.260754Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/integrations/publish: pass (live 200); [1] developer.close.com/integrations/publish: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/integrations/publish: pass (exact [httpx.scrape+exa.snippet]); [1] developer.close.com/integrations/publish: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Click Make Public and submit for review' + 'Once approved... any Close user will be able to authorize it' shows review gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Public use requires review and approval; directory listing is a separate step."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.close.com/api/overview",
+          "quote": "Close uses industry-standard REST conventions with predictable URL structures, standard HTTP methods, and JSON request/response bodies.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.247064Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Close uses industry-standard REST conventions' and 'Close REST API' documents REST; no other style shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.close.com/mcp/",
+          "quote": "The MCP server URL is https://mcp.close.com/mcp",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.252581Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/mcp/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/mcp/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The MCP server URL is https://mcp.close.com/mcp' on developer.close.com proves vendor-operated server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Close documents its own remote MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/ShiftEngineering/mcp-close-server",
+          "quote": "An MCP (Model Context Protocol) server that connects to Close.com API, allowing AI assistants to search and retrieve lead and contact information.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:01.998792Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/ShiftEngineering/mcp-close-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/ShiftEngineering/mcp-close-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo states 'An MCP server that connects to Close.com API' by ShiftEngineering, a third-party server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community Close MCP server is also available."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.close.com/integrations",
+          "quote": "Already a Close user — You can create a free secondary organization.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:01.440666Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/integrations: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/integrations: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'You can create a free secondary organization' and 'request a free Dev organization' proves free test org."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free secondary organization is available to existing Close users for development and testing."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.close.com/api/overview",
+          "quote": "Webhooks — Subscribe to events and receive POST notifications when data changes.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.247064Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'Subscribe to events and receive POST notifications when data changes' proving webhooks offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention community API libraries, not vendor-maintained SDKs."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth app review is required for public use",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.close.com/integrations/publish",
+          "quote": "Click Make Public and submit for review.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.260754Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/integrations/publish: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/integrations/publish: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt says 'Click Make Public and submit for review' and 'We’ll review your app', proving public OAuth requires review (access)."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The review is required to make an OAuth app available to any Close user."
+    },
+    "docs_url": {
+      "value": "https://developer.close.com/api/overview",
+      "evidence": [
+        {
+          "url": "https://developer.close.com/api/overview",
+          "quote": "https://developer.close.com/api/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.247064Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.close.com/api/overview: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source URL matches claim and page shows 'API Overview' with 'Base URL: https://api.close.com/api/v1', confirming API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official API overview and reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "close",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:45:57.448005Z",
+    "finished_at": "2026-11-23T14:46:45.868831Z",
+    "tool_calls": 12,
+    "tokens_in": 8616,
+    "tokens_out": 495,
+    "cost_usd": 0.001109,
+    "backend": "direct",
+    "verifier_tokens_in": 6576,
+    "verifier_tokens_out": 4893,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

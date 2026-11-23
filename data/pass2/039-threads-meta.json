@@ -1,0 +1,596 @@
+{
+  "app_id": 39,
+  "app": "Threads (Meta)",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Marketing, Ads, Email and Social",
+      "evidence": [
+        {
+          "url": "https://threads.net",
+          "quote": "Registry category (assignment.md): Marketing, Ads, Email and Social",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Enables developers to create and publish posts, retrieve media and profiles, moderate replies, and access insights.",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/threads/",
+          "quote": "Use the Threads API to create and publish posts, retrieve media and profiles, moderate replies, and access insights.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:28.588393Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote exactly matches claim: 'Use the Threads API to create and publish posts, retrieve media and profiles...'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/threads/get-started",
+          "quote": "API authentication is handled by Threads user access tokens that conform to the OAuth 2.0 protocol.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.908185Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'API authentication is handled by Threads user access tokens that conform to OAuth 2.0'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented user-token authentication uses OAuth 2.0."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish whether developers can obtain working credentials for their own account for free or under another access condition."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/threads/get-started",
+          "quote": "For app users without a role on your app to grant your app these permissions, each permission must first be approved through the App Review process, and your app must be published.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.908185Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'each permission must first be approved through the App Review process'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "App Review and publication apply to permission grants from users without an app role."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/threads/reference/reply-management",
+          "quote": "GET /{threads-media-id}/replies",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:27.657572Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/reference/reply-manageme: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/reference/reply-manageme: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'GET /{threads-media-id}/replies' documents REST GET endpoint, no other style shown"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The reference documents HTTP endpoints and request parameters."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources describe several API capabilities but do not establish the number of endpoint groups."
+    },
+    "mcp_official": {
+      "value": "no_found",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/mcp",
+          "quote": "Meta runs official remote Model Context Protocol (MCP) servers that bring Facebook, Instagram, WhatsApp, and Meta Ads capabilities to your agentic workflows.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:24.836755Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official list is 'Facebook, Instagram, WhatsApp, and Meta Ads' with no Threads server listed"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The official MCP documentation names other Meta capabilities but does not list a Threads API MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/baguskto/threads-mcp/",
+          "quote": "An MCP server for the **official Meta Threads API**.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:39:27.260047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] github.com/baguskto/threads-mcp/: fail (dead 404)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] github.com/baguskto/threads-mcp/: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'An MCP server for the official Meta Threads API' proves community server exists"
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4"
+      },
+      "note": "The cited server is a community project, not an official Meta server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/docs/development/create-an-app/threads-use-case/",
+          "quote": "Add or Remove Threads Test Users to add testers to your app.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.671106Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/development/create-an-app/threads-use-cas: fail (dead 400)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/development/create-an-app/threads-use-cas: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'Add or Remove Threads Test Users' plus Tester roles shows test environment"
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4"
+      },
+      "note": "The documentation supports testing through Threads Test Users; it does not establish a free tier."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/docs/development/create-an-app/threads-use-case/",
+          "quote": "To receive webhook notifications your app must be published.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.671106Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/development/create-an-app/threads-use-cas: fail (dead 400)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] developers.facebook.com/docs/development/create-an-app/threads-use-cas: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Section 'Webhooks (optional)' plus 'To receive webhook notifications your app must be published'"
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4"
+      },
+      "note": "Receiving webhook notifications requires a published app."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "250 API-published posts per Threads profile per rolling 24-hour period.",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/threads/overview",
+          "quote": "Threads profiles are limited to 250 API-published posts within a rolling 24-hour period.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.222481Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'limited to 250 API-published posts within a rolling 24-hour period' exact match"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation also gives separate limits for replies and deletions."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "App Review and publication required for permissions granted by users without an app role",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/threads/get-started",
+          "quote": "For app users without a role on your app to grant your app these permissions, each permission must first be approved through the App Review process, and your app must be published.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.908185Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt: 'each permission must first be approved through the App Review process, and your app must be published' for users without a role."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This gate affects permission access for customers who are not app-role users."
+    },
+    "docs_url": {
+      "value": "https://developers.facebook.com/documentation/threads/get-started",
+      "evidence": [
+        {
+          "url": "https://developers.facebook.com/documentation/threads/get-started",
+          "quote": "# Get started with the Threads API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.908185Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.facebook.com/documentation/threads/get-started: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source URL matches claim and heading '# Get started with the Threads API' shows official API guide."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official Threads API getting-started documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "threads",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:50:17.674722Z",
+    "finished_at": "2026-11-23T14:51:01.556336Z",
+    "tool_calls": 12,
+    "tokens_in": 10802,
+    "tokens_out": 216,
+    "cost_usd": 0.001188,
+    "backend": "direct",
+    "verifier_tokens_in": 6280,
+    "verifier_tokens_out": 3877,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

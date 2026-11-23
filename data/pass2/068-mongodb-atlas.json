@@ -1,0 +1,633 @@
+{
+  "app_id": 68,
+  "app": "MongoDB Atlas",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://mongodb.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "MongoDB Atlas Administration API for managing Atlas components.",
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2",
+          "quote": "The MongoDB Atlas Administration API allows developers to manage all components in MongoDB Atlas.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:33.113330Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt: 'allows developers to manage all components in MongoDB Atlas' directly matches claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This record describes the Atlas Administration API, not the database Data API."
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "api_key"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/atlas/api/api-authentication/",
+          "quote": "Service account access tokens (OAuth 2.0)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:33.115698Z"
+        },
+        {
+          "url": "https://www.mongodb.com/docs/atlas/api/api-authentication/",
+          "quote": "API keys (HTTP Digest Authentication)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:33.115698Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "'supports OAuth2 Service Accounts' supports oauth2, but 'HTTP Digest-based API keys' indicates api_key not session_other."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\"]] [0] www.mongodb.com/docs/atlas/api/api-authentication/: pass (live 200); [1] www.mongodb.com/docs/atlas/api/api-authentication/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\"]] [0] www.mongodb.com/docs/atlas/api/api-authentication/: pass (exact [httpx.scrape+exa.snippet]); [1] www.mongodb.com/docs/atlas/api/api-authentication/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"api_key\"]] Lists both: 'Service account access tokens (OAuth 2.0)' matches oauth2 and 'API keys (HTTP Digest Authentication)' matches api_key."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"oauth2\", \"session_other\"] -> [\"oauth2\", \"api_key\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+          }
+        ],
+        "notes": "L6 changed value (https://www.mongodb.com/docs/atlas/api/api-authentication/)"
+      },
+      "note": "For the Atlas Administration API; its documented methods are OAuth 2.0 service-account tokens and API keys using HTTP Digest authentication."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources identify authentication methods but do not establish how readily a developer can obtain credentials for their own account."
+    },
+    "production_gate": {
+      "value": "partner_program",
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/",
+          "quote": "This guide is for approved design partners. To become a partner, submit the Become a Partner form and include \"Partner API\" in the More Information field.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:33.117908Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"partner_program\"] [0] www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"partner_program\"] [0] www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"partner_program\"] Quote says guide is 'for approved design partners' and 'To become a partner, submit the Become a Partner form'."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"partner_program\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/)"
+      },
+      "note": "This gate applies to partner apps using Atlas App Connections for delegated access."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "cli"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/atlas/configure-api-access/",
+          "quote": "The Atlas Administration API follows the principles of the REST (Representational State Transfer) architectural style",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:34.555290Z"
+        },
+        {
+          "url": "https://www.mongodb.com/docs/atlas/cli/current/command/atlas-api",
+          "quote": "Access all features of the Atlas Administration API through the Atlas CLI by using the 'atlas api <tag> <operationId>' command.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:34.052986Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/atlas/configure-api-access/: pass (live 200); [1] www.mongodb.com/docs/atlas/cli/current/command/atlas-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/atlas/configure-api-access/: pass (exact [httpx.scrape+exa.snippet]); [1] www.mongodb.com/docs/atlas/cli/current/command/atlas-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'follows the principles of the REST' supports rest; 'through the Atlas CLI' supports cli."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented surface includes a REST API and CLI access to its endpoints."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2",
+          "quote": "The MongoDB Atlas Administration API allows developers to manage all components in MongoDB Atlas.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:33.113330Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'manage all components in MongoDB Atlas' indicates full product surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source describes coverage of all Atlas components, indicating a broad administrative surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/mcp-server/overview/",
+          "quote": "MongoDB Atlas Managed MCP Server: MongoDB runs the MCP server in Atlas and manages the AI agent connections and MCP server infrastructure for you.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:33.120072Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/mcp-server/overview/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/mcp-server/overview/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'our official MCP server implementation' and 'MongoDB runs the MCP server in Atlas' proves vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "MongoDB documents and operates an Atlas-managed MCP server."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish that a third-party MCP server exists."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/pricing",
+          "quote": "Free forever",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:34.627924Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Free forever' with '512MB of storage' shows free tier exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "MongoDB Atlas has a free tier; the source does not identify a separate API sandbox."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "go"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/atlas/api/",
+          "quote": "The Atlas Go SDK provides platform-specific and Go language-specific tools, libraries, and documentation",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:34.555337Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/atlas/api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/atlas/api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The Atlas Go SDK provides platform-specific and Go language-specific tools' confirms Go SDK."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Only the Atlas Go SDK is identified in the sources."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish that Atlas itself is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Partner approval is required for Atlas App Connections.",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/",
+          "quote": "To become a partner, submit the Become a Partner form and include \"Partner API\" in the More Information field.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Partner approval is required for Atlas App Connections.\", \"type\": \"com] [0] www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Partner approval is required for Atlas App Connections.\", \"type\": \"com] [0] www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Partner approval is required for Atlas App Connections.\", \"type\": \"com] Text matches 'for approved design partners' / 'Become a Partner form', but that shows approval/access gate, not paid commercial partner deal."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Partner approval is required for Atlas App Connections.\", \"type\": \"com] [0] www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Partner approval is required for Atlas App Connections.\", \"type\": \"com] [0] www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Partner approval is required for Atlas App Connections.\", \"type\": \"com] 'This guide is for approved design partners' plus 'submit the Become a Partner form' directly supports partner-approval requirement."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Partner approval is required for Atlas App Connections.\", \"type\": \"commercial\"} | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://www.mongodb.com/docs/atlas/app-connections/partner-integration-guide/)"
+      },
+      "note": "This partner requirement applies to Atlas App Connections."
+    },
+    "docs_url": {
+      "value": "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2",
+      "evidence": [
+        {
+          "url": "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2",
+          "quote": "MongoDB Atlas Administration API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:33.113330Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.mongodb.com/docs/api/doc/atlas-admin-api-v2: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "URL hosts 'MongoDB Atlas Administration API' reference with Base URL, confirming docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary Atlas Administration API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "mongodb",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:56:00.937149Z",
+    "finished_at": "2026-11-23T14:58:05.030119Z",
+    "tool_calls": 34,
+    "tokens_in": 34379,
+    "tokens_out": 1609,
+    "cost_usd": 0.004242,
+    "backend": "direct",
+    "verifier_tokens_in": 7387,
+    "verifier_tokens_out": 15357,
+    "l6_tool_calls": 34,
+    "l6_rerun_claims": 4
+  },
+  "errors": []
+}

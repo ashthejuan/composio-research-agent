@@ -113,6 +113,69 @@ def _research(args: argparse.Namespace) -> int:
     return 1 if m.failed else 0
 
 
+def _verify(args: argparse.Namespace) -> int:
+    import asyncio
+
+    from agent import orchestrator, registry
+
+    try:
+        if args.app:
+            ids = [registry.get_app(args.app).id]
+        elif args.ids:
+            ids = [a.id for a in registry.select(ids=args.ids)]
+        else:
+            ids = None  # --all
+    except (KeyError, ValueError) as e:
+        print(f"error: {e}")
+        return 2
+    if ids is not None and not ids:
+        print("error: no apps matched selection")
+        return 2
+    try:
+        m = asyncio.run(orchestrator.run_verify_batch(
+            args.from_, args.to, ids=ids, concurrency=args.concurrency, backend=args.backend,
+            skip_existing=not args.no_skip))
+    except FileNotFoundError as e:
+        print(f"error: {e}")
+        return 2
+    print(f"ok={m.ok} failed={len(m.failed)} skipped={m.skipped} duration={m.duration_s:.1f}s "
+          f"verifier_tokens={m.totals.get('verifier_tokens_in', 0)}+{m.totals.get('verifier_tokens_out', 0)}")
+    for f in m.failed:
+        print(f"FAILED {f.id} {f.name}: {f.error}")
+    return 1 if m.failed else 0
+
+
+def _loopstats(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from agent import loopstats
+
+    st = loopstats.run(args.pass_, records_dir=Path(args.records_dir) if args.records_dir else None,
+                       out=Path(args.out) if args.out else None)
+    print(f"{'loop':<5}{'checked':>9}{'flagged':>9}{'changed':>9}")
+    for lp, d in st["overall"]["loops"].items():
+        print(f"{lp:<5}{d['claims_checked']:>9}{d['flagged']:>9}{d['values_changed']:>9}")
+    print(f"status: {st['overall']['status_distribution']}")
+    return 0
+
+
+def _attribute(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from agent import attribution
+
+    res = attribution.attribute(
+        args.before, args.after, before_dir=Path(args.before_dir) if args.before_dir else None,
+        after_dir=Path(args.after_dir) if args.after_dir else None,
+        out=Path(args.out) if args.out else None)
+    acc = res["accuracy"]
+    print(f"overall accuracy {acc['before']['overall']} -> {acc['after']['overall']}")
+    print(f"transitions: {res['transitions']}")
+    print(f"errors caught per loop: {res['errors_caught_per_loop']}")
+    print(f"regressions: {len(res['regressions'])}")
+    return 0
+
+
 def _freeze(args: argparse.Namespace) -> int:
     from agent import orchestrator
 
@@ -213,6 +276,32 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--refresh", action="store_true", help="bypass tool cache and redo existing records")
     r.add_argument("--no-skip", action="store_true", help="re-run apps that already have a record")
     r.set_defaults(func=_research)
+
+    v = sub.add_parser("verify", help="run verification loops L1-L6 over frozen records")
+    vg = v.add_mutually_exclusive_group(required=True)
+    vg.add_argument("--app", help="app name or id")
+    vg.add_argument("--ids", help='id list/ranges, e.g. "1-10,15"')
+    vg.add_argument("--all", action="store_true", help="all apps")
+    v.add_argument("--from", dest="from_", default="pass1")
+    v.add_argument("--to", default="pass2", help="run label; records are always written as pass2")
+    v.add_argument("--backend", choices=["composio", "composio_sdk", "direct"], default=None)
+    v.add_argument("--concurrency", type=int, default=None)
+    v.add_argument("--no-skip", action="store_true", help="re-verify apps that already have a record")
+    v.set_defaults(func=_verify)
+
+    ls = sub.add_parser("loopstats", help="per-loop statistics from claim ledgers")
+    ls.add_argument("--pass", dest="pass_", default="pass2")
+    ls.add_argument("--records-dir", default=None)
+    ls.add_argument("--out", default=None)
+    ls.set_defaults(func=_loopstats)
+
+    at = sub.add_parser("attribute", help="attribute accuracy changes to loops")
+    at.add_argument("--before", default="pass1")
+    at.add_argument("--after", default="pass2")
+    at.add_argument("--before-dir", default=None)
+    at.add_argument("--after-dir", default=None)
+    at.add_argument("--out", default=None)
+    at.set_defaults(func=_attribute)
 
     fz = sub.add_parser("freeze", help="freeze work records into data/<pass>/")
     fz.add_argument("--pass", dest="pass_", default="pass1")

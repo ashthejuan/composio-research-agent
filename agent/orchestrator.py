@@ -9,7 +9,7 @@ import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Awaitable, Callable, Optional
 
 from pydantic import BaseModel, Field
 
@@ -21,6 +21,7 @@ RETRY_DELAYS: tuple[float, ...] = (5.0, 15.0)  # patchable in tests
 MAX_ATTEMPTS = 2
 EXPECTED_COUNT = 100
 FAIL_PREFIX = "research failed:"
+VERIFY_FAIL_PREFIX = "verify failed:"
 RECORD_PASSES = ("pass1", "pass2", "final")  # AppRecord.pass_ values; other --pass names are run labels
 _KEYLIKE = re.compile(r"(sk-[A-Za-z0-9_\-]{8,}|AIza[0-9A-Za-z_\-]{10,}|ak_[A-Za-z0-9_\-]{6,}|[A-Za-z0-9_\-]{32,})")
 _SECRET_ENV = ("COMPOSIO_API_KEY", "OPENAI_API_KEY", "META_API_KEY", "EXA_API_KEY", "FIRECRAWL_API_KEY")
@@ -138,7 +139,7 @@ def record_pass(pass_: str) -> str:
 
 
 def is_failed(rec: AppRecord) -> bool:
-    return any(e.startswith(FAIL_PREFIX) for e in rec.errors)
+    return any(e.startswith((FAIL_PREFIX, VERIFY_FAIL_PREFIX)) for e in rec.errors)
 
 
 def _valid_existing(path: Path) -> Optional[AppRecord]:
@@ -163,7 +164,13 @@ async def run_batch(
     refresh: bool = False,
     skip_existing: bool = True,
     reports_dir: Optional[Path] = None,
+    worker: Optional[Callable[..., Awaitable[AppRecord]]] = None,
+    fallback: Optional[Callable[[App, str], AppRecord]] = None,
+    fail_prefix: str = FAIL_PREFIX,
+    record_pass_: Optional[str] = None,
 ) -> Manifest:
+    """``worker(app, tools, rpass) -> AppRecord`` defaults to research; ``fallback(app, err)`` builds the
+    record written when every attempt failed (default: an all-unknown record)."""
     from agent.cache import reset_cache
 
     s = get_settings()
@@ -171,14 +178,15 @@ async def run_batch(
     conc = concurrency or s.concurrency
     out = Path(out_dir) if out_dir else work_dir(pass_)
     out.mkdir(parents=True, exist_ok=True)
-    rpass = record_pass(pass_)
+    rpass = record_pass_ or record_pass(pass_)
     prev_refresh = os.environ.get("REFRESH")
     if refresh:
         os.environ["REFRESH"] = "1"
         reset_cache()
     try:
         return await _run_batch(apps, pass_=pass_, rpass=rpass, backend=backend, conc=conc, out=out,
-                                refresh=refresh, skip_existing=skip_existing, reports_dir=reports_dir)
+                                refresh=refresh, skip_existing=skip_existing, reports_dir=reports_dir,
+                                worker=worker, fallback=fallback, fail_prefix=fail_prefix)
     finally:
         if refresh:  # do not leak cache bypass into later runs in the same process
             if prev_refresh is None:
@@ -189,10 +197,12 @@ async def run_batch(
 
 
 async def _run_batch(apps: list[App], *, pass_: str, rpass: str, backend: str, conc: int, out: Path,
-                     refresh: bool, skip_existing: bool, reports_dir: Optional[Path]) -> Manifest:
+                     refresh: bool, skip_existing: bool, reports_dir: Optional[Path],
+                     worker: Optional[Callable[..., Awaitable[AppRecord]]] = None,
+                     fallback: Optional[Callable[[App, str], AppRecord]] = None,
+                     fail_prefix: str = FAIL_PREFIX) -> Manifest:
     from rich.progress import BarColumn, MofNCompleteColumn, Progress, TextColumn, TimeElapsedColumn
 
-    from agent import research
     from agent.cache import get_cache
     from agent.tools.base import get_tools
 
@@ -200,6 +210,12 @@ async def _run_batch(apps: list[App], *, pass_: str, rpass: str, backend: str, c
     started = _now()
     commit, dirty = git_commit(), git_dirty()  # code state the run actually used (before it writes)
     tools = get_tools(backend)
+    if worker is None:
+        from agent import research
+
+        async def worker(app, tools, rpass):  # noqa: F811
+            return await research.research_app(app, tools, pass_=rpass)
+    verifying = fail_prefix == VERIFY_FAIL_PREFIX
     sem = asyncio.Semaphore(conc)
 
     results: dict[int, AppRecord] = {}
@@ -235,19 +251,28 @@ async def _run_batch(apps: list[App], *, pass_: str, rpass: str, backend: str, c
                 err = ""
                 for attempt in range(MAX_ATTEMPTS):
                     try:
-                        rec = await research.research_app(app, tools, pass_=rpass)
+                        rec = await worker(app, tools, rpass)
                         break
                     except Exception as e:  # noqa: BLE001
+                        if verifying:
+                            from agent import verify as verify_mod
+
+                            check_fatal = getattr(verify_mod, "is_fatal", None)
+                            if callable(check_fatal) and check_fatal(e):
+                                raise
                         err = f"{type(e).__name__}: {_scrub(e)}"
                         if attempt + 1 < MAX_ATTEMPTS:
                             await asyncio.sleep(RETRY_DELAYS[min(attempt, len(RETRY_DELAYS) - 1)])
                 if rec is None:
-                    now = _now()
-                    rec = AppRecord.unknown(
-                        app.id, app.name, rpass,
-                        RunInfo(model=s.extractor_model, started_at=now, finished_at=now, backend=backend),
-                    )
-                    rec.errors = [f"{FAIL_PREFIX} {err}"]
+                    if fallback is not None:
+                        rec = fallback(app, err)
+                    else:
+                        now = _now()
+                        rec = AppRecord.unknown(
+                            app.id, app.name, rpass,
+                            RunInfo(model=s.extractor_model, started_at=now, finished_at=now, backend=backend),
+                        )
+                        rec.errors = [f"{fail_prefix} {err}"]
                     failed.append(FailedApp(id=app.id, name=app.name, error=err))
                 dump_record(rec, path)
                 results[app.id] = rec
@@ -273,7 +298,8 @@ async def _run_batch(apps: list[App], *, pass_: str, rpass: str, backend: str, c
             # cost is 0 unless EXTRACTOR_PRICE_IN/OUT (USD per 1M tokens) are set: say so explicitly
             "cost_priced": bool(os.environ.get("EXTRACTOR_PRICE_IN") or os.environ.get("EXTRACTOR_PRICE_OUT")),
             "cache": cache_stats,
-            "tool_backend_counts": _backend_counts(tools, backend, run_recs),
+            "tool_backend_counts": _backend_counts(tools, backend, run_recs, catalog_calls=0 if verifying else len(run_recs)),
+            **(_verifier_totals(run_recs) if verifying else {}),
         },
         apps=[_summary(a, results[a.id]) for a in sorted(apps, key=lambda a: a.id) if a.id in results],
     )
@@ -283,9 +309,28 @@ async def _run_batch(apps: list[App], *, pass_: str, rpass: str, backend: str, c
     return manifest
 
 
-def _backend_counts(tools, backend: Optional[str], run_recs: list[AppRecord]) -> dict[str, int]:
+def _verifier_totals(recs: list[AppRecord]) -> dict[str, Any]:
+    """Verifier-side totals read tolerantly from record.run (verify.py decides what it fills in)."""
+    models = sorted({m for r in recs if (m := getattr(r.run, "verifier_model", None))})
+    entries = [le for r in recs for n in type(r.claims).model_fields
+               for le in getattr(r.claims, n).verification.loops]
+    return {
+        "verifier_models": models,
+        "verifier_tokens_in": sum(r.run.verifier_tokens_in for r in recs),
+        "verifier_tokens_out": sum(r.run.verifier_tokens_out for r in recs),
+        "l6_extractor_tokens_in": sum(r.run.tokens_in for r in recs),
+        "l6_extractor_tokens_out": sum(r.run.tokens_out for r in recs),
+        "l6_tool_calls": sum(r.run.l6_tool_calls for r in recs),
+        "l6_rerun_claims": sum(r.run.l6_rerun_claims for r in recs),
+        "l6_changed_claims": sum(1 for le in entries if le.loop == "L6" and le.result in ("changed", "set_unknown")),
+        "ledger_entries": len(entries),
+    }
+
+
+def _backend_counts(tools, backend: Optional[str], run_recs: list[AppRecord],
+                    *, catalog_calls: Optional[int] = None) -> dict[str, int]:
     """Search/scrape calls per backend. Fallback wrappers (TOOL_FALLBACK=direct) count exactly; otherwise
-    every search/scrape call went through the one resolved backend (tool_calls minus 1 catalog call/app)."""
+    every search/scrape call went through the one resolved backend (tool_calls minus catalog calls)."""
     from agent.tools.base import resolve_backend
     from agent.tools.fallback import backend_counts
 
@@ -296,7 +341,65 @@ def _backend_counts(tools, backend: Optional[str], run_recs: list[AppRecord]) ->
         label = resolve_backend(backend)
     except ValueError:
         label = str(backend)
-    return {label: max(0, sum(r.run.tool_calls for r in run_recs) - len(run_recs)), "fallbacks": 0}
+    sub = len(run_recs) if catalog_calls is None else catalog_calls
+    return {label: max(0, sum(r.run.tool_calls for r in run_recs) - sub), "fallbacks": 0}
+
+
+async def run_verify_batch(
+    from_pass: str = "pass1",
+    to_label: str = "pass2",
+    ids: Optional[list[int]] = None,
+    concurrency: Optional[int] = None,
+    backend: Optional[str] = None,
+    *,
+    apps: Optional[list[App]] = None,
+    src_dir: Optional[Path] = None,
+    out_dir: Optional[Path] = None,
+    skip_existing: bool = True,
+    reports_dir: Optional[Path] = None,
+) -> Manifest:
+    """Verify frozen ``from_pass`` records into data/work/<to_label>/ (records carry pass "pass2")."""
+    from agent import registry
+
+    src = Path(src_dir) if src_dir else get_settings().DATA_DIR / from_pass
+    if apps is None:
+        apps = registry.load_apps()
+        if ids is not None:
+            want = set(ids)
+            apps = [a for a in apps if a.id in want]
+    originals: dict[int, AppRecord] = {}
+    for a in apps:
+        hits = sorted(src.glob(f"{a.id:03d}-*.json"))
+        if not hits:
+            raise FileNotFoundError(f"no {from_pass} record for app {a.id} in {src}")
+        originals[a.id] = load_record(hits[0])
+
+    async def worker(app: App, tools: tuple, rpass: str) -> AppRecord:
+        from agent import verify
+
+        rec = await verify.verify_app(originals[app.id].model_copy(deep=True), app, tools)
+        return rec.model_copy(update={"pass_": "pass2"})
+
+    def fallback(app: App, err: str) -> AppRecord:
+        rec = originals[app.id].model_copy(deep=True)
+        rec.pass_ = "pass2"
+        rec.run = rec.run.model_copy(update={
+            "tool_calls": 0, "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0,
+            "verifier_tokens_in": 0, "verifier_tokens_out": 0, "l6_tool_calls": 0, "l6_rerun_claims": 0,
+        })
+        rec.errors = [*rec.errors, f"{VERIFY_FAIL_PREFIX} {err}"]
+        return rec
+
+    from agent.tools import browser
+
+    try:
+        return await run_batch(
+            apps, pass_=to_label, backend=backend, concurrency=concurrency, out_dir=out_dir,
+            skip_existing=skip_existing, reports_dir=reports_dir,
+            worker=worker, fallback=fallback, fail_prefix=VERIFY_FAIL_PREFIX, record_pass_="pass2",
+        )
+    finally:
+        await browser.close_browser()
 
 
 # ------------------------------------------------------------------- freeze

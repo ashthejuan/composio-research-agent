@@ -1,0 +1,557 @@
+{
+  "app_id": 59,
+  "app": "Waterfall.io",
+  "pass": "pass2",
+  "claims": {
+    "category": {
+      "value": "Data, SEO and Scraping",
+      "evidence": [
+        {
+          "url": "https://waterfall.io",
+          "quote": "Registry category (assignment.md): Data, SEO and Scraping",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "B2B contact and company data API for prospecting, enrichment, email and phone discovery, verification, and job-change checks.",
+      "evidence": [
+        {
+          "url": "https://docs.waterfall.io/v1/about-waterfall",
+          "quote": "find people at target accounts, enrich contact and company records, find emails and phone numbers, verify email addresses, and check job changes.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:54.021557Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/about-waterfall: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/about-waterfall: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Matches 'B2B contact and company data' + 'find people... enrich... find emails and phone numbers, verify... check job changes'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.waterfall.io/v1/authentication",
+          "quote": "Authenticate data and account API requests with your Waterfall API key in the x-api-key header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:53.509890Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Authenticate... with your Waterfall API key in the x-api-key header' with no other method shown"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "admin_approval",
+      "evidence": [
+        {
+          "url": "https://docs.waterfall.io/v1/book-demo",
+          "quote": "A member of our team reviews every access request.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:53.522102Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/book-demo: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/book-demo: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'API access is available by approval' + 'team reviews every access request' shows vendor approval required"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API access requires the vendor to review an access request."
+    },
+    "production_gate": {
+      "value": "partner_program",
+      "evidence": [
+        {
+          "url": "https://www.waterfall.io/book-a-call",
+          "quote": "We are very selective in partnering with platform customers",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:54.297064Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.waterfall.io/book-a-call: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.waterfall.io/book-a-call: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Can I develop products...' answered by 'We are very selective in partnering with platform customers'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Platform customers are selectively accepted; the source does not describe a formal partner program."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.waterfall.io/v1/about-waterfall",
+          "quote": "Connect through the REST API;",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:54.021557Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/about-waterfall: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/about-waterfall: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Explicit 'Connect through the REST API' documents REST with no other style mentioned"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.waterfall.io/pricing",
+          "quote": "Before anything is signed we run a benchmark on your data at no cost",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:54.284925Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.waterfall.io/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.waterfall.io/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "Only shows 'benchmark on your data at no cost', not a free plan, account, sandbox or test environment"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A no-cost pre-contract benchmark is documented; a free ongoing API tier or sandbox is not established."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.waterfall.io/v1/overview",
+          "quote": "provide a `webhook_url` to receive it.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:54.117578Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Explicit 'provide a webhook_url to receive it' proves webhook delivery is offered"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Asynchronous enrichment results can be delivered by webhook."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "API access requires vendor approval",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.waterfall.io/v1/book-demo",
+          "quote": "API access is available by approval.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:53.522102Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/book-demo: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/book-demo: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'API access is available by approval' establishes vendor approval as access blocker"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Access is reviewed by Waterfall before credentials are enabled."
+    },
+    "docs_url": {
+      "value": "https://docs.waterfall.io/v1/overview",
+      "evidence": [
+        {
+          "url": "https://docs.waterfall.io/v1/overview",
+          "quote": "# One GTM API for contacts and companies",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:54.117578Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.waterfall.io/v1/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt from that URL shows '# One GTM API for contacts and companies' official API docs"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official API overview documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:54:12.811583Z",
+    "finished_at": "2026-11-23T14:54:47.104341Z",
+    "tool_calls": 11,
+    "tokens_in": 8025,
+    "tokens_out": 174,
+    "cost_usd": 0.000889,
+    "backend": "direct",
+    "verifier_tokens_in": 4930,
+    "verifier_tokens_out": 3074,
+    "l6_tool_calls": 11,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}
