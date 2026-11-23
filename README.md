@@ -13,7 +13,7 @@ Local copy: open [`site/index.html`](site/index.html) (or serve the `site/` fold
 - **Final automated verification accuracy:** `54.2%` (65/120 claims, `+1.67` percentage points; automated verification introduced `3` regressions and filled `6` unknowns incorrectly).
 - **Post-review corrected-sample agreement:** `100%` agreement with human-reviewed labels on that same 120-claim sample after `55` human quality-control corrections. This is corrected-sample agreement, **not** independently measured model accuracy (independent post-correction accuracy was not measured).
 
-**Targeted MCP audit:** A targeted 15-app audit of apps originally classified as `mcp_official=yes` (across all 10 categories; not a full 100-app re-verification) confirmed `12` official MCPs, reclassified `2` (SendGrid, YouTube Transcript) to `no_found`, and marked `1` (iPayX) `unknown` due to insufficient verifiable evidence — updating the official MCP count to **86/100** and recalculating affected buildability scores (`data/reports/mcp_audit.json`).
+**Targeted MCP audit:** A targeted 15-app audit of apps originally classified as `mcp_official=yes` (across all 10 categories; not a full 100-app re-verification) confirmed `12` official MCPs, reclassified `2` (SendGrid, YouTube Transcript) to `no_found`, and marked `1` (iPayX) `unknown` due to insufficient verifiable evidence — updating the official MCP count to **86/100** and recalculating affected buildability scores (`data/reports/mcp_audit.json`). Because 3 of the 15 audited answers (20%) were wrong, treat 86/100 as an upper bound: only 12 are hand-confirmed, and the other 74 are unaudited agent answers.
 
 ---
 
@@ -56,7 +56,7 @@ The pipeline supports two research backends with distinct roles:
 
 | Variable | Purpose |
 | --- | --- |
-| `OPENAI_API_KEY` | Research / extraction model (`EXTRACTOR_MODEL`, default `gpt-5`) |
+| `OPENAI_API_KEY` | Research / extraction model (`EXTRACTOR_MODEL`, default `gpt-6-luna`) |
 | `META_API_KEY` | Independent verifier (`VERIFIER_MODEL`, default `muse-spark-1.3-contributor` via `VERIFIER_BASE_URL`) |
 | `COMPOSIO_API_KEY` | Primary Composio backend: `ck_…` (Connect MCP) or `ak_…` (SDK) |
 | `COMPOSIO_MCP_URL` | Composio Connect MCP endpoint (default `https://connect.composio.dev/mcp`) |

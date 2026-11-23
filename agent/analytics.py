@@ -160,7 +160,7 @@ def _build_headlines(data: dict[str, Any]) -> list[dict[str, Any]]:
         ),
         (
             "mcp_adoption_vs_composio",
-            "Most apps already ship an official MCP server",
+            "Most apps appear to ship an official MCP server (upper bound)",
             "{mcp_off} of {n} apps publish an official MCP server. {mcp_no_comp} of those are not in the Composio catalog yet — ready coverage opportunities.",
             {"mcp_off": mcp_off, "n": n, "mcp_no_comp": mcp_no_comp},
         ),

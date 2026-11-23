@@ -56,7 +56,7 @@ class Settings:
     composio_mcp_url: str = "https://connect.composio.dev/mcp"
     composio_max_inflight: int = 5
     tool_backend: Literal["composio", "composio_sdk", "direct"] = "composio"
-    extractor_model: str = "gpt-5"
+    extractor_model: str = "gpt-6-luna"
     verifier_model: str = "muse-spark-1.3-contributor"
     verifier_base_url: str = "https://api.meta.ai/v1"
     concurrency: int = 8
@@ -104,7 +104,7 @@ def get_settings() -> Settings:
         composio_mcp_url=e("COMPOSIO_MCP_URL") or "https://connect.composio.dev/mcp",
         composio_max_inflight=int(e("COMPOSIO_MAX_INFLIGHT") or 5),
         tool_backend=e("TOOL_BACKEND") or "composio",  # type: ignore[arg-type]
-        extractor_model=e("EXTRACTOR_MODEL") or "gpt-5",
+        extractor_model=e("EXTRACTOR_MODEL") or "gpt-6-luna",
         verifier_model=e("VERIFIER_MODEL") or "muse-spark-1.3-contributor",
         verifier_base_url=e("VERIFIER_BASE_URL") or "https://api.meta.ai/v1",
         concurrency=int(e("CONCURRENCY") or 8),

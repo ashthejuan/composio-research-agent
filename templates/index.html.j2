@@ -380,6 +380,12 @@
       color: var(--ink-2);
     }
 
+    .headline-caveat {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--ink-3, var(--ink-2));
+    }
+
     .bucket-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -800,7 +806,7 @@
         <h1>Which of {{ analytics.summary.total_apps }} apps are ready to turn into agent tools?</h1>
         <p class="cover-lead">
           Composio turns apps into tools AI agents can call. Before building a toolkit, you need to know how each app authenticates, whether a developer can sign up alone, what the API looks like, and what blocks shipping.
-          I researched all {{ analytics.summary.total_apps }} apps with an agent, checked every answer against the docs, and ranked what is ready to build versus what needs outreach.
+          I researched all {{ analytics.summary.total_apps }} apps with an agent that must cite a docs quote for every answer, ran automated checks on those citations, hand-checked a 20-app sample, and ranked what is ready to build versus what needs outreach.
         </p>
         <div class="cover-meta">
           <div>
@@ -845,7 +851,7 @@
             <div class="chapter-num">01 / Key findings</div>
             <h2>What stands out across all {{ analytics.summary.total_apps }} apps</h2>
             <p class="lead">
-              Six patterns computed from the full dataset. Every number on this page comes from the research results — nothing was typed in by hand.
+              Six patterns computed by code from the full 100-app dataset (no figure is typed in by hand). The dataset itself is agent output plus {{ wrong.total_corrections }} human corrections on the 20 hand-checked apps and {{ mcp_audit.summary.corrections_made if mcp_audit else 0 }} from the MCP audit, so treat each pattern with the accuracy caveats in section 05.
             </p>
           </div>
 
@@ -881,6 +887,9 @@
               <div>
                 <div class="headline-title">{{ h.title }}</div>
                 <p class="headline-text">{{ h.text }}</p>
+                {% if h.id == "mcp_adoption_vs_composio" and mcp_audit %}
+                <p class="headline-text headline-caveat"><strong>Caveat:</strong> only {{ mcp_audit.summary.confirmed_official }} of these were confirmed by hand. In a targeted audit of {{ mcp_audit.summary.audited }} “official MCP” answers, {{ mcp_audit.summary.corrections_made }} were wrong ({{ (100 * mcp_audit.summary.corrections_made / mcp_audit.summary.audited)|round|int }}%), and those 3 are already corrected here. If the rest have a similar error rate, the true count is lower, so treat this number as an upper bound. The agent also tends to label vendor-run docs-search or community MCPs as “official”.</p>
+                {% endif %}
               </div>
             </li>
             {% endfor %}
