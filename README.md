@@ -2,7 +2,9 @@
 
 I built a research agent that audits **100 apps** for Composio toolkit readiness: auth methods, how you get credentials, API/MCP surface, evidence-backed claims, and a 0–10 buildability score. Results live in one static report you can skim in about two minutes.
 
-**Case study:** open [`site/index.html`](site/index.html) in a browser (or serve the `site/` folder). Exports: [`site/apps.json`](site/apps.json), [`site/apps.csv`](site/apps.csv), [`site/llms.txt`](site/llms.txt).
+**Case study (live):** [https://ashthejuan.github.io/composio-research-agent/](https://ashthejuan.github.io/composio-research-agent/)
+
+Local copy: open [`site/index.html`](site/index.html) (or serve the `site/` folder). Exports: [`site/apps.json`](site/apps.json), [`site/apps.csv`](site/apps.csv), [`site/llms.txt`](site/llms.txt).
 
 **Headline finding:** most apps look technically easy to integrate, but free developer signup often still hides a ship gate — and several easy wins are not in the Composio catalog yet.
 
