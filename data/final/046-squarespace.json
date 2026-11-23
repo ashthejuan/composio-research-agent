@@ -1,0 +1,661 @@
+{
+  "app_id": 46,
+  "app": "Squarespace",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://squarespace.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A platform for managing Squarespace storefronts, websites, and domains.",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/",
+          "quote": "Manage your storefront's orders, inventory, transactions, and more.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:58.932075Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state 'Manage your storefront's orders...' and 'Add Squarespace websites and domains...' covering all three."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+          "quote": "authenticate requests by using an API key or OAuth access token.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:58.938563Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/oauth",
+          "quote": "Squarespace uses OAuth 2.0 to authorize third-party applications",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:59.359388Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/authentication-and-permission: pass (live 200); [1] developers.squarespace.com/commerce-apis/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/authentication-and-permission: pass (exact [httpx.scrape+exa.snippet]); [1] developers.squarespace.com/commerce-apis/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'authenticate requests by using an API key or OAuth access token' plus 'Squarespace uses OAuth 2.0'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Commerce APIs document API keys and OAuth; OAuth uses OAuth 2.0."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources describe different credential paths and do not establish whether obtaining working credentials is free or requires a paid plan."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/changes/self-service-oauth-credential-management",
+          "quote": "When you are ready to take your integration live, simply request a review directly from the app details page in your dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:01.319683Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/changes/self-service-oauth-credential-manag: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/changes/self-service-oauth-credential-manag: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'request a review directly from the app details page' and 'Approval takes your app out of Demo Mode' shows review gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "New OAuth apps enter Demo Mode and need review to go live."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "All Commerce APIs are built on HTTPS and designed with REST principles in mind.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'All Commerce APIs are built on HTTPS and designed with REST principles' supports rest only."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+          "quote": "Forms API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:58.938563Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Analytics API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Contacts API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Discounts API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Inventory API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Orders API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Products API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Profiles API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Transactions API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Webhook Subscriptions API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/authentication-and-permission: pass (live 200); [1] developers.squarespace.com/commerce-apis/overview: pass (live 200); [2] developers.squarespace.com/commerce-apis/overview: pass (live 200); [3] developers.squarespace.com/commerce-apis/overview: pass (live 200); [4] developers.squarespace.com/commerce-apis/overview: pass (live 200); [5] developers.squarespace.com/commerce-apis/overview: pass (live 200); [6] developers.squarespace.com/commerce-apis/overview: pass (live 200); [7] developers.squarespace.com/commerce-apis/overview: pass (live 200); [8] developers.squarespace.com/commerce-apis/overview: pass (live 200); [9] developers.squarespace.com/commerce-apis/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/authentication-and-permission: pass (exact [httpx.scrape+exa.snippet]); [1] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [2] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [3] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [4] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [5] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [6] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [7] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [8] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet]); [9] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists ~10 APIs: Forms, Inventory, Orders, Products, Contacts, Discounts, Webhook, Profiles, Analytics, Transactions."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The sources name about 10 Commerce API groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/mcp/overview",
+          "quote": "The Squarespace MCP server connects AI assistants to Squarespace.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.305663Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/mcp/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/mcp/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The Squarespace MCP server connects AI assistants to Squarespace' on vendor docs proves official server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources show Squarespace's own MCP server, not a community or other-vendor server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/changes/self-service-oauth-credential-management",
+          "quote": "all new applications created via the self-service tool will enter Demo Mode by default.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:01.319683Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/changes/self-service-oauth-credential-manag: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/changes/self-service-oauth-credential-manag: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'all new applications...will enter Demo Mode by default' + 'for development and testing' shows sandbox."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Demo Mode is provided for new applications; the source does not establish that a general API plan is free."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Webhook Subscriptions API: Subscribe to notifications from a site, like when an order was created, by configuring a webhook endpoint.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Webhook Subscriptions API: Subscribe to notifications...by configuring a webhook endpoint' proves webhooks."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth app review before going live",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/changes/self-service-oauth-credential-management",
+          "quote": "When you are ready to take your integration live, simply request a review directly from the app details page in your dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:01.319683Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/changes/self-service-oauth-credential-manag: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/changes/self-service-oauth-credential-manag: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states apps enter Demo Mode and 'request a review directly from the app details page' to go live; 'Approval takes your app out of Demo Mode'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Review is required to take a new app live."
+    },
+    "docs_url": {
+      "value": "https://developers.squarespace.com/commerce-apis/overview",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "https://developers.squarespace.com/commerce-apis/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.squarespace.com/commerce-apis/overview: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt URL matches claimed URL and shows 'Overview of Commerce APIs' with API reference content."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official Commerce API overview."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 8,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=medium"
+      },
+      "credential_accessibility": {
+        "score": 0,
+        "driver": "credential_access=unknown"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=medium, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:51:34.563507Z",
+    "finished_at": "2026-11-23T14:52:02.785819Z",
+    "tool_calls": 12,
+    "tokens_in": 9309,
+    "tokens_out": 715,
+    "cost_usd": 0.001288,
+    "backend": "direct",
+    "verifier_tokens_in": 6020,
+    "verifier_tokens_out": 3181,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

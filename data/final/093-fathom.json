@@ -1,0 +1,670 @@
+{
+  "app_id": 93,
+  "app": "Fathom",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "AI, Research and Media-native",
+      "evidence": [
+        {
+          "url": "https://fathom.video",
+          "quote": "Registry category (assignment.md): AI, Research and Media-native",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Fathom’s API and webhooks provide structured meeting data, including summaries, action items, transcripts, and Highlights.",
+      "evidence": [
+        {
+          "url": "https://www.fathom.ai/features/api",
+          "quote": "Fathom’s notetaker API and webhooks hand you structured meeting data, from summaries and action items to transcripts and Highlights",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.808743Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'hand you structured meeting data, from summaries and action items to transcripts and Highlights' matches claim; 15 words."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.fathom.ai/sdks/authentication",
+          "quote": "## API Key Authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.821620Z"
+        },
+        {
+          "url": "https://developers.fathom.ai/sdks/authentication",
+          "quote": "## Bearer Token Authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.821620Z"
+        },
+        {
+          "url": "https://developers.fathom.ai/sdks/oauth",
+          "quote": "Both TypeScript and Python SDKs support OAuth 2.0 authentication for building integrations that can be installed by multiple Fathom accounts.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.866970Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/sdks/authentication: pass (live 200); [1] developers.fathom.ai/sdks/authentication: pass (live 200); [2] developers.fathom.ai/sdks/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/sdks/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developers.fathom.ai/sdks/authentication: pass (exact [httpx.scrape+exa.snippet]); [2] developers.fathom.ai/sdks/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows apiKeyAuth, bearerAuth schemes and 'support OAuth 2.0 authentication' covering all three claimed methods."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://www.fathom.ai/features/api",
+          "quote": "Generate an API key yourself in Fathom, with no admin approval needed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.808743Z"
+        },
+        {
+          "url": "https://www.fathom.ai/features/api",
+          "quote": "API keys, webhooks, and SDKs are included on every Fathom plan, including Free.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.808743Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (live 200); [1] www.fathom.ai/features/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (exact [httpx.scrape+exa.snippet]); [1] www.fathom.ai/features/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Generate an API key yourself...no admin approval needed' plus 'included on every Fathom plan, including Free'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API keys are self-serve and included with the Free plan."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.fathom.ai/oauth",
+          "quote": "They are subject to review to ensure the best experience for all users.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.871705Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'They are subject to review to ensure the best experience for all users' indicates OAuth app review."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The docs state OAuth apps are subject to review but do not describe the review process."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.fathom.ai/api-reference/meetings/list-meetings",
+          "quote": "curl --request GET \\\n--url https://api.fathom.ai/external/v1/meetings",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.644423Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/api-reference/meetings/list-meetings: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/api-reference/meetings/list-meetings: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'curl --request GET --url https://api.fathom.ai/external/v1/meetings' demonstrates REST HTTP API."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.fathom.ai/mcp-docs",
+          "quote": "Fathom now offers an official MCP (Model Context Protocol) server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.808702Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/mcp-docs: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/mcp-docs: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Fathom now offers an official MCP (Model Context Protocol) server' directly states vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/agencyenterprise/fathom-mcp-server",
+          "quote": "This server is published to the MCP Registry as io.github.agencyenterprise/fathom-mcp-server.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:18.964558Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/agencyenterprise/fathom-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/agencyenterprise/fathom-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'This server is published to the MCP Registry as io.github.agencyenterprise/fathom-mcp-server' shows community server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community Fathom MCP server is listed; the repository also notes that Fathom now has an official MCP."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.fathom.ai/features/api",
+          "quote": "API keys, webhooks, and SDKs are included on every Fathom plan, including Free.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.808743Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'included on every Fathom plan, including Free' directly proves free plan exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API access is included on the Free plan."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.fathom.ai/features/api",
+          "quote": "Webhooks fire when a meeting’s content is ready",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.808743Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Webhooks fire when a meeting's content is ready' confirms webhooks offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "typescript",
+        "python"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.fathom.ai/features/api",
+          "quote": "Yes. TypeScript and Python SDKs handle authentication, pagination, and retries for you.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.808743Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.fathom.ai/features/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "FAQ states 'Yes. TypeScript and Python SDKs handle authentication...' confirming both."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth app review",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.fathom.ai/oauth",
+          "quote": "They are subject to review to ensure the best experience for all users.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.871705Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "OAuth apps 'subject to review to ensure the best experience' shows app-review access gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developers.fathom.ai/api-reference/meetings/list-meetings",
+      "evidence": [
+        {
+          "url": "https://developers.fathom.ai/api-reference/meetings/list-meetings",
+          "quote": "https://developers.fathom.ai/api-reference/meetings/list-meetings",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:18.644423Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/api-reference/meetings/list-meetings: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.fathom.ai/api-reference/meetings/list-meetings: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at that URL shows '# List meetings' plus OpenAPI for Fathom External API, proving official docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official API reference page for listing meetings."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "fathom",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 8,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T15:00:05.182470Z",
+    "finished_at": "2026-11-23T15:00:29.807862Z",
+    "tool_calls": 0,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "cost_usd": 0.0,
+    "backend": "direct",
+    "verifier_tokens_in": 8668,
+    "verifier_tokens_out": 4802,
+    "l6_tool_calls": 0,
+    "l6_rerun_claims": 0
+  },
+  "errors": []
+}

@@ -1,0 +1,656 @@
+{
+  "app_id": 91,
+  "app": "NotebookLM",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "AI, Research and Media-native",
+      "evidence": [
+        {
+          "url": "https://notebooklm.google",
+          "quote": "Registry category (assignment.md): AI, Research and Media-native",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Enterprise notebook tool for generating insights.",
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "quote": "Gemini Notebook Enterprise is a powerful tool for generating insights",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:07.237188Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'powerful tool for generating insights' matches claimed enterprise notebook tool."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.google.com/notebook/docs/mcp",
+          "quote": "gcloud auth application-default login --scopes=\"https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/notebook\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:07.241617Z"
+        },
+        {
+          "url": "https://developers.google.com/notebook/docs/authentication",
+          "quote": "The Gemini Notebook API uses OAuth 2.0 to authenticate requests on behalf of a Google user.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T15:00:04.883154Z"
+        },
+        {
+          "url": "https://developers.google.com/notebook/docs/authentication",
+          "quote": "The API doesn't accept API keys.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T15:00:04.883154Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "fail",
+            "detail": "rule oauth2_quote: oauth2 claimed but no quote mentions oauth/authoriz"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.google.com/notebook/docs/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.google.com/notebook/docs/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'OAuth token generation' and '--scopes=\".../auth/notebook\"' with Bearer OAuth flow, no other method."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] developers.google.com/notebook/docs/authentication: pass (live 200); [1] developers.google.com/notebook/docs/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] developers.google.com/notebook/docs/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developers.google.com/notebook/docs/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\"]] States 'uses OAuth 2.0 to authenticate' and 'doesn't accept API keys', requiring OAuth 2.0 Bearer token."
+          },
+          {
+            "loop": "L6",
+            "result": "confirmed",
+            "detail": "[\"oauth2\"] confirmed by new source(s) https://developers.google.com/notebook/docs/authentication (attempt 1; was insufficient_evidence)"
+          }
+        ],
+        "notes": "verifier said supported but claim failed an L1 rule; L6 confirmed via https://developers.google.com/notebook/docs/authentication"
+      },
+      "note": "The API uses Google OAuth access tokens; the MCP endpoint requires the notebook scope."
+    },
+    "credential_access": {
+      "value": "paid_plan_required",
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "quote": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'free-trial tier: ... full-featured, 14-day trial subscription of 5000 licenses'."
+          }
+        ],
+        "notes": "human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": "The documentation describes a trial subscription; using the API also requires an active license and appropriate project roles."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "quote": "Grant the Cloud NotebookLM User role ( roles/discoveryengine.notebookLmUser ) to your user account.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "quote": "The projects.locations.notebooks REST API methods on this page",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200); [1] developers.google.com/notebook/docs/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (exact [httpx.scrape+exa.snippet]); [1] developers.google.com/notebook/docs/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'REST API methods' and 'over Streamable HTTP (JSON-RPC 2.0)' covering rest + rpc."
+          }
+        ],
+        "notes": "human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "quote": "Create a notebook",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:07.237188Z"
+        },
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks-sources",
+          "quote": "Add data sources in a batch\nUpload a file as a source\nRetrieve a source\nDelete data sources from a notebook",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:08.004683Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200); [1] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 5 notebook tasks plus 4 source tasks, total 9 which is <10 = narrow."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The provided API documentation shows notebook and data-source operations, a limited portion of the product surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.google.com/notebook/docs/mcp",
+          "quote": "The Gemini Notebook API provides a remote Model Context Protocol (MCP) server at https://notebook.googleapis.com/mcp.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:07.241617Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.google.com/notebook/docs/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.google.com/notebook/docs/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'provides a remote Model Context Protocol (MCP) server at https://notebook.googleapis.com/mcp'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/teng-lin/notebooklm-py/blob/main/docs/mcp-guide.md",
+          "quote": "MCP server guide",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:09.085918Z"
+        },
+        {
+          "url": "https://github.com/teng-lin/notebooklm-py/blob/main/docs/mcp-guide.md",
+          "quote": "notebooklm-mcp --profile work --backend android",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:09.085918Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/teng-lin/notebooklm-py/blob/main/docs/mcp-guide.md: pass (live 200); [1] github.com/teng-lin/notebooklm-py/blob/main/docs/mcp-guide.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/teng-lin/notebooklm-py/blob/main/docs/mcp-guide.md: pass (exact [httpx.scrape+exa.snippet]); [1] github.com/teng-lin/notebooklm-py/blob/main/docs/mcp-guide.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'MCP server exposes NotebookLM to any Model Context Protocol client' as 39 tools, proving server exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community NotebookLM MCP server is documented; it is distinct from the official Enterprise API server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set-up-licensing",
+          "quote": "The free-trial tier: With this tier, you get a full-featured, 14-day trial subscription of 5000 licenses.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:07.239454Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'free-trial tier: With this tier, you get a full-featured, 14-day trial subscription of 5000 licenses' proves free trial."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A 14-day trial subscription is documented."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "quote": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'require an authenticated user account with an active Gemini Notebook Enterprise license' matches access blocker."
+          }
+        ],
+        "notes": "human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "quote": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:07.237188Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL states 'describes the APIs that let you perform notebook management tasks programmatically'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "notebook_lm",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 7,
+    "verdict": "moderate",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=narrow"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=paid_plan_required"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=narrow, webhooks=unknown"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "moderate"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:59:33.070222Z",
+    "finished_at": "2026-11-23T15:00:43.233879Z",
+    "tool_calls": 18,
+    "tokens_in": 16706,
+    "tokens_out": 892,
+    "cost_usd": 0.002117,
+    "backend": "direct",
+    "verifier_tokens_in": 9133,
+    "verifier_tokens_out": 5394,
+    "l6_tool_calls": 18,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

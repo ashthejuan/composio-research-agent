@@ -1,0 +1,680 @@
+{
+  "app_id": 76,
+  "app": "Monday.com",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://monday.com",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A platform API for interacting with workflows, automating processes, and powering integrations.",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/",
+          "quote": "An expressive API to interact with your workflows, automate processes, power integrations, and more!",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.377166Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'interact with your workflows, automate processes, power integrations' matches claim almost verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Describes the platform API rather than the full product."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/authentication",
+          "quote": "The monday.com platform API utilizes personal V2 API tokens to authenticate requests",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.382432Z"
+        },
+        {
+          "url": "https://developer.monday.com/api-reference/docs/authentication",
+          "quote": "passing the token in the Authorization header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.382432Z"
+        },
+        {
+          "url": "https://developer.monday.com/apps/docs/oauth",
+          "quote": "OAuth 2.0 is a protocol that lets your app request authorization to read or modify data in a user's monday account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.780526Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/authentication: pass (live 200); [1] developer.monday.com/api-reference/docs/authentication: pass (live 200); [2] developer.monday.com/apps/docs/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developer.monday.com/api-reference/docs/authentication: pass (exact [httpx.scrape+exa.snippet]); [2] developer.monday.com/apps/docs/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'personal V2 API tokens' in Authorization header for api_key plus 'OAuth 2.0 is a protocol...' for oauth2."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Personal API tokens and OAuth 2.0 are both documented."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/authentication",
+          "quote": "create a free developer account to get an API token and start testing.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.382432Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'create a free developer account to get an API token and start testing' proves free self-serve."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free developer account can obtain an API token."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/apps/docs/install-and-share-your-apps",
+          "quote": "You can still share your app publicly to reach new users if you don't want to list it in the marketplace!",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:57:39.935070Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"none\"] [0] developer.monday.com/apps/docs/install-and-share-your-apps: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"none\"] [0] developer.monday.com/apps/docs/install-and-share-your-apps: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate \"none\"] Quote 'share your app publicly...if you don't want to list it in the marketplace' + 'share the URL with anyone so they can install' shows no gate."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"none\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://developer.monday.com/apps/docs/install-and-share-your-apps)"
+      },
+      "note": "Marketplace review is needed for marketplace listing, but public sharing is an alternative."
+    },
+    "api_type": {
+      "value": [
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/getting-started",
+          "quote": "GraphQL APIs use a single endpoint for all operations",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.770203Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule graphql_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/getting-started: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/getting-started: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'GraphQL APIs use a single endpoint' with endpoint https://api.monday.com/v2; no other style documented."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented platform API is GraphQL."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/mondaycom-mcp",
+          "quote": "Full reference for all 60+ tools, organized by category, with equivalent GraphQL APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.370764Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/mondaycom-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/mondaycom-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'Full reference for all 60+ tools... with equivalent GraphQL APIs' exceeds >30 threshold for broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented MCP tool surface indicates broad API coverage."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/mondaycom-mcp",
+          "quote": "The Platform MCP is monday.com's hosted MCP (Model Context Protocol) server, maintained by the monday.com AI team.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.370764Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/mondaycom-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/mondaycom-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase \"monday.com's hosted MCP server, maintained by the monday.com AI team\" proves vendor-operated."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources list third-party MCP clients, not third-party MCP servers for monday.com."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/developer-sandbox",
+          "quote": "A developer account (also called a sandbox account) is a free monday.com account designed for building and testing monday apps and API integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.751736Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/developer-sandbox: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/developer-sandbox: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'developer account (also called a sandbox account) is a free monday.com account' proves yes."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free developer sandbox account is available for development and testing."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/apps/docs/oauth",
+          "quote": "webhooks:write Create and modify webhooks",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.780526Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/apps/docs/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/apps/docs/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Scope list includes 'webhooks:write Create and modify webhooks' proving API offers webhooks."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "OAuth scopes include permission to create and modify webhooks."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "No vendor-maintained SDKs are identified in the sources."
+    },
+    "rate_limit_note": {
+      "value": "Personal tokens: 10M complexity points/minute (1M for trial, NGO, and free accounts); daily calls: Free 200, Standard/Basic 1,000, Pro/Trial 10,000.",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/rate-limits",
+          "quote": "Reads and writes have a combined budget of 10M points per minute* or 1M for trial, NGO, and free accounts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:05.003159Z"
+        },
+        {
+          "url": "https://developer.monday.com/api-reference/docs/rate-limits",
+          "quote": "Free 200\nStandard/Basic 1,000\nPro/Trial 10,000",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:05.003159Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/rate-limits: pass (live 200); [1] developer.monday.com/api-reference/docs/rate-limits: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/docs/rate-limits: pass (exact [httpx.scrape+exa.snippet]); [1] developer.monday.com/api-reference/docs/rate-limits: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state '10M points per minute* or 1M for trial, NGO, and free' and 'Free 200 Standard/Basic 1,000 Pro/Trial 10,000' matching claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The daily-call figures are listed by account plan."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "none",
+        "type": "none"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/authentication",
+          "quote": "create a free developer account to get an API token and start testing.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        },
+        {
+          "url": "https://developer.monday.com/api-reference/docs/getting-started",
+          "quote": "GraphQL APIs use a single endpoint for all operations (unlike REST APIs). Our API endpoint is:",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        },
+        {
+          "url": "https://developer.monday.com/apps/docs/install-and-share-your-apps",
+          "quote": "You can still share your app publicly to reach new users if you don't want to list it in the marketplace!",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] developer.monday.com/api-reference/docs/authentication: pass (live 200); [1] developer.monday.com/api-reference/docs/getting-started: pass (live 200); [2] developer.monday.com/apps/docs/install-and-share-your-apps: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] developer.monday.com/api-reference/docs/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developer.monday.com/api-reference/docs/getting-started: pass (exact [httpx.scrape+exa.snippet]); [2] developer.monday.com/apps/docs/install-and-share-your-apps: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] Shows self-serve via 'create a free developer account to get an API token' and no gate via 'share your app publicly...if you don't want to list it in the marketplace'"
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"none\", \"type\": \"none\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://developer.monday.com/api-reference/docs/authentication, https://developer.monday.com/api-reference/docs/getting-started, https://developer.monday.com/ap)"
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developer.monday.com/api-reference/",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/",
+          "quote": "https://developer.monday.com/api-reference/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.377166Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.monday.com/api-reference/: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt URL is claimed URL showing 'Connect to your monday data with the platform API' and API Reference."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official platform API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "monday",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 10,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['graphql'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:57:14.122911Z",
+    "finished_at": "2026-11-23T14:58:11.948062Z",
+    "tool_calls": 17,
+    "tokens_in": 17006,
+    "tokens_out": 807,
+    "cost_usd": 0.002104,
+    "backend": "direct",
+    "verifier_tokens_in": 9628,
+    "verifier_tokens_out": 6399,
+    "l6_tool_calls": 17,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

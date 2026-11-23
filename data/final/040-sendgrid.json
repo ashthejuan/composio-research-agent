@@ -1,0 +1,633 @@
+{
+  "app_id": 40,
+  "app": "SendGrid",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Marketing, Ads, Email and Social",
+      "evidence": [
+        {
+          "url": "https://sendgrid.com",
+          "quote": "Registry category (assignment.md): Marketing, Ads, Email and Social",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Sends transactional and marketing emails, manages contacts, and monitors email statistics.",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/api-reference",
+          "quote": "The SendGrid API endpoints allow you to integrate with your tech stack to send transactional emails, create marketing campaigns, manage your contacts, and monitor the health of your email statistics.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.638001Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote matches all parts: 'send transactional emails, create marketing campaigns, manage your contacts, and monitor...email statistics.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token",
+        "basic"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/for-developers/sending-email/authentication",
+          "quote": "Twilio SendGrid supports API keys delivered via Bearer token or Basic authentication, depending on the Twilio SendGrid functionality you are using.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.647307Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/for-developers/sending-email/authentication",
+          "quote": "Twilio SendGrid supports Basic Authentication using an API key as your password value for some services.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.647307Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/for-developers/sending-email/authenticati: pass (live 200); [1] www.twilio.com/docs/sendgrid/for-developers/sending-email/authenticati: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/for-developers/sending-email/authenticati: pass (exact [httpx.scrape+exa.snippet]); [1] www.twilio.com/docs/sendgrid/for-developers/sending-email/authenticati: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'API keys delivered via Bearer token or Basic authentication' with 'Authorization: Bearer' example and Basic using apikey."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API keys are sent as Bearer tokens or used as the password for Basic authentication."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/en-us/products/email-api/pricing",
+          "quote": "Sign up for a free trial—no credit card required",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:39:25.759588Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/api-reference/api-keys",
+          "quote": "You must create your first API key using the Twilio SendGrid App.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.652924Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/en-us/products/email-api/pricing: pass (live 200); [1] www.twilio.com/docs/sendgrid/api-reference/api-keys: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/en-us/products/email-api/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] www.twilio.com/docs/sendgrid/api-reference/api-keys: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Sign up for a free trial' and 'Free trial lets you send 100 emails/day for 60 days' showing time-limited trial."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The sources indicate a self-serve free trial and API key creation in the app, but do not explicitly link the two."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/api-reference",
+          "quote": "The SendGrid v3 Web API provides a REST interface",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.638001Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The SendGrid v3 Web API provides a REST interface' directly establishes REST; no other styles mentioned."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/ai/mcp",
+          "quote": "The server is hosted by Twilio at mcp.twilio.com/docs—point your IDE at the URL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.158195Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/ai/mcp",
+          "quote": "Twilio SendGrid docs and support articles",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.158195Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/ai/mcp: pass (live 200); [1] www.twilio.com/docs/ai/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/ai/mcp: pass (exact [httpx.scrape+exa.snippet]); [1] www.twilio.com/docs/ai/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'server is hosted by Twilio at mcp.twilio.com/docs' and indexes 'Twilio SendGrid docs' shows vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Twilio's official MCP server indexes SendGrid documentation; it is read-only and does not execute API calls."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/deyikong/sendgrid-mcp",
+          "quote": "Sendgrid MCP, Contacts, Templates, Campaigns, Stats, etc. more to come.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:39:25.806211Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/deyikong/sendgrid-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/deyikong/sendgrid-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Repo 'Sendgrid MCP...' describes 'A Model Context Protocol (MCP) server that provides comprehensive access to SendGrid's API v3'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community SendGrid MCP server is documented in this repository."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/en-us/products/email-api/pricing",
+          "quote": "Free trial lets you send 100 emails/day for 60 days",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:39:25.759588Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/en-us/products/email-api/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/en-us/products/email-api/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'Free trial lets you send 100 emails/day for 60 days' plus 'free account is set up'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The free trial allows 100 emails per day for 60 days."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/sendgrid",
+          "quote": "Get started with the Event webhook",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.658293Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/sendgrid",
+          "quote": "Configure the Inbound Parse webhook",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.658293Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid: pass (live 200); [1] www.twilio.com/docs/sendgrid: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid: pass (exact [httpx.scrape+exa.snippet]); [1] www.twilio.com/docs/sendgrid: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts list 'Get started with the Event webhook' and 'Configure the Inbound Parse webhook'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "c#",
+        "go",
+        "java",
+        "node.js",
+        "php",
+        "python",
+        "ruby"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+          "quote": "The Twilio SendGrid Web REST API v3 provides SDKs for seven different languages.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.718788Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+          "quote": "C#GoJavaNode.jsPHPPythonRuby",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.718788Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-: pass (live 200); [1] www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-: pass (exact [httpx.scrape+exa.snippet]); [1] www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'provides SDKs for seven different languages' listing C#, Go, Java, Node.js, PHP, Python, Ruby."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://www.twilio.com/docs/sendgrid/api-reference",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/sendgrid/api-reference",
+          "quote": "SendGrid v3 API reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:25.638001Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/sendgrid/api-reference: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL titled 'SendGrid v3 API reference' with 'complete documentation for every endpoint'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "sendgrid",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 7,
+    "verdict": "moderate",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=self_serve_trial"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "moderate"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:50:55.708769Z",
+    "finished_at": "2026-11-23T14:51:34.559042Z",
+    "tool_calls": 21,
+    "tokens_in": 23719,
+    "tokens_out": 613,
+    "cost_usd": 0.002678,
+    "backend": "direct",
+    "verifier_tokens_in": 8332,
+    "verifier_tokens_out": 3851,
+    "l6_tool_calls": 21,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

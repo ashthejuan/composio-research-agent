@@ -1,0 +1,707 @@
+{
+  "app_id": 3,
+  "app": "Pipedrive",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://pipedrive.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Sales CRM for managing leads, deals, contacts, and calendar events.",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/pricing",
+          "quote": "View and manage leads, deals, contacts, calendar events and more in one place.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:57.803623Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'View and manage leads, deals, contacts, calendar events and more in one place' matches all claimed items."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/features/crm-api",
+          "quote": "Access to the Pipedrive API is only possible using the API key or an access token when using OAuth 2.0.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.121961Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/features/crm-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/features/crm-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'only possible using the API key or an access token when using OAuth 2.0' covers exactly api_key and oauth2."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The docs describe both API keys and OAuth 2.0 access tokens."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/pricing",
+          "quote": "Free 14-day trial. No commitment – you can make changes anytime.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:57.803623Z"
+        },
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "The API token can be obtained manually from the Pipedrive app.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/pricing: pass (live 200); [1] developers.pipedrive.com/docs/api/v1: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts show 'Free 14-day trial' and 'API token can be obtained manually from the Pipedrive app' for self-serve trial."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Credentials can be obtained from the app; a free trial is available."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-be-found-by-any-user/7555",
+          "quote": "A private app can be transitioned to “Live” status, which allows other companies to install it as well, but it won’t be listed in Marketplace and does not need to go through the review process.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:45:51.239789Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"none\"] [0] devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-b: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"none\"] [0] devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-b: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"none\"] Quote says private app can be 'Live' allowing other companies to install, won't be listed and 'does not need to go through the review process'."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"none\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-be-found-by-any-user/7555)"
+      },
+      "note": "A private app can serve other companies without marketplace listing or review."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "This reference helps you implement the RESTful Pipedrive API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'This reference helps you implement the RESTful Pipedrive API' directly documents REST."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "Pipedrive's API and extension points cover the majority of our core product's functionality.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'cover the majority of our core product's functionality' plus 30+ endpoint groups listed shows broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The reference describes coverage of most core product functionality."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/features/mcp-server",
+          "quote": "With Pipedrive MCP, your AI assistant can securely access and act on your CRM data using natural language.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:57.846521Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/features/mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/features/mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Vendor page 'With Pipedrive MCP, your AI assistant can securely access' plus official connector proves vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Pipedrive's official site describes its MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/ckalima/pipedrive-mcp-server",
+          "quote": "MCP server for Pipedrive CRM.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:36:58.148000Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/ckalima/pipedrive-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/ckalima/pipedrive-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo 'MCP server for Pipedrive CRM' by ckalima proves community server exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community-maintained MCP server is documented."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "To test your applications, we recommend creating a new, separate Pipedrive account for sandboxing purposes.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        },
+        {
+          "url": "https://www.pipedrive.com/en/features/crm-api",
+          "quote": "Free API access with every plan",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.121961Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (live 200); [1] www.pipedrive.com/en/features/crm-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet]); [1] www.pipedrive.com/en/features/crm-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote confirms 'request your own sandbox account' via Developer Sandbox Account page."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A sandbox environment is available, and API access is free with every plan."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/features/crm-api",
+          "quote": "Access what you need via webhooks, API endpoints, Postman, Insomnia, client libraries, SDKs and more.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.121961Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/features/crm-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.pipedrive.com/en/features/crm-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Access what you need via webhooks, API endpoints...' confirms webhooks offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "node",
+        "php"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "We offer two official Pipedrive API client libraries: Node.js and PHP.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'We offer two official Pipedrive API client libraries: Node.js and PHP' matches claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "none",
+        "type": "none"
+      },
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/pricing",
+          "quote": "Free 14-day trial. No credit card required.",
+          "source_tier": "official_help",
+          "fetched_at": null
+        },
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "This reference helps you implement the RESTful Pipedrive API.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        },
+        {
+          "url": "https://devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-be-found-by-any-user/7555",
+          "quote": "does not need to go through the review process.",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] www.pipedrive.com/en/pricing: pass (live 200); [1] developers.pipedrive.com/docs/api/v1: pass (live 200); [2] developers.pipedrive.com/docs/api/v1: pass (live 200); [3] devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-b: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] www.pipedrive.com/en/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet]); [2] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet]); [3] devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-b: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] Shows 'RESTful Pipedrive API' and 'token can be obtained manually' but never states multi-tenant OAuth needs no approval/review."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] www.pipedrive.com/en/pricing: pass (live 200); [1] developers.pipedrive.com/docs/api/v1: pass (live 200); [2] devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-b: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] www.pipedrive.com/en/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet]); [2] devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-b: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"none\", \"type\": \"none\"}] Shows 'RESTful Pipedrive API', 'Free 14-day trial. No credit card required', and private app 'does not need to go through the review process' = no gate."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"none\", \"type\": \"none\"} | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://devcommunity.pipedrive.com/t/is-app-review-required-for-oauth-app-to-be-found-by-any-user/7555, https://developers.pipedrive.com/docs/api/v1, https://ww)"
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developers.pipedrive.com/docs/api/v1",
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "This reference helps you implement the RESTful Pipedrive API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.pipedrive.com/docs/api/v1: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL states 'This reference helps you implement the RESTful Pipedrive API'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "pipedrive",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 9,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=self_serve_trial"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:45:12.051104Z",
+    "finished_at": "2026-11-23T14:47:07.337116Z",
+    "tool_calls": 15,
+    "tokens_in": 20753,
+    "tokens_out": 1122,
+    "cost_usd": 0.002636,
+    "backend": "direct",
+    "verifier_tokens_in": 12004,
+    "verifier_tokens_out": 8998,
+    "l6_tool_calls": 15,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

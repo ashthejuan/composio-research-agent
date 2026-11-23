@@ -1,0 +1,691 @@
+{
+  "app_id": 30,
+  "app": "Vonage",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://vonage.com",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Vonage provides APIs for communicating with customers across multiple channels.",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "Vonage provides a suite of APIs that enable you to communicate with your customers using your preferred channels.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'communicate with your customers using your preferred channels' directly matches claimed channels communication."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic",
+        "jwt_service_account"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/verify/concepts/authentication",
+          "quote": "Basic Authentication sends your API Key and API Secret Base64-encoded in the `Authorization` header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:49:32.825186Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/dashboard/build/applications",
+          "quote": "JWTs must be signed with the private key of your application.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:49:32.937050Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/concepts/authentication: pass (live 200); [1] developer.vonage.com/en/getting-started/concepts/authentication: pass (live 200); [2] developer.vonage.com/en/getting-started/concepts/authentication: pass (live 200); [3] developer.vonage.com/en/getting-started/concepts/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/concepts/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developer.vonage.com/en/getting-started/concepts/authentication: pass (exact [httpx.scrape+exa.snippet]); [2] developer.vonage.com/en/getting-started/concepts/authentication: pass (exact [httpx.scrape+exa.snippet]); [3] developer.vonage.com/en/getting-started/concepts/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "Confirms API Key, Basic 'Base64 encoded in Authorization header', JWT, but also cites 'Digest Authentication method' omitted from claim."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"basic\", \"jwt_service_account\"]] [0] developer.vonage.com/en/verify/concepts/authentication: pass (live 200); [1] developer.vonage.com/en/dashboard/build/applications: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"basic\", \"jwt_service_account\"]] [0] developer.vonage.com/en/verify/concepts/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developer.vonage.com/en/dashboard/build/applications: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"basic\", \"jwt_service_account\"]] States 'supports two types: Basic Authentication - JWT' and 'JWTs must be signed with the private key', matching basic + jwt_service_account."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"api_key\", \"basic\", \"jwt_service_account\"] -> [\"basic\", \"jwt_service_account\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+          }
+        ],
+        "notes": "L6 changed value (https://developer.vonage.com/en/dashboard/build/applications, https://developer.vonage.com/en/verify/concepts/authentication)"
+      },
+      "note": "Vonage documents Basic Authentication and application-signed JWTs; the available methods may vary by API product."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "To work with our APIs, you will need to sign up for an account. This will give you an API key and secret that you can use to access our APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "We’ll give you some free credit when you first open your account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/overview: pass (live 200); [1] developer.vonage.com/en/getting-started/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/overview: pass (exact [httpx.scrape+exa.snippet]); [1] developer.vonage.com/en/getting-started/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quotes 'sign up for an account... API key and secret' and 'free credit when you first open your account' show self-serve free."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "An account provides API credentials and includes free credit; production use may require a payment method."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/home",
+          "quote": "Video REST API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404426Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/home: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/home: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive quote 'Video REST API' documents REST; no GraphQL/SOAP/RPC shown, supporting rest-only."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source explicitly identifies a REST API for Video; it does not establish the protocol for every Vonage API."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "For SMS, MMS, Facebook, WhatsApp, Viber, Email and much more: Messages API allows easy integration with multiple messaging platforms through a single integration.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Make and receive telephone calls to or from anywhere in the world.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Retrieve and search message, call, and conversation records in JSON format, by ID, or by time period.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Manage all the numbers you need for your applications.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Query the prices of Vonage services, either by country or by dialling prefix.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/api: pass (live 200); [1] developer.vonage.com/en/api: pass (live 200); [2] developer.vonage.com/en/api: pass (live 200); [3] developer.vonage.com/en/api: pass (live 200); [4] developer.vonage.com/en/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/api: pass (exact [httpx.scrape+exa.snippet]); [1] developer.vonage.com/en/api: pass (exact [httpx.scrape+exa.snippet]); [2] developer.vonage.com/en/api: pass (exact [httpx.scrape+exa.snippet]); [3] developer.vonage.com/en/api: pass (exact [httpx.scrape+exa.snippet]); [4] developer.vonage.com/en/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 20+ APIs across Messaging, Voice, Numbers, Account, Verify, Security showing full product surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API reference covers a broad multi-product surface, including messaging, voice, reports, number management, pricing, verification, and security."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/mcp-server/overview",
+          "quote": "The Vonage MCP Server enables AI agents and developer tools to discover, describe, and use Vonage capabilities via the Model Context Protocol.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:45.840182Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/mcp-server/conceptual-guides/introduction-to-vonage-mcp",
+          "quote": "Vonage provides a few different individual MCP implementations, based on your needs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:47.643231Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/mcp-server/overview: pass (live 200); [1] developer.vonage.com/en/mcp-server/conceptual-guides/introduction-to-v: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/mcp-server/overview: pass (exact [httpx.scrape+exa.snippet]); [1] developer.vonage.com/en/mcp-server/conceptual-guides/introduction-to-v: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official developer.vonage.com states 'Vonage provides...' and 'The Vonage MCP Server enables...'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/Vonage-Community/vonage-mcp-server-api-bindings",
+          "quote": "Vonage MCP server with tools to interact with APIs",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:47.091463Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/Vonage-Community/vonage-mcp-server-api-bindings: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/Vonage-Community/vonage-mcp-server-api-bindings: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Vonage-Community GitHub repo described as 'Vonage MCP server with tools to interact with APIs'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community-tier repository publishes a Vonage MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/dashboard/getting-started",
+          "quote": "You can explore most features with a free trial account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.380269Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "We’ll give you some free credit when you first open your account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/dashboard/getting-started: pass (live 200); [1] developer.vonage.com/en/getting-started/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/dashboard/getting-started: pass (exact [httpx.scrape+exa.snippet]); [1] developer.vonage.com/en/getting-started/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state 'free trial account' and 'We’ll give you some free credit when you first open your account'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Free trial account and initial free credit are documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "Vonage's API can send data back to your web server via a webhook.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/getting-started/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote \"Vonage's API can send data back to your web server via a webhook\" confirms"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention SDKs but do not identify vendor-maintained SDK languages."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Payment method required for production use",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/dashboard/getting-started",
+          "quote": "Payment method (optional for trial) - Required for production use and certain features",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.380269Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/dashboard/getting-started: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/dashboard/getting-started: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Payment method (optional for trial) - Required for production use' matches text, commercial type"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A payment method is documented as required for production use, although the sources do not establish whether this entails a paid plan."
+    },
+    "docs_url": {
+      "value": "https://developer.vonage.com/en/api",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "API Reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.vonage.com/en/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Claimed URL https://developer.vonage.com/en/api returns 'API Reference' listing Vonage APIs"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 10,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:49:01.688729Z",
+    "finished_at": "2026-11-23T14:49:53.547175Z",
+    "tool_calls": 18,
+    "tokens_in": 14597,
+    "tokens_out": 690,
+    "cost_usd": 0.001805,
+    "backend": "direct",
+    "verifier_tokens_in": 10153,
+    "verifier_tokens_out": 5798,
+    "l6_tool_calls": 18,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

@@ -1,0 +1,590 @@
+{
+  "app_id": 90,
+  "app": "PitchBook",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://pitchbook.com",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "On-demand access to private and public market data for use in business systems.",
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/products/direct-access-data/api",
+          "quote": "direct, flexible access to our in-depth private and public market data",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:05.496641Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/products/direct-access-data/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/products/direct-access-data/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Matches 'direct, flexible access to our in-depth private and public market data' into systems on demand."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/help/pitchbook-api",
+          "quote": "help you establish the API connection through an API key or authentication token",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "Excerpt says 'through an API key or authentication token' - shows extra token method beyond api_key."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] pitchbook.com/help/pitchbook-premium-connector-north: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate [\"oauth2\"]] [0] pitchbook.com/help/pitchbook-premium-connector-north: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate [\"oauth2\"]] Excerpt states 'Register OAuth client' then 'Authenticate with PitchBook' via identity provider, establishing OAuth flow."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"api_key\"] -> [\"oauth2\"] | attempt 2: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+          }
+        ],
+        "notes": "L6 changed value (https://pitchbook.com/help/pitchbook-premium-connector-north); human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "contact_sales",
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/help/PitchBook-api",
+          "quote": "Our API is a separate offering from the PitchBook Platform that requires a standalone contract agreement.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:05.498919Z"
+        },
+        {
+          "url": "https://pitchbook.com/help/PitchBook-api",
+          "quote": "To start your API connection, you will need to send a request directly to our Direct Data team through this link.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:05.498919Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200); [1] pitchbook.com/help/PitchBook-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet]); [1] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'requires a standalone contract agreement' indicates enterprise contract, i.e. contact_sales."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API access requires a separate contract and a request to the Direct Data team; self-serve credential availability is not documented."
+    },
+    "production_gate": {
+      "value": "partner_program",
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/help/pitchbook-api",
+          "quote": "Our API is a separate offering from the PitchBook Platform that requires a standalone contract agreement.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/help/PitchBook-api",
+          "quote": "The PitchBook API is a RESTful implementation",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:05.498919Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'The PitchBook API is a RESTful implementation' directly supports rest."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector",
+          "quote": "PitchBook’s Premium Connector (built on MCP server technology)",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:05.501121Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/getting-started-with-pitchbook-premium-connector: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/getting-started-with-pitchbook-premium-connector: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows vendor operates 'PitchBook’s Premium Connector (built on MCP server technology)'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "PitchBook describes its Premium Connector as built on MCP server technology."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/help/PitchBook-api",
+          "quote": "From this section on the platform, you can test specific endpoints.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:05.498919Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "'you can test specific endpoints' as a client does not establish free plan/sandbox; contract required."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Endpoint testing is available in the platform section; the source does not say it is available to non-clients."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Standalone contract required",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/help/PitchBook-api",
+          "quote": "requires a standalone contract agreement.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:05.498919Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/help/PitchBook-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'requires a standalone contract agreement' matches commercial blocker text."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API offering requires a separate contract."
+    },
+    "docs_url": {
+      "value": "https://pitchbook.com/products/direct-access-data/api",
+      "evidence": [
+        {
+          "url": "https://pitchbook.com/products/direct-access-data/api",
+          "quote": "https://pitchbook.com/products/direct-access-data/api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:05.496641Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/products/direct-access-data/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] pitchbook.com/products/direct-access-data/api: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "Quote missing; excerpt is marketing copy, does not establish URL as primary API reference."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "pitchbook",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 6,
+    "verdict": "moderate",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 0,
+        "driver": "credential_access=contact_sales"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=unknown"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": true,
+    "bucket": "needs_outreach"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:59:20.743412Z",
+    "finished_at": "2026-11-23T15:00:30.590500Z",
+    "tool_calls": 23,
+    "tokens_in": 17271,
+    "tokens_out": 877,
+    "cost_usd": 0.002166,
+    "backend": "direct",
+    "verifier_tokens_in": 5318,
+    "verifier_tokens_out": 4213,
+    "l6_tool_calls": 23,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

@@ -1,0 +1,628 @@
+{
+  "app_id": 24,
+  "app": "Lark (Larksuite)",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://larksuite.com",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Lark extends its platform with custom bots, web apps, blocks, and open APIs.",
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/",
+          "quote": "Extend Lark with custom bots, web apps, blocks, powerful open APIs, and more.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.326991Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Extend Lark with custom bots, web apps, blocks, powerful open APIs' matches claim verbatim in 13 words."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token",
+          "quote": "This API implementation adheres to RFC 6749 - The OAuth 2.0 Authorization Framework.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.397140Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'adheres to RFC 6749 - The OAuth 2.0 Authorization Framework' directly establishes oauth2 flow."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "OAuth 2.0 is documented for obtaining user access tokens; other token mechanisms are not classified here."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish whether developers can obtain working credentials for their own accounts through self-serve signup."
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/isv-guides/publish-your-app/publishing-guidelines?lang=en-US",
+          "quote": "Lark's official review is required before launching a Store App in the app directory.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.311990Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/isv-guides/publish-your-app/publishing-gui: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/isv-guides/publish-your-app/publishing-gui: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'official review is required before launching a Store App in the app directory' equals marketplace approval."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This gate applies to Store Apps distributed through the app directory."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token",
+          "quote": "HTTP URL | https://open.larksuite.com/open-apis/authen/v2/oauth/token",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.397140Z"
+        },
+        {
+          "url": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token",
+          "quote": "HTTP Method | POST",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.397140Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (live 200); [1] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (exact [exa.snippet]); [1] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quotes 'HTTP URL https://open.larksuite.com...' and 'HTTP Method POST' prove documented REST HTTP API."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation provides HTTP API endpoints; the sources do not explicitly label the API style as REST."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The provided sources do not establish the number of endpoint groups or full API coverage."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction",
+          "quote": "OpenAPI MCP Tool (hereinafter referred to as \"MCP Tool\") can help you quickly integrate AI agents with Lark's open capabilities",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.200662Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'MCP Tool can help you quickly integrate AI agents with Lark's open capabilities' in Lark docs proves official."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Lark's official developer documentation describes its OpenAPI MCP Tool."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "No third-party MCP server is evidenced in the provided sources."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/server-docs/getting-started/server-api-list",
+          "quote": "Unlimited: Core features including Authentication and Authorization, Event Subscription, and Contacts are free to use, regardless of your Lark plan.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.204728Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/server-docs/getting-started/server-api-lis: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/server-docs/getting-started/server-api-lis: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Unlimited: Core features... are free to use, regardless of your Lark plan' proves free tier."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Core features including authentication, event subscription, and contacts are free; other API usage may have restrictions or usage-based pricing."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/server-docs/getting-started/server-api-list",
+          "quote": "Event Subscription",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.204728Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/server-docs/getting-started/server-api-lis: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/server-docs/getting-started/server-api-lis: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote lists 'Event Subscription' as core Unlimited feature, directly proving event subscriptions offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source confirms event subscriptions but does not give further webhook implementation details."
+    },
+    "official_sdks": {
+      "value": [
+        "node"
+      ],
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction",
+          "quote": "consistent with the method naming of the server-side Node SDK.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.200662Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quotes 'server-side Node SDK' and 'Node SDK sample code' in official docs prove vendor Node SDK."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Node is the only vendor-maintained SDK language shown in the sources."
+    },
+    "rate_limit_note": {
+      "value": "User access-token endpoint: 1000 times/minute, 50 times/second.",
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token",
+          "quote": "API Rate Limit | 1000 times/minute, 50 times/second",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.397140Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-manag: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'API Rate Limit 1000 times/minute, 50 times/second' exactly matches claimed rate limits."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This limit is documented for the user access-token API endpoint."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish whether Lark is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Official review is required for Store App directory launch",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/isv-guides/publish-your-app/publishing-guidelines?lang=en-US",
+          "quote": "Lark's official review is required before launching a Store App in the app directory.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.311990Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/isv-guides/publish-your-app/publishing-gui: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/isv-guides/publish-your-app/publishing-gui: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'official review is required before launching a Store App in the app directory' matches text and access type."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This is the documented obstacle for one-to-many Store App distribution."
+    },
+    "docs_url": {
+      "value": "https://open.larksuite.com/document/server-docs/getting-started/server-api-list",
+      "evidence": [
+        {
+          "url": "https://open.larksuite.com/document/server-docs/getting-started/server-api-list",
+          "quote": "https://open.larksuite.com/document/server-docs/getting-started/server-api-list",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:15.204728Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/server-docs/getting-started/server-api-lis: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open.larksuite.com/document/server-docs/getting-started/server-api-lis: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source URL matches claim and title 'Server API list - Server API - Documentation - Lark Developer' confirms official API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "lark",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 6,
+    "verdict": "moderate",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 0,
+        "driver": "credential_access=unknown"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "moderate"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:48:20.355065Z",
+    "finished_at": "2026-11-23T14:48:54.460055Z",
+    "tool_calls": 12,
+    "tokens_in": 9582,
+    "tokens_out": 569,
+    "cost_usd": 0.001243,
+    "backend": "direct",
+    "verifier_tokens_in": 5722,
+    "verifier_tokens_out": 5469,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

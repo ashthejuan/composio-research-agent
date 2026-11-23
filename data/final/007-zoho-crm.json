@@ -1,0 +1,679 @@
+{
+  "app_id": 7,
+  "app": "Zoho CRM",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://zoho.com/crm",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Manage leads, deals, and customers in one place.",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
+          "quote": "Manage leads, deals, and customers in one place.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:00.022758Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/en-us/crm/zohocrm-pricing.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/en-us/crm/zohocrm-pricing.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Exact quote 'Manage leads, deals, and customers in one place.' appears verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+          "quote": "The Zoho CRM API uses the OAuth 2.0 protocol for authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.096877Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote states 'uses the OAuth 2.0 protocol for authentication' with no other method shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/developer-edition.html",
+          "quote": "Sign Up For Free",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:46:18.631121Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Free Edition 5000 credits 5000 credits",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] www.zoho.com/crm/developer/developer-edition.html: pass (live 200); [1] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] [0] www.zoho.com/crm/developer/developer-edition.html: pass (exact [httpx.scrape+exa.snippet]); [1] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"self_serve_free\"] 'Sign Up For Free' 'without needing a paid plan' plus 'Free Edition 5000 credits' shows free self-serve API access."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"self_serve_free\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://www.zoho.com/crm/developer/developer-edition.html, https://www.zoho.com/crm/developer/docs/api/api-limits.html)"
+      },
+      "note": "The sources show free signup and API credits for the Free Edition, but do not explicitly describe credential issuance."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/access-refresh.html",
+          "quote": "Make a POST request with the following URL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.022711Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+          "quote": "APIs and References",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.004879Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/access-refresh.html: pass (live 200); [1] www.zoho.com/crm/developer/docs/api/v8/api-references.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/access-refresh.html: pass (exact [httpx.scrape+exa.snippet]); [1] www.zoho.com/crm/developer/docs/api/v8/api-references.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'Make a POST request' with HTTP + JSON and CRUD APIs, indicating REST."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The sources document HTTP API requests but do not explicitly label the API as REST."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api-directory.html",
+          "quote": "The API Directory provides a comprehensive list of all Zoho CRM APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.009684Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api-directory.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api-directory.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'comprehensive list of all Zoho CRM APIs' indicates full product surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/mcp/overview.html",
+          "quote": "Zoho CRM provides these as pre-built MCP servers",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.098441Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/mcp/overview.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/mcp/overview.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Zoho CRM provides these as pre-built MCP servers' on vendor docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/hemichaeli/zoho-crm-mcp-server",
+          "quote": "A comprehensive Model Context Protocol (MCP) server for Zoho CRM",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:00.584206Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "fail",
+            "detail": "[0] github.com/hemichaeli/zoho-crm-mcp-server: fail (dead 404)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] github.com/hemichaeli/zoho-crm-mcp-server: pass (exact [exa.snippet]) (passes only on evidence failing L2)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo is 'A comprehensive Model Context Protocol (MCP) server for Zoho CRM'."
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4"
+      },
+      "note": "A community MCP server is listed."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Free Edition 5000 credits 5000 credits",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Table lists 'Free Edition 5000 credits' proving free tier exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The Free Edition has 5,000 API credits in the 24-hour window."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+          "quote": "Trigger real-time events in external applications using webhooks when workflow rules are executed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.004879Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/api-references.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/api-references.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Trigger real-time events in external applications using webhooks' plus APIs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "Free Edition: 5,000 credits per 24 hours; concurrency limit: 5 calls per user/app.",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Maximum credit limit in a 24-hour window for various editions of Zoho CRM",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Free Edition 5000 credits 5000 credits",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Edition Concurrency Limits for a User/App",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Free 5",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (live 200); [1] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (live 200); [2] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (live 200); [3] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (exact [httpx.scrape+exa.snippet]); [1] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (exact [httpx.scrape+exa.snippet]); [2] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (exact [httpx.scrape+exa.snippet]); [3] www.zoho.com/crm/developer/docs/api/api-limits.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Table shows 'Free Edition 5000 credits' under 'Maximum credit limit in a 24-hour window' and 'Concurrency Limits for a User/App' Free=5."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Credit limits vary by edition."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "End-user authorization is required",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/auth-request.html",
+          "quote": "your application is used by multiple users and requires user intervention during authorization.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:46:44.631308Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"End-user authorization is required\", \"type\": \"access\"}] [0] www.zoho.com/crm/developer/docs/api/v8/auth-request.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"End-user authorization is required\", \"type\": \"access\"}] [0] www.zoho.com/crm/developer/docs/api/v8/auth-request.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"End-user authorization is required\", \"type\": \"access\"}] Excerpt says multi-user web apps 'requires user intervention during authorization' via Login with Zoho flow."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"End-user authorization is required\", \"type\": \"access\"} | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://www.zoho.com/crm/developer/docs/api/v8/auth-request.html)"
+      },
+      "note": "End users must authorize access; the sources do not establish a separate app-review requirement."
+    },
+    "docs_url": {
+      "value": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+          "quote": "APIs and References",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.004879Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/api-references.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.zoho.com/crm/developer/docs/api/v8/api-references.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page shows 'APIs and References' listing Metadata, Core, Bulk, Query APIs, confirming it is API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official Zoho CRM V8 API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "zoho",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 10,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:45:56.812221Z",
+    "finished_at": "2026-11-23T14:47:01.230870Z",
+    "tool_calls": 28,
+    "tokens_in": 29583,
+    "tokens_out": 1417,
+    "cost_usd": 0.003667,
+    "backend": "direct",
+    "verifier_tokens_in": 8284,
+    "verifier_tokens_out": 6455,
+    "l6_tool_calls": 28,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

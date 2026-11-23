@@ -1,0 +1,676 @@
+{
+  "app_id": 15,
+  "app": "Pylon",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://usepylon.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Agentic support platform purpose-built for B2B.",
+      "evidence": [
+        {
+          "url": "https://www.usepylon.com/pylon-facts",
+          "quote": "Pylon is the agentic support platform purpose-built for B2B.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.899550Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pylon-facts: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pylon-facts: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote matches claim verbatim: 'Pylon is the agentic support platform purpose-built for B2B.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+          "quote": "Authorization: Bearer <token>",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:35.570290Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'The Pylon API uses Bearer authentication' with 'Authorization: Bearer <token>'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented API uses a Pylon API token as a Bearer token."
+    },
+    "credential_access": {
+      "value": "paid_plan_required",
+      "evidence": [
+        {
+          "url": "https://www.usepylon.com/pricing",
+          "quote": "Includes: Viewer seats Core support Out-of-the-box Analytics Automations Skills Broadcasts MCP API Integrations",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"contact_sales\"] [0] www.usepylon.com/pricing: pass (live 200); [1] www.usepylon.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"contact_sales\"] [0] www.usepylon.com/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] www.usepylon.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"contact_sales\"] API listed in seat plans requiring 'Book a demo'/'Talk to sales'; trials require 'Your sales representative will work with you on setting up the demo organization.'"
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"contact_sales\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://www.usepylon.com/pricing); human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": "API is included in paid plans; the cited sources describe a sales-led demo/trial path, not direct self-serve credential access."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api.md",
+          "quote": "Only Admin users can create API tokens.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.usepylon.com/pylon-facts",
+          "quote": "Developer platform: REST API, scoped API tokens, webhooks, iFrame embeds, custom apps, Pylon MCP server.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.899550Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pylon-facts: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pylon-facts: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'Developer platform: REST API' with no other style listed."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api/api-reference",
+          "quote": "AccountsActivitiesAttachmentsCall RecordingsContactsCustom FieldsCustom ObjectsEmailFeature RequestsIssuesKnowledge BaseMacrosMeMessagesSurveysTagsTasks & ProjectsTeamsTicket FormsTraining Data",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:35.566417Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/api-reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/api-reference: pass (fuzzy 95 [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists ~22 groups Accounts through Users, fitting medium 10-30 definition."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The reference lists about 20 endpoint groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp",
+          "quote": "The Pylon MCP Server exposes Pylon data to AI tools that support the Model Context Protocol",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:35.561793Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/integrations/pylon-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/integrations/pylon-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'The Pylon MCP Server exposes Pylon data' with official mcp.usepylon.com URLs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Pylon documents and operates its own MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/mgmonteleone/pylon-mcp/tree/v3.5.0",
+          "quote": "An MCP (Model Context Protocol) server for integrating with the Pylon API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:35.991470Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/mgmonteleone/pylon-mcp/tree/v3.5.0: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/mgmonteleone/pylon-mcp/tree/v3.5.0: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo describes 'An MCP server for integrating with the Pylon API' by community fork."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community GitHub repository documents a separate Pylon MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.usepylon.com/pricing",
+          "quote": "Pylon offers free trials for prospects.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.789468Z"
+        },
+        {
+          "url": "https://www.usepylon.com/pylon-facts",
+          "quote": "Pylon does not have a free plan.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.899550Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pricing: pass (live 200); [1] www.usepylon.com/pylon-facts: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] www.usepylon.com/pylon-facts: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Pylon offers free trials for prospects' and Enterprise includes 'sandbox'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A trial is available through a sales representative; there is no free plan."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.usepylon.com/pylon-facts",
+          "quote": "Developer platform: REST API, scoped API tokens, webhooks, iFrame embeds, custom apps, Pylon MCP server.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.899550Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pylon-facts: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.usepylon.com/pylon-facts: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'Developer platform: REST API, scoped API tokens, webhooks' explicitly."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "typescript",
+        "python",
+        "go"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api",
+          "quote": "To call the API from TypeScript, Python, or Go, use our SDKs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:35.573731Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'To call the API from TypeScript, Python, or Go, use our SDKs' lists all three claimed languages."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "30 requests per minute for bulk issue updates",
+      "evidence": [
+        {
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api/api-reference/issues",
+          "quote": "Rate limit: 30 requests per minute",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:35.770868Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/api-reference/issues: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/api-reference/issues: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Rate limit: 30 requests per minute' appears on 'Update multiple issues' bulk endpoint docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This limit is documented for the bulk issue update endpoint."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "You pay for the seats and AI credits your team uses, never per ticket.",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://www.usepylon.com/pricing",
+          "quote": "You pay for the seats and AI credits your team uses, never per ticket.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Only Admin users can create API tokens' matches text; admin-only creation is access-type gate."
+          }
+        ],
+        "notes": "human correction from confirmed golden label (ashthejuan)"
+      },
+      "note": "API token creation is restricted to Admin users."
+    },
+    "docs_url": {
+      "value": "https://docs.usepylon.com/pylon-docs/developer/api/api-reference",
+      "evidence": [
+        {
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api/api-reference",
+          "quote": "API reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:35.566417Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/api-reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.usepylon.com/pylon-docs/developer/api/api-reference: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "URL hosts page titled 'API reference' with 'Documentation on available endpoints.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "pylon_mcp",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 9,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=medium"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=paid_plan_required"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=medium, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:47:07.340012Z",
+    "finished_at": "2026-11-23T14:48:01.539965Z",
+    "tool_calls": 18,
+    "tokens_in": 15417,
+    "tokens_out": 1039,
+    "cost_usd": 0.002061,
+    "backend": "direct",
+    "verifier_tokens_in": 9341,
+    "verifier_tokens_out": 4893,
+    "l6_tool_calls": 18,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

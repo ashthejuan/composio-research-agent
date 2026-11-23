@@ -1,0 +1,563 @@
+{
+  "app_id": 69,
+  "app": "Datadog",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://datadoghq.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Datadog provides an API for programmatically accessing its platform.",
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/api/latest.md",
+          "quote": "Use the Datadog API to access the Datadog platform programmatically.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.357580Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Use the Datadog API to access the Datadog platform programmatically' matches claim verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/api/latest.md",
+          "quote": "Authenticate to the API with an [API key](https://docs.datadoghq.com/account_management/api-app-keys.md#api-keys) using the header `DD-API-KEY`.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.357580Z"
+        },
+        {
+          "url": "https://docs.datadoghq.com/extend/integrations/api_integration.md",
+          "quote": "OAuth 2.0 is an industry-standard authorization framework that enables secure access to Datadog APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.433985Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (live 200); [1] docs.datadoghq.com/extend/integrations/api_integration.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (exact [httpx.scrape+exa.snippet]); [1] docs.datadoghq.com/extend/integrations/api_integration.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'Authenticate to the API with an API key' and 'OAuth 2.0 ... enables secure access to Datadog APIs'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API keys are documented generally; OAuth is available only to approved Technology Partners."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "partner_program",
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/extend/integrations/api_integration.md",
+          "quote": "OAuth is available only to approved Technology Partners developing official Datadog integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.433985Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/extend/integrations/api_integration.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/extend/integrations/api_integration.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'OAuth is available only to approved Technology Partners' and 'joined the Datadog Partner Network' proves partner_program."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented OAuth route for an official integration is partner-gated."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/api/latest.md",
+          "quote": "The Datadog API is an HTTP REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.357580Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The Datadog API is an HTTP REST API' directly supports rest-only with no other styles shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/api/latest/authentication",
+          "quote": "Agent Health\nAgent Observability\nAgentless Scanning\nAI Gateway\nAI Guard\nAnnotations\nAnthropic Usage And Costs Integration\nAPI Management\nAPM\nAPM Retention Filters\nAPM Trace",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.352714Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "List from 'Agent Health' to 'APM Trace' to 'Dashboards' etc shows dozens >30, meeting broad threshold."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API documentation lists many distinct endpoint groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/mcp_server/tools.md",
+          "quote": "The following tools are available in the Datadog MCP Server.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.355309Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/mcp_server/tools.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/mcp_server/tools.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official docs state 'The following tools are available in the Datadog MCP Server.' proving vendor server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth access for official integrations is limited to approved Technology Partners",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/extend/integrations/api_integration.md",
+          "quote": "OAuth is available only to approved Technology Partners developing official Datadog integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.433985Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/extend/integrations/api_integration.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/extend/integrations/api_integration.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'OAuth is available only to approved Technology Partners' matches text; partner deal = commercial."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This is the documented gate for official OAuth-based integrations."
+    },
+    "docs_url": {
+      "value": "https://docs.datadoghq.com/api/latest.md",
+      "evidence": [
+        {
+          "url": "https://docs.datadoghq.com/api/latest.md",
+          "quote": "# API Reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:45.357580Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.datadoghq.com/api/latest.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "URL hosts '# API Reference' titled API Reference, presented as primary API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "datadog",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 8,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 0,
+        "driver": "credential_access=unknown"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=unknown"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": true,
+    "bucket": "needs_outreach"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:56:15.172768Z",
+    "finished_at": "2026-11-23T14:56:38.516073Z",
+    "tool_calls": 12,
+    "tokens_in": 11647,
+    "tokens_out": 189,
+    "cost_usd": 0.001259,
+    "backend": "direct",
+    "verifier_tokens_in": 5125,
+    "verifier_tokens_out": 2649,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

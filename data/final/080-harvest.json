@@ -1,0 +1,659 @@
+{
+  "app_id": 80,
+  "app": "Harvest",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://getharvest.com",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Harvest helps users track time, log expenses, and create projects.",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "You can track time, log expenses, create projects, and more.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'You can track time, log expenses, create projects, and more.' directly matches claimed value."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "Harvest requires applications to authenticate all requests with OAuth2 or Personal Access Tokens.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        },
+        {
+          "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+          "quote": "Authorization: Bearer $ACCESS_TOKEN",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.336695Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (live 200); [1] help.getharvest.com/api-v2/authentication-api/authentication/authentic: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (exact [httpx.scrape+exa.snippet]); [1] help.getharvest.com/api-v2/authentication-api/authentication/authentic: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'authenticate all requests with OAuth2 or Personal Access Tokens' plus 'Authorization: Bearer' covers oauth2 + bearer_token."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Personal Access Tokens can be sent as bearer tokens; OAuth2 is also supported."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+          "quote": "The API can be accessed by creating a Personal Access Token from the Developers section of Harvest ID.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.336695Z"
+        },
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API",
+          "quote": "Your Harvest subscription includes API access for all accounts (including free and trial accounts)",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.338800Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/authentication-api/authentication/authentic: pass (live 200); [1] support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/authentication-api/authentication/authentic: pass (exact [httpx.scrape+exa.snippet]); [1] support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'includes API access for all accounts (including free and trial accounts)' proves self_serve_free."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A Personal Access Token can be created for an account, and API access is included for free accounts."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v1/authentication/authentication/oauth/",
+          "quote": "After you register, we’ll provide you with credentials that your application can use to communicate with Harvest.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:58:37.348465Z"
+        },
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/12511803761165-How-can-I-get-my-integration-listed-or-updated-on-your-integrations-page",
+          "quote": "If you've created an integration with Harvest that you'd like to have added to our integrations directory, please submit your request using our integration submission form.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.807159Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"none\"] [0] help.getharvest.com/api-v1/authentication/authentication/oauth/: pass (live 200); [1] support.getharvest.com/hc/en-us/articles/12511803761165-How-can-I-get-: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"none\"] [0] help.getharvest.com/api-v1/authentication/authentication/oauth/: pass (exact [httpx.scrape+exa.snippet]); [1] support.getharvest.com/hc/en-us/articles/12511803761165-How-can-I-get-: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate \"none\"] Only self-register needed: 'After you register...use to communicate' and listing optional: \"If you've created...you'd like to have added\""
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"none\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://help.getharvest.com/api-v1/authentication/authentication/oauth/, https://support.getharvest.com/hc/en-us/articles/12511803761165-How-can-I-get-my-integr)"
+      },
+      "note": "The sources describe application registration and make directory listing optional; neither states a separate approval requirement before serving customers."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "The Harvest V2 API is a REST API",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'The Harvest V2 API is a REST API' directly states REST with no other type shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/",
+          "quote": "Scheduled Assignments\nSchedule Export\nRepeating Assignments\nProject Financials\nPlanned Expenses\nPlaceholders\nMilestones\nForecast Settings\nForecast API Overview\nBoard Window\nBoard Projects",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.334485Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Long list Invoices, Projects, Users, Reports, Forecast, etc. exceeds 30 groups, proving broad surface."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation index lists many API areas and resources, indicating a broad surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/46293697226381-Harvest-MCP",
+          "quote": "The Harvest MCP (Model Context Protocol) connection lets you work with your Harvest data through an AI assistant",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765261Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] support.getharvest.com/hc/en-us/articles/46293697226381-Harvest-MCP: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] support.getharvest.com/hc/en-us/articles/46293697226381-Harvest-MCP: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official help states 'The Harvest MCP (Model Context Protocol) connection lets you work' proving vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API",
+          "quote": "Your Harvest subscription includes API access for all accounts (including free and trial accounts)",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.338800Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'including free and trial accounts' plus plans list Free proves free tier exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API access is included for free and trial accounts."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention code samples and API libraries, but do not establish vendor-maintained SDKs."
+    },
+    "rate_limit_note": {
+      "value": "100 requests per 15 seconds for general API requests.",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "The rate limit for general API requests is 100 requests per 15 seconds.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Exact phrase 'The rate limit for general API requests is 100 requests per 15 seconds.' matches claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "none",
+        "type": "none"
+      },
+      "evidence": [
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API",
+          "quote": "Your Harvest subscription includes API access for all accounts (including free and trial accounts)",
+          "source_tier": "official_help",
+          "fetched_at": null
+        },
+        {
+          "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+          "quote": "The application can be created from the Developers section of Harvest ID",
+          "source_tier": "official_help",
+          "fetched_at": null
+        },
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/12511803761165-How-can-I-get-my-integration-listed-or-updated-on-your-integrations-page",
+          "quote": "If you've created an integration with Harvest that you'd like to have added to our integrations directory, please submit your request using our integration submission form.",
+          "source_tier": "official_help",
+          "fetched_at": null
+        },
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "The Harvest V2 API is a REST API",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:59:01.489124Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API: pass (live 200); [1] help.getharvest.com/api-v2/authentication-api/authentication/authentic: pass (live 200); [2] support.getharvest.com/hc/en-us/articles/12511803761165-How-can-I-get-: pass (live 200); [3] help.getharvest.com/api-v2/introduction/overview/general/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] [0] support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API: pass (exact [httpx.scrape+exa.snippet]); [1] help.getharvest.com/api-v2/authentication-api/authentication/authentic: pass (exact [httpx.scrape+exa.snippet]); [2] support.getharvest.com/hc/en-us/articles/12511803761165-How-can-I-get-: pass (exact [httpx.scrape+exa.snippet]); [3] help.getharvest.com/api-v2/introduction/overview/general/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"none\", \"type\": \"none\"}] \"includes API access for all accounts (including free and trial)\" and \"application can be created from the Developers section\" show self-serve, documented API with no gate."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"none\", \"type\": \"none\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/, https://help.getharvest.com/api-v2/introduction/overview/general/, https:/)"
+      },
+      "note": "Directory submission is optional; the cited sources do not describe a separate production approval requirement."
+    },
+    "docs_url": {
+      "value": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "This is the current API V2 documentation.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.getharvest.com/api-v2/introduction/overview/general/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source URL matches claim and page states 'This is the current API V2 documentation.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary API V2 overview documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "harvest",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 10,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=unknown"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:58:05.034042Z",
+    "finished_at": "2026-11-23T14:59:17.242983Z",
+    "tool_calls": 17,
+    "tokens_in": 17680,
+    "tokens_out": 1145,
+    "cost_usd": 0.002341,
+    "backend": "direct",
+    "verifier_tokens_in": 8359,
+    "verifier_tokens_out": 7881,
+    "l6_tool_calls": 17,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

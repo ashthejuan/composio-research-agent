@@ -1,0 +1,718 @@
+{
+  "app_id": 73,
+  "app": "Linear",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://linear.app",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Linear lets users find, create, and update issues, projects, and comments.",
+      "evidence": [
+        {
+          "url": "https://linear.app/docs/mcp",
+          "quote": "The Linear MCP server has tools available for finding, creating, and updating objects in Linear like issues, projects, and comments",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:23:59.618388Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/docs/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/docs/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'finding, creating, and updating objects in Linear like issues, projects, and comments' matches claim; 11 words."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Describes supported work with Linear objects, rather than the product as a whole."
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "api_key"
+      ],
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "The Linear API supports personal API keys and OAuth2 authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'supports personal API keys and OAuth2 authentication' documents exactly oauth2 + api_key, no other methods."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Personal API keys are suited to scripts; OAuth2 is recommended for applications."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "For personal scripts API keys are the easiest way to access the API. Visit Security & access settings to create and manage them.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        },
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "| API and webhook access | Included | Included | 2× standard | 5× standard |",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        },
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "Free for everyone",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (live 200); [1] linear.app/pricing: pass (live 200); [2] linear.app/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (exact [httpx.scrape+exa.snippet]); [1] linear.app/pricing: fail (quote not in text (best fuzzy 77) [httpx.scrape+exa.snippet]); [2] linear.app/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Visit Security & access settings to create and manage them' + 'Free for everyone' shows self-serve free keys."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The pricing table shows API access included for the Free plan, and personal API keys can be created in settings."
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/agents",
+          "quote": "To make your agent available to other workspaces, submit your agent to Linear's integration directory.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:57:10.792506Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] [0] linear.app/developers/agents: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] [0] linear.app/developers/agents: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] Quote requires 'submit your agent to Linear's integration directory' to make agent available to other workspaces."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"marketplace_listing\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://linear.app/developers/agents)"
+      },
+      "note": "The directory-submission requirement is stated for agents."
+    },
+    "api_type": {
+      "value": [
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "Linear’s public API is built using GraphQL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule graphql_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'public API is built using GraphQL' establishes graphql; no other style shown in excerpts."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "It supports introspection so you can query the whole schema.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'same API we use internally' + 'query the whole schema' indicates full product surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Introspection exposes the whole schema; the sources do not enumerate its resource count."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://linear.app/docs/mcp",
+          "quote": "The Linear MCP server follows the authenticated remote MCP spec, so the server is centrally hosted and managed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:23:59.618388Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/docs/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/docs/mcp: pass (fuzzy 97 [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Our MCP server' + 'centrally hosted and managed' at mcp.linear.app proves vendor-operated server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/iceener/linear-streamable-mcp-server",
+          "quote": "MCP Server for interacting with Linear API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:31:57.396666Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/iceener/linear-streamable-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/iceener/linear-streamable-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Repo iceener/linear-streamable-mcp-server: 'MCP Server for interacting with Linear API' shows community server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community-maintained server is documented in the cited repository."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "Free\n\n$0\n\nFree for everyone",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        },
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "| API and webhook access | Included | Included | 2× standard | 5× standard |",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/pricing: pass (live 200); [1] linear.app/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] linear.app/pricing: fail (quote not in text (best fuzzy 77) [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Free $0 Free for everyone' with Unlimited members proves free plan exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The Free plan is $0 and includes API and webhook access."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "| API and webhook access | Included | Included | 2× standard | 5× standard |",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "fail",
+            "detail": "[0] linear.app/pricing: fail (quote not in text (best fuzzy 77) [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt lists 'API and webhook access' as 'Included' for all plans, confirming webhooks offered."
+          }
+        ],
+        "notes": "verifier said supported but no quote was grounded by L3/L4"
+      },
+      "note": "Webhook access is included in the plan comparison."
+    },
+    "official_sdks": {
+      "value": [
+        "typescript"
+      ],
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/sdk",
+          "quote": "The Linear Typescript SDK exposes the Linear GraphQL schema through strongly typed models and operations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:31:57.388043Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/sdk: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/sdk: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official page states 'The Linear Typescript SDK exposes the Linear GraphQL schema' with install instructions."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented vendor SDK is TypeScript; the docs also say it can be used in JavaScript environments."
+    },
+    "rate_limit_note": {
+      "value": "API key: up to 2,500 requests per hour; OAuth app: 5,000 requests per user (or app user) per hour.",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/rate-limiting",
+          "quote": "When authenticated using an API key you can make up to 2,500 requests per hour.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.047421Z"
+        },
+        {
+          "url": "https://linear.app/developers/rate-limiting",
+          "quote": "| OAuth App | 5,000 | User (or App User) | 1 hour |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.047421Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/rate-limiting: pass (live 200); [1] linear.app/developers/rate-limiting: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/rate-limiting: pass (exact [httpx.scrape+exa.snippet]); [1] linear.app/developers/rate-limiting: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state 'up to 2,500 requests per hour' for API key and table shows OAuth App 5,000 per User (or App User) per hour."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish that Linear is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Integration-directory submission required for distribution",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/agents",
+          "quote": "To make your agent available to other workspaces, submit your agent to Linear's integration directory.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Integration-directory submission required for distribution\", \"type\": \"] [0] linear.app/developers/agents: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Integration-directory submission required for distribution\", \"type\": \"] [0] linear.app/developers/agents: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Integration-directory submission required for distribution\", \"type\": \"] Quote 'submit your agent to Linear's integration directory' to make available to other workspaces directly matches access distribution gate."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Integration-directory submission required for distribution\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://linear.app/developers/agents)"
+      },
+      "note": "This applies to distributing an agent to other workspaces."
+    },
+    "docs_url": {
+      "value": "https://linear.app/developers/graphql",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "Linear’s public API is built using GraphQL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] linear.app/developers/graphql: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL titled 'GraphQL API' states 'Linear's public API is built using GraphQL' with endpoint."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official GraphQL API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "linear",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 10,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['graphql'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:56:38.520704Z",
+    "finished_at": "2026-11-23T14:57:46.980642Z",
+    "tool_calls": 17,
+    "tokens_in": 16951,
+    "tokens_out": 602,
+    "cost_usd": 0.001996,
+    "backend": "direct",
+    "verifier_tokens_in": 9589,
+    "verifier_tokens_out": 5992,
+    "l6_tool_calls": 17,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

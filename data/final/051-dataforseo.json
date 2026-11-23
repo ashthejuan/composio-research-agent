@@ -1,0 +1,650 @@
+{
+  "app_id": 51,
+  "app": "DataForSEO",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Data, SEO and Scraping",
+      "evidence": [
+        {
+          "url": "https://dataforseo.com",
+          "quote": "Registry category (assignment.md): Data, SEO and Scraping",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Provides data for SEO software, data analysis pipelines, and no-code automations.",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "This is the starting point on your journey towards building powerful SEO software, data analysis pipelines, and robust no-code automations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt says building 'powerful SEO software, data analysis pipelines, and robust no-code automations' – exact match."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/auth/",
+          "quote": "DataForSEO is using the Basic Authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.906629Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/auth/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/auth/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'DataForSEO is using the Basic Authentication' and 'Basic authentication is the only way' – set is [basic]."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/auth/",
+          "quote": "Create a free account with DataForSEO, then go to the API Access tab in the account dashboard to find your API login and password",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.906629Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/auth/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/auth/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Create a free account... then go to the API Access tab... to find your API login and password' for API use."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free account provides access to API credentials."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "DataForSEO API is using the REST technology",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'DataForSEO API is using the REST technology' with REST clients; no other style shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://dataforseo.com/model-context-protocol",
+          "quote": "https://mcp.dataforseo.com/v3/mcp",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:12.921209Z"
+        },
+        {
+          "url": "https://dataforseo.com/model-context-protocol",
+          "quote": "Empower AI integration with\nDataForSEO MCP",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:12.921209Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] dataforseo.com/model-context-protocol: pass (live 200); [1] dataforseo.com/model-context-protocol: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] dataforseo.com/model-context-protocol: pass (exact [httpx.scrape+exa.snippet]); [1] dataforseo.com/model-context-protocol: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official dataforseo.com page 'Empower AI integration with DataForSEO MCP' gives URL 'https://mcp.dataforseo.com/v3/mcp'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The official DataForSEO page provides its MCP server URL."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/app_data-overview/",
+          "quote": "You can test App Data API for free using DataForSEO Sandbox.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.918111Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/app_data-overview/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/app_data-overview/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'You can test App Data API for free using DataForSEO Sandbox.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free sandbox is documented for the App Data API."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/app_data-overview/",
+          "quote": "we will notify you on completion of tasks or send the results to you respectively.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.918111Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/app_data-overview/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/app_data-overview/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'pingback_url or postback_url' triggers 'we will notify you on completion... or send the results' – webhooks."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Task completion notifications and result delivery are available using pingback_url or postback_url."
+    },
+    "official_sdks": {
+      "value": [
+        "c#",
+        "java",
+        "python",
+        "typescript"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported C# Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        },
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported Java Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        },
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported Python Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        },
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported TypeScript Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (live 200); [1] docs.dataforseo.com/v3/: pass (live 200); [2] docs.dataforseo.com/v3/: pass (live 200); [3] docs.dataforseo.com/v3/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (exact [httpx.scrape+exa.snippet]); [1] docs.dataforseo.com/v3/: pass (exact [httpx.scrape+exa.snippet]); [2] docs.dataforseo.com/v3/: pass (exact [httpx.scrape+exa.snippet]); [3] docs.dataforseo.com/v3/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists C#, Java, Python, TypeScript as 'officially supported... Author – DataForSEO team'; PHP author is Vitaliy Lyabakh."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Listed clients attributed to the DataForSEO team are included."
+    },
+    "rate_limit_note": {
+      "value": "App Data API: up to 10,000 POST and GET calls per minute total; each POST call can contain up to 100 tasks.",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/app_data-overview/",
+          "quote": "You can send up to 10000 POST and GET API calls per minute in total, with each POST call containing no more than 100 tasks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.918111Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/app_data-overview/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/app_data-overview/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Exact quote: 'up to 10000 POST and GET API calls per minute in total, with each POST call containing no more than 100 tasks.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This documented limit is for the App Data API."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Written agreement required to distribute raw API or MCP access",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://dataforseo.com/help-center/quick-answers-to-frequently-asked-legal-questions",
+          "quote": "any onward distribution of our datasets as an untransformed standalone feed, database dump, public endpoint, or raw API service requires a separate written agreement.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:53:19.162923Z"
+        },
+        {
+          "url": "https://dataforseo.com/help-center/quick-answers-to-frequently-asked-legal-questions",
+          "quote": "This includes white-label API access, MCP endpoints, marketplace actors, open datasets, and per-query wallet resale models.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:53:19.162923Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Written agreement required to distribute raw API or MCP access\", \"type] [0] dataforseo.com/help-center/quick-answers-to-frequently-asked-legal-que: pass (live 200); [1] dataforseo.com/help-center/quick-answers-to-frequently-asked-legal-que: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Written agreement required to distribute raw API or MCP access\", \"type] [0] dataforseo.com/help-center/quick-answers-to-frequently-asked-legal-que: pass (exact [httpx.scrape+exa.snippet]); [1] dataforseo.com/help-center/quick-answers-to-frequently-asked-legal-que: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Written agreement required to distribute raw API or MCP access\", \"type] Quote: 'raw API service requires a separate written agreement' including 'MCP endpoints, white-label API access'"
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Written agreement required to distribute raw API or MCP access\", \"type\": \"commercial\"} | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://dataforseo.com/help-center/quick-answers-to-frequently-asked-legal-questions)"
+      },
+      "note": "This restriction concerns onward distribution of raw data or API access, not necessarily every toolkit design."
+    },
+    "docs_url": {
+      "value": "https://docs.dataforseo.com/v3/",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Welcome to DataForSEO API!",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.dataforseo.com/v3/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source URL matches claim and page shows 'Welcome to DataForSEO API!' as starting point for APIs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "dataforseo",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 8,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:52:40.275488Z",
+    "finished_at": "2026-11-23T14:53:40.471638Z",
+    "tool_calls": 22,
+    "tokens_in": 26390,
+    "tokens_out": 956,
+    "cost_usd": 0.003117,
+    "backend": "direct",
+    "verifier_tokens_in": 8392,
+    "verifier_tokens_out": 4154,
+    "l6_tool_calls": 22,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

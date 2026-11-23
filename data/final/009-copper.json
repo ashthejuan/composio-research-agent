@@ -1,0 +1,633 @@
+{
+  "app_id": 9,
+  "app": "Copper",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://copper.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "CRM for Google Workspace that helps teams manage relationships, track pipelines, and run projects.",
+      "evidence": [
+        {
+          "url": "https://www.copper.com/partners",
+          "quote": "so your team can manage relationships, track pipelines, and run projects without ever leaving Gmail, Calendar, or Drive.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:23.564149Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.copper.com/partners: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.copper.com/partners: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Matches 'CRM built for...Google Workspace' and quote 'manage relationships, track pipelines, and run projects'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/authentication.html",
+          "quote": "There are two ways to access the Copper Developer API: API keys and OAuth2.0.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:22.959101Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/authentication.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/authentication.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'two ways...API keys and OAuth2.0' exactly matching claimed set."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "admin_approval",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/oauth/quickstart.html",
+          "quote": "You have registered your application (partners@copper.com) and received your `client_id` and `client_secret` credentials",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.556781Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/oauth/quickstart.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/oauth/quickstart.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Prerequisite 'registered your application (partners@copper.com) and received' shows vendor must grant credentials."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "OAuth credentials require application registration; the sources do not establish whether API keys are available on a free plan."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/",
+          "quote": "The Copper Developer API (\"Dev API\") provides a RESTful interface",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.570402Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'provides a RESTful interface' with JSON responses; no other style shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/",
+          "quote": "to access most Copper resources.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.570402Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'to access most Copper resources' indicates full product surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation describes broad resource coverage but gives no endpoint count."
+    },
+    "mcp_official": {
+      "value": "no_found",
+      "evidence": [
+        {
+          "url": "https://www.copper.com/mcp",
+          "quote": "The beta launches in November 2026.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:23.570554Z"
+        },
+        {
+          "url": "https://support.copper.com/en/articles/10324524-chapter-1-where-do-i-start-here",
+          "quote": "👉 Coming soon: Copper MCP",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:46:36.730221Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.copper.com/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.copper.com/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "contradicted",
+            "detail": "FAQ says 'Yes. Copper is launching an official MCP server...beta launches in November 2026' contradicting no_found."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"no_found\"] [0] support.copper.com/en/articles/10324524-chapter-1-where-do-i-start-her: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"no_found\"] [0] support.copper.com/en/articles/10324524-chapter-1-where-do-i-start-her: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"no_found\"] Lists current access methods and states 'Coming soon: Copper MCP', showing no live official server yet."
+          },
+          {
+            "loop": "L6",
+            "result": "confirmed",
+            "detail": "\"no_found\" confirmed by new source(s) https://support.copper.com/en/articles/10324524-chapter-1-where-do-i-start-here (attempt 1; was contradicted)"
+          }
+        ],
+        "notes": "L6 confirmed via https://support.copper.com/en/articles/10324524-chapter-1-where-do-i-start-here"
+      },
+      "note": "The source describes a future launch, not an operating server."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.copper.com/pricing",
+          "quote": "Start free, no credit card required.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:23.556822Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.copper.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.copper.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Pricing shows 'Start free, no credit card required' with Try Free options."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free start is advertised; the sources do not confirm API access on that tier."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "180 requests per minute; bulk APIs: 3 requests per second.",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/requests.html",
+          "quote": "All API calls are limited to 180 requests per minute.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.564021Z"
+        },
+        {
+          "url": "https://developer.copper.com/introduction/requests.html",
+          "quote": "Our bulk APIs have an additional rate limit of 3 requests per second.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.564021Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/requests.html: pass (live 200); [1] developer.copper.com/introduction/requests.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/requests.html: pass (exact [httpx.scrape+exa.snippet]); [1] developer.copper.com/introduction/requests.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quotes 'limited to 180 requests per minute' and 'bulk APIs...3 requests per second' match claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth application registration",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/oauth/quickstart.html",
+          "quote": "You have registered your application (partners@copper.com) and received your `client_id` and `client_secret` credentials",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.556781Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/oauth/quickstart.html: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/introduction/oauth/quickstart.html: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Prerequisite 'registered your application (partners@copper.com)' shows OAuth registration access gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "OAuth app registration is required to obtain client credentials."
+    },
+    "docs_url": {
+      "value": "https://developer.copper.com/",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/",
+          "quote": "Getting started - Copper Developer API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.570402Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.copper.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Source is https://developer.copper.com/ with title 'Getting started - Copper Developer API' confirming docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "copper",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 7,
+    "verdict": "moderate",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=admin_approval"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=unknown"
+      },
+      "tooling_readiness": {
+        "score": 0,
+        "driver": "mcp_official!=yes, no official SDK or 3p MCP"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "moderate"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:46:11.781948Z",
+    "finished_at": "2026-11-23T14:46:50.193077Z",
+    "tool_calls": 18,
+    "tokens_in": 14503,
+    "tokens_out": 763,
+    "cost_usd": 0.001832,
+    "backend": "direct",
+    "verifier_tokens_in": 6695,
+    "verifier_tokens_out": 4435,
+    "l6_tool_calls": 18,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

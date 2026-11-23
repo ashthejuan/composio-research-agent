@@ -1,0 +1,3807 @@
+{
+  "generated_at": "2026-11-23T15:20:37.344007+00:00",
+  "summary": {
+    "total_apps": 100,
+    "scored_apps": 100,
+    "commercial_gated": 12,
+    "easy_wins": 66,
+    "easy_wins_without_composio": 9,
+    "composio_available": 80,
+    "composio_unavailable": 20,
+    "official_mcp_yes": 89,
+    "self_serve_free": 56,
+    "oauth2_supported": 74
+  },
+  "distributions": {
+    "auth_methods": {
+      "by_method": {
+        "oauth2": 74,
+        "bearer_token": 37,
+        "api_key": 46,
+        "basic": 17,
+        "session_other": 5,
+        "jwt_service_account": 3,
+        "none": 3
+      },
+      "multi_method_apps": 64,
+      "single_method_apps": 34,
+      "no_auth_apps": 2,
+      "unknown_apps": 0
+    },
+    "credential_access": {
+      "self_serve_free": 56,
+      "self_serve_trial": 11,
+      "unknown": 15,
+      "admin_approval": 7,
+      "contact_sales": 3,
+      "paid_plan_required": 7,
+      "partner_gated": 1
+    },
+    "production_gate": {
+      "by_value": {
+        "unknown": 40,
+        "marketplace_listing": 14,
+        "none": 18,
+        "oauth_app_review": 19,
+        "partner_program": 9
+      },
+      "gated_despite_free_dev": 16,
+      "oauth2_with_production_gate": 37
+    },
+    "api_type": {
+      "rest": 91,
+      "graphql": 11,
+      "rpc_websocket": 6,
+      "soap": 1,
+      "cli": 7,
+      "unknown": 1
+    },
+    "api_breadth": {
+      "broad": 34,
+      "unknown": 41,
+      "medium": 13,
+      "narrow": 12
+    },
+    "mcp_official": {
+      "yes": 89,
+      "unknown": 7,
+      "no_found": 4
+    },
+    "mcp_third_party": {
+      "yes": 66,
+      "unknown": 34
+    },
+    "composio_toolkit": {
+      "available": 80,
+      "unavailable": 20
+    },
+    "verdict": {
+      "easy": 74,
+      "moderate": 25,
+      "blocked": 1
+    },
+    "bucket": {
+      "easy_win": 66,
+      "moderate": 21,
+      "needs_outreach": 12,
+      "technically_blocked": 1
+    },
+    "free_tier_or_sandbox": {
+      "yes": 90,
+      "unknown": 10
+    },
+    "webhooks": {
+      "unknown": 43,
+      "yes": 56,
+      "no": 1
+    },
+    "verification_status": {
+      "supported": 1136,
+      "insufficient_evidence": 463,
+      "partially_supported": 1
+    }
+  },
+  "matrices": {
+    "category_x_credential_access": {
+      "CRM and Sales": {
+        "self_serve_free": 5,
+        "self_serve_trial": 2,
+        "unknown": 1,
+        "admin_approval": 1,
+        "contact_sales": 1
+      },
+      "Support and Helpdesk": {
+        "self_serve_trial": 2,
+        "self_serve_free": 3,
+        "paid_plan_required": 2,
+        "unknown": 2,
+        "admin_approval": 1
+      },
+      "Communications and Messaging": {
+        "self_serve_free": 6,
+        "self_serve_trial": 1,
+        "unknown": 2,
+        "paid_plan_required": 1
+      },
+      "Marketing, Ads, Email and Social": {
+        "admin_approval": 3,
+        "self_serve_free": 4,
+        "self_serve_trial": 2,
+        "unknown": 1
+      },
+      "Ecommerce": {
+        "unknown": 3,
+        "self_serve_free": 3,
+        "self_serve_trial": 1,
+        "admin_approval": 1,
+        "paid_plan_required": 1,
+        "partner_gated": 1
+      },
+      "Data, SEO and Scraping": {
+        "self_serve_free": 6,
+        "self_serve_trial": 2,
+        "paid_plan_required": 1,
+        "admin_approval": 1
+      },
+      "Developer, Infra and Data platforms": {
+        "self_serve_free": 6,
+        "unknown": 3,
+        "self_serve_trial": 1
+      },
+      "Productivity and Project Management": {
+        "self_serve_free": 9,
+        "paid_plan_required": 1
+      },
+      "Finance and Fintech": {
+        "self_serve_free": 6,
+        "unknown": 3,
+        "contact_sales": 1
+      },
+      "AI, Research and Media-native": {
+        "paid_plan_required": 1,
+        "contact_sales": 1,
+        "self_serve_free": 8
+      }
+    },
+    "category_x_auth_methods": {
+      "CRM and Sales": {
+        "oauth2": 10,
+        "bearer_token": 2,
+        "api_key": 6,
+        "basic": 2
+      },
+      "Support and Helpdesk": {
+        "oauth2": 7,
+        "basic": 4,
+        "api_key": 5,
+        "bearer_token": 4
+      },
+      "Communications and Messaging": {
+        "oauth2": 8,
+        "bearer_token": 3,
+        "api_key": 2,
+        "basic": 4,
+        "session_other": 2,
+        "jwt_service_account": 1
+      },
+      "Marketing, Ads, Email and Social": {
+        "oauth2": 8,
+        "api_key": 5,
+        "bearer_token": 3,
+        "basic": 2
+      },
+      "Ecommerce": {
+        "oauth2": 8,
+        "api_key": 4,
+        "basic": 1,
+        "session_other": 1,
+        "bearer_token": 1
+      },
+      "Data, SEO and Scraping": {
+        "basic": 1,
+        "api_key": 7,
+        "oauth2": 5,
+        "bearer_token": 2,
+        "none": 2
+      },
+      "Developer, Infra and Data platforms": {
+        "oauth2": 8,
+        "bearer_token": 8,
+        "jwt_service_account": 2,
+        "api_key": 4,
+        "basic": 1
+      },
+      "Productivity and Project Management": {
+        "bearer_token": 6,
+        "oauth2": 9,
+        "api_key": 4,
+        "basic": 1
+      },
+      "Finance and Fintech": {
+        "api_key": 4,
+        "basic": 1,
+        "bearer_token": 4,
+        "oauth2": 5,
+        "session_other": 2
+      },
+      "AI, Research and Media-native": {
+        "oauth2": 6,
+        "bearer_token": 4,
+        "api_key": 5,
+        "none": 1
+      }
+    },
+    "category_x_bucket": {
+      "CRM and Sales": {
+        "easy_win": 7,
+        "moderate": 2,
+        "needs_outreach": 1
+      },
+      "Support and Helpdesk": {
+        "easy_win": 8,
+        "moderate": 2
+      },
+      "Communications and Messaging": {
+        "easy_win": 5,
+        "moderate": 4,
+        "needs_outreach": 1
+      },
+      "Marketing, Ads, Email and Social": {
+        "moderate": 5,
+        "easy_win": 5
+      },
+      "Ecommerce": {
+        "moderate": 2,
+        "easy_win": 6,
+        "needs_outreach": 2
+      },
+      "Data, SEO and Scraping": {
+        "easy_win": 6,
+        "moderate": 3,
+        "needs_outreach": 1
+      },
+      "Developer, Infra and Data platforms": {
+        "easy_win": 8,
+        "needs_outreach": 2
+      },
+      "Productivity and Project Management": {
+        "easy_win": 9,
+        "moderate": 1
+      },
+      "Finance and Fintech": {
+        "easy_win": 5,
+        "needs_outreach": 4,
+        "technically_blocked": 1
+      },
+      "AI, Research and Media-native": {
+        "moderate": 2,
+        "needs_outreach": 1,
+        "easy_win": 7
+      }
+    }
+  },
+  "blockers": {
+    "by_type": [
+      {
+        "type": "access",
+        "count": 48,
+        "pct": 48.0
+      },
+      {
+        "type": "commercial",
+        "count": 17,
+        "pct": 17.0
+      },
+      {
+        "type": "unknown",
+        "count": 14,
+        "pct": 14.0
+      },
+      {
+        "type": "none",
+        "count": 13,
+        "pct": 13.0
+      },
+      {
+        "type": "technical",
+        "count": 6,
+        "pct": 6.0
+      },
+      {
+        "type": "documentation",
+        "count": 2,
+        "pct": 2.0
+      }
+    ],
+    "examples_by_type": {
+      "access": [
+        {
+          "app_id": 1,
+          "app": "Salesforce",
+          "text": "API access depends on the Salesforce edition"
+        },
+        {
+          "app_id": 4,
+          "app": "Attio",
+          "text": "App Store review for public distribution"
+        },
+        {
+          "app_id": 7,
+          "app": "Zoho CRM",
+          "text": "End-user authorization is required"
+        },
+        {
+          "app_id": 8,
+          "app": "Close",
+          "text": "OAuth app review is required for public use"
+        },
+        {
+          "app_id": 9,
+          "app": "Copper",
+          "text": "OAuth application registration"
+        },
+        {
+          "app_id": 10,
+          "app": "DealCloud",
+          "text": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance."
+        },
+        {
+          "app_id": 11,
+          "app": "Zendesk",
+          "text": "Approval of a global OAuth client for customer accounts"
+        },
+        {
+          "app_id": 12,
+          "app": "Intercom",
+          "text": "Public app review before release"
+        },
+        {
+          "app_id": 13,
+          "app": "Freshdesk",
+          "text": "API key is available only to a verified agent."
+        },
+        {
+          "app_id": 14,
+          "app": "Front",
+          "text": "Technical approval for public marketplace distribution"
+        }
+      ],
+      "none": [
+        {
+          "app_id": 2,
+          "app": "HubSpot",
+          "text": "none"
+        },
+        {
+          "app_id": 3,
+          "app": "Pipedrive",
+          "text": "none"
+        },
+        {
+          "app_id": 27,
+          "app": "Telegram",
+          "text": "none"
+        },
+        {
+          "app_id": 35,
+          "app": "Mailchimp",
+          "text": "none"
+        },
+        {
+          "app_id": 50,
+          "app": "fanbasis",
+          "text": "none"
+        },
+        {
+          "app_id": 60,
+          "app": "Clay",
+          "text": "none"
+        },
+        {
+          "app_id": 61,
+          "app": "GitHub",
+          "text": "none"
+        },
+        {
+          "app_id": 71,
+          "app": "Notion",
+          "text": "none"
+        },
+        {
+          "app_id": 75,
+          "app": "Asana",
+          "text": "none"
+        },
+        {
+          "app_id": 76,
+          "app": "Monday.com",
+          "text": "none"
+        }
+      ],
+      "technical": [
+        {
+          "app_id": 5,
+          "app": "Twenty",
+          "text": "Workspace-specific schemas require dynamic object and field handling"
+        },
+        {
+          "app_id": 21,
+          "app": "Slack",
+          "text": "The new rate limits will be updated to allow 1 request per minute and will return a maximum of 15 objects per request."
+        },
+        {
+          "app_id": 25,
+          "app": "Pumble",
+          "text": "No Events API"
+        },
+        {
+          "app_id": 58,
+          "app": "Sherlock",
+          "text": "Hunt down social media accounts by username across 400+ social networks"
+        },
+        {
+          "app_id": 74,
+          "app": "Jira",
+          "text": "Apps that collect API tokens or instruct customers to create individual 3LO apps don't comply with our Security requirements for cloud apps..."
+        },
+        {
+          "app_id": 100,
+          "app": "Grain",
+          "text": "OAuth2 is required for integrations distributed to other Grain users"
+        }
+      ],
+      "unknown": [
+        {
+          "app_id": 6,
+          "app": "Podio",
+          "text": "unknown"
+        },
+        {
+          "app_id": 17,
+          "app": "Plain",
+          "text": "unknown"
+        },
+        {
+          "app_id": 22,
+          "app": "Twilio",
+          "text": "unknown"
+        },
+        {
+          "app_id": 40,
+          "app": "SendGrid",
+          "text": "unknown"
+        },
+        {
+          "app_id": 48,
+          "app": "Gumroad",
+          "text": "unknown"
+        },
+        {
+          "app_id": 54,
+          "app": "MrScraper",
+          "text": "unknown"
+        },
+        {
+          "app_id": 57,
+          "app": "Bright Data",
+          "text": "unknown"
+        },
+        {
+          "app_id": 65,
+          "app": "Supabase",
+          "text": "unknown"
+        },
+        {
+          "app_id": 66,
+          "app": "Neo4j",
+          "text": "unknown"
+        },
+        {
+          "app_id": 78,
+          "app": "Coda",
+          "text": "unknown"
+        }
+      ],
+      "commercial": [
+        {
+          "app_id": 15,
+          "app": "Pylon",
+          "text": "You pay for the seats and AI credits your team uses, never per ticket."
+        },
+        {
+          "app_id": 18,
+          "app": "Help Scout",
+          "text": "Paid plan required for API access"
+        },
+        {
+          "app_id": 30,
+          "app": "Vonage",
+          "text": "Payment method required for production use"
+        },
+        {
+          "app_id": 47,
+          "app": "Ecwid",
+          "text": "Partner contract required for App Market distribution"
+        },
+        {
+          "app_id": 51,
+          "app": "DataForSEO",
+          "text": "Written agreement required to distribute raw API or MCP access"
+        },
+        {
+          "app_id": 52,
+          "app": "SE Ranking",
+          "text": "Ongoing API access depends on paid plans or credits."
+        },
+        {
+          "app_id": 53,
+          "app": "Ahrefs",
+          "text": "Ahrefs API is available on eligible paid plans ."
+        },
+        {
+          "app_id": 67,
+          "app": "Snowflake",
+          "text": "At the end of the trial, the account is suspended."
+        },
+        {
+          "app_id": 68,
+          "app": "MongoDB Atlas",
+          "text": "Partner approval is required for Atlas App Connections."
+        },
+        {
+          "app_id": 69,
+          "app": "Datadog",
+          "text": "OAuth access for official integrations is limited to approved Technology Partners"
+        }
+      ],
+      "documentation": [
+        {
+          "app_id": 37,
+          "app": "systeme.io",
+          "text": "API documentation is still being expanded"
+        },
+        {
+          "app_id": 84,
+          "app": "Paygent Connect",
+          "text": "Integration specifications require an NDA to request"
+        }
+      ]
+    }
+  },
+  "mcp_vs_composio": {
+    "official_mcp_x_composio": {
+      "yes": {
+        "available": 74,
+        "unavailable": 15
+      },
+      "unknown": {
+        "available": 4,
+        "unavailable": 3
+      },
+      "no_found": {
+        "available": 2,
+        "unavailable": 2
+      }
+    },
+    "third_party_mcp_x_composio": {
+      "yes": {
+        "available": 52,
+        "unavailable": 14
+      },
+      "unknown": {
+        "available": 28,
+        "unavailable": 6
+      }
+    },
+    "official_mcp_without_composio": [
+      {
+        "app_id": 10,
+        "app": "DealCloud",
+        "category": "CRM and Sales",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "contact_sales",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance."
+      },
+      {
+        "app_id": 16,
+        "app": "LiveAgent",
+        "category": "Support and Helpdesk",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Admin access is required to generate API keys"
+      },
+      {
+        "app_id": 20,
+        "app": "Gladly",
+        "category": "Support and Helpdesk",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "basic"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Administrator must provision an API-role user"
+      },
+      {
+        "app_id": 30,
+        "app": "Vonage",
+        "category": "Communications and Messaging",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "basic",
+          "jwt_service_account"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Payment method required for production use"
+      },
+      {
+        "app_id": 37,
+        "app": "systeme.io",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "documentation",
+        "main_blocker_text": "API documentation is still being expanded"
+      },
+      {
+        "app_id": 42,
+        "app": "WooCommerce",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "basic",
+          "session_other"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Per-store API credentials must be supplied for each connection"
+      },
+      {
+        "app_id": 44,
+        "app": "Salesforce Commerce Cloud",
+        "category": "Ecommerce",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Commerce App review and registry publication"
+      },
+      {
+        "app_id": 45,
+        "app": "Magento (Adobe Commerce)",
+        "category": "Ecommerce",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "graphql",
+          "rest",
+          "soap"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Adobe Review approval required for public distribution"
+      },
+      {
+        "app_id": 46,
+        "app": "Squarespace",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "OAuth app review before going live"
+      },
+      {
+        "app_id": 49,
+        "app": "Amazon Selling Partner",
+        "category": "Ecommerce",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "partner_gated",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Public apps must be listed in the Amazon Selling Partner Appstore."
+      },
+      {
+        "app_id": 50,
+        "app": "fanbasis",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 52,
+        "app": "SE Ranking",
+        "category": "Data, SEO and Scraping",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Ongoing API access depends on paid plans or credits."
+      },
+      {
+        "app_id": 83,
+        "app": "Binance",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "api_key",
+          "session_other"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Partner-program access is restricted to close ecosystem partners"
+      },
+      {
+        "app_id": 85,
+        "app": "iPayX",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 95,
+        "app": "Reducto",
+        "category": "AI, Research and Media-native",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      }
+    ],
+    "composio_without_official_mcp": 6
+  },
+  "opportunities": {
+    "easy_wins_without_composio": [
+      {
+        "app_id": 30,
+        "app": "Vonage",
+        "category": "Communications and Messaging",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "basic",
+          "jwt_service_account"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Payment method required for production use"
+      },
+      {
+        "app_id": 20,
+        "app": "Gladly",
+        "category": "Support and Helpdesk",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "basic"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Administrator must provision an API-role user"
+      },
+      {
+        "app_id": 45,
+        "app": "Magento (Adobe Commerce)",
+        "category": "Ecommerce",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "graphql",
+          "rest",
+          "soap"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Adobe Review approval required for public distribution"
+      },
+      {
+        "app_id": 37,
+        "app": "systeme.io",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "documentation",
+        "main_blocker_text": "API documentation is still being expanded"
+      },
+      {
+        "app_id": 42,
+        "app": "WooCommerce",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "basic",
+          "session_other"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Per-store API credentials must be supplied for each connection"
+      },
+      {
+        "app_id": 46,
+        "app": "Squarespace",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "OAuth app review before going live"
+      },
+      {
+        "app_id": 50,
+        "app": "fanbasis",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 85,
+        "app": "iPayX",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 95,
+        "app": "Reducto",
+        "category": "AI, Research and Media-native",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      }
+    ],
+    "easy_wins_all": [
+      {
+        "app_id": 30,
+        "app": "Vonage",
+        "category": "Communications and Messaging",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "basic",
+          "jwt_service_account"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Payment method required for production use"
+      },
+      {
+        "app_id": 20,
+        "app": "Gladly",
+        "category": "Support and Helpdesk",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "basic"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Administrator must provision an API-role user"
+      },
+      {
+        "app_id": 45,
+        "app": "Magento (Adobe Commerce)",
+        "category": "Ecommerce",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "graphql",
+          "rest",
+          "soap"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Adobe Review approval required for public distribution"
+      },
+      {
+        "app_id": 37,
+        "app": "systeme.io",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "documentation",
+        "main_blocker_text": "API documentation is still being expanded"
+      },
+      {
+        "app_id": 42,
+        "app": "WooCommerce",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "basic",
+          "session_other"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Per-store API credentials must be supplied for each connection"
+      },
+      {
+        "app_id": 46,
+        "app": "Squarespace",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "OAuth app review before going live"
+      },
+      {
+        "app_id": 50,
+        "app": "fanbasis",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 85,
+        "app": "iPayX",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 95,
+        "app": "Reducto",
+        "category": "AI, Research and Media-native",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 1,
+        "app": "Salesforce",
+        "category": "CRM and Sales",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "salesforce",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest",
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "API access depends on the Salesforce edition"
+      },
+      {
+        "app_id": 7,
+        "app": "Zoho CRM",
+        "category": "CRM and Sales",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "zoho",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "End-user authorization is required"
+      },
+      {
+        "app_id": 12,
+        "app": "Intercom",
+        "category": "Support and Helpdesk",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "intercom",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "bearer_token",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Public app review before release"
+      },
+      {
+        "app_id": 13,
+        "app": "Freshdesk",
+        "category": "Support and Helpdesk",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "freshdesk",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "basic"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "API key is available only to a verified agent."
+      },
+      {
+        "app_id": 14,
+        "app": "Front",
+        "category": "Support and Helpdesk",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "front",
+        "credential_access": "self_serve_free",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Technical approval for public marketplace distribution"
+      },
+      {
+        "app_id": 28,
+        "app": "WhatsApp Business",
+        "category": "Communications and Messaging",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "whatsapp",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "bearer_token",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "App Review and Advanced access approval required before onboarding clients"
+      },
+      {
+        "app_id": 35,
+        "app": "Mailchimp",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "mailchimp",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2",
+          "api_key",
+          "basic",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 55,
+        "app": "Apify",
+        "category": "Data, SEO and Scraping",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "apify",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Integration review and validation before reaching users"
+      },
+      {
+        "app_id": 57,
+        "app": "Bright Data",
+        "category": "Data, SEO and Scraping",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "brightdata",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 63,
+        "app": "Netlify",
+        "category": "Developer, Infra and Data platforms",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "netlify_mcp",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Each customer must grant access through OAuth or a personal access token."
+      },
+      {
+        "app_id": 70,
+        "app": "Sentry",
+        "category": "Developer, Infra and Data platforms",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "sentry",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "bearer_token",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "User approval of requested permissions is required when installing a public integration."
+      },
+      {
+        "app_id": 73,
+        "app": "Linear",
+        "category": "Productivity and Project Management",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "linear",
+        "credential_access": "self_serve_free",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Integration-directory submission required for distribution"
+      },
+      {
+        "app_id": 74,
+        "app": "Jira",
+        "category": "Productivity and Project Management",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "jira",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2",
+          "basic"
+        ],
+        "api_type": [
+          "graphql",
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "technical",
+        "main_blocker_text": "Apps that collect API tokens or instruct customers to create individual 3LO apps don't comply with our Security requirements for cloud apps..."
+      },
+      {
+        "app_id": 75,
+        "app": "Asana",
+        "category": "Productivity and Project Management",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "asana",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 76,
+        "app": "Monday.com",
+        "category": "Productivity and Project Management",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "monday",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 80,
+        "app": "Harvest",
+        "category": "Productivity and Project Management",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "harvest",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 81,
+        "app": "Stripe",
+        "category": "Finance and Fintech",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "stripe",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key",
+          "basic",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 86,
+        "app": "QuickBooks",
+        "category": "Finance and Fintech",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "quickbooks",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Company admin must authorize the OAuth connection"
+      },
+      {
+        "app_id": 97,
+        "app": "higgsfield",
+        "category": "AI, Research and Media-native",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "higgsfield",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Fund the API balance before sending paid requests"
+      },
+      {
+        "app_id": 100,
+        "app": "Grain",
+        "category": "AI, Research and Media-native",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "grain",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "technical",
+        "main_blocker_text": "OAuth2 is required for integrations distributed to other Grain users"
+      },
+      {
+        "app_id": 3,
+        "app": "Pipedrive",
+        "category": "CRM and Sales",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "pipedrive",
+        "credential_access": "self_serve_trial",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 5,
+        "app": "Twenty",
+        "category": "CRM and Sales",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "twenty",
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest",
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "technical",
+        "main_blocker_text": "Workspace-specific schemas require dynamic object and field handling"
+      },
+      {
+        "app_id": 6,
+        "app": "Podio",
+        "category": "CRM and Sales",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "podio",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 11,
+        "app": "Zendesk",
+        "category": "Support and Helpdesk",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "zendesk",
+        "credential_access": "self_serve_trial",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2",
+          "basic",
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Approval of a global OAuth client for customer accounts"
+      },
+      {
+        "app_id": 15,
+        "app": "Pylon",
+        "category": "Support and Helpdesk",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "pylon_mcp",
+        "credential_access": "paid_plan_required",
+        "production_gate": "none",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "You pay for the seats and AI credits your team uses, never per ticket."
+      },
+      {
+        "app_id": 18,
+        "app": "Help Scout",
+        "category": "Support and Helpdesk",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "help_scout",
+        "credential_access": "paid_plan_required",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Paid plan required for API access"
+      },
+      {
+        "app_id": 21,
+        "app": "Slack",
+        "category": "Communications and Messaging",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "slack",
+        "credential_access": "self_serve_free",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "technical",
+        "main_blocker_text": "The new rate limits will be updated to allow 1 request per minute and will return a maximum of 15 objects per request."
+      },
+      {
+        "app_id": 38,
+        "app": "Pinterest",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "pinterest",
+        "credential_access": "admin_approval",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Pinterest app review is required for Standard access."
+      },
+      {
+        "app_id": 43,
+        "app": "BigCommerce",
+        "category": "Ecommerce",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "bigcommerce",
+        "credential_access": "self_serve_trial",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest",
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Marketplace approval and an approved Technology Partner account are required"
+      },
+      {
+        "app_id": 54,
+        "app": "MrScraper",
+        "category": "Data, SEO and Scraping",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "mrscraper",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 67,
+        "app": "Snowflake",
+        "category": "Developer, Infra and Data platforms",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "snowflake",
+        "credential_access": "self_serve_trial",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2",
+          "jwt_service_account",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "At the end of the trial, the account is suspended."
+      },
+      {
+        "app_id": 2,
+        "app": "HubSpot",
+        "category": "CRM and Sales",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "hubspot",
+        "credential_access": "self_serve_free",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 4,
+        "app": "Attio",
+        "category": "CRM and Sales",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "attio",
+        "credential_access": "self_serve_free",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2",
+          "api_key",
+          "basic",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "App Store review for public distribution"
+      },
+      {
+        "app_id": 17,
+        "app": "Plain",
+        "category": "Support and Helpdesk",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "plain",
+        "credential_access": "unknown",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 23,
+        "app": "Zoho Cliq",
+        "category": "Communications and Messaging",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "zoho_cliq",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "End-user OAuth consent is required."
+      },
+      {
+        "app_id": 25,
+        "app": "Pumble",
+        "category": "Communications and Messaging",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "pumble",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2",
+          "api_key",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "technical",
+        "main_blocker_text": "No Events API"
+      },
+      {
+        "app_id": 32,
+        "app": "Meta Ads",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "metaads",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "App review for ad-management permissions"
+      },
+      {
+        "app_id": 36,
+        "app": "Klaviyo",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "klaviyo",
+        "credential_access": "self_serve_free",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "App Marketplace review"
+      },
+      {
+        "app_id": 48,
+        "app": "Gumroad",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "gumroad",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest",
+          "cli"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 51,
+        "app": "DataForSEO",
+        "category": "Data, SEO and Scraping",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "dataforseo",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "basic"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Written agreement required to distribute raw API or MCP access"
+      },
+      {
+        "app_id": 53,
+        "app": "Ahrefs",
+        "category": "Data, SEO and Scraping",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "ahrefs",
+        "credential_access": "paid_plan_required",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Ahrefs API is available on eligible paid plans ."
+      },
+      {
+        "app_id": 56,
+        "app": "Firecrawl",
+        "category": "Data, SEO and Scraping",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "firecrawl",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2",
+          "none"
+        ],
+        "api_type": [
+          "rest",
+          "cli"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Platform verification is needed to roll out Firecrawl for Platforms to all users."
+      },
+      {
+        "app_id": 61,
+        "app": "GitHub",
+        "category": "Developer, Infra and Data platforms",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "github",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token",
+          "jwt_service_account"
+        ],
+        "api_type": [
+          "rest",
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 62,
+        "app": "Vercel",
+        "category": "Developer, Infra and Data platforms",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "vercel",
+        "credential_access": "self_serve_free",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Marketplace listing review is required."
+      },
+      {
+        "app_id": 64,
+        "app": "Cloudflare",
+        "category": "Developer, Infra and Data platforms",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "cloudflare",
+        "credential_access": "unknown",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "api_key",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Verify the client domain before making the OAuth app public"
+      },
+      {
+        "app_id": 65,
+        "app": "Supabase",
+        "category": "Developer, Infra and Data platforms",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "supabase",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token",
+          "api_key"
+        ],
+        "api_type": [
+          "rest",
+          "graphql",
+          "cli"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 66,
+        "app": "Neo4j",
+        "category": "Developer, Infra and Data platforms",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "neo4j",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2",
+          "basic",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 71,
+        "app": "Notion",
+        "category": "Productivity and Project Management",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "notion",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "bearer_token",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 72,
+        "app": "Airtable",
+        "category": "Productivity and Project Management",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "airtable",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Per-user OAuth authorization and base permissions"
+      },
+      {
+        "app_id": 77,
+        "app": "ClickUp",
+        "category": "Productivity and Project Management",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "clickup",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "OAuth app creation requires Workspace owner or admin access."
+      },
+      {
+        "app_id": 78,
+        "app": "Coda",
+        "category": "Productivity and Project Management",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "coda",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 82,
+        "app": "Plaid",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "plaid",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Production access request"
+      },
+      {
+        "app_id": 87,
+        "app": "Xero",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "xero",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "cli"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "App-plan fees and additional API data-usage costs"
+      },
+      {
+        "app_id": 93,
+        "app": "Fathom",
+        "category": "AI, Research and Media-native",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "fathom",
+        "credential_access": "self_serve_free",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "api_key",
+          "bearer_token",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "OAuth app review"
+      },
+      {
+        "app_id": 94,
+        "app": "Consensus",
+        "category": "AI, Research and Media-native",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "consensus",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 96,
+        "app": "Devin",
+        "category": "AI, Research and Media-native",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "devin_mcp",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Organization access requires endpoint-specific permissions assigned to the service user."
+      },
+      {
+        "app_id": 99,
+        "app": "YouTube Transcript",
+        "category": "AI, Research and Media-native",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "easy_win",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "youtube_transcript",
+        "credential_access": "self_serve_free",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      }
+    ],
+    "outreach_targets": [
+      {
+        "app_id": 10,
+        "app": "DealCloud",
+        "category": "CRM and Sales",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "contact_sales",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance."
+      },
+      {
+        "app_id": 47,
+        "app": "Ecwid",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "paid_plan_required",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Partner contract required for App Market distribution"
+      },
+      {
+        "app_id": 83,
+        "app": "Binance",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "api_key",
+          "session_other"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Partner-program access is restricted to close ecosystem partners"
+      },
+      {
+        "app_id": 49,
+        "app": "Amazon Selling Partner",
+        "category": "Ecommerce",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "partner_gated",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Public apps must be listed in the Amazon Selling Partner Appstore."
+      },
+      {
+        "app_id": 59,
+        "app": "Waterfall.io",
+        "category": "Data, SEO and Scraping",
+        "score": 5,
+        "verdict": "moderate",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "API access requires vendor approval"
+      },
+      {
+        "app_id": 88,
+        "app": "Brex",
+        "category": "Finance and Fintech",
+        "score": 10,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "available",
+        "composio_slug": "brex",
+        "credential_access": "self_serve_free",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "bearer_token",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Admin acceptance of the Developer API agreement and provisioning of API tokens"
+      },
+      {
+        "app_id": 29,
+        "app": "Aircall",
+        "category": "Communications and Messaging",
+        "score": 9,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "available",
+        "composio_slug": "aircall",
+        "credential_access": "paid_plan_required",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "basic",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Technology Partner approval required for public apps"
+      },
+      {
+        "app_id": 68,
+        "app": "MongoDB Atlas",
+        "category": "Developer, Infra and Data platforms",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "available",
+        "composio_slug": "mongodb",
+        "credential_access": "unknown",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "rest",
+          "cli"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Partner approval is required for Atlas App Connections."
+      },
+      {
+        "app_id": 69,
+        "app": "Datadog",
+        "category": "Developer, Infra and Data platforms",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "available",
+        "composio_slug": "datadog",
+        "credential_access": "unknown",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "OAuth access for official integrations is limited to approved Technology Partners"
+      },
+      {
+        "app_id": 89,
+        "app": "Ramp",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "available",
+        "composio_slug": "ramp",
+        "credential_access": "unknown",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Production access and listing application"
+      },
+      {
+        "app_id": 90,
+        "app": "PitchBook",
+        "category": "Finance and Fintech",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "available",
+        "composio_slug": "pitchbook",
+        "credential_access": "contact_sales",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "api_key",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Standalone contract required"
+      },
+      {
+        "app_id": 92,
+        "app": "Otter AI",
+        "category": "AI, Research and Media-native",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "available",
+        "composio_slug": "otter_ai_mcp",
+        "credential_access": "contact_sales",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Enterprise-plan access required"
+      }
+    ],
+    "outreach_without_composio": [
+      {
+        "app_id": 10,
+        "app": "DealCloud",
+        "category": "CRM and Sales",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "contact_sales",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance."
+      },
+      {
+        "app_id": 47,
+        "app": "Ecwid",
+        "category": "Ecommerce",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "paid_plan_required",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Partner contract required for App Market distribution"
+      },
+      {
+        "app_id": 83,
+        "app": "Binance",
+        "category": "Finance and Fintech",
+        "score": 8,
+        "verdict": "easy",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "api_key",
+          "session_other"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Partner-program access is restricted to close ecosystem partners"
+      },
+      {
+        "app_id": 49,
+        "app": "Amazon Selling Partner",
+        "category": "Ecommerce",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "partner_gated",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Public apps must be listed in the Amazon Selling Partner Appstore."
+      },
+      {
+        "app_id": 59,
+        "app": "Waterfall.io",
+        "category": "Data, SEO and Scraping",
+        "score": 5,
+        "verdict": "moderate",
+        "bucket": "needs_outreach",
+        "commercial_gate": true,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "admin_approval",
+        "production_gate": "partner_program",
+        "auth_methods": [
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "API access requires vendor approval"
+      }
+    ],
+    "moderate": [
+      {
+        "app_id": 9,
+        "app": "Copper",
+        "category": "CRM and Sales",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "copper",
+        "credential_access": "admin_approval",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "no_found",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "OAuth application registration"
+      },
+      {
+        "app_id": 16,
+        "app": "LiveAgent",
+        "category": "Support and Helpdesk",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Admin access is required to generate API keys"
+      },
+      {
+        "app_id": 22,
+        "app": "Twilio",
+        "category": "Communications and Messaging",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "twilio",
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "basic",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 27,
+        "app": "Telegram",
+        "category": "Communications and Messaging",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "telegram",
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "session_other"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 31,
+        "app": "Google Ads",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "googleads",
+        "credential_access": "admin_approval",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2",
+          "api_key"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Developer-token access requires application review"
+      },
+      {
+        "app_id": 34,
+        "app": "GoHighLevel",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "highlevel_location",
+        "credential_access": "self_serve_trial",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Public app review and approval"
+      },
+      {
+        "app_id": 40,
+        "app": "SendGrid",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "sendgrid",
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "bearer_token",
+          "basic"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "unknown",
+        "main_blocker_text": "unknown"
+      },
+      {
+        "app_id": 52,
+        "app": "SE Ranking",
+        "category": "Data, SEO and Scraping",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_trial",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Ongoing API access depends on paid plans or credits."
+      },
+      {
+        "app_id": 60,
+        "app": "Clay",
+        "category": "Data, SEO and Scraping",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "clay",
+        "credential_access": "self_serve_trial",
+        "production_gate": "none",
+        "auth_methods": [
+          "api_key",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      },
+      {
+        "app_id": 79,
+        "app": "Smartsheet",
+        "category": "Productivity and Project Management",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "smartsheet",
+        "credential_access": "paid_plan_required",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2",
+          "api_key",
+          "bearer_token"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "An eligible Smartsheet plan is required."
+      },
+      {
+        "app_id": 91,
+        "app": "NotebookLM",
+        "category": "AI, Research and Media-native",
+        "score": 7,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "notebook_lm",
+        "credential_access": "paid_plan_required",
+        "production_gate": "none",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "commercial",
+        "main_blocker_text": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account."
+      },
+      {
+        "app_id": 8,
+        "app": "Close",
+        "category": "CRM and Sales",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "close",
+        "credential_access": "unknown",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "api_key",
+          "basic",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "OAuth app review is required for public use"
+      },
+      {
+        "app_id": 19,
+        "app": "Gorgias",
+        "category": "Support and Helpdesk",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "gorgias",
+        "credential_access": "unknown",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "api_key",
+          "basic",
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Public app review and App Store approval"
+      },
+      {
+        "app_id": 24,
+        "app": "Lark (Larksuite)",
+        "category": "Communications and Messaging",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "lark",
+        "credential_access": "unknown",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Official review is required for Store App directory launch"
+      },
+      {
+        "app_id": 33,
+        "app": "LinkedIn Ads",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "linkedin_ads",
+        "credential_access": "admin_approval",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "LinkedIn review and approval of the Advertising API application"
+      },
+      {
+        "app_id": 41,
+        "app": "Shopify",
+        "category": "Ecommerce",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "shopify",
+        "credential_access": "unknown",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "graphql"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Some API access requires Shopify approval or a specific plan."
+      },
+      {
+        "app_id": 44,
+        "app": "Salesforce Commerce Cloud",
+        "category": "Ecommerce",
+        "score": 6,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "marketplace_listing",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "yes",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Commerce App review and registry publication"
+      },
+      {
+        "app_id": 26,
+        "app": "Discord",
+        "category": "Communications and Messaging",
+        "score": 5,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "discord",
+        "credential_access": "unknown",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2",
+          "basic",
+          "session_other"
+        ],
+        "api_type": [
+          "rest",
+          "rpc_websocket"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "Bot must be added to each server it needs to access"
+      },
+      {
+        "app_id": 39,
+        "app": "Threads (Meta)",
+        "category": "Marketing, Ads, Email and Social",
+        "score": 5,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "available",
+        "composio_slug": "threads",
+        "credential_access": "unknown",
+        "production_gate": "oauth_app_review",
+        "auth_methods": [
+          "oauth2"
+        ],
+        "api_type": [
+          "rest"
+        ],
+        "mcp_official": "no_found",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "access",
+        "main_blocker_text": "App Review and publication required for permissions granted by users without an app role"
+      },
+      {
+        "app_id": 58,
+        "app": "Sherlock",
+        "category": "Data, SEO and Scraping",
+        "score": 5,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "none"
+        ],
+        "api_type": [
+          "cli"
+        ],
+        "mcp_official": "no_found",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "technical",
+        "main_blocker_text": "Hunt down social media accounts by username across 400+ social networks"
+      },
+      {
+        "app_id": 98,
+        "app": "Mermaid CLI",
+        "category": "AI, Research and Media-native",
+        "score": 5,
+        "verdict": "moderate",
+        "bucket": "moderate",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "self_serve_free",
+        "production_gate": "none",
+        "auth_methods": [
+          "none"
+        ],
+        "api_type": [
+          "cli"
+        ],
+        "mcp_official": "no_found",
+        "mcp_third_party": "yes",
+        "main_blocker_type": "none",
+        "main_blocker_text": "none"
+      }
+    ],
+    "technically_blocked": [
+      {
+        "app_id": 84,
+        "app": "Paygent Connect",
+        "category": "Finance and Fintech",
+        "score": 0,
+        "verdict": "blocked",
+        "bucket": "technically_blocked",
+        "commercial_gate": false,
+        "composio_toolkit": "unavailable",
+        "composio_slug": null,
+        "credential_access": "unknown",
+        "production_gate": "unknown",
+        "auth_methods": [
+          "session_other"
+        ],
+        "api_type": [
+          "unknown"
+        ],
+        "mcp_official": "unknown",
+        "mcp_third_party": "unknown",
+        "main_blocker_type": "documentation",
+        "main_blocker_text": "Integration specifications require an NDA to request"
+      }
+    ]
+  },
+  "sanity_checks": {
+    "total_apps": 100,
+    "bucket_sum": 100,
+    "unknown_buckets": 0,
+    "duplicate_bucket_apps": [],
+    "breakdown_mismatches": [],
+    "verdict_mismatches": [],
+    "bucket_precedence_mismatches": [],
+    "all_passed": true
+  },
+  "holdout": {
+    "status": "skipped_per_prd_cut_line_1",
+    "holdout_ids": [
+      7,
+      30,
+      46,
+      84,
+      100
+    ],
+    "note": "5 holdout apps (Zoho CRM, Vonage, Squarespace, Paygent Connect, Grain) were not human-labelled per PRD \u00a712 cut line #1; this is disclosed on the case-study page."
+  },
+  "headlines": [
+    {
+      "id": "free_dev_vs_production_gates",
+      "title": "Free developer access hides production gates",
+      "text": "56 of 100 apps offer free self-serve developer access, yet 16 of those still require an app review, marketplace listing, or partner program before serving multi-tenant customers.",
+      "template": "{free_dev} of {n} apps offer free self-serve developer access, yet {free_but_gated} of those still require an app review, marketplace listing, or partner program before serving multi-tenant customers.",
+      "values": {
+        "free_dev": 56,
+        "n": 100,
+        "free_but_gated": 16
+      }
+    },
+    {
+      "id": "mcp_adoption_vs_composio",
+      "title": "Official MCP servers are mainstream \u2014 and reveal coverage gaps",
+      "text": "89 of 100 apps already publish an official MCP server, including 15 apps that do not yet have a Composio toolkit.",
+      "template": "{mcp_off} of {n} apps already publish an official MCP server, including {mcp_no_comp} apps that do not yet have a Composio toolkit.",
+      "values": {
+        "mcp_off": 89,
+        "n": 100,
+        "mcp_no_comp": 15
+      }
+    },
+    {
+      "id": "easy_wins_gap",
+      "title": "Immediate easy-win build opportunities without Composio coverage",
+      "text": "66 of 100 apps score as Easy Wins (8\u201310/10 with no commercial gate); 9 of them currently lack a Composio toolkit and can be built without BD outreach.",
+      "template": "{easy_total} of {n} apps score as Easy Wins (8\u201310/10 with no commercial gate); {easy_no_comp} of them currently lack a Composio toolkit and can be built without BD outreach.",
+      "values": {
+        "easy_total": 66,
+        "n": 100,
+        "easy_no_comp": 9
+      }
+    },
+    {
+      "id": "outreach_and_commercial_gates",
+      "title": "Commercial gates force BD outreach regardless of API quality",
+      "text": "12 of 100 apps trigger a commercial gate (partner-gated, contact-sales, or partner program) \u2014 5 without Composio coverage \u2014 led by Finance and Fintech (4 apps).",
+      "template": "{outreach_total} of {n} apps trigger a commercial gate (partner-gated, contact-sales, or partner program) \u2014 {outreach_no_comp} without Composio coverage \u2014 led by {top_outreach_cat} ({top_outreach_n} apps).",
+      "values": {
+        "outreach_total": 12,
+        "n": 100,
+        "outreach_no_comp": 5,
+        "top_outreach_cat": "Finance and Fintech",
+        "top_outreach_n": 4
+      }
+    },
+    {
+      "id": "dominant_blocker",
+      "title": "Top integration blocker across the catalog",
+      "text": "'access' is the most common integration blocker across the catalog (48 of 100 apps, 48%).",
+      "template": "'{blocker_type}' is the most common integration blocker across the catalog ({blocker_count} of {n} apps, {blocker_pct:.0f}%).",
+      "values": {
+        "blocker_type": "access",
+        "blocker_count": 48,
+        "n": 100,
+        "blocker_pct": 48.0
+      }
+    },
+    {
+      "id": "oauth_and_multi_auth",
+      "title": "REST + OAuth2 dominate, with multi-method auth common",
+      "text": "91 of 100 apps expose REST APIs and 74 support OAuth2 (37 of those with documented production gates), while 64 apps support two or more authentication methods.",
+      "template": "{rest_n} of {n} apps expose REST APIs and {oauth2} support OAuth2 ({oauth2_gated} of those with documented production gates), while {multi_auth} apps support two or more authentication methods.",
+      "values": {
+        "rest_n": 91,
+        "n": 100,
+        "oauth2": 74,
+        "oauth2_gated": 37,
+        "multi_auth": 64
+      }
+    }
+  ],
+  "pass": "final",
+  "records_dir": "/Users/ashthejuan/Documents/Coding Work/composio_takehome/data/final"
+}

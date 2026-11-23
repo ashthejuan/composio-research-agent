@@ -1,0 +1,708 @@
+{
+  "app_id": 5,
+  "app": "Twenty",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://twenty.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A custom agentic CRM for one team.",
+      "evidence": [
+        {
+          "url": "https://twenty.com/pricing",
+          "quote": "A custom agentic CRM for one team.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:59.402921Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] twenty.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] twenty.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Exact quote 'A custom agentic CRM for one team.' matches claim, 7 words <=20."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Authorization: Bearer YOUR_API_KEY",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/oauth",
+          "quote": "Twenty implements OAuth 2.0 with authorization code + PKCE for user-facing apps and client credentials for server-to-server access.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.119465Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (live 200); [1] docs.twenty.com/developers/extend/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.twenty.com/developers/extend/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows 'Authorization: Bearer YOUR_API_KEY' + 'Create an API key' and 'implements OAuth 2.0 with authorization code + PKCE'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API keys and OAuth are documented authentication options."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://twenty.com/pricing",
+          "quote": "Start your free trial today without credit card.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:59.402921Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Create an API key in Settings → Developers → API → + Create key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] twenty.com/pricing: pass (live 200); [1] docs.twenty.com/developers/extend/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] twenty.com/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Start your free trial today without credit card' plus self-serve 'Create an API key in Settings → Developers → API'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A cloud free trial is offered; self-hosting is also available at no cost."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish whether a review or other gate is required before a multi-tenant integration can serve customers."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "REST and GraphQL APIs generated from your workspace schema.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule graphql_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive 'REST and GraphQL APIs generated from your workspace schema' plus '/rest/ and /graphql/'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "CRUD on records: People, Companies, Opportunities, your custom objects. Query, filter, traverse relations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Schema management: create/modify/delete objects, fields, and relations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (live 200); [1] docs.twenty.com/developers/extend/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "'CRUD on records: People, Companies, Opportunities, your custom objects' lists only 3 named; no count proving 10-30 for medium."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API covers records and schema management; record endpoints are generated from each workspace’s schema."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/user-guide/ai/capabilities/mcp",
+          "quote": "Twenty exposes an MCP server so that AI assistants — Claude Desktop, Claude Code, Cursor, ChatGPT, and others — can read and write your CRM data through natural language.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.113324Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/user-guide/ai/capabilities/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/user-guide/ai/capabilities/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Twenty exposes an MCP server so that AI assistants ... can read and write your CRM data'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/Trozz/mcp-twenty-crm",
+          "quote": "Self-hosted MCP server for Twenty CRM, in Rust, on mcp-server-core",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:36:59.231915Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/Trozz/mcp-twenty-crm: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/Trozz/mcp-twenty-crm: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Self-hosted MCP server for Twenty CRM, in Rust' on github.com/Trozz repo distinct from vendor."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community-maintained MCP server is documented in the source."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+          "quote": "Host Twenty on your own infrastructure at no cost:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.270177Z"
+        },
+        {
+          "url": "https://twenty.com/pricing",
+          "quote": "Start your free trial today without credit card.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:59.402921Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/user-guide/billing/capabilities/pricing-plans: pass (live 200); [1] twenty.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/user-guide/billing/capabilities/pricing-plans: pass (exact [httpx.scrape+exa.snippet]); [1] twenty.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state 'Host Twenty on your own infrastructure at no cost' under 'Free (Self-Hosted)' and 'Start your free trial today'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free self-hosted plan and a cloud free trial are documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/introduction",
+          "quote": "Read and write records over REST and GraphQL, get webhooks when records change, and connect apps with OAuth.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.212168Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'get webhooks when records change' for REST and GraphQL API."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention a TypeScript app framework, but do not establish an official API client SDK."
+    },
+    "rate_limit_note": {
+      "value": "100 requests per minute; batches up to 60 records per call.",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Requests | 100 per minute",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Batch size | 60 records per call",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (live 200); [1] docs.twenty.com/developers/extend/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Table shows 'Requests 100 per minute' and 'Batch size 60 records per call', matching claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/introduction",
+          "quote": "The core is open source and self-hostable.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.212168Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'The core is open source and self-hostable.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Workspace-specific schemas require dynamic object and field handling",
+        "type": "technical"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "There is no static API reference for Twenty. Each workspace has its own schema",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'Each workspace has its own schema' and 'no static API reference', requiring dynamic handling."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A toolkit must handle workspace-specific objects and fields."
+    },
+    "docs_url": {
+      "value": "https://docs.twenty.com/developers/extend/api",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "REST and GraphQL APIs generated from your workspace schema.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.twenty.com/developers/extend/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page documents 'REST and GraphQL APIs generated from your workspace schema' with base URLs and auth."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "twenty",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 9,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest', 'graphql'], api_breadth=medium"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=self_serve_trial"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=medium, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:45:12.056017Z",
+    "finished_at": "2026-11-23T14:47:08.171426Z",
+    "tool_calls": 12,
+    "tokens_in": 10849,
+    "tokens_out": 278,
+    "cost_usd": 0.001224,
+    "backend": "direct",
+    "verifier_tokens_in": 14543,
+    "verifier_tokens_out": 15466,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

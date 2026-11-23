@@ -245,6 +245,39 @@ def _score(args: argparse.Namespace) -> int:
     return 0
 
 
+def _finalize(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from agent import scoring
+
+    res = scoring.build_final(
+        pass2_dir=Path(args.from_dir) if args.from_dir else None,
+        final_dir=Path(args.to_dir) if args.to_dir else None,
+    )
+    print(f"finalized {res['total_records']} records -> {res['final_dir']}")
+    print(f"corrections: {res['total_corrections']} across {res['corrected_apps']} apps ({res['corrections_path']})")
+    print(f"buckets: {res['bucket_counts']}")
+    print(f"verdicts: {res['verdict_counts']}")
+    return 0
+
+
+def _analyze(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from agent import analytics
+
+    res = analytics.run(
+        args.pass_,
+        records_dir=Path(args.records_dir) if args.records_dir else None,
+        out=Path(args.out) if args.out else None,
+    )
+    sc = res["sanity_checks"]
+    print(f"apps={res['summary']['total_apps']} buckets={res['distributions']['bucket']} sanity_ok={sc['all_passed']}")
+    for i, h in enumerate(res["headlines"], 1):
+        print(f"  {i}. {h['text']}")
+    return 0 if sc["all_passed"] else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="agent")
     sub = p.add_subparsers(dest="command", required=True)
@@ -319,7 +352,17 @@ def build_parser() -> argparse.ArgumentParser:
                     help="score against AI drafts: PROVISIONAL, written to a separate file")
     sc.set_defaults(func=_score)
 
-    # TODO later phases: research, verify, score, analyze, site
+    fn = sub.add_parser("finalize", help="build data/final from pass2 with golden corrections + buildability")
+    fn.add_argument("--from-dir", default=None, help="override pass2 directory")
+    fn.add_argument("--to-dir", default=None, help="override final directory")
+    fn.set_defaults(func=_finalize)
+
+    an = sub.add_parser("analyze", help="compute cross-app analytics, buckets, and headlines (FR-09)")
+    an.add_argument("--pass", dest="pass_", default="final")
+    an.add_argument("--records-dir", default=None)
+    an.add_argument("--out", default=None)
+    an.set_defaults(func=_analyze)
+
     return p
 
 

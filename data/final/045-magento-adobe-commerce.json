@@ -1,0 +1,699 @@
+{
+  "app_id": 45,
+  "app": "Magento (Adobe Commerce)",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://business.adobe.com/products/magento",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Commerce platform with APIs for integrating with CRM and ERP systems.",
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/commerce/webapi/rest/",
+          "quote": "Integrate with CRM (Customer Relationship Management) or ERP (Enterprise Resource Planning) backend systems, such as Salesforce or Xero.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:50.902265Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Integrate with CRM (Customer Relationship Management) or ERP (Enterprise Resource Planning)' directly supports integration claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "api_key"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/ims",
+          "quote": "The OAuth Server-to-server credential uses the `client_credentials` grant to generate access tokens.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:53:17.572555Z"
+        },
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/commerce/user-guides/integration-services/saas",
+          "quote": "connect your Commerce instance using production and sandbox API keys",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:52:47.590003Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/get-started/authentication/gs-auth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/get-started/authentication/gs-auth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "Quote 'OAuth authentication ... is based on OAuth 1.0a' maps to session_other as other/HMAC, but exclusivity as sole method not shown."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"bearer_token\", \"session_other\"]] [0] developer.adobe.com/commerce/webapi/rest/authentication/: pass (live 200); [1] developer.adobe.com/commerce/webapi/get-started/authentication/: pass (live 200); [2] developer.adobe.com/commerce/webapi/get-started/authentication/: pass (live 200); [3] developer.adobe.com/commerce/webapi/rest/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"bearer_token\", \"session_other\"]] [0] developer.adobe.com/commerce/webapi/rest/authentication/: pass (exact [httpx.scrape+exa.snippet]); [1] developer.adobe.com/commerce/webapi/get-started/authentication/: pass (exact [httpx.scrape+exa.snippet]); [2] developer.adobe.com/commerce/webapi/get-started/authentication/: pass (exact [httpx.scrape+exa.snippet]); [3] developer.adobe.com/commerce/webapi/rest/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"bearer_token\", \"session_other\"]] OAuth 2 protocols, Bearer token in Authorization header, session by cookie support claim, but 'can be accessed without the need for authentication' proves none also documented."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate [\"oauth2\", \"api_key\"]] [0] developer.adobe.com/developer-console/docs/guides/authentication/Serve: pass (live 200); [1] experienceleague.adobe.com/en/docs/commerce/user-guides/integration-se: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate [\"oauth2\", \"api_key\"]] [0] developer.adobe.com/developer-console/docs/guides/authentication/Serve: pass (exact [httpx.scrape+exa.snippet]); [1] experienceleague.adobe.com/en/docs/commerce/user-guides/integration-se: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate [\"oauth2\", \"api_key\"]] Both shown: 'client_credentials grant to generate access tokens' proves oauth2; 'connect your Commerce instance using production and sandbox API keys' proves api_key."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"session_other\"] -> [\"oauth2\", \"api_key\"] | attempt 2: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+          }
+        ],
+        "notes": "L6 changed value (https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/ims, https://experienceleague.adobe.com/en/docs/commerce/u)"
+      },
+      "note": "API keys are documented for Commerce Services; OAuth 2.0 server-to-server authentication is also documented."
+    },
+    "credential_access": {
+      "value": "admin_approval",
+      "evidence": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/commerce/user-guides/integration-services/saas",
+          "quote": "Only the Commerce license owner can generate these API keys. If you are not the license owner, request the keys from the person or team that owns the Commerce license for your store.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:52:47.590003Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"admin_approval\"] [0] experienceleague.adobe.com/en/docs/commerce/user-guides/integration-se: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"admin_approval\"] [0] experienceleague.adobe.com/en/docs/commerce/user-guides/integration-se: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate \"admin_approval\"] States 'Only the Commerce license owner can generate these API keys' and non-owners must request keys."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"admin_approval\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://experienceleague.adobe.com/en/docs/commerce/user-guides/integration-services/saas)"
+      },
+      "note": "The documented Commerce Services keys require the license owner; the sources do not establish how a developer obtains license ownership."
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/developer-console/docs/guides/projects/approval",
+          "quote": "In order for an application to be available to public users, it must first be approved by the Adobe Review team.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:52:49.413107Z"
+        },
+        {
+          "url": "https://developer.adobe.com/developer-console/docs/guides/projects/approval",
+          "quote": "for the general public through Adobe Exchange.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:52:49.413107Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] [0] developer.adobe.com/developer-console/docs/guides/projects/approval: pass (live 200); [1] developer.adobe.com/developer-console/docs/guides/projects/approval: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] [0] developer.adobe.com/developer-console/docs/guides/projects/approval: pass (exact [httpx.scrape+exa.snippet]); [1] developer.adobe.com/developer-console/docs/guides/projects/approval: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 2 candidate \"marketplace_listing\"] States app 'must first be approved by the Adobe Review team' to be available to public users 'through Adobe Exchange'."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"marketplace_listing\" | attempt 2: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://developer.adobe.com/developer-console/docs/guides/projects/approval)"
+      },
+      "note": "This applies to applications distributed publicly through Adobe Exchange."
+    },
+    "api_type": {
+      "value": [
+        "graphql",
+        "rest",
+        "soap"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/commerce/webapi/get-started/",
+          "quote": "Support for GraphQL, REST (Representational State Transfer) and SOAP (Simple Object Access Protocol).",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:50.836047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule graphql_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/get-started/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/get-started/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Support for GraphQL, REST (Representational State Transfer) and SOAP' matches all three claimed types."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/commerce/webapi/rest/reference/",
+          "quote": "all available REST API endpoints",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:50.839267Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/reference/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/reference/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'all available REST API endpoints' with comprehensive reference implies full product surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The reference describes comprehensive endpoint coverage but the sources do not provide an endpoint count."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://business.adobe.com/products/commerce/ai-commerce.html",
+          "quote": "The Adobe Commerce Storefront MCP (Model Context Protocol) server gives developers direct access to your live Commerce data and services.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:54.145213Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "error",
+            "detail": "[0] business.adobe.com/products/commerce/ai-commerce.html: error (timeout ReadTimeout)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] business.adobe.com/products/commerce/ai-commerce.html: pass (exact [exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'The Adobe Commerce Storefront MCP (Model Context Protocol) server gives developers direct access' shows vendor MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/magendooro/magemcp",
+          "quote": "MCP (Model Context Protocol) server for Magento 2 / Adobe Commerce by Magendoo.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:39:50.910656Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/magendooro/magemcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/magendooro/magemcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'MCP (Model Context Protocol) server for Magento 2 / Adobe Commerce by Magendoo' shows community server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention sandboxes but do not establish free API access or a free sandbox for a developer's own account."
+    },
+    "webhooks": {
+      "value": "no",
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/commerce/webapi/get-started/",
+          "quote": "The system does not currently support webhooks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:50.836047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/get-started/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/get-started/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'The system does not currently support webhooks' directly states no webhooks."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This statement concerns the web API framework."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish vendor-maintained SDKs and their languages."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/commerce/webapi/rest/",
+          "quote": "Adobe Commerce on Cloud, Adobe Commerce on-premises, and Magento Open Source all use the same REST API framework.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:50.902265Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'Adobe Commerce on-premises, and Magento Open Source all use the same REST API framework' shows self-host/open."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The source confirms on-premises deployment and identifies Magento Open Source."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Adobe Review approval required for public distribution",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/developer-console/docs/guides/projects/approval",
+          "quote": "Building an application for distribution to general users on the Adobe Exchange requires approval from the Adobe Review team before it can be published.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Adobe Review approval required for public distribution\", \"type\": \"acce] [0] developer.adobe.com/developer-console/docs/guides/projects/approval: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Adobe Review approval required for public distribution\", \"type\": \"acce] [0] developer.adobe.com/developer-console/docs/guides/projects/approval: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Adobe Review approval required for public distribution\", \"type\": \"acce] Quote confirms 'requires approval from the Adobe Review team before it can be published' for distribution to general users."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Adobe Review approval required for public distribution\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://developer.adobe.com/developer-console/docs/guides/projects/approval)"
+      },
+      "note": "Public distribution requires Adobe Review approval."
+    },
+    "docs_url": {
+      "value": "https://developer.adobe.com/commerce/webapi/rest/reference/",
+      "evidence": [
+        {
+          "url": "https://developer.adobe.com/commerce/webapi/rest/reference/",
+          "quote": "REST API reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:50.839267Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/reference/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.adobe.com/commerce/webapi/rest/reference/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Same URL shows 'REST API reference' with complete parameter descriptions and examples as primary docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official REST API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 9,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['graphql', 'rest', 'soap'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=admin_approval"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=no"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:51:26.876504Z",
+    "finished_at": "2026-11-23T14:54:14.982623Z",
+    "tool_calls": 41,
+    "tokens_in": 38970,
+    "tokens_out": 3653,
+    "cost_usd": 0.005723,
+    "backend": "direct",
+    "verifier_tokens_in": 13200,
+    "verifier_tokens_out": 15352,
+    "l6_tool_calls": 41,
+    "l6_rerun_claims": 4
+  },
+  "errors": []
+}

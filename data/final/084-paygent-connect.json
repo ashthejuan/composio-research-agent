@@ -1,0 +1,468 @@
+{
+  "app_id": 84,
+  "app": "Paygent Connect",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://paygent.co.jp",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Payment processing service that lets merchants integrate a range of payment methods.",
+      "evidence": [
+        {
+          "url": "https://www.paygent.co.jp/service/option/id=693",
+          "quote": "ペイジェント決済代行サービスは、クレジットカード決済を始めとした豊富な決済手段を一括導入できる決済サービスです。",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:37.445716Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.paygent.co.jp/service/option/id=693: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.paygent.co.jp/service/option/id=693: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote '豊富な決済手段を一括導入できる決済サービス' directly states range of payment methods can be introduced."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "session_other"
+      ],
+      "evidence": [
+        {
+          "url": "https://support.paygent.co.jp/faq/show/3673?site_domain=default",
+          "quote": "マーチャントID、接続IDパスワード、クライアント証明書に誤りがある場合",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:58:44.599354Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"session_other\"]] [0] support.paygent.co.jp/faq/show/3673: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"session_other\"]] [0] support.paygent.co.jp/faq/show/3673: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"session_other\"]] P001/P002 require 'マーチャントID、接続IDパスワード、クライアント証明書' in params, i.e. other credentials = session_other."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"unknown\"] -> [\"session_other\"] | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://support.paygent.co.jp/faq/show/3673?site_domain=default)"
+      },
+      "note": "The source identifies merchant credentials and a client certificate; it does not specify how the credentials are transmitted."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.paygent.co.jp/payment_service/connect/",
+          "quote": "試験環境でのテスト完了後、本番環境をお申込ください",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:36.653719Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.paygent.co.jp/payment_service/connect/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.paygent.co.jp/payment_service/connect/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase '試験環境でのテスト完了後' confirms a test environment exists, meeting yes definition."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A test environment is mentioned; the source does not say it is free."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Integration specifications require an NDA to request",
+        "type": "documentation"
+      },
+      "evidence": [
+        {
+          "url": "https://www.paygent.co.jp/contact/",
+          "quote": "ご契約前の方でもNDA締結を前提として、仕様書をご請求いただけます。",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:37.336126Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.paygent.co.jp/contact/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.paygent.co.jp/contact/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Phrase 'NDA締結を前提として、仕様書をご請求' states specs require NDA, matching text and documentation gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The integration specifications are available on request under an NDA, rather than shown in the supplied sources."
+    },
+    "docs_url": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "blocked",
+    "breakdown": {
+      "api_availability": {
+        "score": 0,
+        "driver": "api_type=['unknown'] (none documented)"
+      },
+      "credential_accessibility": {
+        "score": 0,
+        "driver": "credential_access=unknown"
+      },
+      "documentation_quality": {
+        "score": 0,
+        "driver": "docs_url=unknown"
+      },
+      "agent_friendly_operations": {
+        "score": 0,
+        "driver": "api_type=['unknown'] (no actionable API)"
+      },
+      "tooling_readiness": {
+        "score": 0,
+        "driver": "mcp_official!=yes, no official SDK or 3p MCP"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "technically_blocked"
+  },
+  "record_confidence": "low",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:58:21.897347Z",
+    "finished_at": "2026-11-23T14:59:14.278372Z",
+    "tool_calls": 51,
+    "tokens_in": 65573,
+    "tokens_out": 1736,
+    "cost_usd": 0.007425,
+    "backend": "direct",
+    "verifier_tokens_in": 4962,
+    "verifier_tokens_out": 4038,
+    "l6_tool_calls": 51,
+    "l6_rerun_claims": 5
+  },
+  "errors": []
+}

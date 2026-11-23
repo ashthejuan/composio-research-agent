@@ -1,0 +1,672 @@
+{
+  "app_id": 17,
+  "app": "Plain",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://plain.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A support platform for teams to automate tasks and keep their tools in sync.",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/integrations",
+          "quote": "Speed up your support team, automate tasks, and keep everything in sync",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.554187Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/integrations: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/integrations: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'automate tasks, and keep everything in sync' plus 'Connect your tools, streamline your support' matches claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Describes Plain’s support and workflow capabilities."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "Authorization: Bearer YOUR_TOKEN where the token is your API key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        },
+        {
+          "url": "https://www.plain.com/docs/graphql/oauth",
+          "quote": "An OAuth app lets users in your workspace sign in to your app with their Plain account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.666156Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (live 200); [1] www.plain.com/docs/graphql/oauth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (exact [httpx.scrape+exa.snippet]); [1] www.plain.com/docs/graphql/oauth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quotes 'Bearer YOUR_TOKEN where the token is your API key' proves api_key and 'An OAuth app lets users...sign in' proves oauth2."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The GraphQL API supports API keys, and OAuth apps can call the API as a user."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources explain how to create API keys but do not establish whether credentials are available on a free account or require a paid plan."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish whether a review, listing, or partnership is required for a multi-tenant app."
+    },
+    "api_type": {
+      "value": [
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "An overview of Plain’s GraphQL API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule graphql_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'An overview of Plain’s GraphQL API' with URL https://core-api.uk.plain.com/graphql/v1 shows GraphQL."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "there are no limitations in what can be done via the API vs the UI.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'there are no limitations in what can be done via the API vs the UI' shows full product surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation describes API coverage equivalent to the product UI."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/integrations/mcp-server",
+          "quote": "The Plain MCP server at https://mcp.plain.com/mcp lets tools like Claude, ChatGPT, and Cursor work with your support data directly.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.289803Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/integrations/mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/integrations/mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official docs quote 'The Plain MCP server at https://mcp.plain.com/mcp' plus 'official Plain plugin' proves vendor server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/tellahq/plain-mcp",
+          "quote": "An MCP server providing comprehensive access to the Plain.com API from Claude",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:47.560154Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/tellahq/plain-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/tellahq/plain-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub tellahq quote 'An MCP server providing comprehensive access to the Plain.com API' with 77 tools shows community server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community-maintained Plain MCP server is documented."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/pricing",
+          "quote": "Support for teams that ship. Start today, no credit card required.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.541491Z"
+        },
+        {
+          "url": "https://www.plain.com/pricing",
+          "quote": "7 Day Free Trial",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.541491Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/pricing: pass (live 200); [1] www.plain.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] www.plain.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quotes 'Start today, no credit card required' and '7 day free trial' show free trial access."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A seven-day free trial is advertised; the source does not describe a permanent free tier."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/pricing",
+          "quote": "Developer platform\nAPI\nWebhooks\nEvents\nMCP",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.541491Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Pricing lists under 'Developer platform' the items 'API Webhooks Events MCP' proving webhooks offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The pricing page lists webhooks as a developer-platform capability."
+    },
+    "official_sdks": {
+      "value": [
+        "typescript"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/sdk",
+          "quote": "The `@team-plain/graphql` package provides a fully typed client for Plain's GraphQL API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.554131Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/sdk: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/sdk: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states `@team-plain/graphql` provides fully typed client via npm, confirming TypeScript vendor SDK."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented official SDK is a TypeScript package."
+    },
+    "rate_limit_note": {
+      "value": "450 requests/minute (Launch/Foundation); 600 (Grow/Horizon); 1000 (Scale/Frontier)",
+      "evidence": [
+        {
+          "url": "https://help.plain.com/article/rate-limits",
+          "quote": "Launch & Foundation | 450 requests/minute",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:47.531500Z"
+        },
+        {
+          "url": "https://help.plain.com/article/rate-limits",
+          "quote": "Grow & Horizon | 600 requests/minute",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:47.531500Z"
+        },
+        {
+          "url": "https://help.plain.com/article/rate-limits",
+          "quote": "Scale & Frontier | 1000 requests/minute",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:47.531500Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] help.plain.com/article/rate-limits: pass (live 200); [1] help.plain.com/article/rate-limits: pass (live 200); [2] help.plain.com/article/rate-limits: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] help.plain.com/article/rate-limits: pass (exact [httpx.scrape+exa.snippet]); [1] help.plain.com/article/rate-limits: pass (exact [httpx.scrape+exa.snippet]); [2] help.plain.com/article/rate-limits: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Table shows Launch & Foundation 450, Grow & Horizon 600, Scale & Frontier 1000 requests/minute matching claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Limits depend on the workspace plan and apply to API-key activity."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish whether Plain is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Per-workspace setup of a machine user and permissioned API key\", \"type] [0] www.plain.com/docs/llms-full.txt: pass (live 200); [1] www.plain.com/docs/llms-full.txt: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Per-workspace setup of a machine user and permissioned API key\", \"type] [0] www.plain.com/docs/llms-full.txt: pass (exact [httpx.scrape+exa.snippet]); [1] www.plain.com/docs/llms-full.txt: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "[L6 attempt 2 candidate {\"text\": \"Per-workspace setup of a machine user and permissioned API key\", \"type] Only shows 'Create one machine user per agent' and 'Click Add API key'; no per-workspace, multi-tenant blocker or access gate mentioned."
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: candidate {\"text\": \"Per-workspace setup of a machine user and permissi rejected (L5 insufficient_evidence, grounded=yes)"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish a specific largest blocker or confirm that no production gate applies."
+    },
+    "docs_url": {
+      "value": "https://www.plain.com/docs/graphql/introduction",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "https://www.plain.com/docs/graphql/introduction",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.plain.com/docs/graphql/introduction: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL shows GraphQL API Introduction overview and API details, confirming official docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official GraphQL API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "plain",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 8,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['graphql'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 0,
+        "driver": "credential_access=unknown"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:47:08.173274Z",
+    "finished_at": "2026-11-23T14:48:26.160692Z",
+    "tool_calls": 33,
+    "tokens_in": 31614,
+    "tokens_out": 1403,
+    "cost_usd": 0.003863,
+    "backend": "direct",
+    "verifier_tokens_in": 9520,
+    "verifier_tokens_out": 7588,
+    "l6_tool_calls": 33,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

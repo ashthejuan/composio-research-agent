@@ -1,0 +1,610 @@
+{
+  "app_id": 19,
+  "app": "Gorgias",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://gorgias.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Helpdesk platform for managing support through AI assistants.",
+      "evidence": [
+        {
+          "url": "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546",
+          "quote": "you can manage your helpdesk through conversations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.610607Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-63: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-63: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Supports full claim via 'you can manage your helpdesk through conversations' using AI assistant like Claude/ChatGPT."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "basic",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.gorgias.com/reference/authentication",
+          "quote": "🔐 Private app → API key",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.597557Z"
+        },
+        {
+          "url": "https://developers.gorgias.com/reference/authentication",
+          "quote": "👥 Public app → OAuth2",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.597557Z"
+        },
+        {
+          "url": "https://docs.gorgias.com/en-US/rest-api-208286",
+          "quote": "Gorgias uses HTTP Basic Authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.760820Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/reference/authentication: pass (live 200); [1] developers.gorgias.com/reference/authentication: pass (live 200); [2] docs.gorgias.com/en-US/rest-api-208286: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/reference/authentication: pass (exact [httpx.scrape+exa.snippet]); [1] developers.gorgias.com/reference/authentication: pass (exact [httpx.scrape+exa.snippet]); [2] docs.gorgias.com/en-US/rest-api-208286: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Shows all three: 'Private app → API key', 'Public app → OAuth2', plus 'Gorgias uses HTTP Basic Authentication'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API keys use HTTP Basic Authentication; OAuth2 is required for public apps."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://developers.gorgias.com/docs/overview",
+          "quote": "Once your app is approved, we will announce it at our next Product Town Hall.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:05.067958Z"
+        },
+        {
+          "url": "https://developers.gorgias.com/docs/overview",
+          "quote": "Your app is now available on our App Store",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:05.067958Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/docs/overview: pass (live 200); [1] developers.gorgias.com/docs/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/docs/overview: pass (exact [httpx.scrape+exa.snippet]); [1] developers.gorgias.com/docs/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Requires review then 'Your app is now available on our App Store' for use by customers."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Public apps require approval before becoming available in the App Store."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.gorgias.com/en-US/rest-api-208286",
+          "quote": "The Gorgias REST API lets you read and write data in your helpdesk programmatically.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.760820Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.gorgias.com/en-US/rest-api-208286: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.gorgias.com/en-US/rest-api-208286: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'The Gorgias REST API lets you read and write data in your helpdesk programmatically.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546",
+          "quote": "the connection URL is the same: https://mcp.gorgias.com/mcp",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.610607Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-63: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-63: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Vendor operates MCP at 'the connection URL is the same: https://mcp.gorgias.com/mcp'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Gorgias documents its MCP endpoint."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/mattcoatsworth/Gorgias-MCP-Server",
+          "quote": "An MCP server for interacting with the Gorgias helpdesk API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:05.432979Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/mattcoatsworth/Gorgias-MCP-Server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/mattcoatsworth/Gorgias-MCP-Server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Community repo shows 'An MCP server for interacting with the Gorgias helpdesk API.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community-maintained Gorgias MCP server is listed on GitHub."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.gorgias.com/docs/1-register-on-developer-portal",
+          "quote": "create a trial account and reach out to [email protected] to transform it into a developer account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.760886Z"
+        },
+        {
+          "url": "https://developers.gorgias.com/docs/1-register-on-developer-portal",
+          "quote": "You will need to have a draft app to get approved for the Sandbox Account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.760886Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/docs/1-register-on-developer-portal: pass (live 200); [1] developers.gorgias.com/docs/1-register-on-developer-portal: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/docs/1-register-on-developer-portal: pass (exact [httpx.scrape+exa.snippet]); [1] developers.gorgias.com/docs/1-register-on-developer-portal: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Offers sandbox via 'create a trial account and reach out... to transform it into a developer account.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A trial account and Sandbox are described; Sandbox access requires a draft app and approval."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Public app review and App Store approval",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.gorgias.com/docs/overview",
+          "quote": "Complete the rest of the form on the Developer Portal and submit your app for review",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:05.067958Z"
+        },
+        {
+          "url": "https://developers.gorgias.com/docs/overview",
+          "quote": "Once your app is approved",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:05.067958Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/docs/overview: pass (live 200); [1] developers.gorgias.com/docs/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/docs/overview: pass (exact [httpx.scrape+exa.snippet]); [1] developers.gorgias.com/docs/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts require 'submit your app for review' and 'Once your app is approved' before App Store availability, an access gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented public-app path requires review and approval."
+    },
+    "docs_url": {
+      "value": "https://developers.gorgias.com/reference/requests",
+      "evidence": [
+        {
+          "url": "https://developers.gorgias.com/reference/requests",
+          "quote": "API Reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:04.616253Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/reference/requests: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.gorgias.com/reference/requests: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Claimed URL returns official 'API Reference' page with 'Base API URL' request docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "gorgias",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 6,
+    "verdict": "moderate",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 0,
+        "driver": "credential_access=unknown"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=unknown"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "moderate"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:47:37.876798Z",
+    "finished_at": "2026-11-23T14:48:10.616387Z",
+    "tool_calls": 12,
+    "tokens_in": 7150,
+    "tokens_out": 722,
+    "cost_usd": 0.001076,
+    "backend": "direct",
+    "verifier_tokens_in": 6999,
+    "verifier_tokens_out": 3115,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

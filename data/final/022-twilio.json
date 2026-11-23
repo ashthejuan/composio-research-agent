@@ -1,0 +1,576 @@
+{
+  "app_id": 22,
+  "app": "Twilio",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://twilio.com",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Twilio helps businesses engage customers across channels.",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs",
+          "quote": "Build better and engage your customers across all channels",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.164912Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'engage your customers across all channels' directly matches claimed description."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Twilio documentation describes its focus as customer engagement across channels."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "basic",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/iam/api-keys",
+          "quote": "API keys are the preferred way to authenticate with Twilio's REST APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.170459Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/iam/api",
+          "quote": "To authenticate requests to the Twilio APIs, Twilio supports HTTP Basic authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.253457Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/iam/oauth-apps/overview",
+          "quote": "Twilio supports two OAuth 2.0 grant types: Client Credentials and Authorization Code.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.306079Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/iam/api-keys: pass (live 200); [1] www.twilio.com/docs/iam/api: pass (live 200); [2] www.twilio.com/docs/iam/oauth-apps/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/iam/api-keys: pass (exact [httpx.scrape+exa.snippet]); [1] www.twilio.com/docs/iam/api: pass (exact [httpx.scrape+exa.snippet]); [2] www.twilio.com/docs/iam/oauth-apps/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state 'API keys are preferred way', 'supports HTTP Basic authentication', 'supports two OAuth 2.0 grant types'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API keys, HTTP Basic authentication, and OAuth 2.0 are documented."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/usage/trials",
+          "quote": "You can sign up for a Twilio free trial account without a credit card.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.239313Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/usage/trials",
+          "quote": "Each trial gives you a hands-on experience with real API requests and responses",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.239313Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/usage/trials: pass (live 200); [1] www.twilio.com/docs/usage/trials: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/usage/trials: pass (exact [httpx.scrape+exa.snippet]); [1] www.twilio.com/docs/usage/trials: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'free 30-day trial' that expires after 30 days with 'real API requests' shows time-limited self-serve access."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Trial accounts expire after 30 days."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/iam/api",
+          "quote": "The Twilio REST API allows you to query metadata about your account, phone numbers, calls, text messages, and recordings.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.253457Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/iam/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/iam/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The Twilio REST API allows you to query...' documents REST; no other styles shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/ai/mcp",
+          "quote": "The server is hosted by Twilio at mcp.twilio.com/docs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.158195Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/ai/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/ai/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The server is hosted by Twilio at mcp.twilio.com/docs' proves vendor-operated MCP server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented official MCP server searches and retrieves public API documentation; it does not execute API calls."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/usage/trials",
+          "quote": "When you create a Twilio account, you start with a free 30-day trial",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.239313Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/usage/trials: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/usage/trials: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'start with a free 30-day trial' with free units proves free trial exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The trial expires after 30 days and includes product-specific free units."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/usage/requests-to-twilio",
+          "quote": "how the Twilio APIs handle webhooks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.270576Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/usage/requests-to-twilio: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/usage/requests-to-twilio: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'how the Twilio APIs handle webhooks' confirms webhooks are offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation discusses how Twilio APIs handle webhooks."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://www.twilio.com/docs/iam/api",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/iam/api",
+          "quote": "The Twilio REST API allows you to query metadata about your account, phone numbers, calls, text messages, and recordings.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.253457Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/iam/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.twilio.com/docs/iam/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL shows 'The Twilio REST API allows you to query metadata...' confirming official API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary official REST API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "twilio",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 7,
+    "verdict": "moderate",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=self_serve_trial"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "moderate"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:48:01.544353Z",
+    "finished_at": "2026-11-23T14:48:45.865069Z",
+    "tool_calls": 22,
+    "tokens_in": 24099,
+    "tokens_out": 569,
+    "cost_usd": 0.002694,
+    "backend": "direct",
+    "verifier_tokens_in": 5993,
+    "verifier_tokens_out": 3155,
+    "l6_tool_calls": 22,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}

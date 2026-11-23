@@ -1,0 +1,725 @@
+{
+  "app_id": 43,
+  "app": "BigCommerce",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://bigcommerce.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Server-side APIs for managing store data and operations.",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Server-side REST APIs for managing store data and operations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'Server-side REST APIs for managing store data and operations' matching claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/auth",
+          "quote": "BigCommerce uses a modified version of the OAuth2 authorization code grant",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:51:38.106932Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (live 200); [1] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (exact [httpx.scrape+exa.snippet]); [1] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "'OAuth flow to authenticate' supports oauth2; 'X-Auth-Token header using...access token' is api_key, not session_other."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/auth: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\"]] [0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/auth: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\"]] Excerpt states 'modified version of the OAuth2 authorization code grant'; no other methods shown."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"oauth2\", \"session_other\"] -> [\"oauth2\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+          }
+        ],
+        "notes": "L6 changed value (https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/auth)"
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Sign up for a free BigCommerce trial store to test API calls and build integrations without affecting live data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Navigate to Settings > API Accounts in your store control panel. Create credentials with the scopes you need.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (live 200); [1] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (exact [httpx.scrape+exa.snippet]); [1] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Sign up for a free BigCommerce trial store to test API calls' shows self-serve trial access."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free trial store is available, and credentials can be created from its control panel."
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-requirements",
+          "quote": "The Marketplace team reviews every app submission",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.511484Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/becoming-a-partner",
+          "quote": "You need an approved Technology Partner account to submit an app to the BigCommerce App Marketplace.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:51:39.042660Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"marketplace_listing\"] [0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (live 200); [1] docs.bigcommerce.com/developer/docs/integrations/becoming-a-partner: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"marketplace_listing\"] [0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (exact [httpx.scrape+exa.snippet]); [1] docs.bigcommerce.com/developer/docs/integrations/becoming-a-partner: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"marketplace_listing\"] States 'reviews every app submission ... before listing it' and 'need an approved Technology Partner account to submit' for Marketplace."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"marketplace_listing\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-requirements, https://docs.bigcommerce.com/developer/docs/integrations/becoming-a-p)"
+      },
+      "note": "Marketplace review is required, and submitting an app also requires an approved Technology Partner account."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Use REST and GraphQL APIs to manage products, orders, customers, and store settings programmatically.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule graphql_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Use REST and GraphQL APIs to manage products, orders, customers...' documents both rest and graphql."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Catalog — Brands, Categories, Category Trees, Products, Product Modifiers, Product Variants",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Content — Pages, Page Widgets, Themes, Widgets, Widget Regions, Widget Templates, Email Templates",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Management — Orders, Customers, Shipping, Store Information, Store Logs, Channels, Sites, Segments, Tax, Inventory, Locations, Pickup",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (live 200); [1] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (live 200); [2] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (exact [httpx.scrape+exa.snippet]); [1] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (exact [httpx.scrape+exa.snippet]); [2] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists ~30 resources across Catalog, Content, Management, Payments: 'Brands, Categories... Products' plus Orders, Customers etc."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented API surface covers many resource groups across catalog, content, and store management."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/mcp/storefront",
+          "quote": "Storefront MCP lets AI agents shop your storefront on behalf of a shopper.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.530054Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/mcp/storefront: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/mcp/storefront: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official docs: 'Storefront MCP lets AI agents shop your storefront' with 'its own MCP server URL'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "BigCommerce documents an official Storefront MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/roel-c/bc-admin-mcp",
+          "quote": "Standalone MCP server you run locally (stdio / streamable HTTP)",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:39:44.961529Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/roel-c/bc-admin-mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/roel-c/bc-admin-mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub roel-c repo: 'Standalone MCP server you run locally' for 'BigCommerce store management'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community repository titled bc-admin-mcp describes a standalone MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Sign up for a free BigCommerce trial store to test API calls and build integrations without affecting live data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/overview/quick-start: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Sign up for a free BigCommerce trial store to test API calls' under 'Create a sandbox store'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free trial store can be used to test API calls without affecting live data."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Webhooks — Subscribe to real-time event notifications",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'Webhooks — Subscribe to real-time event notifications' as Admin API section."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "node",
+        "python",
+        "php",
+        "ruby"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-requirements",
+          "quote": "Node API Client\nPython API Client\nPHP API Client\nRuby API Client",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.511484Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Official Tools lists 'Node API Client Python API Client PHP API Client Ruby API Client' covering all four."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "These API clients are listed in the official developer documentation."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Marketplace approval and an approved Technology Partner account are required",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-requirements",
+          "quote": "The Marketplace team reviews every app submission and tests the app against the standards on this page before listing it in the App Marketplace.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/becoming-a-partner",
+          "quote": "You need an approved Technology Partner account to submit an app to the BigCommerce App Marketplace.",
+          "source_tier": "official_docs",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Marketplace approval and an approved Technology Partner account are re] [0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (live 200); [1] docs.bigcommerce.com/developer/docs/integrations/becoming-a-partner: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Marketplace approval and an approved Technology Partner account are re] [0] docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-r: pass (exact [httpx.scrape+exa.snippet]); [1] docs.bigcommerce.com/developer/docs/integrations/becoming-a-partner: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Marketplace approval and an approved Technology Partner account are re] Both required: 'reviews every app submission...before listing' and 'need an approved Technology Partner account to submit' = access gate."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Marketplace approval and an approved Technology Partner account are required\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-requirements, https://docs.bigcommerce.com/developer/docs/integrations/becoming-a-p)"
+      },
+      "note": "Marketplace approval and partner-account requirements are the key production hurdles."
+    },
+    "docs_url": {
+      "value": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.bigcommerce.com/developer/api-reference/rest/admin/overview: pass (docs_url quote equals evidence url)"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Claimed URL serves 'Admin REST APIs' page for 'managing store data and operations'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Official Admin REST API overview."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "bigcommerce",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 9,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest', 'graphql'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=self_serve_trial"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:51:20.489458Z",
+    "finished_at": "2026-11-23T14:52:33.200167Z",
+    "tool_calls": 17,
+    "tokens_in": 17662,
+    "tokens_out": 1217,
+    "cost_usd": 0.002375,
+    "backend": "direct",
+    "verifier_tokens_in": 11973,
+    "verifier_tokens_out": 11243,
+    "l6_tool_calls": 17,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

@@ -1,0 +1,668 @@
+{
+  "app_id": 63,
+  "app": "Netlify",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://netlify.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Netlify is a hosting service for the programmable web.",
+      "evidence": [
+        {
+          "url": "https://open-api.netlify.com/",
+          "quote": "Netlify is a hosting service for the programmable web.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.497387Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Exact quote 'Netlify is a hosting service for the programmable web.' matches claim verbatim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.netlify.com/guides/generating-personal-access-tokens-with-netlify-oauth/",
+          "quote": "We create an OAuth app that determines the redirect URL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:14.318261Z"
+        },
+        {
+          "url": "https://developers.netlify.com/guides/deploying-sites-from-ai-tools/",
+          "quote": "Unless explicitly noted, all calls to https://api.netlify.com/ require an Authorization header that contains the personal access token that was generated in the setup steps.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:55:30.195785Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "partially_supported",
+            "detail": "Shows 'Netlify uses OAuth2' but also 'Personal access token' with Bearer header, so oauth2-only omits bearer_token."
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"bearer_token\"]] [0] developers.netlify.com/guides/generating-personal-access-tokens-with-n: pass (live 200); [1] developers.netlify.com/guides/deploying-sites-from-ai-tools/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"bearer_token\"]] [0] developers.netlify.com/guides/generating-personal-access-tokens-with-n: pass (exact [httpx.scrape+exa.snippet]); [1] developers.netlify.com/guides/deploying-sites-from-ai-tools/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate [\"oauth2\", \"bearer_token\"]] Shows 'We create an OAuth app...' with token for API calls, plus 'Authorization header...personal access token' as 'Bearer ${PERSONAL_ACCESS_TOKEN}'"
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "[\"oauth2\"] -> [\"oauth2\", \"bearer_token\"] | attempt 1: re-researched value supported by verifier and grounded quote; was partially_supported; accepted the re-researched set as a whole (not a union with the old set)"
+          }
+        ],
+        "notes": "L6 changed value (https://developers.netlify.com/guides/deploying-sites-from-ai-tools/, https://developers.netlify.com/guides/generating-personal-access-tokens-with-netlify-oauth)"
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://netlify.com/pricing",
+          "quote": "Free forever.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.525059Z"
+        },
+        {
+          "url": "https://www.npmjs.com/package/@netlify/mcp",
+          "quote": "Go to **User settings** > **OAuth** > **New access token**.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:41:16.289643Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] netlify.com/pricing: pass (live 200); [1] www.npmjs.com/package/@netlify/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] netlify.com/pricing: pass (exact [httpx.scrape+exa.snippet]); [1] www.npmjs.com/package/@netlify/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Free forever' plus 'Go to User settings > OAuth > New access token' shows self-serve free PAT creation."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free plan and a user-settings path to create a personal access token are documented."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://open-api.netlify.com/",
+          "quote": "This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.497387Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote 'This is a REST-style API that uses JSON for serialization' directly supports rest."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.netlify.com/guides/generating-personal-access-tokens-with-netlify-oauth/",
+          "quote": "Every action available in the Netlify UI is powered by an API endpoint.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:14.318261Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.netlify.com/guides/generating-personal-access-tokens-with-n: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.netlify.com/guides/generating-personal-access-tokens-with-n: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Every action available in the Netlify UI is powered by an API endpoint' indicates full surface = broad."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation describes API coverage across the UI's capabilities."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.netlify.com/build/build-with-ai/agent-setup-guides/agent-setup-overview/",
+          "quote": "Netlify offers an MCP server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:13.887452Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.netlify.com/build/build-with-ai/agent-setup-guides/agent-setup-ov: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.netlify.com/build/build-with-ai/agent-setup-guides/agent-setup-ov: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Netlify offers an MCP server' with remote https://mcp.netlify.com/mcp proves vendor-operated server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://netlify.com/pricing",
+          "quote": "Build and deploy free forever.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.525059Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] netlify.com/pricing: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] netlify.com/pricing: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Free forever' and 'Build and deploy free forever' at $0 / forever proves free plan."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The pricing page describes a free plan."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://open-api.netlify.com/",
+          "quote": "Webhooks and notifications",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.497387Z"
+        },
+        {
+          "url": "https://open-api.netlify.com/",
+          "quote": "postcreateHookBySiteId: Create an outgoing hook",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.497387Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (live 200); [1] open-api.netlify.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (exact [httpx.scrape+exa.snippet]); [1] open-api.netlify.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists 'Webhooks and notifications' with 'Create an outgoing hook' operations."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API documents outgoing hooks."
+    },
+    "official_sdks": {
+      "value": [
+        "go",
+        "javascript"
+      ],
+      "evidence": [
+        {
+          "url": "https://open-api.netlify.com/",
+          "quote": "Go Client",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.497387Z"
+        },
+        {
+          "url": "https://open-api.netlify.com/",
+          "quote": "JS Client",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.497387Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (live 200); [1] open-api.netlify.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (exact [httpx.scrape+exa.snippet]); [1] open-api.netlify.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'we have two API clients' plus 'Go Client' and 'JS Client' matches go+javascript."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The API reference lists Go and JavaScript clients."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Each customer must grant access through OAuth or a personal access token.",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://netlify.com/auth.md",
+          "quote": "A human always grants access, either by approving an OAuth prompt or by creating a token.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T14:55:56.137781Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Each customer must grant access through OAuth or a personal access tok] [0] netlify.com/auth.md: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Each customer must grant access through OAuth or a personal access tok] [0] netlify.com/auth.md: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate {\"text\": \"Each customer must grant access through OAuth or a personal access tok] Quote 'A human always grants access, either by approving an OAuth prompt or by creating a token' directly matches OAuth/PAT grant claim."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "{\"text\": \"unknown\", \"type\": \"unknown\"} -> {\"text\": \"Each customer must grant access through OAuth or a personal access token.\", \"type\": \"access\"} | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://netlify.com/auth.md)"
+      },
+      "note": "Each connected user must grant access; the sources do not establish whether any additional production review is required."
+    },
+    "docs_url": {
+      "value": "https://open-api.netlify.com/",
+      "evidence": [
+        {
+          "url": "https://open-api.netlify.com/",
+          "quote": "This is an OpenAPI reference for the Netlify API",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:14.497387Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] open-api.netlify.com/: pass (fuzzy 94 [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page states 'ment is an OpenAPI reference for the Netlify API' at that URL."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "netlify_mcp",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 10,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:54:46.545404Z",
+    "finished_at": "2026-11-23T14:56:20.888953Z",
+    "tool_calls": 23,
+    "tokens_in": 23745,
+    "tokens_out": 1404,
+    "cost_usd": 0.003076,
+    "backend": "direct",
+    "verifier_tokens_in": 9978,
+    "verifier_tokens_out": 7881,
+    "l6_tool_calls": 23,
+    "l6_rerun_claims": 3
+  },
+  "errors": []
+}

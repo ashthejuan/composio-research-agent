@@ -1,0 +1,707 @@
+{
+  "app_id": 18,
+  "app": "Help Scout",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://helpscout.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Customer support software.",
+      "evidence": [
+        {
+          "url": "https://www.helpscout.com/pricing/",
+          "quote": "Affordable Customer Support Software",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:57.356876Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.helpscout.com/pricing/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.helpscout.com/pricing/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Pricing header says 'Affordable Customer Support Software' matching claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+          "quote": "OAuth 2.0 authorization, implementing Authorization Code and Client Credential flows.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.089604Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/overview/authentication/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/overview/authentication/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'OAuth 2.0 authorization, implementing Authorization Code and Client Credential flows'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "paid_plan_required",
+      "evidence": [
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "The Free plan does not include access to the API or integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        },
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "Each paid Help Scout plan has different levels of API access.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (live 200); [1] docs.helpscout.com/article/1140-mailbox-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Each paid Help Scout plan has different levels of API access' and Free excludes API."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API access is excluded from the free plan."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.helpscout.com/mailbox-api/endpoints/conversations/list/",
+          "quote": "GET /v2/conversations HTTP/1.1",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.153910Z"
+        },
+        {
+          "url": "https://developer.helpscout.com/mailbox-api/",
+          "quote": "It uses JSON for requests, responses and error messages.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.084321Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/endpoints/conversations/list/: pass (live 200); [1] developer.helpscout.com/mailbox-api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/endpoints/conversations/list/: pass (exact [httpx.scrape+exa.snippet]); [1] developer.helpscout.com/mailbox-api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'GET /v2/conversations' plus 'It uses JSON for requests, responses' shows REST."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documented HTTP endpoints and JSON format support REST; no other API type is indicated."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.helpscout.com/mailbox-api/",
+          "quote": "Conversations\nAttachments\nDelete Attachment\nDownload Attachment File\nGet Attachment Data\nUpload Attachment\nCustom fields\nUpdate Custom Fields\nSnooze\nDelete Snooze\nUpdate Snooze\nTags\nUpdate Tags\nThreads\nSchedule",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.084321Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Lists dozens of endpoints across Conversations, Customers, Inboxes, Tags, Threads, etc."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The documentation lists many endpoint groups and operations across the Inbox API."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.helpscout.com/article/1779-connect-your-ai-agent-with-help-scout-to-search-conversations-and-pull-reports",
+          "quote": "Help Scout MCP gives AI assistants secure, official access to Help Scout data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.087073Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1779-connect-your-ai-agent-with-help-scout-: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1779-connect-your-ai-agent-with-help-scout-: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Help Scout MCP gives AI assistants secure, official access to Help Scout data.'"
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/drewburchfield/help-scout-mcp-server",
+          "quote": "MCP server for Help Scout - search conversations, customers, organizations, reports, and Docs with AI agents, plus opt-in writes for drafting replies and triage",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:57.523731Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/drewburchfield/help-scout-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/drewburchfield/help-scout-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "GitHub repo 'MCP server for Help Scout - search conversations...' shows community server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A community MCP server is documented separately from Help Scout's official MCP."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.helpscout.com/pricing/",
+          "quote": "Free Basic\n$0",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:57.356876Z"
+        },
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "The Free plan does not include access to the API or integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] www.helpscout.com/pricing/: pass (live 200); [1] docs.helpscout.com/article/1140-mailbox-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] www.helpscout.com/pricing/: pass (exact [httpx.scrape+exa.snippet]); [1] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt shows 'Free Basic $0' with 'Start with Free', proving a free plan exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "A free plan exists, but it does not include API access."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.helpscout.com/",
+          "quote": "Webhooks - get notified about activity in Help Scout",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.146809Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Webhooks - get notified about activity in Help Scout' directly confirms webhooks offered."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "php"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.helpscout.com/mailbox-api/",
+          "quote": "Version 2.0 of our PHP SDK client has been updated to support Inbox API 2.0.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.084321Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.helpscout.com/mailbox-api/: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Version 2.0 of our PHP SDK client has been updated' confirms vendor PHP SDK."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "Standard: up to 200 calls/min; Plus: up to 400; Pro: up to 800.",
+      "evidence": [
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "Up to 200 calls per minute",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        },
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "Up to 400 calls per minute",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        },
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "Up to 800 calls per minute",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (live 200); [1] docs.helpscout.com/article/1140-mailbox-api: pass (live 200); [2] docs.helpscout.com/article/1140-mailbox-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet]); [2] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state 'Up to 200', 'Up to 400', 'Up to 800 calls per minute' for Standard/Plus/Pro."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Limits vary by plan: Standard, Plus, and Pro respectively."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Paid plan required for API access",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "The Free plan does not include access to the API or integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        },
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "Each paid Help Scout plan has different levels of API access.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule access_vs_blocker"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (live 200); [1] docs.helpscout.com/article/1140-mailbox-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet]); [1] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The Free plan does not include access to the API' proves paid plan required for API."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "API access requires a paid Help Scout plan."
+    },
+    "docs_url": {
+      "value": "https://developer.helpscout.com/mailbox-api/",
+      "evidence": [
+        {
+          "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+          "quote": "https://developer.helpscout.com/mailbox-api/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:57.091979Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] docs.helpscout.com/article/1140-mailbox-api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'https://developer.helpscout.com/mailbox-api/ will take you directly' confirms docs URL."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "help_scout",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 9,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=broad"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=paid_plan_required"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=broad, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:47:23.150458Z",
+    "finished_at": "2026-11-23T14:47:59.439222Z",
+    "tool_calls": 12,
+    "tokens_in": 8930,
+    "tokens_out": 188,
+    "cost_usd": 0.000987,
+    "backend": "direct",
+    "verifier_tokens_in": 10337,
+    "verifier_tokens_out": 3244,
+    "l6_tool_calls": 12,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

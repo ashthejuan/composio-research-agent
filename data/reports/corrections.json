@@ -1,0 +1,893 @@
+{
+  "generated_at": "2026-11-23T15:20:37.156315+00:00",
+  "pass_from": "pass2",
+  "pass_to": "final",
+  "total_records": 100,
+  "corrected_apps": 20,
+  "total_corrections": 55,
+  "corrections": [
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "marketplace_listing",
+      "before_outcome": "abstained",
+      "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview.md",
+      "quote": "If you choose this option, you can install your app in a maximum of 10 accounts at a time.",
+      "note": "Two readings. (1) marketplace_listing: in the new developer platform distribution=private allows max 10 allowlisted accounts; wider distribution uses distribution=marketplace, listing needs >=3 active installs and review. (2) none: docs say marketplace 'eligible for listing', and public OAuth apps historically install on any account without listing. Docs read do not state whether an unlisted marketplace-distribution app can install beyond 10 accounts. Best guess: none (listing optional).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "Set up and host an OAuth backend",
+        "type": "technical"
+      },
+      "after_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "before_outcome": "wrong",
+      "url": "https://developers.hubspot.com/docs/getting-started/account-types",
+      "quote": "You can create up to 10 test accounts to test apps and integrations without affecting any real HubSpot data.",
+      "note": "Free signup, standard OAuth, official MCP; no major obstacle.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "auth_methods",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2",
+        "api_key"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://api.docs.dealcloud.com/docs/token",
+      "quote": "DealCloud uses the OAuth2 Client Credentials flow to generate a bearer token",
+      "note": "Per-user API key (enabled in profile) is exchanged for a 15-minute OAuth2 bearer token. MCP uses interactive OAuth 2.0 per user.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "credential_access",
+      "before_value": "unknown",
+      "after_value": "contact_sales",
+      "before_outcome": "abstained",
+      "url": "https://api.docs.dealcloud.com/docs/apikeys",
+      "quote": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance.",
+      "note": "Two readings. (1) admin_approval: API access needs a user in a group with the 'API' capability enabled by a site admin, then the user enables their API key in Profile. (2) contact_sales: DealCloud is an enterprise product with no public trial/pricing/self-serve signup, so a developer without a licensed tenant cannot obtain credentials at all. Best guess: admin_approval (given the access path is tenant-admin controlled).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://api.docs.dealcloud.com/docs/apikeys",
+      "quote": "To enable API access, ensure the intended user is assigned to a user group with the appropriate permissions.",
+      "note": "Per-tenant credentials; no app review, marketplace or partner agreement found in the public API docs (absence of evidence).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "after_value": {
+        "text": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance.",
+        "type": "access"
+      },
+      "before_outcome": "abstained",
+      "url": "https://api.docs.dealcloud.com/docs/apikeys",
+      "quote": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance.",
+      "note": "Customer/tenant-gated; no public sandbox or self-serve path.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "auth_methods",
+      "before_value": [
+        "basic",
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2",
+        "basic",
+        "api_key"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+      "quote": "The Zendesk API supports OAuth authorization flows.",
+      "note": "OAuth access tokens (Bearer, global OAuth for multi-customer apps); API tokens (marked deprecated) are sent via Basic auth as email/token:api_token.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "credential_access",
+      "before_value": "contact_sales",
+      "after_value": "paid_plan_required",
+      "before_outcome": "wrong",
+      "url": "https://www.usepylon.com/pricing",
+      "quote": "Includes: Viewer seats Core support Out-of-the-box Analytics Automations Skills Broadcasts MCP API Integrations",
+      "note": "API listed as included in paid seats ($89/seat annual); no free tier or self-serve signup found, only Book a demo. Could be read as contact_sales.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://docs.usepylon.com/pylon-docs/developer/api.md",
+      "quote": "Only Admin users can create API tokens.",
+      "note": "No OAuth app, marketplace or partner program for third-party integrators found (absence of evidence); each customer admin issues tokens.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "API tokens can only be created by Admin users",
+        "type": "access"
+      },
+      "after_value": {
+        "text": "You pay for the seats and AI credits your team uses, never per ticket.",
+        "type": "commercial"
+      },
+      "before_outcome": "wrong",
+      "url": "https://www.usepylon.com/pricing",
+      "quote": "You pay for the seats and AI credits your team uses, never per ticket.",
+      "note": "No free path to credentials; paid seats needed.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "auth_methods",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://docs.slack.dev/authentication.md",
+      "quote": "Whether you\u2019re handling OAuth 2.0, verifying requests, or setting up Sign in with Slack, we\u2019ve got you covered.",
+      "note": "Bot/user/app tokens (xoxb-/xoxp-/xapp-) are sent as Bearer; obtained via OAuth 2.0 install.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "production_gate",
+      "before_value": "none",
+      "after_value": "marketplace_listing",
+      "before_outcome": "wrong",
+      "url": "https://docs.slack.dev/distribution.md",
+      "quote": "apps intended for commercial distribution should be submitted and approved for listing in the Slack Marketplace.",
+      "note": "Two readings. (1) none: apps can be distributed ('unlisted') without Marketplace listing. (2) marketplace_listing: non-Marketplace commercially distributed apps get conversations.history/replies limited to 1 request/min and 15 objects for new installs; Marketplace review requires 10+ active workspace installs. Best guess: none for installability, with serious rate-limit penalty.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "Separate authorization is required for commercial distribution.",
+        "type": "commercial"
+      },
+      "after_value": {
+        "text": "The new rate limits will be updated to allow 1 request per minute and will return a maximum of 15 objects per request.",
+        "type": "technical"
+      },
+      "before_outcome": "wrong",
+      "url": "https://docs.slack.dev/changelog/2025/05/29/rate-limit-changes-for-non-marketplace-apps.md",
+      "quote": "The new rate limits will be updated to allow 1 request per minute and will return a maximum of 15 objects per request.",
+      "note": "Biggest obstacle for a multi-tenant toolkit is rate limiting of unlisted apps (history/replies) unless Marketplace-approved. Could also be read as commercial/none.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "auth_methods",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://developers.facebook.com/docs/whatsapp/access-tokens",
+      "quote": "System user access tokens (\u201csystem tokens\u201d) represent you, your business, organization, or people within your business or organization.",
+      "note": "Direct developers call Cloud API with long-lived System User tokens (Authorization: Bearer). Tech Providers get Business Integration System User tokens via Embedded Signup (OAuth-style code exchange); short-lived user tokens come from Facebook Login.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "credential_access",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "before_outcome": "abstained",
+      "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
+      "quote": "Make sure to retain both your test phone number ID and Messaging account ID for later use.",
+      "note": "Free Meta developer account + app gives a test phone number and token for development; production messaging is usage-priced but credentials are self-serve.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "auth_methods",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://developers.facebook.com/docs/marketing-api/system-users",
+      "quote": "System users represent servers or software making API calls to assets owned or managed by a Business Manager",
+      "note": "User access tokens via Facebook Login OAuth dialog (ads_management/ads_read) for third-party users; System User access tokens for own-business automation. Quote supports system-user tokens; OAuth quote is on /docs/marketing-api/overview/authorization ('standard Facebook oAuth flow' on system-users page too).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "credential_access",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "before_outcome": "abstained",
+      "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+      "quote": "Automatically granted when you add the Marketing API product to your app.",
+      "note": "Limited access tier is automatic with a free developer app (needs an ad account). Limited tier is development-only.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "production_gate",
+      "before_value": "partner_program",
+      "after_value": "none",
+      "before_outcome": "wrong",
+      "url": "https://mailchimp.com/developer/marketing/api-concepts/authentication/oauth-2.md",
+      "quote": "It's also a requirement for listing an integration in the Mailchimp Marketplace.",
+      "note": "OAuth apps are self-registered on the Registered Apps page; marketplace listing is optional (only for being listed), not required to be installable by users.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "Integration Partner Program membership required for distribution",
+        "type": "commercial"
+      },
+      "after_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "before_outcome": "wrong",
+      "url": "https://mailchimp.com/developer/marketing/build/get-started/generate-your-api-key.md",
+      "quote": "An API key authenticates requests against your own Mailchimp account.",
+      "note": "Self-serve keys and OAuth app registration, no review gate.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "credential_access",
+      "before_value": "admin_approval",
+      "after_value": "partner_gated",
+      "before_outcome": "wrong",
+      "url": "https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview.md",
+      "quote": "You must register as a Selling Partner API (SP-API) developer before you can register your Selling Partner API application.",
+      "note": "Two readings: partner_gated (developer profile application reviewed by Amazon, with extra architecture review for restricted roles) vs paid_plan_required (private seller apps need a professional selling account, a paid plan). Best guess: partner_gated. Evidence: https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "credential_access",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "before_outcome": "abstained",
+      "url": "https://commasdocs.com/",
+      "quote": "you can start building right away using a sandbox API key from the sandbox dashboard",
+      "note": "Sandbox key is self-serve; production key requires account identity verification (not a paid plan).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://commasdocs.com/",
+      "quote": "Once your account is verified, switch to your live API key to go live.",
+      "note": "Account verification only; no app review or partner program documented.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "api_type",
+      "before_value": [
+        "unknown"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "before_outcome": "abstained",
+      "url": "https://commasdocs.com/",
+      "quote": "Every endpoint is served under the /public-api/ path on https://www.fanbasis.com",
+      "note": "REST over x-api-key; also a checkout JS/React SDK and a CLI documented as tooling.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "mcp_official",
+      "before_value": "unknown",
+      "after_value": "yes",
+      "before_outcome": "abstained",
+      "url": "https://fanbasis.com",
+      "quote": "MCP beta Run Commas from your AI assistant.",
+      "note": "Official site advertises MCP (beta); docs describe a Commas MCP Connector with 44 tools (some client setups marked Coming Soon).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "API documentation requires sign-in",
+        "type": "documentation"
+      },
+      "after_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "before_outcome": "wrong",
+      "url": "https://commasdocs.com/",
+      "quote": "Do I need to wait for account verification before I can start integrating? No",
+      "note": "Self-serve sandbox and docs; only caveat is non-obvious docs host after rebrand.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "auth_methods",
+      "before_value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "after_value": [
+        "api_key"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://docs.ahrefs.com/docs/api/reference/api-keys-creation-and-management",
+      "quote": "Provide it in the Authorization header when making requests: Authorization: Bearer YOUR_API_KEY",
+      "note": "API v3 uses a workspace API key sent as a Bearer header (api_key/bearer same class). OAuth exists only for the MCP server, not the REST API.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "production_gate",
+      "before_value": "oauth_app_review",
+      "after_value": "none",
+      "before_outcome": "wrong",
+      "url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "quote": "To send requests to Ahrefs API, you'll need an API key.",
+      "note": "No app review, marketplace or partner step documented for API use; customer brings own paid plan and key.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "Ahrefs Connect app approval before live production OAuth",
+        "type": "access"
+      },
+      "after_value": {
+        "text": "Ahrefs API is available on eligible paid plans .",
+        "type": "commercial"
+      },
+      "before_outcome": "wrong",
+      "url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "quote": "Ahrefs API is available on eligible paid plans .",
+      "note": "Paid subscription is the gating obstacle; technically straightforward REST + key.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "credential_access",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "before_outcome": "abstained",
+      "url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+      "quote": "pipx install sherlock-project",
+      "note": "Free MIT-licensed OSS install; no credentials needed.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+      "quote": "MIT \u00a9 Sherlock Project",
+      "note": "Self-run OSS tool; no third-party account/app review applies.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "mcp_official",
+      "before_value": "unknown",
+      "after_value": "no_found",
+      "before_outcome": "abstained",
+      "url": "https://api.github.com/orgs/sherlock-project/repos",
+      "quote": "Hunt down social media accounts by username across social networks",
+      "note": "Org repos listed: sherlock, api, sherlockproject.xyz, build, .github; no MCP server found in org or README.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "after_value": {
+        "text": "Hunt down social media accounts by username across 400+ social networks",
+        "type": "technical"
+      },
+      "before_outcome": "abstained",
+      "url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+      "quote": "Hunt down social media accounts by username across 400+ social networks",
+      "note": "none vs technical. Reading 1 none: free OSS CLI, trivially wrappable as a subprocess tool. Reading 2 technical: no hosted API, needs local runtime, output is file/text parsing and results are heuristic. Best guess: technical.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "auth_methods",
+      "before_value": [
+        "oauth2",
+        "basic"
+      ],
+      "after_value": [
+        "oauth2",
+        "bearer_token",
+        "jwt_service_account"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "quote": "In most cases, you can use Authorization: Bearer or Authorization: token to pass a token. However, if you are passing a JSON web token (JWT), you must use Authorization: Bearer .",
+      "note": "PATs (bearer token), OAuth apps/GitHub App user tokens (oauth2), and GitHub App JWT signed with RS256 private key for app/installation auth. Basic with username+password no longer works for API.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "quote": "If you want to use the API for an organization or on behalf of another user, GitHub recommends that you use a GitHub App.",
+      "note": "Any GitHub App/OAuth app can be registered and installed by anyone; no GitHub review needed (Marketplace listing optional; org owners approve installs/OAuth access per org, which is customer-side).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "after_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "before_outcome": "abstained",
+      "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "quote": "You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+      "note": "Free self-serve credentials, official MCP, no gate.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "auth_methods",
+      "before_value": [
+        "jwt_service_account",
+        "oauth2",
+        "bearer_token",
+        "session_other"
+      ],
+      "after_value": [
+        "oauth2",
+        "jwt_service_account",
+        "bearer_token"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/authentication",
+      "quote": "include authentication information using either of the following: Using key pair authentication Using OAuth Using a programmatic access token (PAT) Using workload identity federation",
+      "note": "Key-pair JWT, OAuth, programmatic access tokens (bearer) and workload identity federation.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+      "quote": "Using OAuth \u00b6 To use OAuth, follow these steps: Set up OAuth for authentication.",
+      "note": "OAuth is configured by each customer's account admin via a security integration; no Snowflake-side app review or partner step documented for building a connector.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "Customer account network policies must allow the integration\u2019s IP ranges.",
+        "type": "access"
+      },
+      "after_value": {
+        "text": "At the end of the trial, the account is suspended.",
+        "type": "commercial"
+      },
+      "before_outcome": "wrong",
+      "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+      "quote": "At the end of the trial, the account is suspended.",
+      "note": "Account is required, trial expires, then paid; also account-admin setup. Reading as access (customer-admin setup) is plausible.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "oauth_app_review",
+      "before_outcome": "abstained",
+      "url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+      "quote": "Users trying to install an unapproved OAuth 2.0 integration are warned that the app has not yet been reviewed by Atlassian.",
+      "note": "Sharing a 3LO app works without review but shows a warning; approval via Marketplace listing process. Also Atlassian says apps collecting API tokens violate its security requirements. Could be read as marketplace_listing.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "api_type",
+      "before_value": [
+        "rest"
+      ],
+      "after_value": [
+        "graphql",
+        "rest"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://developer.atlassian.com/platform/atlassian-graphql-api/",
+      "quote": "See the [GraphQL API](/platform/atlassian-graphql-api/graphql/) section for reference documentation for the Atlassian platform GraphQL API.",
+      "note": "rest vs rest+graphql. Jira Cloud REST v3 is the primary documented API. Atlassian also documents a platform GraphQL gateway that exposes Jira projects, listed as beta/limited. Best guess: [rest, graphql].",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "after_value": {
+        "text": "Apps that collect API tokens or instruct customers to create individual 3LO apps don't comply with our Security requirements for cloud apps...",
+        "type": "technical"
+      },
+      "before_outcome": "wrong",
+      "url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+      "quote": "Apps that collect API tokens or instruct customers to create individual 3LO apps don't comply with our Security requirements for cloud apps and Acceptable use policy .",
+      "note": "Self-serve access exists; difficulty is multi-tenant distribution via a single 3LO app (and Cloud vs DC differences). Alternative reading: access/gate via Marketplace review.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "OAuth app review for distribution beyond your organization",
+        "type": "access"
+      },
+      "after_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "before_outcome": "wrong",
+      "url": "https://developers.asana.com/docs/publish-your-app",
+      "quote": "Submitting your app for review is not required to obtain a token.",
+      "note": "Self-serve PAT/OAuth; review only for multi-workspace distribution.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "auth_methods",
+      "before_value": [
+        "api_key",
+        "oauth2"
+      ],
+      "after_value": [
+        "api_key",
+        "basic",
+        "bearer_token"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://docs.stripe.com/api/authentication",
+      "quote": "Provide your API key as the basic auth username value. You don\u2019t need to provide a password.",
+      "note": "API key via HTTP Basic or Bearer header. Connect OAuth (for acting on connected accounts) excluded as not own-credentials; MCP agent keys are same class.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://docs.stripe.com/api",
+      "quote": "You can use the Stripe API in sandboxes without affecting your live data",
+      "note": "Users bring own API keys; no review needed. Stripe App Marketplace review (docs.stripe.com/stripe-apps/publish-app) applies only to UI Stripe Apps; Connect OAuth is an alternative path. Arguably ambiguous.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "after_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "before_outcome": "abstained",
+      "url": "https://docs.stripe.com/api/authentication",
+      "quote": "The Stripe API uses API keys to authenticate requests.",
+      "note": "No meaningful obstacle.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "auth_methods",
+      "before_value": [
+        "oauth2"
+      ],
+      "after_value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://pitchbook.com/help/pitchbook-api",
+      "quote": "help you establish the API connection through an API key or authentication token",
+      "note": "Page fetched via web.archive.org because live site is Cloudflare-blocked. Details of token type not public (endpoint docs behind platform login).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "partner_program",
+      "before_outcome": "abstained",
+      "url": "https://pitchbook.com/help/pitchbook-api",
+      "quote": "Our API is a separate offering from the PitchBook Platform that requires a standalone contract agreement.",
+      "note": "Customers hold their own contract + API key, so beyond credentials nothing extra (none); but a standalone commercial agreement is needed per customer and a multi-tenant integrator may need a data-redistribution/partner agreement (partner_program). Best guess: none.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "credential_access",
+      "before_value": "self_serve_trial",
+      "after_value": "paid_plan_required",
+      "before_outcome": "wrong",
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+      "note": "Paid per-user license plus Google Cloud project. Note: a separate Public Preview Gemini Notebook API (developers.google.com/notebook) targets personal accounts and may be free; not the Enterprise API in scope.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "Grant the Cloud NotebookLM User role ( roles/discoveryengine.notebookLmUser ) to your user account.",
+      "note": "Only IAM role + license; no app review documented.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "api_type",
+      "before_value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "after_value": [
+        "rest"
+      ],
+      "before_outcome": "wrong",
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "The projects.locations.notebooks REST API methods on this page",
+      "note": "Preview (v1alpha).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "Active licensed user account required",
+        "type": "access"
+      },
+      "after_value": {
+        "text": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+        "type": "commercial"
+      },
+      "before_outcome": "wrong",
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+      "note": "Paid license + preview-only user-credential auth; could also be read as technical/access.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "auth_methods",
+      "before_value": [
+        "unknown"
+      ],
+      "after_value": [
+        "none"
+      ],
+      "before_outcome": "abstained",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "mmdc -i input.mmd -o output.svg",
+      "note": "Local CLI; README documents no credentials.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "credential_access",
+      "before_value": "unknown",
+      "after_value": "self_serve_free",
+      "before_outcome": "abstained",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "npm install -g @mermaid-js/mermaid-cli",
+      "note": "Open source (MIT).",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "production_gate",
+      "before_value": "unknown",
+      "after_value": "none",
+      "before_outcome": "abstained",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "It takes a mermaid definition file as input and generates an SVG/PNG/PDF file as output.",
+      "note": "Local tool, no gating.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "main_blocker_type",
+      "before_value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "after_value": {
+        "text": "none",
+        "type": "none"
+      },
+      "before_outcome": "abstained",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "npm install -g @mermaid-js/mermaid-cli",
+      "note": "Easily wrapped as a local tool.",
+      "labeller": "ashthejuan",
+      "source": "golden_label"
+    }
+  ]
+}

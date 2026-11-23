@@ -1,0 +1,667 @@
+{
+  "app_id": 29,
+  "app": "Aircall",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://aircall.io",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "AI-powered customer communications platform.",
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/introduction",
+          "quote": "AI-powered customer communications platform.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.815145Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote matches claim verbatim: 'AI-powered customer communications platform'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/authentication",
+          "quote": "Aircall supports two ways to authenticate with the REST API: Basic Authentication and OAuth.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.805025Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/authentication: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/authentication: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote: 'supports two ways to authenticate... Basic Authentication and OAuth' - exactly basic+oauth2."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "OAuth is used for integrations serving multiple customers; Basic Authentication is for private integrations."
+    },
+    "credential_access": {
+      "value": "paid_plan_required",
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/sms",
+          "quote": "Direct API access requires the Professional plan.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T14:49:18.464704Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"paid_plan_required\"] [0] developer.aircall.io/docs/sms: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[L6 attempt 1 candidate \"paid_plan_required\"] [0] developer.aircall.io/docs/sms: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "[L6 attempt 1 candidate \"paid_plan_required\"] States 'Direct API access requires the Professional plan' for own-account direct use."
+          },
+          {
+            "loop": "L6",
+            "result": "changed",
+            "detail": "\"unknown\" -> \"paid_plan_required\" | attempt 1: re-researched value supported by verifier and grounded quote; was unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed; L6 changed value (https://developer.aircall.io/docs/sms)"
+      },
+      "note": "For direct API use from your own account, Aircall says to contact your Customer Success Manager to upgrade."
+    },
+    "production_gate": {
+      "value": "partner_program",
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/how-to-publish-an-app",
+          "quote": "you need to be approved as an Aircall Technology Partner.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.810102Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule gate_official_evidence"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/how-to-publish-an-app: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/how-to-publish-an-app: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote requires 'approved as an Aircall Technology Partner' before public app."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Approval is required before building a public app."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/introduction",
+          "quote": "Connect Aircall to any business tool using our REST API and webhooks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.815145Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Decisive phrase 'using our REST API and webhooks' documents REST; no other wire styles shown."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/introduction",
+          "quote": "Manage calls, messages, AI agents, users, numbers, and more",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.815145Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "insufficient_evidence",
+            "detail": "Only lists 'calls, messages, AI agents, users, numbers, and more' - 5 items plus vague more, can't prove medium 10-30."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The docs identify several resource areas but do not provide a complete count in the supplied excerpt."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.aircall.io/en-gb/articles/39677926959517",
+          "quote": "Aircall MCP gives an AI assistant, like Claude or ChatGPT, read-only access to your company's calls and conversation intelligence data.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:42.521972Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] support.aircall.io/en-gb/articles/39677926959517: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] support.aircall.io/en-gb/articles/39677926959517: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Vendor article says \"Aircall's MCP server publishes a catalog\" proving vendor-operated MCP."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Aircall's official help article describes its MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/CassiaResearch/aircall-mcp-server",
+          "quote": "Unofficial MCP server for Aircall",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:41.736006Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/CassiaResearch/aircall-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/CassiaResearch/aircall-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Repo states 'Unofficial MCP server for Aircall' proving community server exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/launch-process",
+          "quote": "We'll create a trial developer account for you to build and test your integration against.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:41.185853Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/launch-process: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/launch-process: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'We'll create a trial developer account for you to build and test' proving test account."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The trial developer account is provided after approval and account setup."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/introduction",
+          "quote": "Real-time event notifications for everything that happens on a call.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.815145Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States 'Real-time event notifications for everything that happens on a call' proving webhooks."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources mention an Everywhere SDK and client libraries, but do not identify vendor-maintained language SDKs."
+    },
+    "rate_limit_note": {
+      "value": "60 requests/minute",
+      "evidence": [
+        {
+          "url": "https://github.com/CassiaResearch/aircall-mcp-server",
+          "quote": "Aircall's 60 req/min limit.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:41.736006Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] github.com/CassiaResearch/aircall-mcp-server: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] github.com/CassiaResearch/aircall-mcp-server: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "States \"Aircall's 60 req/min limit\" matching 60 requests/minute."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This concrete limit is reported by a community MCP server."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Technology Partner approval required for public apps",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.aircall.io/docs/how-to-publish-an-app",
+          "quote": "you need to be approved as an Aircall Technology Partner.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.810102Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/how-to-publish-an-app: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developer.aircall.io/docs/how-to-publish-an-app: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt states 'you need to be approved as an Aircall Technology Partner' before building a public app, an access approval gate."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developers.aircall.io/api-references",
+      "evidence": [
+        {
+          "url": "https://developers.aircall.io/api-references",
+          "quote": "REST API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:40.797671Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] developers.aircall.io/api-references: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] developers.aircall.io/api-references: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpt from claimed URL shows 'API References' with 'REST API' listings, confirming it is API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Primary API reference URL."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "aircall",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 9,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 2,
+        "driver": "api_type=['rest'], api_breadth=medium"
+      },
+      "credential_accessibility": {
+        "score": 1,
+        "driver": "credential_access=paid_plan_required"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 2,
+        "driver": "api_breadth=medium, webhooks=yes"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": true,
+    "bucket": "needs_outreach"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:48:54.464375Z",
+    "finished_at": "2026-11-23T14:49:36.680139Z",
+    "tool_calls": 6,
+    "tokens_in": 5633,
+    "tokens_out": 675,
+    "cost_usd": 0.000901,
+    "backend": "direct",
+    "verifier_tokens_in": 7145,
+    "verifier_tokens_out": 4777,
+    "l6_tool_calls": 6,
+    "l6_rerun_claims": 1
+  },
+  "errors": []
+}

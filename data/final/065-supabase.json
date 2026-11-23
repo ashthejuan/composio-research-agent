@@ -1,0 +1,628 @@
+{
+  "app_id": 65,
+  "app": "Supabase",
+  "pass": "final",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://supabase.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "skip",
+            "detail": "registry claim"
+          },
+          {
+            "loop": "L3",
+            "result": "skip",
+            "detail": "registry claim"
+          }
+        ],
+        "notes": "registry value (assignment.md), not researched"
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A platform for Postgres Database, Auth, and Realtime services.",
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/reference",
+          "quote": "The Supabase client libraries help you interact with Supabase products, such as the Postgres Database, Auth, and Realtime.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.856808Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule description_when_docs"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Quote lists 'Postgres Database, Auth, and Realtime' as Supabase products and mentions 'Supabase Platform'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token",
+        "api_key"
+      ],
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/reference/api/introduction",
+          "quote": "OAuth2 allows your application to generate tokens on behalf of a Supabase user",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.451791Z"
+        },
+        {
+          "url": "https://supabase.com/docs/reference/api/introduction",
+          "quote": "Personal access token (PAT): PATs are tokens with a custom expiry that you manually generate to access the Management API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.451791Z"
+        },
+        {
+          "url": "https://supabase.com/docs/guides/api",
+          "quote": "The API is configured to work with Postgres's Row Level Security, provisioned behind an API gateway with key-auth enabled.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.909294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule oauth2_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference/api/introduction: pass (live 200); [1] supabase.com/docs/reference/api/introduction: pass (live 200); [2] supabase.com/docs/guides/api: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference/api/introduction: pass (exact [httpx.scrape+exa.snippet]); [1] supabase.com/docs/reference/api/introduction: pass (exact [httpx.scrape+exa.snippet]); [2] supabase.com/docs/guides/api: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts show 'Authorization Bearer' PAT, 'OAuth2 allows...' tokens, and 'key-auth enabled' with API Keys."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The Management API supports OAuth2 and personal access tokens sent as Bearer tokens; project APIs use API keys."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/guides/platform/billing-on-supabase",
+          "quote": "The Free Plan helps you get started and explore the platform. You are granted two free projects.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.635496Z"
+        },
+        {
+          "url": "https://supabase.com/docs/guides/getting-started/api-keys",
+          "quote": "Every request to your Supabase project carries an API key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.451829Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/platform/billing-on-supabase: pass (live 200); [1] supabase.com/docs/guides/getting-started/api-keys: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/platform/billing-on-supabase: pass (exact [httpx.scrape+exa.snippet]); [1] supabase.com/docs/guides/getting-started/api-keys: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Free Plan grants two free projects and 'Every request...carries an API key' retrievable via dashboard."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Free projects and project API keys are documented; Management API access uses a personal access token or OAuth2."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish whether an OAuth app review or another gate is required for a multi-tenant app."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "graphql",
+        "cli"
+      ],
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/guides/api",
+          "quote": "Supabase provides a RESTful API using PostgREST",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.909294Z"
+        },
+        {
+          "url": "https://supabase.com/docs/guides/integrations/partner-catalog",
+          "quote": "The Project GraphQL API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.901853Z"
+        },
+        {
+          "url": "https://supabase.com/docs/reference",
+          "quote": "Supabase also has a Management API to help with managing your Supabase Platform, and a CLI for local development and CI workflows.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.856808Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule graphql_quote"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/api: pass (live 200); [1] supabase.com/docs/guides/integrations/partner-catalog: pass (live 200); [2] supabase.com/docs/reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/api: pass (exact [httpx.scrape+exa.snippet]); [1] supabase.com/docs/guides/integrations/partner-catalog: pass (exact [httpx.scrape+exa.snippet]); [2] supabase.com/docs/reference: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Excerpts state 'RESTful API using PostgREST', 'Project GraphQL API', and 'CLI for local development'."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "This includes the Management API, project REST and GraphQL APIs, and CLI."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The project REST API is schema-generated, so the sources do not establish a fixed number of endpoint groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/guides/ai-tools/mcp",
+          "quote": "Supabase MCP Server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.274916Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "rule mcp_yes_has_url"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/ai-tools/mcp: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/ai-tools/mcp: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'Supabase MCP Server' doc with Server URL 'https://mcp.supabase.com/mcp' shows vendor server."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Supabase documents its hosted MCP server."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/guides/platform/billing-on-supabase",
+          "quote": "The Free Plan helps you get started and explore the platform. You are granted two free projects.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.635496Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/platform/billing-on-supabase: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/guides/platform/billing-on-supabase: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "'The Free Plan helps you get started' with 'two free projects' proves free tier exists."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The Free Plan includes two free projects."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "javascript",
+        "flutter",
+        "c#",
+        "swift",
+        "kotlin",
+        "python"
+      ],
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/reference",
+          "quote": "The Supabase client libraries help you interact with Supabase products",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.856808Z"
+        },
+        {
+          "url": "https://supabase.com/docs/reference",
+          "quote": "- JavaScript\n- Server\n- Middleware\n- TanStack DB\n- Flutter\n- C#\n- Swift\n- Kotlin\n- Python",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.856808Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference: pass (live 200); [1] supabase.com/docs/reference: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference: pass (exact [httpx.scrape+exa.snippet]); [1] supabase.com/docs/reference: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Client Libraries list includes JavaScript, Flutter, C#, Swift, Kotlin, Python matching claimed set."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "The references list client-library options; Flutter is listed as a library option, not a programming language."
+    },
+    "rate_limit_note": {
+      "value": "Management API standard limit: 120 requests per minute per user, per project or organization, per endpoint.",
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/reference/api/introduction",
+          "quote": "120 requests | 1 minute | Per user, per project or organization, per endpoint",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.451791Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference/api/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference/api/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Table states '120 requests | 1 minute | Per user, per project or organization, per endpoint' matching claim."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Analytics, database context, and domain endpoints have stricter limits."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "insufficient_evidence",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "skip",
+            "detail": "unknown claim"
+          },
+          {
+            "loop": "L6",
+            "result": "no_change",
+            "detail": "unknown stays unknown | a1: extractor returned unknown; a2: extractor returned unknown"
+          }
+        ],
+        "notes": "unknown: no value claimed"
+      },
+      "note": "The sources do not establish a single biggest obstacle or confirm that no production gate applies."
+    },
+    "docs_url": {
+      "value": "https://supabase.com/docs/reference/api/introduction",
+      "evidence": [
+        {
+          "url": "https://supabase.com/docs/reference/api/introduction",
+          "quote": "Manage your Supabase organizations and projects programmatically.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:19.451791Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "supported",
+        "loops": [
+          {
+            "loop": "L1",
+            "result": "pass",
+            "detail": "schema: valid"
+          },
+          {
+            "loop": "L2",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference/api/introduction: pass (live 200)"
+          },
+          {
+            "loop": "L3",
+            "result": "pass",
+            "detail": "[0] supabase.com/docs/reference/api/introduction: pass (exact [httpx.scrape+exa.snippet])"
+          },
+          {
+            "loop": "L5",
+            "result": "supported",
+            "detail": "Page at claimed URL shows 'Manage your Supabase organizations and projects programmatically' Management API docs."
+          }
+        ],
+        "notes": ""
+      },
+      "note": "Management API reference; project REST API documentation is also provided separately."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "supabase",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 8,
+    "verdict": "easy",
+    "breakdown": {
+      "api_availability": {
+        "score": 1,
+        "driver": "api_type=['rest', 'graphql', 'cli'], api_breadth=unknown"
+      },
+      "credential_accessibility": {
+        "score": 2,
+        "driver": "credential_access=self_serve_free"
+      },
+      "documentation_quality": {
+        "score": 2,
+        "driver": "docs_url known + official auth guide"
+      },
+      "agent_friendly_operations": {
+        "score": 1,
+        "driver": "api_breadth=unknown, webhooks=unknown"
+      },
+      "tooling_readiness": {
+        "score": 2,
+        "driver": "mcp_official=yes"
+      }
+    },
+    "commercial_gate": false,
+    "bucket": "easy_win"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": "muse-spark-1.3-contributor",
+    "started_at": "2026-11-23T14:54:57.127171Z",
+    "finished_at": "2026-11-23T14:56:17.233430Z",
+    "tool_calls": 22,
+    "tokens_in": 26641,
+    "tokens_out": 1776,
+    "cost_usd": 0.003552,
+    "backend": "direct",
+    "verifier_tokens_in": 6235,
+    "verifier_tokens_out": 4963,
+    "l6_tool_calls": 22,
+    "l6_rerun_claims": 2
+  },
+  "errors": []
+}
