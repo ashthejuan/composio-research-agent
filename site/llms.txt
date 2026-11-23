@@ -1,0 +1,41 @@
+# App Intelligence Research Agent — Dataset & Case Study
+
+> Evidence-backed integration & buildability audit of 100 applications across 10 categories for Composio.
+
+## Files
+- index.html: Interactive static case study with full dataset embedded in <script type="application/json" id="dataset">.
+- apps.json: Complete claim-level JSON records for all 100 apps (final pass), including verbatim quotes, evidence URLs, verification loop ledgers (L1-L6), and deterministic buildability breakdowns.
+- apps.csv: Flat one-row-per-app table with scores, verdicts, buckets, auth methods, access tiers, production gates, MCP status, Composio toolkit coverage, and blockers.
+- llms.txt: This machine-readable overview.
+
+## Schema Summary (apps.json)
+Each item in apps.json is an AppRecord:
+- app_id (1-100), app, pass ("final"), record_confidence ("high" | "medium" | "low")
+- claims: 16 claim objects (category, description, auth_methods, credential_access, production_gate, api_type, api_breadth, mcp_official, mcp_third_party, free_tier_or_sandbox, webhooks, official_sdks, rate_limit_note, open_source_self_host, main_blocker, docs_url). Each claim carries value, evidence[] (url, quote, source_tier), extractor_confidence, and verification (status, loops[L1..L6], notes).
+- composio_toolkit: value ("available" | "unavailable"), slug, source (deterministic catalog lookup, never LLM-guessed).
+- buildability: score (0-10), verdict ("easy" | "moderate" | "difficult" | "blocked"), breakdown (5 anchored 0-2 dimensions with driver text), commercial_gate (bool), bucket ("easy_win" | "moderate" | "needs_outreach" | "technically_blocked").
+
+## Opportunity Buckets (N=100)
+- Easy wins: 66 (9 without a Composio toolkit)
+- Moderate effort: 21
+- Needs outreach / BD (commercial gate): 12
+- Technically blocked: 1
+
+## Key Findings
+- 56 of 100 apps offer free self-serve developer access, yet 16 of those still require an app review, marketplace listing, or partner program before serving multi-tenant customers.
+- 89 of 100 apps already publish an official MCP server, including 15 apps that do not yet have a Composio toolkit.
+- 66 of 100 apps score as Easy Wins (8–10/10 with no commercial gate); 9 of them currently lack a Composio toolkit and can be built without BD outreach.
+- 12 of 100 apps trigger a commercial gate (partner-gated, contact-sales, or partner program) — 5 without Composio coverage — led by Finance and Fintech (4 apps).
+- 'access' is the most common integration blocker across the catalog (48 of 100 apps, 48%).
+- 91 of 100 apps expose REST APIs and 74 support OAuth2 (37 of those with documented production gates), while 64 apps support two or more authentication methods.
+
+## Accuracy & Verification Methodology
+- Golden set: 20 stratified apps (2 per category, 120 evaluated claims across 6 fields), human-confirmed from primary documentation.
+- Frozen scoring rules SHA-256: 8d32f4df9c1988c6bef1029cd7ca24f4e724d102ac1c59edbf3297cf633ca4d3
+- Pass 1 (raw research agent): 52.5%
+- Pass 2 (automated L1-L6 verification, independent Meta Muse Spark verifier + targeted re-research): 54.17%
+- Final (human-corrected on golden disagreements, reported separately): 100.0%
+- Holdout: skipped_per_prd_cut_line_1 — 5 holdout apps (Zoho CRM, Vonage, Squarespace, Paygent Connect, Grain) were not human-labelled per PRD §12 cut line #1; this is disclosed on the case-study page.
+
+## Repository
+https://github.com/ashthejuan/composio-research-agent

@@ -278,6 +278,16 @@ def _analyze(args: argparse.Namespace) -> int:
     return 0 if sc["all_passed"] else 1
 
 
+def _site(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from agent import site
+
+    res = site.build_site(out_dir=Path(args.out_dir) if args.out_dir else None)
+    print(f"built site ({res['records']} apps, {res['html_bytes']:,} bytes) -> {res['out_dir']}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="agent")
     sub = p.add_subparsers(dest="command", required=True)
@@ -362,6 +372,10 @@ def build_parser() -> argparse.ArgumentParser:
     an.add_argument("--records-dir", default=None)
     an.add_argument("--out", default=None)
     an.set_defaults(func=_analyze)
+
+    si = sub.add_parser("site", help="generate static HTML case study + JSON/CSV/llms.txt exports (FR-11)")
+    si.add_argument("--out-dir", default=None, help="output directory (default: site/)")
+    si.set_defaults(func=_site)
 
     return p
 
