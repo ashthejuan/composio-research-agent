@@ -1,0 +1,342 @@
+{
+  "app_id": 75,
+  "app": "Asana",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://asana.com",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Work management platform for tasks, projects, and goals.",
+      "evidence": [
+        {
+          "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/asana/README.md",
+          "quote": "Asana is a work management platform for tasks, projects, and goals.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:42:02.071022Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/docs/oauth",
+          "quote": "Asana supports the authorization code grant flow",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.998536Z"
+        },
+        {
+          "url": "https://developers.asana.com/docs/quick-start",
+          "quote": "authorization: Bearer ACCESS_TOKEN",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.816057Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth and personal access tokens are documented authentication options."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/docs/overview",
+          "quote": "create a free account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.671275Z"
+        },
+        {
+          "url": "https://developers.asana.com/docs/authentication",
+          "quote": "PATs are generated in the developer console.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.677983Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free account and developer-console token are documented as self-serve options."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/docs/publish-your-app",
+          "quote": "Make your app available to users in any Asana workspace, beyond your own organization or development environment",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.795405Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Review is required for apps distributed beyond the developer's organization or development environment."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/reference/rest-api-reference",
+          "quote": "The Asana API is a RESTful interface",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.675818Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/reference/rest-api-reference",
+          "quote": "contains a comprehensive reference for objects, schemas, and endpoints available in the API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.675818Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference describes comprehensive API coverage but does not give an endpoint count."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/docs/using-asanas-mcp-server",
+          "quote": "Asana offers a Model Context Protocol (MCP) server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.673564Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/asana/README.md",
+          "quote": "This plugin connects Claude Code to Asana's V2 MCP server",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:42:02.071022Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A third-party Claude Code plugin connects to Asana's MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://asana.com/pricing/",
+          "quote": "Free forever",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:02.063885Z"
+        },
+        {
+          "url": "https://developers.asana.com/docs/overview",
+          "quote": "request a developer sandbox",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.671275Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free plan and a developer sandbox are documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/docs/overview",
+          "quote": "Asana apps use features like our rest API, app components, and webhooks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.671275Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "node",
+        "python",
+        "ruby"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/docs/quick-start",
+          "quote": "Node SDK v3Python SDK v5",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.816057Z"
+        },
+        {
+          "url": "https://developers.asana.com/docs/quick-start",
+          "quote": "Ruby",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.816057Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official quick-start documentation includes Node, Python, and Ruby SDK examples."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth app review for distribution beyond your organization",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/docs/publish-your-app",
+          "quote": "Make your app available to users in any Asana workspace, beyond your own organization or development environment",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.795405Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "App review is the main distribution hurdle for a multi-tenant app serving users across workspaces."
+    },
+    "docs_url": {
+      "value": "https://developers.asana.com/reference/rest-api-reference",
+      "evidence": [
+        {
+          "url": "https://developers.asana.com/reference/rest-api-reference",
+          "quote": "https://developers.asana.com/reference/rest-api-reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:00.675818Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "asana",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:58.113111Z",
+    "finished_at": "2026-11-23T12:42:26.956881Z",
+    "tool_calls": 17,
+    "tokens_in": 9286,
+    "tokens_out": 2656,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

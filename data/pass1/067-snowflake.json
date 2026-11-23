@@ -1,0 +1,307 @@
+{
+  "app_id": 67,
+  "app": "Snowflake",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://snowflake.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Snowflake Data Cloud lets users programmatically interact with and control resources.",
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api",
+          "quote": "programmatically interact with and control various resources within the Snowflake Data Cloud.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:26.690180Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "jwt_service_account",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+          "quote": "Using OAuth",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:27.888860Z"
+        },
+        {
+          "url": "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+          "quote": "KEYPAIR_JWT (for key-pair authentication)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:27.888860Z"
+        },
+        {
+          "url": "https://www.snowflake.com/en/developers/guides/getting-started-with-snowflake-mcp-server/",
+          "quote": "an Authorization: Bearer <YOUR-PAT> header",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:27.827399Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Documented methods include OAuth, key-pair JWT authentication, and bearer PATs for MCP clients."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+          "quote": "You can sign up for a free trial using the self-service form (on the Snowflake website).",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:27.862610Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A self-service trial account provides a way to obtain an account; the trial lasts up to 30 days or until its free usage is depleted."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api",
+          "quote": "These REST APIs are compliant with the OpenAPI specification.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:26.690180Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api",
+          "quote": "Working with accounts\nAccounts\nManaged accounts\nWorking with users, roles, and privileges\nUsers\nRoles\nDatabase roles\nGrants\nManaging virtual warehouses\nWarehouses\nWorking with databases and schemas\nDatabases\nSchemas",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:26.690180Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation lists many resource groups and endpoints."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp",
+          "quote": "The Snowflake-managed MCP server lets AI agents securely retrieve data from Snowflake accounts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:26.697070Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/christianclaudio/mcp-server-snowflake",
+          "quote": "Enterprise Model Context Protocol (MCP) server for Snowflake data cloud and Cortex AI.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:41:28.678403Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community repository describes an MCP server for Snowflake."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+          "quote": "A Snowflake trial account lets you evaluate/test Snowflake’s full range of innovative and powerful features with no cost or contractual obligations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:27.862610Z"
+        },
+        {
+          "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+          "quote": "The trial continues for 30 days (from the sign-up date) or until you’ve depleted your free usage balance, whichever occurs first.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:27.862610Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free trial account is available for up to 30 days or until its free usage balance is depleted."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api",
+      "evidence": [
+        {
+          "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api",
+          "quote": "For reference information about the APIs and their endpoints, see Snowflake REST APIs reference.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:26.690180Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official Snowflake REST API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "snowflake",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:23.077805Z",
+    "finished_at": "2026-11-23T12:41:58.110332Z",
+    "tool_calls": 17,
+    "tokens_in": 10884,
+    "tokens_out": 3216,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

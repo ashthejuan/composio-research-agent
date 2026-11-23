@@ -1,0 +1,313 @@
+{
+  "app_id": 41,
+  "app": "Shopify",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://shopify.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Commerce platform for selling online, in person, and in AI chats.",
+      "evidence": [
+        {
+          "url": "https://www.shopify.com/pricing",
+          "quote": "Sell online, in person, and in AI chats",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:39:29.454917Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api/usage/authentication",
+          "quote": "OAuth, usually token exchange",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.649986Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/usage/authentication",
+          "quote": "Buyer signs in with OAuth 2.0 and PKCE",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.649986Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented authentication flows vary by API."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest",
+          "quote": "This page will help you get up and running with Shopify’s GraphQL API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:28.298273Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The cited API reference documents GraphQL; other API types are not established here."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api/ai-toolkit",
+          "quote": "you can connect to Shopify's developer resources through the Dev MCP server.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:28.084846Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/nicobailon/dev-mcp",
+          "quote": "This project implements a Model Context Protocol (MCP) server that interacts with Shopify Dev.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:39:29.513500Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This is a community repository, not Shopify's official MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/apps/build/stores/development-stores",
+          "quote": "Dev stores are testing environments that you own and control.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.655404Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Dev stores are for testing; creating them requires a Partner account or a merchant store with developer permissions."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/apps/build/authentication-authorization/manage-credentials",
+          "quote": "you'll reject genuine webhooks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:28.386872Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source refers to genuine webhooks in its secret-rotation guidance."
+    },
+    "official_sdks": {
+      "value": [
+        "node",
+        "ruby"
+      ],
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest",
+          "quote": "Use Shopify’s officially supported libraries to build fast, reliable apps with the programming languages and frameworks you already know.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:28.298273Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest",
+          "quote": "Node.js\nnpm install --save @shopify/shopify-api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:28.298273Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-graphql/latest",
+          "quote": "Ruby\nbundle add shopify_api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:28.298273Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "These languages are listed in the official client-libraries section."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Some API access requires Shopify approval or a specific plan.",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api",
+          "quote": "Some APIs also require Shopify's approval or a specific Shopify plan.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.644128Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Requirements differ between APIs."
+    },
+    "docs_url": {
+      "value": "https://shopify.dev/docs/api",
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api",
+          "quote": "Reference documentation for Shopify's APIs, libraries, and developer tools, plus the concepts that apply across all of them.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:26.644128Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "shopify",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:39:19.086287Z",
+    "finished_at": "2026-11-23T12:40:02.142161Z",
+    "tool_calls": 17,
+    "tokens_in": 10173,
+    "tokens_out": 3373,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

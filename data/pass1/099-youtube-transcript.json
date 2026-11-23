@@ -1,0 +1,294 @@
+{
+  "app_id": 99,
+  "app": "YouTube Transcript",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "AI, Research and Media-native",
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com",
+          "quote": "Registry category (assignment.md): AI, Research and Media-native",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Provides programmatic extraction of transcripts from YouTube videos.",
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/docs/api/",
+          "quote": "The YouTube Transcript API provides a simple and reliable way to extract transcripts from YouTube videos programmatically.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.518984Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/docs/api/",
+          "quote": "The API uses Bearer token authentication. Include your API key in the Authorization header of every request:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.518984Z"
+        },
+        {
+          "url": "https://transcriptapi.com/docs/mcp/",
+          "quote": "Authentication: OAuth 2.1 (Claude, ChatGPT) or an API key sent as a Bearer token (OpenAI Agent Builder and other clients).",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.521434Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "REST API requests use an API key; the hosted MCP server also supports OAuth 2.1."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/docs/getting-started/curl/",
+          "quote": "An API key. Sign up to get 100 free credits (no card required), then copy a key from the API Keys dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:46.539371Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "New accounts can obtain an API key with free credits and no card required."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/",
+          "quote": "TranscriptAPI is a REST API",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:46.591096Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/docs/getting-started/",
+          "quote": "Search YouTube videos and channels (paginated)\nBrowse channel uploads with pagination\nGet latest channel videos (free, via RSS)\nBrowse playlist contents with pagination\nResolve channel handles to IDs (free)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:46.228942Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented capabilities shown cover a small set of endpoint groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/docs/mcp/",
+          "quote": "TranscriptAPI runs a hosted (remote) MCP server at https://transcriptapi.com/mcp.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.521434Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/jkawamoto/mcp-youtube-transcript/",
+          "quote": "A Model Context Protocol (MCP) server\nthat fetches transcripts and metadata from YouTube videos directly into your LLM workflows.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:46.718907Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community MCP server for YouTube transcripts is documented; it is separate from TranscriptAPI's hosted server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/docs/getting-started/curl/",
+          "quote": "An API key. Sign up to get 100 free credits (no card required), then copy a key from the API Keys dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:46.539371Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Signup includes 100 free credits with no card required."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://transcriptapi.com/docs/api/",
+      "evidence": [
+        {
+          "url": "https://transcriptapi.com/docs/api/",
+          "quote": "https://transcriptapi.com/docs/api/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.518984Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "youtube_transcript",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:43:37.530575Z",
+    "finished_at": "2026-11-23T12:44:14.726910Z",
+    "tool_calls": 17,
+    "tokens_in": 9859,
+    "tokens_out": 2857,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

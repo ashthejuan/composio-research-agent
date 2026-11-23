@@ -1,0 +1,286 @@
+{
+  "app_id": 2,
+  "app": "HubSpot",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://hubspot.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Build custom CRM and data-driven website experiences on HubSpot.",
+      "evidence": [
+        {
+          "url": "https://developers.hubspot.com/docs",
+          "quote": "Build custom CRM and data-driven website experiences on HubSpot.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.308591Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.hubspot.com/docs/apps/legacy-apps/authentication/intro-to-auth",
+          "quote": "There are two ways to authenticate calls to HubSpot’s APIs: OAuth, and private app access tokens.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.239053Z"
+        },
+        {
+          "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+          "quote": "Authorization: Bearer",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:56.687699Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Private app static access tokens are sent as Bearer tokens."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether review or listing is required for a multi-tenant app that is not marketplace-listed."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.hubspot.com/docs/api-reference/latest/overview",
+          "quote": "GET /crm/objects/2026-09/contacts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:56.683286Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The HTTP endpoint example indicates a REST API."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.hubspot.com/ai-tools/mcp",
+          "quote": "HubSpot offers two distinct MCP (Model Context Protocol) servers",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:56.656919Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.hubspot.com/docs/getting-started/account-types",
+          "quote": "It can be free or paid",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.567785Z"
+        },
+        {
+          "url": "https://developers.hubspot.com/docs/getting-started/account-types",
+          "quote": "Developer test accounts are free",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.567785Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Free standard accounts and free developer test accounts are documented."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Set up and host an OAuth backend",
+        "type": "technical"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+          "quote": "You’ll need to set up and host an OAuth backend service",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:56.687699Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Multi-account distribution requires OAuth and a hosted backend."
+    },
+    "docs_url": {
+      "value": "https://developers.hubspot.com/docs/api-reference/latest/overview",
+      "evidence": [
+        {
+          "url": "https://developers.hubspot.com/docs/api-reference/latest/overview",
+          "quote": "Reference documentation for HubSpot’s 2026-09 APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:56.683286Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "hubspot",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:36:41.068050Z",
+    "finished_at": "2026-11-23T12:37:17.450556Z",
+    "tool_calls": 17,
+    "tokens_in": 8578,
+    "tokens_out": 2537,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

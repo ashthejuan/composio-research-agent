@@ -1,0 +1,326 @@
+{
+  "app_id": 71,
+  "app": "Notion",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://notion.so",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Build tools and automations that create pages, organize data, and share feedback in Notion.",
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/notion-api/quick-start",
+          "quote": "Build tools and automations that create pages, organize data, and share feedback in Notion.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.484757Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/reference/authentication",
+          "quote": "The Notion API accepts bearer tokens in this header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.176343Z"
+        },
+        {
+          "url": "https://developers.notion.com/guides/connections-and-tokens/public-integrations/overview",
+          "quote": "public connections follow the OAuth 2.0 protocol",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.364790Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Bearer tokens include PATs and internal-connection tokens; public connections use OAuth 2.0."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/notion-api/quick-start",
+          "quote": "Select New token.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.484757Z"
+        },
+        {
+          "url": "https://developers.notion.com/guides/connections-and-tokens/personal-access-tokens",
+          "quote": "Free Workspace owners only. Not configurable.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.178694Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Free workspaces allow workspace owners to create PATs; Business and Enterprise policies may restrict creation."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/connections-and-tokens/public-integrations/marketplace-listing",
+          "quote": "your connection can be used via its OAuth flow without being listed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.330375Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Marketplace listing is optional for public connections."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/connections-and-tokens/personal-access-tokens",
+          "quote": "read supported user information through Notion’s REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.178694Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/mcp/get-started-with-mcp",
+          "quote": "https://mcp.notion.com/mcp",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.171605Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Notion's official MCP documentation provides this server endpoint."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/awkoy/notion-mcp-server/",
+          "quote": "Notion MCP Server — Connect Claude, Cursor, VS Code & Codex to Notion",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:41:48.484789Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained Notion MCP server is listed on GitHub."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/connections-and-tokens/personal-access-tokens",
+          "quote": "Free Workspace owners only. Not configurable.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.178694Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A Free plan exists, and workspace owners can create PATs under its default policy."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "javascript"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/notion-api/quick-start",
+          "quote": "Official client library for Node.js.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.484757Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "none",
+        "type": "none"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/guides/notion-api/quick-start",
+          "quote": "A personal access token (PAT) lets you authenticate API requests as yourself",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.484757Z"
+        },
+        {
+          "url": "https://developers.notion.com/reference/intro",
+          "quote": "Send requests over HTTPS to https://api.notion.com.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.173962Z"
+        },
+        {
+          "url": "https://developers.notion.com/guides/connections-and-tokens/public-integrations/marketplace-listing",
+          "quote": "your connection can be used via its OAuth flow without being listed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.330375Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The cited documentation supports self-serve credentials, a documented API, and optional Marketplace listing."
+    },
+    "docs_url": {
+      "value": "https://developers.notion.com/reference/intro",
+      "evidence": [
+        {
+          "url": "https://developers.notion.com/reference/intro",
+          "quote": "https://developers.notion.com/reference/intro",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:48.173962Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "notion",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:40.317750Z",
+    "finished_at": "2026-11-23T12:42:16.144509Z",
+    "tool_calls": 17,
+    "tokens_in": 10136,
+    "tokens_out": 2877,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

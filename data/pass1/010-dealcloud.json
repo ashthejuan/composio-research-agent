@@ -1,0 +1,281 @@
+{
+  "app_id": 10,
+  "app": "DealCloud",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://dealcloud.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "api_key",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://api.docs.dealcloud.com/docs/token",
+          "quote": "DealCloud uses the OAuth2 Client Credentials flow to generate a bearer token, which is then used in the HTTP Authentication header for API requests.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:25.772092Z"
+        },
+        {
+          "url": "https://api.docs.dealcloud.com/docs/token",
+          "quote": "providing its client_id, apiKey, and the required scope(s).",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:25.772092Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented OAuth2 flow uses an API key as a credential and returns a bearer token."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentication",
+          "quote": "Intapp REST Client",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.996690Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The official documentation identifies a REST client, but does not explicitly state the API protocol in the supplied text."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://api.docs.dealcloud.com/docs",
+          "quote": "Get Data List Entries List Entries using Filters Create, Update or Upsert Rows Query Get Update Create List Views Get Data using View History or All History Historical Data Files Delete Merge Template Reports Get Template Generate Get Report",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:25.768001Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation lists a broad set of data, file, history, and report operations."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://api.docs.dealcloud.com/mcp",
+          "quote": "DealCloud MCP Server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:25.779164Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The server is documented on DealCloud's official API documentation domain."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "python",
+        "c#"
+      ],
+      "evidence": [
+        {
+          "url": "https://api.docs.dealcloud.com/",
+          "quote": "Python v1.X",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.005526Z"
+        },
+        {
+          "url": "https://api.docs.dealcloud.com/",
+          "quote": "C#",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.005526Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The official documentation lists Python and C# SDK documentation."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://api.docs.dealcloud.com/docs",
+      "evidence": [
+        {
+          "url": "https://api.docs.dealcloud.com/docs",
+          "quote": "https://api.docs.dealcloud.com/docs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:25.768001Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:17.452043Z",
+    "finished_at": "2026-11-23T12:37:42.878740Z",
+    "tool_calls": 17,
+    "tokens_in": 8355,
+    "tokens_out": 2159,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

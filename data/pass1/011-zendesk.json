@@ -1,0 +1,327 @@
+{
+  "app_id": 11,
+  "app": "Zendesk",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://zendesk.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Customer service platform for managing and resolving customer enquiries across channels.",
+      "evidence": [
+        {
+          "url": "https://www.zendesk.com/pricing/",
+          "quote": "Manage and resolve customer enquiries across all channels in one place",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:28.990252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests",
+          "quote": "use basic authentication with your email address and password, your email address and an API token, or an OAuth access token.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.262018Z"
+        },
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "you must create a separate OAuth client in Admin Center before configuring this connection.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API tokens are used with Basic authentication; OAuth clients are also supported."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/documentation/api-basics/getting-started/getting-a-trial-or-sponsored-account-for-development/",
+          "quote": "You can try out the Zendesk platform with a free, 14-day trial account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.365318Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source describes a free trial account, rather than a free permanent account."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "“Global” means Zendesk has approved the client for use across customer accounts.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        },
+        {
+          "url": "https://developer.zendesk.com/documentation/marketplace/",
+          "quote": "you may not use API tokens or regular OAuth tokens for authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.362291Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A multi-customer app needs a global OAuth client; the sources do not detail the approval process."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/documentation/marketplace/",
+          "quote": "Integration apps are integrations built using our REST API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.362291Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "You'll find APIs for ticketing, help center, live chat, voice, sales CRM as well as some features that span capabilities, such as omnichannel routing and custom data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        },
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "Apps Core APIApps Support APIApps Sell APIApps Chat API\nIntegration Services\nAPIs and trigger events information for building integrations with Zendesk Integration Services (ZIS)\nZIS Configs APIConnections APIZIS Inbound Webhooks APIZIS Links APIZIS Registry APITrigger events reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference spans many product capabilities and API groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "Zendesk MCP Server",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/fruggr/zendesk-mcp-server",
+          "quote": "zendesk-mcp-server",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:29.262138Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community Zendesk MCP server is documented."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/documentation/api-basics/getting-started/getting-a-trial-or-sponsored-account-for-development/",
+          "quote": "You can try out the Zendesk platform with a free, 14-day trial account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.365318Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free 14-day trial is available."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "ZIS Inbound Webhooks API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Approval of a global OAuth client for customer accounts",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP",
+          "quote": "Zendesk has approved the client for use across customer accounts.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:29.227439Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A global OAuth client is needed for use across customer accounts."
+    },
+    "docs_url": {
+      "value": "https://developer.zendesk.com/api-reference/",
+      "evidence": [
+        {
+          "url": "https://developer.zendesk.com/api-reference/",
+          "quote": "Welcome to the Zendesk API reference docs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:27.359464Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "zendesk",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:17.857475Z",
+    "finished_at": "2026-11-23T12:37:59.103132Z",
+    "tool_calls": 17,
+    "tokens_in": 10177,
+    "tokens_out": 3296,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

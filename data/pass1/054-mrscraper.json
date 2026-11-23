@@ -1,0 +1,306 @@
+{
+  "app_id": 54,
+  "app": "MrScraper",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Data, SEO and Scraping",
+      "evidence": [
+        {
+          "url": "https://mrscraper.com",
+          "quote": "Registry category (assignment.md): Data, SEO and Scraping",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "MrScraper provides an API for scraping web pages and retrieving structured data.",
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/api/overview",
+          "quote": "programmatically scrape web pages and retrieve structured data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.138618Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/api/authentication",
+          "quote": "The MrScraper API uses API token authentication to secure all endpoints.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.125529Z"
+        },
+        {
+          "url": "https://docs.mrscraper.com/docs/api/authentication",
+          "quote": "For Marketplace endpoints, authenticate using the standard RFC 6750 Authorization header with a Bearer token:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.125529Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The standard API uses an API token header; Marketplace endpoints use a Bearer header."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/api/authentication",
+          "quote": "API tokens are managed directly from your MrScraper dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.125529Z"
+        },
+        {
+          "url": "https://docs.mrscraper.com/docs/api/authentication",
+          "quote": "Click New Token.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.125529Z"
+        },
+        {
+          "url": "https://docs.mrscraper.com/docs/getting-started/billing",
+          "quote": "The Free plan includes 100 tokens per month with no credit card required.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.144863Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The docs describe creating an API token from the dashboard and a free plan with no credit card required."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/api/overview",
+          "quote": "Built on REST principles",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.138618Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/api/authentication",
+          "quote": "Web Search GET\nScraper API\nScrape HTML GETScrape Markdown GETGet Screenshot GET\nScrape Brand\nScrape JSON GET\nPlatform\nAuthentication\nWorkflow\nCancel Bulk Scraping\nResult\nAnalytic",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.125529Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference lists several API areas and endpoint types, indicating a medium-sized surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+          "quote": "MrScraper MCP is the official Model Context Protocol server for MrScraper.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.132334Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources document an official MCP server but do not establish a separate third-party server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/getting-started/billing",
+          "quote": "The Free plan includes 100 tokens per month with no credit card required.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.144863Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The free plan provides 100 tokens per month and requires no credit card."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention SDKs but do not identify vendor-maintained SDK languages."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+          "quote": "run the open-source server locally",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.132334Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation supports local use of the open-source MCP server, not self-hosting the full SaaS platform."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.mrscraper.com/docs/api/overview",
+      "evidence": [
+        {
+          "url": "https://docs.mrscraper.com/docs/api/overview",
+          "quote": "https://docs.mrscraper.com/docs/api/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:36.138618Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "mrscraper",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:40:32.477266Z",
+    "finished_at": "2026-11-23T12:41:01.316395Z",
+    "tool_calls": 17,
+    "tokens_in": 10408,
+    "tokens_out": 2276,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

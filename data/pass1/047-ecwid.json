@@ -1,0 +1,328 @@
+{
+  "app_id": 47,
+  "app": "Ecwid",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://ecwid.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "E-commerce platform for merchants to customize storefronts, build commerce apps, and integrate external services.",
+      "evidence": [
+        {
+          "url": "https://developers.ecwid.com/",
+          "quote": "Customize a store’s functionality or design, create headless sites, or build powerful apps that empower merchants selling around the world.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.367558Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/get-started/make-your-first-api-request",
+          "quote": "Ecwid uses OAuth 2.0 to provide secure access to the store data for public apps.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.128808Z"
+        },
+        {
+          "url": "https://docs.ecwid.com/get-started/make-your-first-api-request",
+          "quote": "your secret access token as a Bearer Token on the Authorization tab",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.128808Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Public apps use OAuth 2.0; API requests use access tokens as Bearer tokens."
+    },
+    "credential_access": {
+      "value": "paid_plan_required",
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/get-started/set-up-your-dev-environment-in-ecwid",
+          "quote": "Only stores on paid plans can access API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.133860Z"
+        },
+        {
+          "url": "https://docs.ecwid.com/get-started/set-up-your-dev-environment-in-ecwid",
+          "quote": "Email us to get a free plan upgrade for your test store.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.133860Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API access requires a paid store plan, though Ecwid offers a free plan upgrade for test stores on request."
+    },
+    "production_gate": {
+      "value": "partner_program",
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/launch-apps/faq-about-public-applications",
+          "quote": "a developer should sign a partner contract which includes a revenue-sharing model based on app sales or subscription fees.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.138460Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The partner contract is required for App Market listing."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/api-reference",
+          "quote": "Ecwid REST API allows you to access and manage any store data",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.122960Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/api-reference",
+          "quote": "Store Profile\nOrders\nProducts\nCategories\nCustomers\nDiscounts\nDomains\nDictionaries\nStaff accounts\nApplication\nBatch requests\nShipping options\nPayment options\nCheckout extra fields\nStorefront widget details",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.122960Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference lists about 15 API resource groups."
+    },
+    "mcp_official": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://usefulapi.io/ecwid/",
+          "quote": "Ecwid MCP server & connector for Claude, ChatGPT",
+          "source_tier": "article",
+          "fetched_at": "2026-11-23T12:40:00.571928Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A third-party hosted MCP server is offered by usefulapi."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/launch-apps/faq-about-public-applications",
+          "quote": "We provide a developer with a paid subscription account in a test store for development and testing purposes.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.138460Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A test store is available for development, but it has a paid subscription; Ecwid says there is no API test mode."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/develop-apps/app-settings",
+          "quote": "Receive webhooks about changes in store settings or applications.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.343376Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "javascript"
+      ],
+      "evidence": [
+        {
+          "url": "https://github.com/Ecwid/ecwid-api-docs",
+          "quote": "Added EcwidApp.getAppPublicConfig() function to Ecwid JS SDK.",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:40:00.510132Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The official documentation repository mentions an Ecwid JavaScript SDK."
+    },
+    "rate_limit_note": {
+      "value": "Up to 600 requests per minute per token.",
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/api-reference",
+          "quote": "We accept up to 600 requests per minute per token.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.122960Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Partner contract required for App Market distribution",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/launch-apps/faq-about-public-applications",
+          "quote": "a developer should sign a partner contract which includes a revenue-sharing model based on app sales or subscription fees.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.138460Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Public distribution through the App Market requires a partner contract."
+    },
+    "docs_url": {
+      "value": "https://docs.ecwid.com/api-reference",
+      "evidence": [
+        {
+          "url": "https://docs.ecwid.com/api-reference",
+          "quote": "https://docs.ecwid.com/api-reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.122960Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:39:53.691150Z",
+    "finished_at": "2026-11-23T12:40:32.476072Z",
+    "tool_calls": 17,
+    "tokens_in": 10595,
+    "tokens_out": 3300,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

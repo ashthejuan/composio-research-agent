@@ -1,0 +1,315 @@
+{
+  "app_id": 3,
+  "app": "Pipedrive",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://pipedrive.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Sales CRM for managing leads, deals, contacts, and calendar events.",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/pricing",
+          "quote": "View and manage leads, deals, contacts, calendar events and more in one place.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:57.803623Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/features/crm-api",
+          "quote": "Access to the Pipedrive API is only possible using the API key or an access token when using OAuth 2.0.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.121961Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The docs describe both API keys and OAuth 2.0 access tokens."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/pricing",
+          "quote": "Free 14-day trial. No commitment – you can make changes anytime.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:57.803623Z"
+        },
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "The API token can be obtained manually from the Pipedrive app.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Credentials can be obtained from the app; a free trial is available."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "This reference helps you implement the RESTful Pipedrive API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "Pipedrive's API and extension points cover the majority of our core product's functionality.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference describes coverage of most core product functionality."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/features/mcp-server",
+          "quote": "With Pipedrive MCP, your AI assistant can securely access and act on your CRM data using natural language.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:57.846521Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Pipedrive's official site describes its MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/ckalima/pipedrive-mcp-server",
+          "quote": "MCP server for Pipedrive CRM.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:36:58.148000Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained MCP server is documented."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "To test your applications, we recommend creating a new, separate Pipedrive account for sandboxing purposes.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        },
+        {
+          "url": "https://www.pipedrive.com/en/features/crm-api",
+          "quote": "Free API access with every plan",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.121961Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A sandbox environment is available, and API access is free with every plan."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.pipedrive.com/en/features/crm-api",
+          "quote": "Access what you need via webhooks, API endpoints, Postman, Insomnia, client libraries, SDKs and more.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.121961Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "node",
+        "php"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "We offer two official Pipedrive API client libraries: Node.js and PHP.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developers.pipedrive.com/docs/api/v1",
+      "evidence": [
+        {
+          "url": "https://developers.pipedrive.com/docs/api/v1",
+          "quote": "This reference helps you implement the RESTful Pipedrive API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.195792Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "pipedrive",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:36:41.068078Z",
+    "finished_at": "2026-11-23T12:37:17.856170Z",
+    "tool_calls": 17,
+    "tokens_in": 9730,
+    "tokens_out": 2780,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

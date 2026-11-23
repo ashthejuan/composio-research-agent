@@ -1,0 +1,301 @@
+{
+  "app_id": 9,
+  "app": "Copper",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://copper.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "CRM for Google Workspace that helps teams manage relationships, track pipelines, and run projects.",
+      "evidence": [
+        {
+          "url": "https://www.copper.com/partners",
+          "quote": "so your team can manage relationships, track pipelines, and run projects without ever leaving Gmail, Calendar, or Drive.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:23.564149Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/authentication.html",
+          "quote": "There are two ways to access the Copper Developer API: API keys and OAuth2.0.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:22.959101Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "admin_approval",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/oauth/quickstart.html",
+          "quote": "You have registered your application (partners@copper.com) and received your `client_id` and `client_secret` credentials",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.556781Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth credentials require application registration; the sources do not establish whether API keys are available on a free plan."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/",
+          "quote": "The Copper Developer API (\"Dev API\") provides a RESTful interface",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.570402Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/",
+          "quote": "to access most Copper resources.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.570402Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation describes broad resource coverage but gives no endpoint count."
+    },
+    "mcp_official": {
+      "value": "no_found",
+      "evidence": [
+        {
+          "url": "https://www.copper.com/mcp",
+          "quote": "The beta launches in November 2026.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:23.570554Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source describes a future launch, not an operating server."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.copper.com/pricing",
+          "quote": "Start free, no credit card required.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:23.556822Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free start is advertised; the sources do not confirm API access on that tier."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "180 requests per minute; bulk APIs: 3 requests per second.",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/requests.html",
+          "quote": "All API calls are limited to 180 requests per minute.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.564021Z"
+        },
+        {
+          "url": "https://developer.copper.com/introduction/requests.html",
+          "quote": "Our bulk APIs have an additional rate limit of 3 requests per second.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.564021Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth application registration",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/introduction/oauth/quickstart.html",
+          "quote": "You have registered your application (partners@copper.com) and received your `client_id` and `client_secret` credentials",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.556781Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth app registration is required to obtain client credentials."
+    },
+    "docs_url": {
+      "value": "https://developer.copper.com/",
+      "evidence": [
+        {
+          "url": "https://developer.copper.com/",
+          "quote": "Getting started - Copper Developer API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:23.570402Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "copper",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:16.888017Z",
+    "finished_at": "2026-11-23T12:38:06.411186Z",
+    "tool_calls": 17,
+    "tokens_in": 9137,
+    "tokens_out": 4783,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,340 @@
+{
+  "app_id": 4,
+  "app": "Attio",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://attio.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "CRM workspace for managing people, companies, deals, tasks, and notes.",
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/mcp/overview",
+          "quote": "Full workspace access — AI tools can search, read, create, and update records across your CRM—people, companies, deals, tasks, and notes",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.725033Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "api_key",
+        "basic",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/rest-api/guides/authentication",
+          "quote": "By implementing an OAuth 2.0 flow",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.946592Z"
+        },
+        {
+          "url": "https://docs.attio.com/rest-api/guides/authentication",
+          "quote": "By generating an API key for your workspace",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.946592Z"
+        },
+        {
+          "url": "https://docs.attio.com/rest-api/guides/authentication",
+          "quote": "We also support HTTP Basic Authentication,",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.946592Z"
+        },
+        {
+          "url": "https://docs.attio.com/rest-api/guides/authentication",
+          "quote": "Both OAuth access tokens and single-workspace access token are used in the same way. Pass the value of the token in the `Authorization` header of your requests like so.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.946592Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Workspace API-key tokens are sent as Bearer tokens; OAuth tokens use the same header."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://attio.com/help/reference/apps/generating-an-api-key",
+          "quote": "Available on all plans.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:58.111711Z"
+        },
+        {
+          "url": "https://attio.com/help/reference/apps/generating-an-api-key",
+          "quote": "Admins can create and manage API keys.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:58.111711Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A workspace admin must create API keys; an admin of the developer's own workspace can do so."
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/share/publishing-to-the-app-store",
+          "quote": "All apps are reviewed by the Attio team before they are published.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.735100Z"
+        },
+        {
+          "url": "https://docs.attio.com/share/publishing-to-the-app-store",
+          "quote": "You should consider publishing your app if it is suitable for a wide audience and you want any Attio workspace to be able to install it.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.735100Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Review applies to apps published in the App Store; the sources also describe private apps for smaller audiences."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/rest-api/endpoint-reference/openapi",
+          "quote": "Attio exposes a public OpenAPI specification for the Attio REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.730501Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/mcp/overview",
+          "quote": "Attio MCP is Attio’s hosted MCP server that gives AI tools secure access to your Attio workspace.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.725033Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/kesslerio/attio-mcp-server/",
+          "quote": "MCP server exposing Attio CRM records, deals, and pipelines to agent clients.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:36:58.190716Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://attio.com/pricing",
+          "quote": "Does Attio have a free plan? Yes. The Free plan costs nothing for up to three users.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.140683Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free plan is available; the sources do not identify a separate API sandbox."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/rest-api/endpoint-reference/objects/list-objects",
+          "quote": "Webhooks allow you to listen for changes to data in Attio, for example when a record is updated.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:58.190687Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "App Store review for public distribution",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/share/publishing-to-the-app-store",
+          "quote": "All apps are reviewed by the Attio team before they are published.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.735100Z"
+        },
+        {
+          "url": "https://docs.attio.com/share/publishing-to-the-app-store",
+          "quote": "Once approved, your app will be listed publicly in the App Store and available for any workspace to install.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.735100Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The review requirement is documented for App Store publication and public availability."
+    },
+    "docs_url": {
+      "value": "https://docs.attio.com/rest-api/endpoint-reference/openapi",
+      "evidence": [
+        {
+          "url": "https://docs.attio.com/rest-api/endpoint-reference/openapi",
+          "quote": "Access the OpenAPI specification for the Attio REST API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.730501Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official REST API OpenAPI documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "attio",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:36:41.068100Z",
+    "finished_at": "2026-11-23T12:37:18.443824Z",
+    "tool_calls": 17,
+    "tokens_in": 9384,
+    "tokens_out": 2988,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

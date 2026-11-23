@@ -1,0 +1,294 @@
+{
+  "app_id": 70,
+  "app": "Sentry",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://sentry.io",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Sentry’s web API provides programmatic access to the platform to manage account-level resources and manage or export data.",
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/api/",
+          "quote": "The Sentry web API is used to access the Sentry platform programmatically. You can use the APIs to manage account-level resources, like organizations and teams, as well as manage and export data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.190859Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/api/auth/",
+          "quote": "curl -H 'Authorization: Bearer {TOKEN}' https://sentry.io/api/0/organizations/{organization_slug}/projects/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.193446Z"
+        },
+        {
+          "url": "https://docs.sentry.io/api/auth/",
+          "quote": "Sentry supports OAuth2 with the authorization code grant type.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.193446Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API tokens use the Bearer auth header; third-party applications can also use OAuth2 authorization code flow."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/integrations/integration-platform/",
+          "quote": "Sentry’s integration platform provides a way for external services to interact with Sentry using webhooks, UI components, and the REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.875949Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/api/",
+          "quote": "Crons\nDashboards\nDiscover & Performance\nEnvironments\nEvents & Issues\nExplore\nFlags\nIntegration Platform\nIntegrations\nInvestigations\nMobile Builds\nMonitors & Alerts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.190859Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API reference lists roughly 10–30 resource groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/getsentry/sentry-mcp/blob/main/README.md",
+          "quote": "This repository contains the Sentry CLI, the Sentry MCP server, and shared packages.",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:41:48.070825Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/get-started/",
+          "quote": "Sentry offers a free Developer plan",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.198136Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free Developer plan is available."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/integrations/integration-platform/",
+          "quote": "Sentry’s integration platform provides a way for external services to interact with Sentry using webhooks, UI components, and the REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.875949Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "User approval of requested permissions is required when installing a public integration.",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/integrations/integration-platform/",
+          "quote": "For public integrations, Sentry will prompt users to approve these permissions upon installation.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.875949Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Connected users must approve the requested permissions during installation."
+    },
+    "docs_url": {
+      "value": "https://docs.sentry.io/api/",
+      "evidence": [
+        {
+          "url": "https://docs.sentry.io/api/",
+          "quote": "API Reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:47.190859Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "sentry",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:39.253710Z",
+    "finished_at": "2026-11-23T12:42:14.796246Z",
+    "tool_calls": 17,
+    "tokens_in": 9399,
+    "tokens_out": 2766,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

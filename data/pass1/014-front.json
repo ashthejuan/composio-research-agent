@@ -1,0 +1,327 @@
+{
+  "app_id": 14,
+  "app": "Front",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://front.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A hub for customer communication and customer operations.",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/partnering-with-front",
+          "quote": "Front’s mission is to be the hub for customer communication and customer operations",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.337422Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/reference/introduction",
+          "quote": "Front supports OAuth2.0 as well as API Tokens.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.331354Z"
+        },
+        {
+          "url": "https://dev.frontapp.com/docs/authentication",
+          "quote": "The Core API uses Bearer tokens to authenticate its user.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.334438Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API tokens are sent as Bearer tokens; OAuth is also supported."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/welcome",
+          "quote": "You’ll get access to a free developer environment that will provide everything you need to begin building with our APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.508953Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Free developer environment; API tokens require admin privileges in a company account."
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/partnering-with-front",
+          "quote": "Once your integration has been technically approved",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.337422Z"
+        },
+        {
+          "url": "https://dev.frontapp.com/docs/partnering-with-front",
+          "quote": "When the integration launches on our marketplaces",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.337422Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Partner integrations published on Front's marketplaces go through technical approval."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/authentication",
+          "quote": "curl --request GET \\\n--url https://api2.frontapp.com/conversations/cnv_123/drafts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.334438Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Documented HTTP GET endpoint."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/reference/introduction",
+          "quote": "a backend API that gives comprehensive control over all entities in Front from Contacts to Comments.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.331354Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation describes coverage across all Front entities."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/mcp-server",
+          "quote": "Front's MCP server (mcp.frontapp.com/mcp)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.340134Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/wearehoust/front-mcp",
+          "quote": "Secure MCP server for Front.com: search conversations, manage contacts, send messages, automate inbox workflows — 26 tools, 172 actions.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:37.220012Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained server is shown on GitHub."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/welcome",
+          "quote": "You’ll get access to a free developer environment",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.508953Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Free developer environment for testing and building."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/welcome",
+          "quote": "Our webhooks also make it possible to respond to real",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.508953Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source excerpt is truncated after this phrase."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Technical approval for public marketplace distribution",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/docs/partnering-with-front",
+          "quote": "Once your integration has been technically approved",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.337422Z"
+        },
+        {
+          "url": "https://dev.frontapp.com/docs/partnering-with-front",
+          "quote": "we require that partner integrations connect to the Core API via OAuth",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.337422Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Public marketplace distribution involves technical approval and OAuth requirements."
+    },
+    "docs_url": {
+      "value": "https://dev.frontapp.com/reference/introduction",
+      "evidence": [
+        {
+          "url": "https://dev.frontapp.com/reference/introduction",
+          "quote": "https://dev.frontapp.com/reference/introduction",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:36.331354Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official Core API reference introduction."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "front",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:20.344774Z",
+    "finished_at": "2026-11-23T12:37:58.739899Z",
+    "tool_calls": 17,
+    "tokens_in": 10173,
+    "tokens_out": 3289,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,363 @@
+{
+  "app_id": 30,
+  "app": "Vonage",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://vonage.com",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Vonage provides APIs for communicating with customers across multiple channels.",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "Vonage provides a suite of APIs that enable you to communicate with your customers using your preferred channels.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "basic",
+        "jwt_service_account"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/getting-started/concepts/authentication",
+          "quote": "API Key and Secret (Header)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:45.852417Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/getting-started/concepts/authentication",
+          "quote": "A number of newer Vonage APIs require authentication to be done using an API key and secret sent Base64 encoded in the Authorization header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:45.852417Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/getting-started/concepts/authentication",
+          "quote": "JSON Web Token (JWT)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:45.852417Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/getting-started/concepts/authentication",
+          "quote": "Basic Authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:45.852417Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Authentication methods vary by product; the documentation also identifies JWT and Basic authentication."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "To work with our APIs, you will need to sign up for an account. This will give you an API key and secret that you can use to access our APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "We’ll give you some free credit when you first open your account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "An account provides API credentials and includes free credit; production use may require a payment method."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/home",
+          "quote": "Video REST API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404426Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source explicitly identifies a REST API for Video; it does not establish the protocol for every Vonage API."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "For SMS, MMS, Facebook, WhatsApp, Viber, Email and much more: Messages API allows easy integration with multiple messaging platforms through a single integration.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Make and receive telephone calls to or from anywhere in the world.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Retrieve and search message, call, and conversation records in JSON format, by ID, or by time period.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Manage all the numbers you need for your applications.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "Query the prices of Vonage services, either by country or by dialling prefix.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API reference covers a broad multi-product surface, including messaging, voice, reports, number management, pricing, verification, and security."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/mcp-server/overview",
+          "quote": "The Vonage MCP Server enables AI agents and developer tools to discover, describe, and use Vonage capabilities via the Model Context Protocol.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:45.840182Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/mcp-server/conceptual-guides/introduction-to-vonage-mcp",
+          "quote": "Vonage provides a few different individual MCP implementations, based on your needs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:47.643231Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/Vonage-Community/vonage-mcp-server-api-bindings",
+          "quote": "Vonage MCP server with tools to interact with APIs",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:47.091463Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-tier repository publishes a Vonage MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/dashboard/getting-started",
+          "quote": "You can explore most features with a free trial account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.380269Z"
+        },
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "We’ll give you some free credit when you first open your account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Free trial account and initial free credit are documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/getting-started/overview",
+          "quote": "Vonage's API can send data back to your web server via a webhook.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.404151Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention SDKs but do not identify vendor-maintained SDK languages."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Payment method required for production use",
+        "type": "commercial"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/dashboard/getting-started",
+          "quote": "Payment method (optional for trial) - Required for production use and certain features",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.380269Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A payment method is documented as required for production use, although the sources do not establish whether this entails a paid plan."
+    },
+    "docs_url": {
+      "value": "https://developer.vonage.com/en/api",
+      "evidence": [
+        {
+          "url": "https://developer.vonage.com/en/api",
+          "quote": "API Reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:46.378725Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:38:39.734997Z",
+    "finished_at": "2026-11-23T12:39:23.683535Z",
+    "tool_calls": 17,
+    "tokens_in": 9152,
+    "tokens_out": 4062,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

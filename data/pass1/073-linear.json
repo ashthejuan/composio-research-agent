@@ -1,0 +1,333 @@
+{
+  "app_id": 73,
+  "app": "Linear",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://linear.app",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Linear lets users find, create, and update issues, projects, and comments.",
+      "evidence": [
+        {
+          "url": "https://linear.app/docs/mcp",
+          "quote": "The Linear MCP server has tools available for finding, creating, and updating objects in Linear like issues, projects, and comments",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:23:59.618388Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Describes supported work with Linear objects, rather than the product as a whole."
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "api_key"
+      ],
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "The Linear API supports personal API keys and OAuth2 authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Personal API keys are suited to scripts; OAuth2 is recommended for applications."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "For personal scripts API keys are the easiest way to access the API. Visit Security & access settings to create and manage them.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        },
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "| API and webhook access | Included | Included | 2× standard | 5× standard |",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        },
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "Free for everyone",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The pricing table shows API access included for the Free plan, and personal API keys can be created in settings."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether an OAuth app review or other gate is required before serving multiple customers."
+    },
+    "api_type": {
+      "value": [
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "Linear’s public API is built using GraphQL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "It supports introspection so you can query the whole schema.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Introspection exposes the whole schema; the sources do not enumerate its resource count."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://linear.app/docs/mcp",
+          "quote": "The Linear MCP server follows the authenticated remote MCP spec, so the server is centrally hosted and managed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:23:59.618388Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/iceener/linear-streamable-mcp-server",
+          "quote": "MCP Server for interacting with Linear API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:31:57.396666Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained server is documented in the cited repository."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "Free\n\n$0\n\nFree for everyone",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        },
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "| API and webhook access | Included | Included | 2× standard | 5× standard |",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Free plan is $0 and includes API and webhook access."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://linear.app/pricing",
+          "quote": "| API and webhook access | Included | Included | 2× standard | 5× standard |",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:55.049956Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Webhook access is included in the plan comparison."
+    },
+    "official_sdks": {
+      "value": [
+        "typescript"
+      ],
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/sdk",
+          "quote": "The Linear Typescript SDK exposes the Linear GraphQL schema through strongly typed models and operations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:31:57.388043Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented vendor SDK is TypeScript; the docs also say it can be used in JavaScript environments."
+    },
+    "rate_limit_note": {
+      "value": "API key: up to 2,500 requests per hour; OAuth app: 5,000 requests per user (or app user) per hour.",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/rate-limiting",
+          "quote": "When authenticated using an API key you can make up to 2,500 requests per hour.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.047421Z"
+        },
+        {
+          "url": "https://linear.app/developers/rate-limiting",
+          "quote": "| OAuth App | 5,000 | User (or App User) | 1 hour |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.047421Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish that Linear is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether a production gate applies, so the biggest blocker cannot be determined."
+    },
+    "docs_url": {
+      "value": "https://linear.app/developers/graphql",
+      "evidence": [
+        {
+          "url": "https://linear.app/developers/graphql",
+          "quote": "Linear’s public API is built using GraphQL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:17:41.798267Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official GraphQL API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "linear",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:50.763847Z",
+    "finished_at": "2026-11-23T12:42:25.174531Z",
+    "tool_calls": 17,
+    "tokens_in": 8585,
+    "tokens_out": 3276,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

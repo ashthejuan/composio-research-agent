@@ -1,0 +1,327 @@
+{
+  "app_id": 100,
+  "app": "Grain",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "AI, Research and Media-native",
+      "evidence": [
+        {
+          "url": "https://grain.com",
+          "quote": "Registry category (assignment.md): AI, Research and Media-native",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Grain captures and enriches meetings, delivering them to AI tools.",
+      "evidence": [
+        {
+          "url": "https://grain.com/",
+          "quote": "Grain captures and enriches your meetings, then delivers them to Claude, ChatGPT, or any AI tool so your agents can do the work.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.869338Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.grain.com/",
+          "quote": "-H \"Authorization: Bearer grain_pat_example123\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.869276Z"
+        },
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "OAuth2: the standard flow for building integrations to be used by any Grain user.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Personal and workspace access tokens are also supported."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "Personal Access Token (PAT): grants access on behalf of a single user. The token has the same permissions as the user who generated it. Best for personal automations or testing. Available on every plan, including Free.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This applies to personal API access; workspace-wide tokens require Business or Enterprise and admin access."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether public OAuth integrations require vendor review or another production gate."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.grain.com/",
+          "quote": "curl -X GET",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.869276Z"
+        },
+        {
+          "url": "https://developers.grain.com/",
+          "quote": "https://api.grain.com/_/public-api/v2/token-info",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:45.869276Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented API uses HTTP requests and endpoints; the sources do not explicitly label it REST."
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "retrieve recordings, transcripts, AI notes and action items, participants, tags, teams, and meeting types from your workspace.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented surface spans multiple data types, recording management, downloads, and webhooks."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://grain.com/release-note/06-18-2025",
+          "quote": "Grain's official MCP server is available now for all users!",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.925361Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/eadm/grain-mcp-server",
+          "quote": "A Model Context Protocol server for Grain",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:46.093297Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained Grain MCP server is also documented."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "No sandbox is available at this time.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        },
+        {
+          "url": "https://support.grain.com/en/articles/9253220-plans",
+          "quote": "Free: $0",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.943019Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free plan exists; there is no sandbox environment."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "Register a webhook URL in your integration and Grain will send a payload to that URL whenever a registered event occurs",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "No vendor-maintained SDKs are identified in the provided sources."
+    },
+    "rate_limit_note": {
+      "value": "300 requests per minute per token",
+      "evidence": [
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "The API allows 300 requests per minute per token.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish that Grain itself is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth2 is required for integrations distributed to other Grain users",
+        "type": "technical"
+      },
+      "evidence": [
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "Required if you are building an integration to distribute to others.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A distributed integration must implement OAuth2; the sources do not document an app-review requirement."
+    },
+    "docs_url": {
+      "value": "https://developers.grain.com/",
+      "evidence": [
+        {
+          "url": "https://support.grain.com/en/articles/15507288-grain-api",
+          "quote": "For the full technical reference, see developers.grain.com.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:45.120708Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "grain",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:43:39.155607Z",
+    "finished_at": "2026-11-23T12:44:10.419282Z",
+    "tool_calls": 17,
+    "tokens_in": 9624,
+    "tokens_out": 2598,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

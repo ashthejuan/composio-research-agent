@@ -1,0 +1,301 @@
+{
+  "app_id": 20,
+  "app": "Gladly",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://gladly.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Customer service platform whose API manages customer profiles, conversations, tasks, and more.",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Gladly is a customer service platform built around people, not tickets.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/rest/",
+          "quote": "Gladly API uses token-based Basic Authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:05.813904Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "admin_approval",
+      "evidence": [
+        {
+          "url": "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks",
+          "quote": "a Gladly Administrator should [create](https://help.gladly.com/docs/managing-users-and-roles) a new user with an API role + Agent and/or Administrator",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642180Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A Gladly Administrator must provision an API-role user for an integration to create API tokens."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "## REST API Resources",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "- **Agents** - Lookup agent profiles and availability\n- **Answers** - Public answers search/retrieval and answer management (CRUD)\n- **Audiences** - Brand/segment management for multi-brand organizations",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation lists about 20 REST API resource groups, consistent with medium breadth."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/gladly/claude-plugin",
+          "quote": "Access: Gladly needs to have turned on the Gladly MCP for your organization.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:07.188250Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Gladly GitHub repository describes the vendor's MCP; organization enablement is required."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Sandbox: `https://{organization}.gladly.qa`",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A sandbox environment is documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Subscribe to 35+ event types including agent status changes, conversation lifecycle, customer profile updates, task events, and payment requests.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources list chat SDKs for web, iOS, and Android, but do not identify SDK programming languages."
+    },
+    "rate_limit_note": {
+      "value": "Default: 10 requests/second per method (GET, POST, PUT, PATCH, DELETE); Reports API: 10 requests/minute, 2 concurrent requests per organization.",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "Default: 10 requests/second per method (GET, POST, PUT, PATCH, DELETE)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Reports API has a separate limit of 10 requests/minute and 2 concurrent requests per organization."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Administrator must provision an API-role user",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks",
+          "quote": "a Gladly Administrator should [create](https://help.gladly.com/docs/managing-users-and-roles) a new user with an API role + Agent and/or Administrator",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642180Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The integration needs a user with the API role before it can create API tokens."
+    },
+    "docs_url": {
+      "value": "https://developer.gladly.com/rest/",
+      "evidence": [
+        {
+          "url": "https://developer.gladly.com/llms.txt",
+          "quote": "- [REST API Reference](https://developer.gladly.com/rest/): Full interactive API documentation (OpenAPI/ReDoc)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:06.642248Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:58.741105Z",
+    "finished_at": "2026-11-23T12:38:39.731145Z",
+    "tool_calls": 17,
+    "tokens_in": 10705,
+    "tokens_out": 3319,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

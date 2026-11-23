@@ -1,0 +1,326 @@
+{
+  "app_id": 17,
+  "app": "Plain",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://plain.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A support platform for teams to automate tasks and keep their tools in sync.",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/integrations",
+          "quote": "Speed up your support team, automate tasks, and keep everything in sync",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.554187Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Describes Plain’s support and workflow capabilities."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "Authorization: Bearer YOUR_TOKEN where the token is your API key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        },
+        {
+          "url": "https://www.plain.com/docs/graphql/oauth",
+          "quote": "An OAuth app lets users in your workspace sign in to your app with their Plain account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.666156Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The GraphQL API supports API keys, and OAuth apps can call the API as a user."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources explain how to create API keys but do not establish whether credentials are available on a free account or require a paid plan."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether a review, listing, or partnership is required for a multi-tenant app."
+    },
+    "api_type": {
+      "value": [
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "An overview of Plain’s GraphQL API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "there are no limitations in what can be done via the API vs the UI.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation describes API coverage equivalent to the product UI."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/integrations/mcp-server",
+          "quote": "The Plain MCP server at https://mcp.plain.com/mcp lets tools like Claude, ChatGPT, and Cursor work with your support data directly.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.289803Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/tellahq/plain-mcp",
+          "quote": "An MCP server providing comprehensive access to the Plain.com API from Claude",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:47.560154Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained Plain MCP server is documented."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/pricing",
+          "quote": "Support for teams that ship. Start today, no credit card required.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.541491Z"
+        },
+        {
+          "url": "https://www.plain.com/pricing",
+          "quote": "7 Day Free Trial",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.541491Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A seven-day free trial is advertised; the source does not describe a permanent free tier."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/pricing",
+          "quote": "Developer platform\nAPI\nWebhooks\nEvents\nMCP",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:46.541491Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The pricing page lists webhooks as a developer-platform capability."
+    },
+    "official_sdks": {
+      "value": [
+        "typescript"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/sdk",
+          "quote": "The `@team-plain/graphql` package provides a fully typed client for Plain's GraphQL API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.554131Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented official SDK is a TypeScript package."
+    },
+    "rate_limit_note": {
+      "value": "450 requests/minute (Launch/Foundation); 600 (Grow/Horizon); 1000 (Scale/Frontier)",
+      "evidence": [
+        {
+          "url": "https://help.plain.com/article/rate-limits",
+          "quote": "Launch & Foundation | 450 requests/minute",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:47.531500Z"
+        },
+        {
+          "url": "https://help.plain.com/article/rate-limits",
+          "quote": "Grow & Horizon | 600 requests/minute",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:47.531500Z"
+        },
+        {
+          "url": "https://help.plain.com/article/rate-limits",
+          "quote": "Scale & Frontier | 1000 requests/minute",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:47.531500Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Limits depend on the workspace plan and apply to API-key activity."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether Plain is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish a specific largest blocker or confirm that no production gate applies."
+    },
+    "docs_url": {
+      "value": "https://www.plain.com/docs/graphql/introduction",
+      "evidence": [
+        {
+          "url": "https://www.plain.com/docs/graphql/introduction",
+          "quote": "https://www.plain.com/docs/graphql/introduction",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:46.283252Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official GraphQL API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "plain",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:42.880433Z",
+    "finished_at": "2026-11-23T12:38:03.569303Z",
+    "tool_calls": 17,
+    "tokens_in": 9366,
+    "tokens_out": 2530,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

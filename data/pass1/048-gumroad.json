@@ -1,0 +1,293 @@
+{
+  "app_id": 48,
+  "app": "Gumroad",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://gumroad.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "E-commerce marketplace where independent creators sell digital products directly to their audiences.",
+      "evidence": [
+        {
+          "url": "https://gumroad.com/llms.txt",
+          "quote": "Gumroad is an e-commerce marketplace where independent creators sell digital products — ebooks, courses, music, software, design assets, memberships, and more — directly to their audiences.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:00.275801Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://gumroad.com/api/",
+          "quote": "The Gumroad OAuth API is based around REST.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.275694Z"
+        },
+        {
+          "url": "https://gumroad.com/help/article/280-create-application-api",
+          "quote": "You will be provided with an Application ID (aka client_id ) and Application Secret (aka client_secret ) to use in the authentication process.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:00.287781Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented authentication flow is OAuth; the access token is issued through that flow."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "cli"
+      ],
+      "evidence": [
+        {
+          "url": "https://gumroad.com/api/",
+          "quote": "The Gumroad OAuth API is based around REST.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.275694Z"
+        },
+        {
+          "url": "https://gumroad.com/api/",
+          "quote": "The Gumroad CLI wraps every endpoint below and is built for humans and AI agents alike.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.275694Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API is REST-based and the documentation also provides a CLI wrapper."
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://gumroad.com/llms.txt",
+          "quote": "public REST API for products, sales, subscribers, and licenses",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:00.275801Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source names four API resource groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://gumroad.com/help/article/355-connect-ai-assistants-to-gumroad",
+          "quote": "Gumroad runs a server that speaks MCP (Model Context Protocol)",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:00.350707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/rmarescu/gumroad-mcp",
+          "quote": "A Model Context Protocol (MCP) server implementation for Gumroad API",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:40:00.614966Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community GitHub repository documents a separate MCP server implementation."
+    },
+    "free_tier_or_sandbox": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://gumroad.com/ping",
+          "quote": "Notifications for API resource subscriptions go to your application's own URL",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:00.656031Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API resource subscriptions deliver notifications to an application URL."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://gumroad.com/api/",
+      "evidence": [
+        {
+          "url": "https://gumroad.com/api/",
+          "quote": "https://gumroad.com/api/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.275694Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "gumroad",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:39:53.877700Z",
+    "finished_at": "2026-11-23T12:40:24.623912Z",
+    "tool_calls": 17,
+    "tokens_in": 9904,
+    "tokens_out": 2378,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

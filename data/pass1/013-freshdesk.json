@@ -1,0 +1,320 @@
+{
+  "app_id": 13,
+  "app": "Freshdesk",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://freshdesk.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Customer-support helpdesk for managing customer data and tickets.",
+      "evidence": [
+        {
+          "url": "https://developers.freshdesk.com/api/",
+          "quote": "If you want your data from the helpdesk, whether via your smartphone app or via a third party service",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:34.641297Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Described as a helpdesk; the source also documents ticket APIs."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "basic"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.freshdesk.com/api/",
+          "quote": "Your API key will be available below the change password section to your right",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:34.641297Z"
+        },
+        {
+          "url": "https://developers.freshworks.com/freshdesk-sdk/docs/TicketsApi.html",
+          "quote": "basicAuth",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:35.172329Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API reference uses API keys; the SDK reference identifies basicAuth."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developers.freshdesk.com/",
+          "quote": "Don't have a Freshdesk account?\nSignup for free",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:34.650319Z"
+        },
+        {
+          "url": "https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key",
+          "quote": "To find your API key:\nLog in to your account.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:34.978725Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free signup and account-profile API-key instructions support self-serve access; the key is shown only to a verified agent."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether a production gate applies to a multi-tenant API integration."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.freshdesk.com/api/",
+          "quote": "post\n/api/v2/tickets",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:34.641297Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API reference documents HTTP methods and /api/v2 endpoints."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://github.com/hashcott/freshdesk-mcp/",
+          "quote": "Exposes the full Freshdesk public API as MCP tools —",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:35.363846Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Breadth is indicated by a community project describing coverage of the full public API."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk",
+          "quote": "The Freshworks Model Context Protocol (MCP) server enables AI tools like Cursor and Claude to securely connect and interact with Freshdesk.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:34.714699Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/hashcott/freshdesk-mcp/",
+          "quote": "Model Context Protocol server for the Freshdesk REST API",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:35.363846Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community GitHub repository describes a Freshdesk MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.freshdesk.com/support/solutions/articles/50000011778-understanding-freshdesk-pricing-plans",
+          "quote": "At the end of the trial, you can purchase any paid plan to continue seamlessly or move to the Free Program if you’re still evaluating.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.172378Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A Free Program is available after the trial."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether the API offers webhooks."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "An official SDK reference is present, but the sources do not identify its programming language."
+    },
+    "rate_limit_note": {
+      "value": "Growth: 100 calls/minute; trial: 50 calls/minute.",
+      "evidence": [
+        {
+          "url": "https://support.freshdesk.com/support/solutions/articles/225439-what-are-the-rate-limits-for-the-api-calls-to-freshdesk-",
+          "quote": "For every trial period the API limit is 50 per minute.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.162603Z"
+        },
+        {
+          "url": "https://support.freshdesk.com/support/solutions/articles/225439-what-are-the-rate-limits-for-the-api-calls-to-freshdesk-",
+          "quote": "Growth\n100\nTicket Create - 50\nTicket Update - 50\nTickets List - 40\nContacts List - 40",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:35.162603Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented per-minute limits vary by plan; the cited plan table includes Growth and the article also states the trial limit."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether Freshdesk is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "API key is available only to a verified agent.",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://support.freshdesk.com/support/solutions/articles/215517-how-to-find-your-api-key",
+          "quote": "The API key will be displayed only when the agent is verified.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:34.978725Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API-key visibility is conditional on agent verification."
+    },
+    "docs_url": {
+      "value": "https://developers.freshdesk.com/api/",
+      "evidence": [
+        {
+          "url": "https://developers.freshdesk.com/api/",
+          "quote": "Freshdesk Api Reference",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:34.641297Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "freshdesk",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:18.492162Z",
+    "finished_at": "2026-11-23T12:38:08.355306Z",
+    "tool_calls": 17,
+    "tokens_in": 10001,
+    "tokens_out": 3647,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,300 @@
+{
+  "app_id": 80,
+  "app": "Harvest",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://getharvest.com",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Harvest helps users track time, log expenses, and create projects.",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "You can track time, log expenses, create projects, and more.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "Harvest requires applications to authenticate all requests with OAuth2 or Personal Access Tokens.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        },
+        {
+          "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+          "quote": "Authorization: Bearer $ACCESS_TOKEN",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.336695Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Personal Access Tokens can be sent as bearer tokens; OAuth2 is also supported."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+          "quote": "The API can be accessed by creating a Personal Access Token from the Developers section of Harvest ID.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.336695Z"
+        },
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API",
+          "quote": "Your Harvest subscription includes API access for all accounts (including free and trial accounts)",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.338800Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A Personal Access Token can be created for an account, and API access is included for free accounts."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "The Harvest V2 API is a REST API",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/",
+          "quote": "Scheduled Assignments\nSchedule Export\nRepeating Assignments\nProject Financials\nPlanned Expenses\nPlaceholders\nMilestones\nForecast Settings\nForecast API Overview\nBoard Window\nBoard Projects",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.334485Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation index lists many API areas and resources, indicating a broad surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/46293697226381-Harvest-MCP",
+          "quote": "The Harvest MCP (Model Context Protocol) connection lets you work with your Harvest data through an AI assistant",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765261Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API",
+          "quote": "Your Harvest subscription includes API access for all accounts (including free and trial accounts)",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.338800Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API access is included for free and trial accounts."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention code samples and API libraries, but do not establish vendor-maintained SDKs."
+    },
+    "rate_limit_note": {
+      "value": "100 requests per 15 seconds for general API requests.",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "The rate limit for general API requests is 100 requests per 15 seconds.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+      "evidence": [
+        {
+          "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+          "quote": "This is the current API V2 documentation.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:25.765215Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary API V2 overview documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "harvest",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:16.291588Z",
+    "finished_at": "2026-11-23T12:42:52.684149Z",
+    "tool_calls": 17,
+    "tokens_in": 8355,
+    "tokens_out": 2838,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

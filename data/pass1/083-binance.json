@@ -1,0 +1,301 @@
+{
+  "app_id": 83,
+  "app": "Binance",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://binance.com",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Binance APIs cover market data, account operations, trading, streaming, and lower-latency integrations across its products.",
+      "evidence": [
+        {
+          "url": "https://developers.binance.com/en/docs/llms-full.txt",
+          "quote": "from market data access and account operations to advanced trading, streaming, and\nlower-latency integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.461988Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Binance documents APIs spanning several product capabilities."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "session_other"
+      ],
+      "evidence": [
+        {
+          "url": "https://binance-docs.github.io/apiAgent-API-EN/",
+          "quote": "API-keys are passed into the Rest API via the `X-MBX-APIKEY` header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.776301Z"
+        },
+        {
+          "url": "https://binance-docs.github.io/apiAgent-API-EN/",
+          "quote": "| TRADE | Endpoint requires sending a valid API-Key and signature. |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.776301Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Secure endpoints may require an API key and signature."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "evidence": [
+        {
+          "url": "https://binance-docs.github.io/apiAgent-API-EN/",
+          "quote": "## Rest API Information",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.776301Z"
+        },
+        {
+          "url": "https://binance-docs.github.io/apidocs/delivery_testnet/en/",
+          "quote": "Websocket Market Streams",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.525019Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation includes REST endpoints and WebSocket market streams."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.binance.com/en/docs/llms-full.txt",
+          "quote": "covers the main programmatic interfaces available across Binance products, from market data access and account operations to advanced trading, streaming, and\nlower-latency integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.461988Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented coverage spans multiple product capabilities; breadth is an assessment of that scope."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.binance.com/en/agent-os",
+          "quote": "Use the Binance MCP server to connect your agent to Binance in seconds.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:35.075989Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/junct-bot/binance-mcp",
+          "quote": "Binance MCP server — 340 tools for AI agent access to Binance (analytics). Hosted by Junct.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:42:35.076021Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.binance.com/en/binance-api",
+          "quote": "Yes, you can utilize Binance Spot Testnet or Binance Demo to test your use case, for free.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:35.046478Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free Spot Testnet or Demo environment is documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.binance.com/en/docs/llms.txt",
+          "quote": "[Webhook Common Rules](/en/docs/products/binance-pay-merchant/webhook-common.md)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.859191Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source lists webhook documentation for Binance Pay merchant notifications; it does not establish webhooks across all Binance APIs."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://binance-docs.github.io/apiAgent-API-EN/",
+      "evidence": [
+        {
+          "url": "https://binance-docs.github.io/apiAgent-API-EN/",
+          "quote": "## Rest API Information",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:34.776301Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official REST API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:31.294934Z",
+    "finished_at": "2026-11-23T12:43:07.172306Z",
+    "tool_calls": 17,
+    "tokens_in": 9293,
+    "tokens_out": 3204,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

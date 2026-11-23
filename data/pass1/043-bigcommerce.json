@@ -1,0 +1,330 @@
+{
+  "app_id": 43,
+  "app": "BigCommerce",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://bigcommerce.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Server-side APIs for managing store data and operations.",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Server-side REST APIs for managing store data and operations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "session_other"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Admin APIs authenticate with an `X-Auth-Token` header using a store-level or app-level API account access token.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-requirements",
+          "quote": "The app is single-click and uses the OAuth flow to authenticate.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.511484Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Admin API accounts use a custom token header; apps can authenticate with OAuth."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Sign up for a free BigCommerce trial store to test API calls and build integrations without affecting live data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Navigate to Settings > API Accounts in your store control panel. Create credentials with the scopes you need.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free trial store is available, and credentials can be created from its control panel."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Sources describe marketplace review but do not establish that marketplace listing is required for all multi-tenant apps."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Use REST and GraphQL APIs to manage products, orders, customers, and store settings programmatically.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Catalog — Brands, Categories, Category Trees, Products, Product Modifiers, Product Variants",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Content — Pages, Page Widgets, Themes, Widgets, Widget Regions, Widget Templates, Email Templates",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        },
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Management — Orders, Customers, Shipping, Store Information, Store Logs, Channels, Sites, Segments, Tax, Inventory, Locations, Pickup",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented API surface covers many resource groups across catalog, content, and store management."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/mcp/storefront",
+          "quote": "Storefront MCP lets AI agents shop your storefront on behalf of a shopper.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.530054Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "BigCommerce documents an official Storefront MCP server."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/roel-c/bc-admin-mcp",
+          "quote": "Standalone MCP server you run locally (stdio / streamable HTTP)",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:39:44.961529Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community repository titled bc-admin-mcp describes a standalone MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
+          "quote": "Sign up for a free BigCommerce trial store to test API calls and build integrations without affecting live data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.510881Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free trial store can be used to test API calls without affecting live data."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "Webhooks — Subscribe to real-time event notifications",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "node",
+        "python",
+        "php",
+        "ruby"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/approval-requirements",
+          "quote": "Node API Client\nPython API Client\nPHP API Client\nRuby API Client",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.511484Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "These API clients are listed in the official developer documentation."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish a single required blocker for all multi-tenant integrations."
+    },
+    "docs_url": {
+      "value": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+      "evidence": [
+        {
+          "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "quote": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:44.495707Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official Admin REST API overview."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "bigcommerce",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:39:38.437304Z",
+    "finished_at": "2026-11-23T12:40:13.091413Z",
+    "tool_calls": 17,
+    "tokens_in": 10223,
+    "tokens_out": 3026,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

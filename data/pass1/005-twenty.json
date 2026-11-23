@@ -1,0 +1,347 @@
+{
+  "app_id": 5,
+  "app": "Twenty",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://twenty.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A custom agentic CRM for one team.",
+      "evidence": [
+        {
+          "url": "https://twenty.com/pricing",
+          "quote": "A custom agentic CRM for one team.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:59.402921Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Authorization: Bearer YOUR_API_KEY",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/oauth",
+          "quote": "Twenty implements OAuth 2.0 with authorization code + PKCE for user-facing apps and client credentials for server-to-server access.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.119465Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API keys and OAuth are documented authentication options."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://twenty.com/pricing",
+          "quote": "Start your free trial today without credit card.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:59.402921Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Create an API key in Settings → Developers → API → + Create key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A cloud free trial is offered; self-hosting is also available at no cost."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether a review or other gate is required before a multi-tenant integration can serve customers."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "REST and GraphQL APIs generated from your workspace schema.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "CRUD on records: People, Companies, Opportunities, your custom objects. Query, filter, traverse relations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Schema management: create/modify/delete objects, fields, and relations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API covers records and schema management; record endpoints are generated from each workspace’s schema."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/user-guide/ai/capabilities/mcp",
+          "quote": "Twenty exposes an MCP server so that AI assistants — Claude Desktop, Claude Code, Cursor, ChatGPT, and others — can read and write your CRM data through natural language.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.113324Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/Trozz/mcp-twenty-crm",
+          "quote": "Self-hosted MCP server for Twenty CRM, in Rust, on mcp-server-core",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:36:59.231915Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained MCP server is documented in the source."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans",
+          "quote": "Host Twenty on your own infrastructure at no cost:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.270177Z"
+        },
+        {
+          "url": "https://twenty.com/pricing",
+          "quote": "Start your free trial today without credit card.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:59.402921Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free self-hosted plan and a cloud free trial are documented."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/introduction",
+          "quote": "Read and write records over REST and GraphQL, get webhooks when records change, and connect apps with OAuth.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.212168Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention a TypeScript app framework, but do not establish an official API client SDK."
+    },
+    "rate_limit_note": {
+      "value": "100 requests per minute; batches up to 60 records per call.",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Requests | 100 per minute",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        },
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "Batch size | 60 records per call",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/introduction",
+          "quote": "The core is open source and self-hostable.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.212168Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Workspace-specific schemas require dynamic object and field handling",
+        "type": "technical"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "There is no static API reference for Twenty. Each workspace has its own schema",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A toolkit must handle workspace-specific objects and fields."
+    },
+    "docs_url": {
+      "value": "https://docs.twenty.com/developers/extend/api",
+      "evidence": [
+        {
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "quote": "REST and GraphQL APIs generated from your workspace schema.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.123294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "twenty",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:36:41.068121Z",
+    "finished_at": "2026-11-23T12:37:20.343894Z",
+    "tool_calls": 17,
+    "tokens_in": 10445,
+    "tokens_out": 2930,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

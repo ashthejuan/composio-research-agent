@@ -1,0 +1,306 @@
+{
+  "app_id": 62,
+  "app": "Vercel",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://vercel.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A platform for frontend teams focused on developer experience and end-user performance.",
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/rest-api",
+          "quote": "Our platform enables frontend teams to do their best work.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.531504Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/rest-api/getting-started",
+          "quote": "\"Authorization: Bearer $VERCEL_TOKEN\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.854737Z"
+        },
+        {
+          "url": "https://vercel.com/docs/rest-api/projects",
+          "quote": "Authentication\nAuthorizationbearerToken",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:11.117363Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The REST API examples authenticate with a Vercel access token as a Bearer token."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/rest-api/getting-started",
+          "quote": "A Vercel account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.854737Z"
+        },
+        {
+          "url": "https://vercel.com/docs/rest-api/getting-started",
+          "quote": "## Create a scoped access token",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.854737Z"
+        },
+        {
+          "url": "https://vercel.com/docs/plans",
+          "quote": "Hobby plans will be paused when they exceed the included free tier usage",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:11.170732Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The docs show account holders creating access tokens, and Vercel has a free Hobby tier."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/rest-api/getting-started",
+          "quote": "Both approaches call the same Vercel REST API operation",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.854737Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/agent-resources/vercel-mcp",
+          "quote": "Vercel MCP is Vercel's official MCP server.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.357641Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/plans",
+          "quote": "Hobby plans will be paused when they exceed the included free tier usage",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:11.170732Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Hobby plan includes a free usage tier."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/integrations/create-integration/submit-integration",
+          "quote": "Webhook URL\nDeployment events\nConfiguration events\nDomain events\nProject events\nCheck events",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.839133Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The integration documentation shows webhook configuration and event categories."
+    },
+    "official_sdks": {
+      "value": [
+        "typescript",
+        "javascript"
+      ],
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/rest-api/getting-started",
+          "quote": "You are using TypeScript or JavaScript and want generated methods and types.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.854737Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The REST API docs identify the `@vercel/sdk` as the SDK for TypeScript or JavaScript."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://vercel.com/docs/rest-api",
+      "evidence": [
+        {
+          "url": "https://vercel.com/docs/rest-api",
+          "quote": "https://vercel.com/docs/rest-api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:10.531504Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official REST API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "vercel",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:07.230771Z",
+    "finished_at": "2026-11-23T12:41:37.938285Z",
+    "tool_calls": 17,
+    "tokens_in": 11157,
+    "tokens_out": 2751,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

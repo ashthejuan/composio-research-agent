@@ -1,0 +1,332 @@
+{
+  "app_id": 88,
+  "app": "Brex",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://brex.com",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Unified spend platform for corporate cards, expense management, reimbursements, travel, and bill pay.",
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/",
+          "quote": "Brex is the first fully unified spend platform — with global corporate cards, expense management, reimbursements, travel, and bill pay.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.285934Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/guides/authentication",
+          "quote": "Authorization: \"Bearer {{your user_token here}}\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.290731Z"
+        },
+        {
+          "url": "https://developer.brex.com/openapi/accounting_api",
+          "quote": "Type: oauth2",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.896953Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Developer tokens use Bearer authentication; OAuth2 is also documented for the Accounting API."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://www.brex.com/pricing",
+          "quote": "$0 user/month",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:02.987477Z"
+        },
+        {
+          "url": "https://www.brex.com/pricing",
+          "quote": "Brex API access",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:02.987477Z"
+        },
+        {
+          "url": "https://developer.brex.com/guides/authentication",
+          "quote": "Sign in to dashboard.brex.com as an account admin or card admin.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.290731Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The free Essentials plan includes API access; creating a developer token requires account-admin or card-admin access."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/",
+          "quote": "Brex APIs use the REST architecture",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.285934Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/",
+          "quote": "Accounting\nBudgets & Limits\nExpenses\nFields\nOnboarding\nPayments\nTeam\nTransactions\nTravel\nWebhooks",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.285934Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The overview lists ten API areas."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/docs/mcp",
+          "quote": "The Brex MCP server lets AI assistants interact directly with your Brex account",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.288300Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/dennisonbertram/mcp-brex",
+          "quote": "A Model Context Protocol (MCP) server for the Brex API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:03.024210Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community MCP server is also listed."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.brex.com/pricing",
+          "quote": "$0 user/month",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:02.987477Z"
+        },
+        {
+          "url": "https://www.brex.com/pricing",
+          "quote": "Try Brex for free",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:43:02.987477Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Essentials is a free plan and includes Brex API access."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/",
+          "quote": "Webhooks API: Send real-time notifications based on events",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.285934Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Admin acceptance of the Developer API agreement and provisioning of API tokens",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/docs/mcp",
+          "quote": "An account admin or card admin must accept the Developer API agreement",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.288300Z"
+        },
+        {
+          "url": "https://developer.brex.com/docs/mcp",
+          "quote": "the Brex Developer API, which requires admin-provisioned API tokens.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.288300Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented developer API requires administrator involvement; the MCP server has a separate OAuth connection flow."
+    },
+    "docs_url": {
+      "value": "https://developer.brex.com/",
+      "evidence": [
+        {
+          "url": "https://developer.brex.com/",
+          "quote": "Explore our guides and review our API documentation",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:02.285934Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "brex",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:56.522377Z",
+    "finished_at": "2026-11-23T12:43:29.486431Z",
+    "tool_calls": 17,
+    "tokens_in": 9620,
+    "tokens_out": 2778,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,318 @@
+{
+  "app_id": 7,
+  "app": "Zoho CRM",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://zoho.com/crm",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Manage leads, deals, and customers in one place.",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
+          "quote": "Manage leads, deals, and customers in one place.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:00.022758Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+          "quote": "The Zoho CRM API uses the OAuth 2.0 protocol for authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.096877Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/access-refresh.html",
+          "quote": "Make a POST request with the following URL.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.022711Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+          "quote": "APIs and References",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.004879Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources document HTTP API requests but do not explicitly label the API as REST."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api-directory.html",
+          "quote": "The API Directory provides a comprehensive list of all Zoho CRM APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.009684Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/mcp/overview.html",
+          "quote": "Zoho CRM provides these as pre-built MCP servers",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.098441Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/hemichaeli/zoho-crm-mcp-server",
+          "quote": "A comprehensive Model Context Protocol (MCP) server for Zoho CRM",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:37:00.584206Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community MCP server is listed."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Free Edition 5000 credits 5000 credits",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Free Edition has 5,000 API credits in the 24-hour window."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+          "quote": "Trigger real-time events in external applications using webhooks when workflow rules are executed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.004879Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "Free Edition: 5,000 credits per 24 hours; concurrency limit: 5 calls per user/app.",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Maximum credit limit in a 24-hour window for various editions of Zoho CRM",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Free Edition 5000 credits 5000 credits",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Edition Concurrency Limits for a User/App",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        },
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/api-limits.html",
+          "quote": "Free 5",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:59.920994Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Credit limits vary by edition."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+      "evidence": [
+        {
+          "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-references.html",
+          "quote": "APIs and References",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:00.004879Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official Zoho CRM V8 API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "zoho",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:36:41.068153Z",
+    "finished_at": "2026-11-23T12:37:18.490051Z",
+    "tool_calls": 17,
+    "tokens_in": 9884,
+    "tokens_out": 2751,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

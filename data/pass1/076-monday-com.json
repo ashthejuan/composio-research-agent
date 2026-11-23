@@ -1,0 +1,313 @@
+{
+  "app_id": 76,
+  "app": "Monday.com",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://monday.com",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A platform API for interacting with workflows, automating processes, and powering integrations.",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/",
+          "quote": "An expressive API to interact with your workflows, automate processes, power integrations, and more!",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.377166Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Describes the platform API rather than the full product."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/authentication",
+          "quote": "The monday.com platform API utilizes personal V2 API tokens to authenticate requests",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.382432Z"
+        },
+        {
+          "url": "https://developer.monday.com/api-reference/docs/authentication",
+          "quote": "passing the token in the Authorization header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.382432Z"
+        },
+        {
+          "url": "https://developer.monday.com/apps/docs/oauth",
+          "quote": "OAuth 2.0 is a protocol that lets your app request authorization to read or modify data in a user's monday account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.780526Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Personal API tokens and OAuth 2.0 are both documented."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/authentication",
+          "quote": "create a free developer account to get an API token and start testing.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.382432Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free developer account can obtain an API token."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources describe marketplace review and MCP connector approvals, but do not establish a general production gate for API integrations."
+    },
+    "api_type": {
+      "value": [
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/getting-started",
+          "quote": "GraphQL APIs use a single endpoint for all operations",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.770203Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented platform API is GraphQL."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/mondaycom-mcp",
+          "quote": "Full reference for all 60+ tools, organized by category, with equivalent GraphQL APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.370764Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented MCP tool surface indicates broad API coverage."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/mondaycom-mcp",
+          "quote": "The Platform MCP is monday.com's hosted MCP (Model Context Protocol) server, maintained by the monday.com AI team.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.370764Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources list third-party MCP clients, not third-party MCP servers for monday.com."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/developer-sandbox",
+          "quote": "A developer account (also called a sandbox account) is a free monday.com account designed for building and testing monday apps and API integrations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.751736Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free developer sandbox account is available for development and testing."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/apps/docs/oauth",
+          "quote": "webhooks:write Create and modify webhooks",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.780526Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth scopes include permission to create and modify webhooks."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "No vendor-maintained SDKs are identified in the sources."
+    },
+    "rate_limit_note": {
+      "value": "Personal tokens: 10M complexity points/minute (1M for trial, NGO, and free accounts); daily calls: Free 200, Standard/Basic 1,000, Pro/Trial 10,000.",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/docs/rate-limits",
+          "quote": "Reads and writes have a combined budget of 10M points per minute* or 1M for trial, NGO, and free accounts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:05.003159Z"
+        },
+        {
+          "url": "https://developer.monday.com/api-reference/docs/rate-limits",
+          "quote": "Free 200\nStandard/Basic 1,000\nPro/Trial 10,000",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:05.003159Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The daily-call figures are listed by account plan."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish a single general blocker for building an API toolkit."
+    },
+    "docs_url": {
+      "value": "https://developer.monday.com/api-reference/",
+      "evidence": [
+        {
+          "url": "https://developer.monday.com/api-reference/",
+          "quote": "https://developer.monday.com/api-reference/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:02.377166Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official platform API reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "monday",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:00.469029Z",
+    "finished_at": "2026-11-23T12:42:31.294516Z",
+    "tool_calls": 17,
+    "tokens_in": 10346,
+    "tokens_out": 2658,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

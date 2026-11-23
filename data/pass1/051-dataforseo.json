@@ -1,0 +1,321 @@
+{
+  "app_id": 51,
+  "app": "DataForSEO",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Data, SEO and Scraping",
+      "evidence": [
+        {
+          "url": "https://dataforseo.com",
+          "quote": "Registry category (assignment.md): Data, SEO and Scraping",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Provides data for SEO software, data analysis pipelines, and no-code automations.",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "This is the starting point on your journey towards building powerful SEO software, data analysis pipelines, and robust no-code automations.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "basic"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/auth/",
+          "quote": "DataForSEO is using the Basic Authentication",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.906629Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/auth/",
+          "quote": "Create a free account with DataForSEO, then go to the API Access tab in the account dashboard to find your API login and password",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.906629Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free account provides access to API credentials."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "DataForSEO API is using the REST technology",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://dataforseo.com/model-context-protocol",
+          "quote": "https://mcp.dataforseo.com/v3/mcp",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:12.921209Z"
+        },
+        {
+          "url": "https://dataforseo.com/model-context-protocol",
+          "quote": "Empower AI integration with\nDataForSEO MCP",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:40:12.921209Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The official DataForSEO page provides its MCP server URL."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/app_data-overview/",
+          "quote": "You can test App Data API for free using DataForSEO Sandbox.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.918111Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free sandbox is documented for the App Data API."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/app_data-overview/",
+          "quote": "we will notify you on completion of tasks or send the results to you respectively.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.918111Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Task completion notifications and result delivery are available using pingback_url or postback_url."
+    },
+    "official_sdks": {
+      "value": [
+        "c#",
+        "java",
+        "python",
+        "typescript"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported C# Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        },
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported Java Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        },
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported Python Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        },
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Recommended: officially supported TypeScript Client. Author – DataForSEO team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Listed clients attributed to the DataForSEO team are included."
+    },
+    "rate_limit_note": {
+      "value": "App Data API: up to 10,000 POST and GET calls per minute total; each POST call can contain up to 100 tasks.",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/app_data-overview/",
+          "quote": "You can send up to 10000 POST and GET API calls per minute in total, with each POST call containing no more than 100 tasks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:12.918111Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This documented limit is for the App Data API."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.dataforseo.com/v3/",
+      "evidence": [
+        {
+          "url": "https://docs.dataforseo.com/v3/",
+          "quote": "Welcome to DataForSEO API!",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:11.914288Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "dataforseo",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:40:08.210406Z",
+    "finished_at": "2026-11-23T12:40:41.190128Z",
+    "tool_calls": 17,
+    "tokens_in": 10251,
+    "tokens_out": 2875,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

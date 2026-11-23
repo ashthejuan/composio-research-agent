@@ -1,0 +1,320 @@
+{
+  "app_id": 12,
+  "app": "Intercom",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Support and Helpdesk",
+      "evidence": [
+        {
+          "url": "https://intercom.com",
+          "quote": "Registry category (assignment.md): Support and Helpdesk",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Intercom provides SDKs and APIs for building apps that connect with Intercom.",
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs",
+          "quote": "The Intercom Developer Platform is a suite of SDKs and APIs for building apps that connect with Intercom.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.661542Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs/references/rest-api/api.intercom.io",
+          "quote": "Scheme: bearer",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.959211Z"
+        },
+        {
+          "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+          "quote": "OAuth is for if you're building a public app that accesses other people's Intercom data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.667390Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Private apps can use Access Tokens; public apps use OAuth."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs",
+          "quote": "sign up here to create your free account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.661542Z"
+        },
+        {
+          "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+          "quote": "We provide you with an Access Token as soon as you create an app on your workspace.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.667390Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Free development workspaces are for development and have limitations."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs/publish-to-the-app-store/review-publish-your-app",
+          "quote": "Both unlisted and listed apps must be submitted for review.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.671858Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Review is required for public apps; private apps that access only the developer's own workspace do not require it."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs/references/introduction",
+          "quote": "This is documentation for version 2.18 of the REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.959452Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs/references/introduction",
+          "quote": "Admins\nAI Content\nArticles\nAudiences\nAuth Tokens\nAway Status Reasons\nBanners\nBrands\nCalls\nCompanies\nContacts\nContent\nContent Snippets\nConversations\nConversations Attributes\nCustom Object Instances",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.959452Z"
+        },
+        {
+          "url": "https://developers.intercom.com/docs/references/introduction",
+          "quote": "Data Attributes\nData Connectors\nData Events\nData Export\nEcommerce Connectors\nDynamic Content\nEmails\nFin Agent\nFolders\nHelp Center\nInternal Articles\nIP Allowlist\nJobs\nMacros\nMessages\nNews\nNotes",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.959452Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference lists more than 30 API resource groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.intercom.com/integrations/connectors/intercom-mcp-server",
+          "quote": "Intercom's MCP server lets AI tools and CLIs",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:37:34.987549Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs",
+          "quote": "sign up here to create your free account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.661542Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free development workspace is available; it has limitations and is only available for the US region."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs",
+          "quote": "where you can configure webhooks",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.661542Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention SDKs but do not identify supported languages."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Public app review before release",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs/publish-to-the-app-store/review-publish-your-app",
+          "quote": "Both unlisted and listed apps must be submitted for review.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.671858Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This gate applies to public apps serving other customers."
+    },
+    "docs_url": {
+      "value": "https://developers.intercom.com/docs/references/introduction",
+      "evidence": [
+        {
+          "url": "https://developers.intercom.com/docs/references/introduction",
+          "quote": "This is documentation for version 2.18 of the REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:37:33.959452Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "intercom",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:18.444984Z",
+    "finished_at": "2026-11-23T12:37:54.156035Z",
+    "tool_calls": 17,
+    "tokens_in": 9686,
+    "tokens_out": 2964,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

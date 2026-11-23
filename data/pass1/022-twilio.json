@@ -1,0 +1,300 @@
+{
+  "app_id": 22,
+  "app": "Twilio",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://twilio.com",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Twilio helps businesses engage customers across channels.",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs",
+          "quote": "Build better and engage your customers across all channels",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.164912Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Twilio documentation describes its focus as customer engagement across channels."
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "basic",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/iam/api-keys",
+          "quote": "API keys are the preferred way to authenticate with Twilio's REST APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.170459Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/iam/api",
+          "quote": "To authenticate requests to the Twilio APIs, Twilio supports HTTP Basic authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.253457Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/iam/oauth-apps/overview",
+          "quote": "Twilio supports two OAuth 2.0 grant types: Client Credentials and Authorization Code.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.306079Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API keys, HTTP Basic authentication, and OAuth 2.0 are documented."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/usage/trials",
+          "quote": "You can sign up for a Twilio free trial account without a credit card.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.239313Z"
+        },
+        {
+          "url": "https://www.twilio.com/docs/usage/trials",
+          "quote": "Each trial gives you a hands-on experience with real API requests and responses",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.239313Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Trial accounts expire after 30 days."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/iam/api",
+          "quote": "The Twilio REST API allows you to query metadata about your account, phone numbers, calls, text messages, and recordings.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.253457Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/ai/mcp",
+          "quote": "The server is hosted by Twilio at mcp.twilio.com/docs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.158195Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented official MCP server searches and retrieves public API documentation; it does not execute API calls."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/usage/trials",
+          "quote": "When you create a Twilio account, you start with a free 30-day trial",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.239313Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The trial expires after 30 days and includes product-specific free units."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/usage/requests-to-twilio",
+          "quote": "how the Twilio APIs handle webhooks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.270576Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation discusses how Twilio APIs handle webhooks."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://www.twilio.com/docs/iam/api",
+      "evidence": [
+        {
+          "url": "https://www.twilio.com/docs/iam/api",
+          "quote": "The Twilio REST API allows you to query metadata about your account, phone numbers, calls, text messages, and recordings.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:12.253457Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official REST API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "twilio",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:38:03.570467Z",
+    "finished_at": "2026-11-23T12:38:32.082932Z",
+    "tool_calls": 17,
+    "tokens_in": 9761,
+    "tokens_out": 2182,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

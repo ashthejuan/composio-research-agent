@@ -1,0 +1,305 @@
+{
+  "app_id": 74,
+  "app": "Jira",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://atlassian.com/software/jira",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Jira supports searching and managing work items, and querying boards, sprints, versions, and metadata.",
+      "evidence": [
+        {
+          "url": "https://developer.atlassian.com/cloud/rovo-mcp/",
+          "quote": "Search, create, edit, transition, and comment on work items; query spaces, boards, sprints, versions, and metadata",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.408105Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "basic"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.atlassian.com/cloud/jira/platform/security-for-other-integrations/",
+          "quote": "OAuth 2.0 authorization code grants (3LO): This is the recommended method. You should use this for most cases.\nBasic authentication: You should only use this method for tools like personal scripts or bots.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.128371Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth 2.0 is recommended; Basic authentication is intended for personal scripts or bots."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish how a developer obtains working API credentials for their own account."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether a multi-tenant API integration needs a production review or other gate."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+          "quote": "REST API v3",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.126113Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+          "quote": "Agents\nAnnouncement banner\nApp data policies\nApp migration\nApp properties\nApplication roles\nAudit records\nAvatars\nClassification levels\nDashboards\nDynamic modules\nField schemes\nFilter sharing\nFilters",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.126113Z"
+        },
+        {
+          "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+          "quote": "Issue type properties\nIssue type schemes\nIssue type screen schemes\nIssue types\nIssue votes\nIssue watchers\nIssue worklog properties\nIssue worklogs\nIssues\nJQL\nJQL functions (apps)\nJira expressions\nJira settings\nLabels\nLicense metrics",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.126113Z"
+        },
+        {
+          "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+          "quote": "Projects\nScreen schemes\nScreen tab fields\nScreen tabs\nScreens\nServer info\nService Registry\nStatus\nTasks\nTeams in plan\nTime tracking\nUI",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.126113Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented Jira Cloud platform API covers more than 30 resource groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.atlassian.com/cloud/rovo-mcp/",
+          "quote": "The Atlassian Rovo MCP Server is a cloud-hosted Model Context Protocol (MCP) server that connects AI-powered clients to your Atlassian Cloud apps.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.408105Z"
+        },
+        {
+          "url": "https://developer.atlassian.com/cloud/rovo-mcp/",
+          "quote": "Jira Search, create, edit, transition, and comment on work items; query spaces, boards, sprints, versions, and metadata",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.408105Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Atlassian's official Rovo MCP server lists Jira capabilities."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/sooperset/mcp-atlassian?tab=readme-ov-file",
+          "quote": "Model Context Protocol (MCP) server for Atlassian products (Confluence and Jira).",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:41:56.351850Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.atlassian.com/platform/marketplace/getting-started/",
+          "quote": "No request forms needed here... get started with your development instance today!",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.130567Z"
+        },
+        {
+          "url": "https://developer.atlassian.com/platform/marketplace/getting-started/",
+          "quote": "Developer instances should only be used for development and testing.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.130567Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free developer instance is available for development and testing, not production."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether the API offers webhooks or event subscriptions."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources provide no concrete Jira API rate limit."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether Jira is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish the key obstacle to serving a multi-tenant integration."
+    },
+    "docs_url": {
+      "value": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+      "evidence": [
+        {
+          "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+          "quote": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:55.126113Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official Jira Cloud Platform REST API v3 documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "jira",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:51.988112Z",
+    "finished_at": "2026-11-23T12:42:31.745572Z",
+    "tool_calls": 17,
+    "tokens_in": 10108,
+    "tokens_out": 3803,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,325 @@
+{
+  "app_id": 60,
+  "app": "Clay",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Data, SEO and Scraping",
+      "evidence": [
+        {
+          "url": "https://clay.com",
+          "quote": "Registry category (assignment.md): Data, SEO and Scraping",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Clay's developer platform searches GTM data, runs reusable logic, reads table data, and works with Audiences.",
+      "evidence": [
+        {
+          "url": "https://developers.clay.com/",
+          "quote": "Use the developer platform to search Clay's GTM data, run reusable Clay logic, read table data, and work with Audiences programmatically.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.532381Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.clay.com/public-api/authentication",
+          "quote": "Every request to the Clay Public API must include a Clay API key in the `clay-api-key` header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.441636Z"
+        },
+        {
+          "url": "https://university.clay.com/docs/connect-to-clay-mcp",
+          "quote": "Register your platform as an OAuth client and connect it to Clay's MCP server.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.341809Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Public API uses API keys; the MCP server supports OAuth."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://university.clay.com/docs/plans-and-billing",
+          "quote": "Clay offers a 14-day free trial with 1,000 data credits, giving you access to webhooks, CRM integrations, email sequencers, and HTTP API capabilities.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.346585Z"
+        },
+        {
+          "url": "https://developers.clay.com/quickstart",
+          "quote": "Create one yourself in Clay under API and CLI → API keys.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.456250Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented trial includes HTTP API capabilities, and API keys can be created in Clay."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://university.clay.com/docs/connect-to-clay-mcp",
+          "quote": "your platform registers itself at connect time to obtain OAuth client credentials, with no manual setup on Clay's side.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.341809Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented MCP client-registration path is self-service; the sources do not describe a separate review requirement."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.clay.com/api-reference/tables/run-a-structured-query-across-one-or-more-tables",
+          "quote": "post /tables/query",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.838750Z"
+        },
+        {
+          "url": "https://developers.clay.com/public-api/authentication",
+          "quote": "curl https://api.clay.com/public/v0/me \\",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.441636Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Public API documents HTTP endpoints and operations."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources show several API areas, but do not establish the total endpoint-group count."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://university.clay.com/docs/connect-to-clay-mcp",
+          "quote": "Clay exposes a Model Context Protocol (MCP) server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.341809Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/shanefirek/clay-mcp-public",
+          "quote": "73-tool MCP server for Clay.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:41:03.574650Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community GitHub repository describes a Clay MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.clay.com/pricing",
+          "quote": "Start building in Clay for free. No strings attached.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:03.518776Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The pricing page lists a Free plan."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention webhook access as a trial capability, but do not establish API webhooks or event subscriptions."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "none",
+        "type": "none"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.clay.com/quickstart",
+          "quote": "Use the Public API to call Clay from your own applications and services",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.456250Z"
+        },
+        {
+          "url": "https://developers.clay.com/quickstart",
+          "quote": "Create one yourself in Clay under API and CLI → API keys.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.456250Z"
+        },
+        {
+          "url": "https://university.clay.com/docs/connect-to-clay-mcp",
+          "quote": "your platform registers itself at connect time to obtain OAuth client credentials, with no manual setup on Clay's side.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.341809Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented API and self-service MCP registration show no stated distribution gate."
+    },
+    "docs_url": {
+      "value": "https://developers.clay.com/api-reference/tables/run-a-structured-query-across-one-or-more-tables",
+      "evidence": [
+        {
+          "url": "https://developers.clay.com/api-reference/tables/run-a-structured-query-across-one-or-more-tables",
+          "quote": "https://developers.clay.com/api-reference/tables/run-a-structured-query-across-one-or-more-tables",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:03.838750Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official Public API reference page."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "clay",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:40:56.091193Z",
+    "finished_at": "2026-11-23T12:41:40.317293Z",
+    "tool_calls": 17,
+    "tokens_in": 9243,
+    "tokens_out": 4059,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

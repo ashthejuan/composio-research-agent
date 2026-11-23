@@ -1,0 +1,301 @@
+{
+  "app_id": 64,
+  "app": "Cloudflare",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://cloudflare.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Global cloud network.",
+      "evidence": [
+        {
+          "url": "https://www.cloudflare.com/partners/technology-partners/",
+          "quote": "The integrated global cloud network",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:17.274626Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/",
+          "quote": "Cloudflare uses the RFC standard ↗︎ Authorization: Bearer <API_TOKEN> interface.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.281726Z"
+        },
+        {
+          "url": "https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/",
+          "quote": "X-Auth-Key: <API_KEY>",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.281726Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API tokens use Bearer authentication; API keys are also supported."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "GET/accounts",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/",
+          "quote": "| Native MCP (full schemas) | 2,594 | ~1,170,000 |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.385476Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation reports 2,594 native tools for the API MCP server."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/",
+          "quote": "Cloudflare runs a catalog of managed remote MCP servers",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.385476Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.cloudflare.com/plans/",
+          "quote": "Free\nFor personal or hobby projects that aren't business-critical.\n$0\n/month",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:16.898576Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The pricing page lists a $0 Free plan."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "typescript",
+        "python",
+        "go"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "TypeScript\n7.3.0\nnpm install cloudflare",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        },
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "Python\n5.10.0\npip install cloudflare",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        },
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "Go\nv7.15.0\ngo get -u github.com/cloudflare/cloudflare-go/v7@v7.15.0",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developers.cloudflare.com/api/",
+      "evidence": [
+        {
+          "url": "https://developers.cloudflare.com/api/",
+          "quote": "https://developers.cloudflare.com/api/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:16.274047Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "cloudflare",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:10.307304Z",
+    "finished_at": "2026-11-23T12:41:42.561583Z",
+    "tool_calls": 17,
+    "tokens_in": 10211,
+    "tokens_out": 2594,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

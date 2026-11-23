@@ -1,0 +1,300 @@
+{
+  "app_id": 31,
+  "app": "Google Ads",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Marketing, Ads, Email and Social",
+      "evidence": [
+        {
+          "url": "https://ads.google.com",
+          "quote": "Registry category (assignment.md): Marketing, Ads, Email and Social",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Create and manage ads that reach users looking for your products or services on Google Search, Display, YouTube and more.",
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads",
+          "quote": "Create and manage ads that reach users looking for your products or services on Google Search, Display, YouTube and more.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:44.562265Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "api_key"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api/rest/auth",
+          "quote": "The Google Ads API uses OAuth 2.0 for authorizing API requests.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.983790Z"
+        },
+        {
+          "url": "https://developers.google.com/google-ads/api/rest/auth",
+          "quote": "A developer token is required in the developer-token HTTP header for every API call.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.983790Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth 2.0 and a developer token are both required."
+    },
+    "credential_access": {
+      "value": "admin_approval",
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels",
+          "quote": "The Google Ads API has access levels tied to the developer token and requires an application review to grant them.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.964926Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API access levels require an application review; the API itself is free to use."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels",
+          "quote": "The Google Ads API has access levels tied to the developer token and requires an application review to grant them.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.964926Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Access level and review requirements vary by level."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api/rest/auth",
+          "quote": "This page describes how to set these values and documents several additional API-specific HTTP headers that are sent and received when using the REST interface.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.983790Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+          "quote": "The Google Ads MCP server provides a standardized bridge to the Google Ads API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.972116Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels",
+          "quote": "The Google Ads API is free to use; there are no charges for using the Google Ads API at Explorer access, Basic access, or Standard access levels.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.964926Z"
+        },
+        {
+          "url": "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+          "quote": "Enabling the API grants Test access for testing read and mutate workflows against test accounts.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.972116Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API is free to use and Test access is available for test accounts."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Developer-token access requires application review",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api/docs/productionize/access-levels",
+          "quote": "The Google Ads API has access levels tied to the developer token and requires an application review to grant them.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:43.964926Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developers.google.com/google-ads/api",
+      "evidence": [
+        {
+          "url": "https://developers.google.com/google-ads/api",
+          "quote": "https://developers.google.com/google-ads/api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:44.676888Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "googleads",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:38:40.353404Z",
+    "finished_at": "2026-11-23T12:39:10.079152Z",
+    "tool_calls": 17,
+    "tokens_in": 9613,
+    "tokens_out": 2677,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

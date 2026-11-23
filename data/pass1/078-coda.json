@@ -1,0 +1,299 @@
+{
+  "app_id": 78,
+  "app": "Coda",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Productivity and Project Management",
+      "evidence": [
+        {
+          "url": "https://coda.io",
+          "quote": "Registry category (assignment.md): Productivity and Project Management",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Docs workspace for teams and AI to work together.",
+      "evidence": [
+        {
+          "url": "https://coda.io/resources/guides/getting_started_with_coda_mcp",
+          "quote": "The best place for teams and AI to work together.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.011952Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source gives a short product description rather than a detailed feature summary."
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://coda.io/apis/v1/openapi.yaml",
+          "quote": "Authorization: Bearer <your API token>",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.009199Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This supports bearer-token authentication for the API; MCP OAuth is not counted as API authentication."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API",
+          "quote": "The Coda API is a RESTful API",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.500839Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555941038349-Does-Coda-have-an-API",
+          "quote": "- List and search Coda docs\n- Listing docs\n- Creating and copying docs\n- Listing tables within a doc\n- Retrieving rows\n- Inserting and updating rows",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.500839Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source lists several API capabilities, but does not establish the complete API surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://coda.io/resources/guides/getting_started_with_coda_mcp",
+          "quote": "With Superhuman Docs MCP (Model Context Protocol), your AI clients can move beyond chatting about work and start participating in it.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.011952Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/vish288/mcp-coda",
+          "quote": "MCP server for the Coda API",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:42:19.721574Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The cited repository is community-maintained."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Free plan: 35 time-based and 100 event-based per month, per doc",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A Free plan is documented; no separate API sandbox is shown."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "Reading: 100 requests per 6 seconds; writing: 10 requests per 6 seconds; doc-content writes: 3 requests per 10 seconds.",
+      "evidence": [
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Reading data (with the exceptions below): 100 requests per 6 seconds",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        },
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Writing data (POST/PUT/PATCH): 10 requests per 6 seconds",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        },
+        {
+          "url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
+          "quote": "- Writing doc content data (POST/PUT/PATCH): 3 requests per 10 seconds",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:19.897107Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://coda.io/apis/v1/openapi.yaml",
+      "evidence": [
+        {
+          "url": "https://coda.io/apis/v1/openapi.yaml",
+          "quote": "https://coda.io/apis/v1/openapi.yaml",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:19.009199Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official OpenAPI specification."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "coda",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:14.796597Z",
+    "finished_at": "2026-11-23T12:42:56.622509Z",
+    "tool_calls": 17,
+    "tokens_in": 9806,
+    "tokens_out": 3855,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

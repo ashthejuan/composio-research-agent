@@ -1,0 +1,287 @@
+{
+  "app_id": 44,
+  "app": "Salesforce Commerce Cloud",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://salesforce.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Personalized ecommerce solutions for B2B/D2C and B2C commerce.",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/developer-centers/commerce-cloud",
+          "quote": "Develop personalized ecommerce experiences with our fast, flexible solutions.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.885920Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization.html",
+          "quote": "To authorize this wide range of client types, we’ve defined a set of scopes based on the OAuth 2.1 standard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.836218Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "SCAPI uses OAuth 2.1 authorization; JWT access tokens are sent as Bearer tokens."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html",
+          "quote": "The B2C Commerce API (SCAPI) is a set of RESTful APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.832517Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This source documents the B2C Commerce API (SCAPI)."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/agentic-mcp-shopper-tools-quick-start.html",
+          "quote": "That’s why we built the B2C Commerce Model Context Protocol (MCP) Service",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.893662Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/ZaUtre/sfcc-mcp-server",
+          "quote": "A Model Context Protocol (MCP) server for interacting with Salesforce Commerce Cloud (SFCC) APIs.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:39:46.885965Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html",
+          "quote": "fetch a product from the demo sandbox.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.832517Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The getting-started example uses a demo sandbox."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "javascript",
+        "node"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html",
+          "quote": "JavaScript SDKs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.832517Z"
+        },
+        {
+          "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html",
+          "quote": "| `commerce-sdk` | Node.js (server-side or CLI) | Docs |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.832517Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://developer.salesforce.com/docs/commerce/commerce-api/references",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/commerce/commerce-api/references",
+          "quote": "https://developer.salesforce.com/docs/commerce/commerce-api/references",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:46.835983Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "SCAPI specifications and reference navigation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:39:42.511614Z",
+    "finished_at": "2026-11-23T12:40:08.208402Z",
+    "tool_calls": 17,
+    "tokens_in": 8471,
+    "tokens_out": 2194,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

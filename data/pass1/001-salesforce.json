@@ -1,0 +1,326 @@
+{
+  "app_id": 1,
+  "app": "Salesforce",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "CRM and Sales",
+      "evidence": [
+        {
+          "url": "https://salesforce.com",
+          "quote": "Registry category (assignment.md): CRM and Sales",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Platform for interacting with Salesforce data and automation.",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html",
+          "quote": "interact with Salesforce data and automation.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.049952Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html",
+          "quote": "standard OAuth-based authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.049952Z"
+        },
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=xcloud.remoteaccess_access_tokens.htm&language=en_US&type=5",
+          "quote": "whether it’s a standard OAuth 2.0 flow or a headless identity flow",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.080440Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/free-trials",
+          "quote": "A free Salesforce Platform environment",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.049653Z"
+        },
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=000385436&language=en_US&type=1",
+          "quote": "Developer Edition",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.275032Z"
+        },
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=000385436&language=en_US&type=1",
+          "quote": "include API access by default",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.275032Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free Developer Edition is available, and that edition includes API access by default."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "graphql",
+        "soap"
+      ],
+      "evidence": [
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=000385436&language=en_US&type=1",
+          "quote": "including SOAP API, REST API, and Bulk API.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.275032Z"
+        },
+        {
+          "url": "https://developer.salesforce.com/docs/apis",
+          "quote": "### GraphQL API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.042210Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://github.com/forcedotcom/postman-salesforce-apis",
+          "quote": "250+ requests and example responses",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:36:57.156312Z"
+        },
+        {
+          "url": "https://github.com/forcedotcom/postman-salesforce-apis",
+          "quote": "Auth\nBulk (v1 & v2)\nComposite\nConnect\nCPQ\nEinstein Prediction Service\nEvent Platform GraphQL\nMetadata\nREST\nSubscription Management\nTooling\nUI",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:36:57.156312Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The official API collection covers 250+ requests across numerous API groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html",
+          "quote": "Salesforce Hosted MCP Servers give AI agents a secure, governed way to interact with Salesforce data and automation.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.049952Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/salesforcecli/mcp/",
+          "quote": "MCP Server for interacting with Salesforce instances",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:36:57.937361Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-tier GitHub source documents an MCP server for Salesforce."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/free-trials",
+          "quote": "A free Salesforce Platform environment",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.049653Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Salesforce offers a free Developer Edition environment."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "API access depends on the Salesforce edition",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=000385436&language=en_US&type=1",
+          "quote": "Not all Salesforce editions include API access.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:36:58.275032Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API availability varies by customer edition."
+    },
+    "docs_url": {
+      "value": "https://developer.salesforce.com/docs/apis",
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/apis",
+          "quote": "Explore developer guides and reference docs for Salesforce APIs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:36:57.042210Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Salesforce API Library."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "salesforce",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:36:41.067703Z",
+    "finished_at": "2026-11-23T12:37:16.887331Z",
+    "tool_calls": 17,
+    "tokens_in": 10628,
+    "tokens_out": 2513,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

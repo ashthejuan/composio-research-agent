@@ -1,0 +1,305 @@
+{
+  "app_id": 27,
+  "app": "Telegram",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://telegram.org",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Telegram is a cloud-based mobile and desktop messaging app focused on security and speed.",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/obtaining_api_id/",
+          "quote": "Telegram is a cloud-based mobile and desktop messaging app with a focus on security and speed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.822117Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "session_other"
+      ],
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/bots/api",
+          "quote": "All queries to the Telegram Bot API must be served over HTTPS and need to be presented in this form: https://api.telegram.org/bot<token>/METHOD_NAME.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.827821Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/auth",
+          "quote": "Authorization is associated with a client's encryption key identifier: auth_key_id.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.706287Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Covers the Bot API token-in-URL scheme and MTProto authorization; neither is documented here as OAuth or a Bearer header."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/obtaining_api_id/",
+          "quote": "Sign up for Telegram using an official application.\nLog in to your Telegram core: https://my.telegram.org.\nGo to \"API development tools\" and fill out the form.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.822117Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "You are welcome to use both APIs free of charge.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API ID and hash can be obtained through the developer's own Telegram account."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "This API is 100% open for all developers who wish to create Telegram applications on our platform.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources describe registration and terms of service, but no review, marketplace listing, or partner program requirement."
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/bots/api",
+          "quote": "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.827821Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/bots",
+          "quote": "Working with bots, using the MTProto API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:35.697275Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This record covers both the HTTP Bot API and the MTProto API."
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/chigwell/telegram-mcp",
+          "quote": "Telegram MCP server powered by Telethon to let MCP clients read chats, manage groups, and send/modify messages, media, contacts, and settings.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:36.460820Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The cited repository is community-maintained, not an official Telegram MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "You are welcome to use both APIs free of charge.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        },
+        {
+          "url": "https://core.telegram.org/api/",
+          "quote": "Telegram's Gateway API is completely free to test.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.815547Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The APIs are free to use; the Gateway API is explicitly free to test."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://core.telegram.org/bots/api",
+      "evidence": [
+        {
+          "url": "https://core.telegram.org/bots/api",
+          "quote": "The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:34.827821Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary Bot API reference; this record also includes the MTProto API."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "telegram",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:38:31.341993Z",
+    "finished_at": "2026-11-23T12:39:05.411331Z",
+    "tool_calls": 17,
+    "tokens_in": 10845,
+    "tokens_out": 3168,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

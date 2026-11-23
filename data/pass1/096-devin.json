@@ -1,0 +1,292 @@
+{
+  "app_id": 96,
+  "app": "Devin",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "AI, Research and Media-native",
+      "evidence": [
+        {
+          "url": "https://devin.ai",
+          "quote": "Registry category (assignment.md): AI, Research and Media-native",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Devin integrates with the tools you already use, making it easy to incorporate AI-powered development into your existing workflows.",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/integrations/overview",
+          "quote": "Devin integrates with the tools you already use, making it easy to incorporate AI-powered development into your existing workflows.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.335400Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/api-reference/authentication",
+          "quote": "All API credentials use the cog_ prefix format. Include your token in the Authorization header of every request:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.941560Z"
+        },
+        {
+          "url": "https://docs.devin.ai/api-reference/authentication",
+          "quote": "-H \"Authorization: Bearer cog_your_token_here\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.941560Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API credentials are sent as Bearer tokens in the Authorization header."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+          "quote": "Sign up for a Devin account at Devin.ai",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.934868Z"
+        },
+        {
+          "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+          "quote": "Generate an API key from your account settings",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.934868Z"
+        },
+        {
+          "url": "https://docs.devin.ai/admin/billing/self-serve",
+          "quote": "Devin has four self-serve plans you can sign up for directly at app.devin.ai.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.258096Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The docs describe self-serve account signup and API-key generation; a free self-serve plan is available."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/api-reference/overview",
+          "quote": "Learn how to programmatically interact with Devin using our REST APIs",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.098258Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+          "quote": "Set up the official Devin MCP server so external AI tools can manage sessions, playbooks, knowledge, and repository docs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:32.934868Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The community source describes a CLI, not a third-party MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/admin/billing/self-serve",
+          "quote": "| Free | Individuals trying Devin | Free | 1 |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.258096Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free self-serve plan is available."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.devin.ai/api-reference/overview",
+      "evidence": [
+        {
+          "url": "https://docs.devin.ai/api-reference/overview",
+          "quote": "url: https://docs.devin.ai/api-reference/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:33.098258Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official API overview documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "devin_mcp",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:43:29.486795Z",
+    "finished_at": "2026-11-23T12:43:58.231919Z",
+    "tool_calls": 17,
+    "tokens_in": 10167,
+    "tokens_out": 2586,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,350 @@
+{
+  "app_id": 89,
+  "app": "Ramp",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://ramp.com",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Ramp provides business tools for bills, procurement, spend controls, and related financial workflows.",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Bill Pay Bills, draft bills, payments, vendors, 3-way match.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        },
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Procurement Intake requests, purchase orders, vendor onboarding.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        },
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Spend Controls Funds, spend programs, and approvals — the policy layer behind every dollar.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/authorization",
+          "quote": "Ramp uses OAuth 2.0.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.258402Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Documented grant types include Client Credentials and Authorization Code."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources describe creating credentials for Ramp customers and requesting sandbox access, but do not establish whether access is free or generally self-serve."
+    },
+    "production_gate": {
+      "value": "marketplace_listing",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/build-with-ramp",
+          "quote": "Submit listing application from the developer console",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.348646Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The partner guide describes applying for production access and submitting a listing application."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/getting-started",
+          "quote": "Let's retrieve your transactions using the GET /transactions endpoint.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.404335Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Bill Pay Bills, draft bills, payments, vendors, 3-way match.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        },
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Procurement Intake requests, purchase orders, vendor onboarding.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        },
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Reimbursements\n\nOut-of-pocket employee expenses — manual, OCR-drafted receipts, mileage.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        },
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Spend Controls\n\nFunds, spend programs, and approvals — the policy layer behind every dollar.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The docs describe multiple product areas and workflows, but the excerpts do not establish a precise endpoint count."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/ramp-mcp",
+          "quote": "Ramp MCP connects AI tools such as Claude, ChatGPT, and Cursor to your Ramp account.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.255428Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/ramp-public/ramp%5Fmcp",
+          "quote": "A Model Context Protocol server for retrieving and analyzing data or running tasks for Ramp using Developer API.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:04.393124Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source describes a separate Ramp MCP server repository."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Don't have a Ramp account? Request a sandbox to start building right away.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Sandbox access is available by request."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "Webhooks Subscribe, verify signatures, retry.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "No vendor-maintained SDK languages are identified in the sources."
+    },
+    "rate_limit_note": {
+      "value": "200 requests per 10 seconds per source IP; token issuance: 100 POST /developer/v1/token requests per 10 seconds per source IP.",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/rate-limiting",
+          "quote": "The standard Developer API limit is 200 requests per 10 seconds per source IP address.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.450472Z"
+        },
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/rate-limiting",
+          "quote": "Production token issuance has an additional limit: 100 `POST /developer/v1/token` requests per 10 seconds per source IP.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.450472Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish that Ramp itself is open source or self-hostable."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Production access and listing application",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/build-with-ramp",
+          "quote": "Phase 2: Apply for Production Access",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.348646Z"
+        },
+        {
+          "url": "https://docs.ramp.com/developer-api/v1/build-with-ramp",
+          "quote": "Submit listing application from the developer console",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.348646Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The partner guide describes production access and a listing application as steps for integrations reaching other businesses."
+    },
+    "docs_url": {
+      "value": "https://docs.ramp.com/developer-api/",
+      "evidence": [
+        {
+          "url": "https://docs.ramp.com/developer-api/",
+          "quote": "https://docs.ramp.com/developer-api/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:04.261007Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "ramp",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:56.622957Z",
+    "finished_at": "2026-11-23T12:43:32.529131Z",
+    "tool_calls": 17,
+    "tokens_in": 9408,
+    "tokens_out": 3078,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

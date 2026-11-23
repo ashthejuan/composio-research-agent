@@ -1,0 +1,307 @@
+{
+  "app_id": 21,
+  "app": "Slack",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Communications and Messaging",
+      "evidence": [
+        {
+          "url": "https://slack.com",
+          "quote": "Registry category (assignment.md): Communications and Messaging",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Slack's Web API queries workspace information and enacts changes.",
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/apis/web-api/",
+          "quote": "The Slack Web API is an interface for querying information from and enacting change in a Slack workspace.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:07.637300Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/authentication/installing-with-oauth/",
+          "quote": "Slack apps are installed with a v2 OAuth 2.0 flow.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:07.220796Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth access tokens are used to call the API."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://slack.dev/slack-developer-sandboxes/",
+          "quote": "Using a developer sandbox gives me access to a free environment that can be used to build against Slack features safely and securely.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:08.487657Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free developer sandbox is documented; OAuth tokens are obtained through app installation and user authorization."
+    },
+    "production_gate": {
+      "value": "none",
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/authentication/installing-with-oauth/",
+          "quote": "OAuth allows a user in any Slack workspace to install your app.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:07.220796Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "This supports installation across workspaces without requiring Marketplace listing for the documented OAuth flow."
+    },
+    "api_type": {
+      "value": [
+        "rpc_websocket"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/apis/web-api/",
+          "quote": "The Web API is a collection of HTTP RPC-style methods",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:07.637300Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Slack explicitly says the Web API is not REST."
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/reference/methods/",
+          "quote": "An API reference for all available Slack Web API methods and their parameters.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:08.273096Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference covers all available methods, indicating a broad API surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/ai/slack-mcp-server/",
+          "quote": "This guide discusses the MCP server offerings from Slack and how to develop with the Slack MCP server.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:07.212338Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/zencoderai/slack-mcp-server",
+          "quote": "To use this MCP server, you need to create a Slack app and configure it with the necessary permissions:",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:08.786417Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community GitHub repository documents a Slack MCP server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://slack.com/pricing",
+          "quote": "Free forever",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:08.273168Z"
+        },
+        {
+          "url": "https://slack.dev/slack-developer-sandboxes/",
+          "quote": "Using a developer sandbox gives me access to a free environment that can be used to build against Slack features safely and securely.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:08.487657Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Slack offers a free plan and a free developer sandbox."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "User approval of requested OAuth scopes for each installation",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/authentication/installing-with-oauth/",
+          "quote": "Waiting for a user to approve your requested scopes.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:07.220796Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Each workspace installation requires approval of the requested OAuth scopes."
+    },
+    "docs_url": {
+      "value": "https://docs.slack.dev/apis/web-api",
+      "evidence": [
+        {
+          "url": "https://docs.slack.dev/apis/web-api/",
+          "quote": "Source: https://docs.slack.dev/apis/web-api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:07.637300Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "slack",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:37:59.104509Z",
+    "finished_at": "2026-11-23T12:38:36.849801Z",
+    "tool_calls": 17,
+    "tokens_in": 9999,
+    "tokens_out": 2794,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,314 @@
+{
+  "app_id": 53,
+  "app": "Ahrefs",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Data, SEO and Scraping",
+      "evidence": [
+        {
+          "url": "https://ahrefs.com",
+          "quote": "Registry category (assignment.md): Data, SEO and Scraping",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Ahrefs API provides programmatic access to SEO, marketing, and AI-search data.",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/llms.txt",
+          "quote": "Ahrefs API v3 gives programmatic access to Ahrefs' SEO, marketing, and AI-search data",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.319185Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/llms.txt",
+          "quote": "send your API key as a bearer token in the `Authorization: Bearer <API_KEY>` header",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.319185Z"
+        },
+        {
+          "url": "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md",
+          "quote": "Your app integrates with Ahrefs API via OAuth.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.118605Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The public API uses a bearer-token API key; Ahrefs Connect uses OAuth."
+    },
+    "credential_access": {
+      "value": "paid_plan_required",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/en/api/docs/introduction",
+          "quote": "Ahrefs API is available on eligible paid plans.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.262374Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Free test queries are available, but regular API access requires an eligible paid plan."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md",
+          "quote": "Once approved, your app switches to **Active**. This enables:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.118605Z"
+        },
+        {
+          "url": "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md",
+          "quote": "Live OAuth connections for Ahrefs users in production",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.118605Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Ahrefs Connect requires approval before live production OAuth connections."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/",
+          "quote": "REST API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.105646Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/en/api/docs/introduction",
+          "quote": "Currently, API v3 allows you to pull data from the Site Explorer, Keywords Explorer, SERP Overview, Rank Tracker, Site Audit, Brand Radar, Social Media Management and Content Helper endpoints",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.262374Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation lists roughly 10–30 endpoint groups across the API surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/mcp/docs/introduction.md",
+          "quote": "Ahrefs provides a hosted MCP server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.112615Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/en/api/docs/introduction",
+          "quote": "On all other plans, you'll still have access to a limited set of free test queries.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.262374Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Limited free test queries are available; the API is otherwise plan-gated."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "60 requests per minute by default.",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/en/api/docs/introduction",
+          "quote": "Ahrefs API is limited to 60 requests per minute by default.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.262374Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Ahrefs Connect app approval before live production OAuth",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md",
+          "quote": "When development is complete, notify our support or sales team. They will provide submission instructions and details on the approval requirements.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.118605Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Approval is required to activate production OAuth for a multi-tenant integration."
+    },
+    "docs_url": {
+      "value": "https://docs.ahrefs.com/en/api/docs/introduction",
+      "evidence": [
+        {
+          "url": "https://docs.ahrefs.com/en/api/docs/introduction",
+          "quote": "For full usage details, view our API reference in these docs.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:28.262374Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official API introduction and reference."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "ahrefs",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:40:24.625337Z",
+    "finished_at": "2026-11-23T12:40:56.089887Z",
+    "tool_calls": 17,
+    "tokens_in": 10299,
+    "tokens_out": 2674,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

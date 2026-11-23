@@ -1,0 +1,320 @@
+{
+  "app_id": 85,
+  "app": "iPayX",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://ipayx.ai",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Audits FX transactions to detect hidden bank spreads against mid-market benchmarks.",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/docs/api",
+          "quote": "Detect hidden bank spreads vs mid-market benchmark on any currency transaction.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.269742Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/docs/api",
+          "quote": "Every request requires a Bearer token in the `Authorization` header. Keys start with `ipx_live_`.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.269742Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API key is sent as a Bearer token."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/docs/mcp-server",
+          "quote": "Free tier: 10 audits / day per API key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.266447Z"
+        },
+        {
+          "url": "https://www.ipayx.ai/docs/mcp-server",
+          "quote": "How to get a key: Open your iPayX dashboard → API keys.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.266447Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documentation describes a free API tier and getting a key through the dashboard."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/docs/api",
+          "quote": "REST API · v1",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.269742Z"
+        },
+        {
+          "url": "https://www.ipayx.ai/mcp",
+          "quote": "Streamable HTTP",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:50.371911Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources document a REST API and a streamable HTTP MCP server."
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/docs/api",
+          "quote": "3 endpoints",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.269742Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API reference describes three endpoints."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/developers",
+          "quote": "Officially listed on the MCP Registry (v1.4.0)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.273333Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/mcp",
+          "quote": "No account or API key required. Transaction audits and forensic reports share 3 free audits per IP per calendar month (UTC).",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:50.371911Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The MCP service offers three free audits per IP per calendar month without an account or API key."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/developers",
+          "quote": "Use webhooks to receive event notifications when audits are completed or alerts are triggered.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.273333Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "Free tier: 10 audits/day per API key; mid-market rate lookups: 60 calls/minute; paid tier: unlimited audits.",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/docs/mcp-server",
+          "quote": "Free tier: 10 audits / day per API key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.266447Z"
+        },
+        {
+          "url": "https://www.ipayx.ai/docs/mcp-server",
+          "quote": "Rate limit: 60 calls / minute per API key.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.266447Z"
+        },
+        {
+          "url": "https://www.ipayx.ai/docs/mcp-server",
+          "quote": "Rate limit: Unlimited on paid tier; priority routing.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.266447Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Limits vary by tool and plan."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://www.ipayx.ai/docs/api",
+      "evidence": [
+        {
+          "url": "https://www.ipayx.ai/docs/api",
+          "quote": "https://www.ipayx.ai/docs/api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:50.269742Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary official REST API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:45.491901Z",
+    "finished_at": "2026-11-23T12:43:16.186770Z",
+    "tool_calls": 17,
+    "tokens_in": 9880,
+    "tokens_out": 2840,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

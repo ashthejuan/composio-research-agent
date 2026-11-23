@@ -1,0 +1,338 @@
+{
+  "app_id": 94,
+  "app": "Consensus",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "AI, Research and Media-native",
+      "evidence": [
+        {
+          "url": "https://consensus.app",
+          "quote": "Registry category (assignment.md): AI, Research and Media-native",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Search scholarly articles and return ranked papers, metadata, and links.",
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/api-get-started",
+          "quote": "The Consensus API lets you search 400+ million scholarly articles, including 350 million peer-reviewed research papers, over a single REST endpoint.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.265316Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/api-plans-and-access",
+          "quote": "Pass the key in the `x-api-key` header.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.282612Z"
+        },
+        {
+          "url": "https://docs.consensus.app/enterprise/security",
+          "quote": "For MCP access, users authenticate with OAuth 2.0 (authorization code with PKCE)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.195600Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "REST API uses an API key; MCP supports OAuth 2.0."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/api-get-started",
+          "quote": "Create a free account or sign in at consensus.app.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.265316Z"
+        },
+        {
+          "url": "https://docs.consensus.app/api-get-started",
+          "quote": "Every plan includes API access, and the Free plan includes 30 calls a month.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.265316Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free account and plan provide API access."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/api-get-started",
+          "quote": "The Consensus API lets you search 400+ million scholarly articles, including 350 million peer-reviewed research papers, over a single REST endpoint.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.265316Z"
+        },
+        {
+          "url": "https://docs.consensus.app/enterprise/connection-reference",
+          "quote": "All MCP and JSON-RPC calls must target the `/mcp` path.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.345648Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The product exposes a REST API and an MCP endpoint using JSON-RPC."
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/api-get-started",
+          "quote": "over a single REST endpoint.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.265316Z"
+        },
+        {
+          "url": "https://docs.consensus.app/api-plans-and-access",
+          "quote": "`GET /v1/papers/full_text`, at 1 credit per paper returned.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.282612Z"
+        },
+        {
+          "url": "https://docs.consensus.app/api-plans-and-access",
+          "quote": "`GET /v1beta/papers/citations` and `GET /v1beta/papers/references`",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.282612Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented REST surface appears limited to a small number of endpoint groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/Consensus-NLP",
+          "quote": "Official Consensus MCP server.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:26.372799Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Published in the Consensus-NLP GitHub organization."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/api-plans-and-access",
+          "quote": "The API is self-serve on every Consensus plan.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.282612Z"
+        },
+        {
+          "url": "https://docs.consensus.app/api-get-started",
+          "quote": "Every plan includes API access, and the Free plan includes 30 calls a month.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.265316Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Free plan includes 30 API calls per month."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "No account: 5 requests per second, shared.",
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/core-features/mcp",
+          "quote": "5 per second, shared",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.496005Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented plans table shows this limit for users with no account."
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/Consensus-NLP",
+          "quote": "Consensus REST API. Semantic search over 400M+ peer-reviewed research papers, including all of PubMed, for RAG, AI agents and research tools.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:26.372799Z"
+        },
+        {
+          "url": "https://github.com/Consensus-NLP",
+          "quote": "MIT",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:43:26.372799Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The GitHub source lists the Consensus REST API repository as public and MIT-licensed; self-hosting is not described."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.consensus.app/api-reference/search",
+      "evidence": [
+        {
+          "url": "https://docs.consensus.app/api-reference/search",
+          "quote": "https://docs.consensus.app/api-reference/search",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:43:26.014442Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official API reference for Search."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "consensus",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:43:21.409044Z",
+    "finished_at": "2026-11-23T12:43:59.701607Z",
+    "tool_calls": 17,
+    "tokens_in": 10513,
+    "tokens_out": 3409,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

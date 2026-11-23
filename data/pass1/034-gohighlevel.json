@@ -1,0 +1,326 @@
+{
+  "app_id": 34,
+  "app": "GoHighLevel",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Marketing, Ads, Email and Social",
+      "evidence": [
+        {
+          "url": "https://gohighlevel.com",
+          "quote": "Registry category (assignment.md): Marketing, Ads, Email and Social",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "HighLevel provides APIs that allow developers to build custom integrations, automate processes, and connect external applications with the HighLevel platform.",
+      "evidence": [
+        {
+          "url": "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation",
+          "quote": "HighLevel provides APIs that allow developers to build custom integrations, automate processes, and connect external applications with the HighLevel platform.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:53.468294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/intro/",
+          "quote": "All requests are authenticated using OAuth 2.0.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.468028Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Private Integration tokens are also documented as static/fixed OAuth2 access tokens."
+    },
+    "credential_access": {
+      "value": "self_serve_trial",
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/Authorization/PrivateIntegrationsToken/",
+          "quote": "Generate Private Integration tokens from your account settings and manage them with ease.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.885570Z"
+        },
+        {
+          "url": "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation",
+          "quote": "API access is available across HighLevel subscription plans.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:53.468294Z"
+        },
+        {
+          "url": "https://www.gohighlevel.com/pricing",
+          "quote": "Start with a FREE 14-day trial on any plan below!",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:53.885664Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Private Integration tokens are self-generated; the sources show a free trial but do not explicitly say whether API credentials are available during it."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0/",
+          "quote": "Public Apps: Visible and installable by all users once approved.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.006483Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Approval applies to public apps; private apps are described as for personal/internal use."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/intro/",
+          "quote": "The API is organized around standard REST conventions:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.468028Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/other/mcp/",
+          "quote": "HighLevel MCP Server",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.428765Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The official documentation also provides hosted MCP server connection URLs."
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/zackscriven/ghl-mcp-server",
+          "quote": "A spec-driven MCP server covering the full public GoHighLevel API surface",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:38:53.922547Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A community-maintained MCP server is documented on GitHub."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.gohighlevel.com/pricing",
+          "quote": "Start with a FREE 14-day trial on any plan below!",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:53.885664Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The source documents a 14-day free trial, not a permanent free tier."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/intro/",
+          "quote": "Webhooks — subscribe to real-time events and react to changes as they happen.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.468028Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "100 requests per 10 seconds burst; 200,000 requests per day.",
+      "evidence": [
+        {
+          "url": "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation",
+          "quote": "Burst Limit 100 requests per 10 seconds",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:53.468294Z"
+        },
+        {
+          "url": "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation",
+          "quote": "Daily Limit 200,000 requests per day",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:38:53.468294Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The cited limits are documented for public API V2 requests using OAuth."
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "Public app review and approval",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0/",
+          "quote": "Public Apps: Visible and installable by all users once approved.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.006483Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Public distribution requires app approval."
+    },
+    "docs_url": {
+      "value": "https://marketplace.gohighlevel.com/docs/intro/",
+      "evidence": [
+        {
+          "url": "https://marketplace.gohighlevel.com/docs/intro/",
+          "quote": "Welcome to the API documentation.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:38:53.468028Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "highlevel_location",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:38:49.091410Z",
+    "finished_at": "2026-11-23T12:39:18.854749Z",
+    "tool_calls": 17,
+    "tokens_in": 10387,
+    "tokens_out": 2743,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

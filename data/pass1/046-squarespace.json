@@ -1,0 +1,355 @@
+{
+  "app_id": 46,
+  "app": "Squarespace",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Ecommerce",
+      "evidence": [
+        {
+          "url": "https://squarespace.com",
+          "quote": "Registry category (assignment.md): Ecommerce",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A platform for managing Squarespace storefronts, websites, and domains.",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/",
+          "quote": "Manage your storefront's orders, inventory, transactions, and more.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:58.932075Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+          "quote": "authenticate requests by using an API key or OAuth access token.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:58.938563Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/oauth",
+          "quote": "Squarespace uses OAuth 2.0 to authorize third-party applications",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:59.359388Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Commerce APIs document API keys and OAuth; OAuth uses OAuth 2.0."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources describe different credential paths and do not establish whether obtaining working credentials is free or requires a paid plan."
+    },
+    "production_gate": {
+      "value": "oauth_app_review",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/changes/self-service-oauth-credential-management",
+          "quote": "When you are ready to take your integration live, simply request a review directly from the app details page in your dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:01.319683Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "New OAuth apps enter Demo Mode and need review to go live."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "All Commerce APIs are built on HTTPS and designed with REST principles in mind.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "medium",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+          "quote": "Forms API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:39:58.938563Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Analytics API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Contacts API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Discounts API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Inventory API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Orders API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Products API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Profiles API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Transactions API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        },
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Webhook Subscriptions API:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources name about 10 Commerce API groups."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/mcp/overview",
+          "quote": "The Squarespace MCP server connects AI assistants to Squarespace.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.305663Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources show Squarespace's own MCP server, not a community or other-vendor server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/changes/self-service-oauth-credential-management",
+          "quote": "all new applications created via the self-service tool will enter Demo Mode by default.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:01.319683Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Demo Mode is provided for new applications; the source does not establish that a general API plan is free."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "Webhook Subscriptions API: Subscribe to notifications from a site, like when an order was created, by configuring a webhook endpoint.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "OAuth app review before going live",
+        "type": "access"
+      },
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/changes/self-service-oauth-credential-management",
+          "quote": "When you are ready to take your integration live, simply request a review directly from the app details page in your dashboard.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:01.319683Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Review is required to take a new app live."
+    },
+    "docs_url": {
+      "value": "https://developers.squarespace.com/commerce-apis/overview",
+      "evidence": [
+        {
+          "url": "https://developers.squarespace.com/commerce-apis/overview",
+          "quote": "https://developers.squarespace.com/commerce-apis/overview",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:00.327133Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official Commerce API overview."
+    }
+  },
+  "composio_toolkit": {
+    "value": "unavailable",
+    "slug": null,
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "high",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:39:53.476165Z",
+    "finished_at": "2026-11-23T12:40:37.678764Z",
+    "tool_calls": 17,
+    "tokens_in": 9255,
+    "tokens_out": 3665,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

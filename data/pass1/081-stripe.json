@@ -1,0 +1,300 @@
+{
+  "app_id": 81,
+  "app": "Stripe",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Finance and Fintech",
+      "evidence": [
+        {
+          "url": "https://stripe.com",
+          "quote": "Registry category (assignment.md): Finance and Fintech",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "A complete payments platform for businesses.",
+      "evidence": [
+        {
+          "url": "https://stripe.com/pricing",
+          "quote": "Access a complete payments platform",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:42:29.615412Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "basic",
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.stripe.com/api/authentication",
+          "quote": "The Stripe API uses API keys to authenticate requests.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.794964Z"
+        },
+        {
+          "url": "https://docs.stripe.com/api",
+          "quote": "The Stripe API authenticates requests using HTTP Basic Auth.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.789928Z"
+        },
+        {
+          "url": "https://docs.stripe.com/api",
+          "quote": "use -H \"Authorization: Bearer sk_test_...sk_test_...\"",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.789928Z"
+        },
+        {
+          "url": "https://docs.stripe.com/stripe-apps/api-authentication/oauth",
+          "quote": "When exchanging the authorisation code for an access token",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:28.745505Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "OAuth is documented for Stripe app integrations; API keys are used for API requests."
+    },
+    "credential_access": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish whether developers can obtain working credentials for their own account without charge or approval."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Marketplace review is documented for Stripe Apps, but the sources do not establish a production gate for a multi-tenant API integration."
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.stripe.com/api",
+          "quote": "The Stripe API is organized around REST.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.789928Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "broad",
+      "evidence": [
+        {
+          "url": "https://docs.stripe.com/api",
+          "quote": "Core Resources\nAccountsv2\nAccount Linksv2\nAccount Tokensv2\nUS Bank Accountsv2\nGB Bank Accountsv2\nBalances\nBalance Transactions\nCharges\nCustomers\nCustomer Sessions\nDisputes\nEvents\nEventsv2\nEvent Destinationsv2\nFiles\nFile Links\nMandates\nPayment Intents\nPersonsv2",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.789928Z"
+        },
+        {
+          "url": "https://docs.stripe.com/api",
+          "quote": "Invoices\nInvoice Items\nInvoice Line Items\nInvoice Payments\nInvoice Rendering Templates\nBilling Meters\nBilling Meter Events\nBilling Meter Event Adjustments\nMeter Event Adjustmentsv2\nMeter Event Streamsv2\nBilling Meter Event Summaries\nMeter Eventsv2\nPlans",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.789928Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The reference lists many resource groups across the API, indicating a broad surface."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.stripe.com/mcp",
+          "quote": "Stripe’s MCP server supports two authentication methods:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.792771Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "No third-party MCP server is shown in the provided sources."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.stripe.com/api",
+          "quote": "You can use the Stripe API in sandboxes without affecting your live data or interacting with banking networks.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.789928Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "API sandboxes are documented; the sources do not establish a free plan."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention webhooks in navigation but do not directly establish API webhook or event-subscription support."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not identify vendor-maintained SDKs by language."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources do not establish the credential access and production-gate requirements needed to identify a specific blocker."
+    },
+    "docs_url": {
+      "value": "https://docs.stripe.com/api",
+      "evidence": [
+        {
+          "url": "https://docs.stripe.com/api",
+          "quote": "https://docs.stripe.com/api",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:42:27.789928Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "stripe",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:42:25.174948Z",
+    "finished_at": "2026-11-23T12:42:59.843544Z",
+    "tool_calls": 17,
+    "tokens_in": 10334,
+    "tokens_out": 3201,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

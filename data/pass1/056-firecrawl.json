@@ -1,0 +1,399 @@
+{
+  "app_id": 56,
+  "app": "Firecrawl",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Data, SEO and Scraping",
+      "evidence": [
+        {
+          "url": "https://firecrawl.dev",
+          "quote": "Registry category (assignment.md): Data, SEO and Scraping",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Web data API for AI agents to search, scrape, and interact with the live web.",
+      "evidence": [
+        {
+          "url": "https://docs.firecrawl.dev/introduction",
+          "quote": "Firecrawl is the context API for AI agents. Search, scrape, and interact with the live web to get clean Markdown or structured data.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:31:59.764224Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "api_key",
+        "oauth2",
+        "none"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.firecrawl.dev/authentication",
+          "quote": "Create a key in the dashboard and send it on every request as `Authorization: Bearer fc-YOUR-API-KEY`.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.686863Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/oauth",
+          "quote": "Firecrawl runs an OAuth 2.1 authorization server.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:32:00.038642Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/authentication",
+          "quote": "These REST endpoints work without an API key:",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.686863Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Some endpoints support keyless requests; API keys and OAuth are also documented."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://www.firecrawl.dev/pricing",
+          "quote": "No cost, no card, no hassle.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:32:00.149798Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/introduction",
+          "quote": "Create a free account for direct API access and higher limits",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:31:59.764224Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A free plan and free API access are offered."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "cli"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.firecrawl.dev/authentication",
+          "quote": "Your own code calling the REST API for your team",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.686863Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/introduction",
+          "quote": "Install the Firecrawl CLI",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:31:59.764224Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Search",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Scrape",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Interact",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Parse",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Monitor",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Crawl",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Map",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Agent",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Alexandria",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The API reference lists nine feature groups, indicating a narrow breadth by the stated threshold."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.firecrawl.dev/mcp",
+          "quote": "Our MCP server is open-source and available on GitHub.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687464Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.firecrawl.dev/pricing",
+          "quote": "1,000 credits / month",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:32:00.149798Z"
+        },
+        {
+          "url": "https://www.firecrawl.dev/pricing",
+          "quote": "No cost, no card, no hassle.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:32:00.149798Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Free Plan includes 1,000 credits per month."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.firecrawl.dev/pricing",
+          "quote": "Signed webhook endpoints",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:32:00.149798Z"
+        },
+        {
+          "url": "https://www.firecrawl.dev/pricing",
+          "quote": "Each webhook carries a signature, so you can prove that it came from us.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:32:00.149798Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The pricing page documents signed webhook endpoints."
+    },
+    "official_sdks": {
+      "value": [
+        "python",
+        "node",
+        "go",
+        "rust",
+        "java",
+        "elixir"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.firecrawl.dev/",
+          "quote": "Firecrawl has official SDKs for Python, Node.js, Go, Rust, Java, and Elixir, plus a CLI for terminal workflows.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:32:00.084445Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://www.firecrawl.dev/",
+          "quote": "It's open source.",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:32:00.084445Z"
+        },
+        {
+          "url": "https://docs.firecrawl.dev/mcp",
+          "quote": "Cloud and self-hosted support",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687464Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources describe Firecrawl as open source and document self-hosting support for its MCP server."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+      "evidence": [
+        {
+          "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+          "quote": "Firecrawl API Reference (v2)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:40:37.687245Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "firecrawl",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:40:37.680298Z",
+    "finished_at": "2026-11-23T12:41:10.306953Z",
+    "tool_calls": 17,
+    "tokens_in": 10699,
+    "tokens_out": 3667,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

@@ -1,0 +1,351 @@
+{
+  "app_id": 66,
+  "app": "Neo4j",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://neo4j.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "Stores and queries connected data with a graph database.",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/pricing/",
+          "quote": "Store and query connected data with a graph database",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:21.509689Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "oauth2",
+        "basic",
+        "bearer_token"
+      ],
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/aura/api/authentication/",
+          "quote": "The Aura API uses OAuth 2.0 for API authentication.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:21.067092Z"
+        },
+        {
+          "url": "https://neo4j.com/docs/query-api/current/authentication-authorization/",
+          "quote": "Both basic and bearer authentication are supported.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:22.180990Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Aura API uses OAuth 2.0; the Query API documents basic and bearer authentication."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/aura/api/authentication/",
+          "quote": "All tiers can create Aura API credentials.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:21.067092Z"
+        },
+        {
+          "url": "https://neo4j.com/pricing/",
+          "quote": "AuraDB Free\nLearn and Explore Graphs\n$0",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:21.509689Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Aura API credentials are available on all tiers, including the free tier."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest"
+      ],
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/query-api/current/",
+          "quote": "The Query API allows to execute Cypher statements against a Neo4j server through HTTP requests.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:21.585775Z"
+        },
+        {
+          "url": "https://neo4j.com/docs/aura/api/overview/",
+          "quote": "The base URL for the Aura API is `https://api.neo4j.io`.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:20.527608Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The documented Query API and Aura API are HTTP APIs."
+    },
+    "api_breadth": {
+      "value": "narrow",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/query-api/current/endpoints/",
+          "quote": "| `/db//query/v2` | To submit queries. |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:21.509647Z"
+        },
+        {
+          "url": "https://neo4j.com/docs/query-api/current/endpoints/",
+          "quote": "| `/db//query/v2/tx` | To open an explicit transaction. |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:21.509647Z"
+        },
+        {
+          "url": "https://neo4j.com/docs/query-api/current/endpoints/",
+          "quote": "| `/db//query/v2/tx//commit` | To commit an open transaction with ID ``. |",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:21.509647Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The Query API endpoint surface shown is small; Aura API breadth is not enumerated in these sources."
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/mcp/current/",
+          "quote": "Neo4j MCP implements the Model Context Protocol (MCP)",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:20.204728Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_third_party": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/neo4j-contrib/mcp-neo4j",
+          "quote": "They are developed and maintained by the Neo4j Field GenAI team and welcome contributions from the larger developer community.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:41:21.693750Z"
+        },
+        {
+          "url": "https://github.com/neo4j-contrib/mcp-neo4j",
+          "quote": "These servers are frequently updated with new and experimental features, but are not supported by the Neo4j product team.",
+          "source_tier": "community",
+          "fetched_at": "2026-11-23T12:41:21.693750Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "A Neo4j Labs community-contribution MCP project is documented separately from the official product server."
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/pricing/",
+          "quote": "AuraDB Free\nLearn and Explore Graphs\n$0",
+          "source_tier": "official_help",
+          "fetched_at": "2026-11-23T12:41:21.509689Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "AuraDB Free is listed at $0."
+    },
+    "webhooks": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "rate_limit_note": {
+      "value": "AuraDB Free and Pro trial without billing: 25 requests/minute; specified paid tiers: 125 requests/minute; billing endpoints: 10 requests/day per organization.",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/aura/api/overview/",
+          "quote": "AuraDB Free and AuraDB Professional trial accounts without a billing method attached, get a rate limit of 25 requests per minute.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:20.527608Z"
+        },
+        {
+          "url": "https://neo4j.com/docs/aura/api/overview/",
+          "quote": "AuraDB Professional accounts with a billing method attached, AuraDB Business Critical, and AuraDB Virtual Dedicated Cloud get a rate limit of 125 requests per minute.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:20.527608Z"
+        },
+        {
+          "url": "https://neo4j.com/docs/aura/api/overview/",
+          "quote": "have a rate limit of 10 requests per day and organization.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:20.527608Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Aura API limits vary by tier; the billing endpoints have a separate lower limit."
+    },
+    "open_source_self_host": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/mcp/current/",
+          "quote": "Options include Aura, neo4j-desktop or self-managed.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:20.204728Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Neo4j can be deployed as a self-managed database."
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://neo4j.com/docs/aura/api/overview/",
+      "evidence": [
+        {
+          "url": "https://neo4j.com/docs/aura/api/overview/",
+          "quote": "https://neo4j.com/docs/aura/api/overview/",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:20.527608Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Official Aura API overview; the sources also document the separate Query API."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "neo4j",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:13.986182Z",
+    "finished_at": "2026-11-23T12:41:50.763408Z",
+    "tool_calls": 17,
+    "tokens_in": 10387,
+    "tokens_out": 3159,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}

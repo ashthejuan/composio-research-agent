@@ -1,0 +1,300 @@
+{
+  "app_id": 61,
+  "app": "GitHub",
+  "pass": "pass1",
+  "claims": {
+    "category": {
+      "value": "Developer, Infra and Data platforms",
+      "evidence": [
+        {
+          "url": "https://github.com",
+          "quote": "Registry category (assignment.md): Developer, Infra and Data platforms",
+          "source_tier": "official_help",
+          "fetched_at": null
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "registry"
+    },
+    "description": {
+      "value": "GitHub's REST API lets developers create integrations, retrieve data, and automate workflows.",
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/rest",
+          "quote": "Create integrations, retrieve data, and automate your workflows with the GitHub REST API.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.323684Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "auth_methods": {
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+          "quote": "you can authenticate your request by sending the token in the Authorization header of your request.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.192503Z"
+        },
+        {
+          "url": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app?apiVersion=2022-11-28",
+          "quote": "Authenticating to the REST API with an OAuth app",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.496031Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The docs describe token-based authentication and OAuth apps."
+    },
+    "credential_access": {
+      "value": "self_serve_free",
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+          "quote": "You can create a personal access token",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.192503Z"
+        },
+        {
+          "url": "https://github.com/pricing",
+          "quote": "Free\n$0USD",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:41:07.794475Z"
+        }
+      ],
+      "extractor_confidence": "medium",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources show personal access tokens and a free plan, but do not explicitly connect the two."
+    },
+    "production_gate": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_type": {
+      "value": [
+        "rest",
+        "graphql"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/rest/about-the-rest-api/about-the-openapi-description-for-the-rest-api",
+          "quote": "The GitHub REST API is fully described in an OpenAPI compliant document.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.195016Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "quote": "Comparing GitHub's REST API and GraphQL API",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.323684Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "api_breadth": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "mcp_official": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server?tool=vscode",
+          "quote": "The GitHub MCP server is available to all GitHub users regardless of plan type.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.201376Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "GitHub Docs describe the GitHub MCP server."
+    },
+    "mcp_third_party": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "free_tier_or_sandbox": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://github.com/pricing",
+          "quote": "Free\n$0USD",
+          "source_tier": "official_github",
+          "fetched_at": "2026-11-23T12:41:07.794475Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "GitHub offers a free plan."
+    },
+    "webhooks": {
+      "value": "yes",
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/apps/github-marketplace/github-marketplace-overview/about-github-marketplace-for-apps",
+          "quote": "Add webhook events to the app to track user billing requests.",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.197292Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The docs specifically describe webhook events for Marketplace apps."
+    },
+    "official_sdks": {
+      "value": [
+        "unknown"
+      ],
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "The sources mention Octokit SDKs but do not identify their language names."
+    },
+    "rate_limit_note": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "open_source_self_host": {
+      "value": "unknown",
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "main_blocker": {
+      "value": {
+        "text": "unknown",
+        "type": "unknown"
+      },
+      "evidence": [],
+      "extractor_confidence": "low",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": ""
+    },
+    "docs_url": {
+      "value": "https://docs.github.com/en/rest",
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/rest",
+          "quote": "# GitHub REST API documentation",
+          "source_tier": "official_docs",
+          "fetched_at": "2026-11-23T12:41:07.323684Z"
+        }
+      ],
+      "extractor_confidence": "high",
+      "verification": {
+        "status": "pending",
+        "loops": [],
+        "notes": ""
+      },
+      "note": "Primary REST API documentation."
+    }
+  },
+  "composio_toolkit": {
+    "value": "available",
+    "slug": "github",
+    "source": "composio_docs_catalog"
+  },
+  "buildability": {
+    "score": 0,
+    "verdict": "unknown",
+    "breakdown": null,
+    "commercial_gate": false,
+    "bucket": "unknown"
+  },
+  "record_confidence": "medium",
+  "run": {
+    "model": "gpt-6-luna",
+    "verifier_model": null,
+    "started_at": "2026-11-23T12:41:01.317513Z",
+    "finished_at": "2026-11-23T12:41:29.386070Z",
+    "tool_calls": 17,
+    "tokens_in": 8239,
+    "tokens_out": 2205,
+    "cost_usd": 0.0,
+    "backend": "direct"
+  },
+  "errors": []
+}
