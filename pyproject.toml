@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "app-intel-agent"
+version = "0.1.0"
+description = "App intelligence research agent"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.11",
+  "composio",
+  "exa-py",
+  "httpx",
+  "openai",
+  "google-genai",
+  "jinja2",
+  "playwright",
+  "rapidfuzz",
+  "tenacity",
+  "rich",
+  "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,1271 @@
+[
+  {
+    "id": 1,
+    "name": "Salesforce",
+    "category": "CRM and Sales",
+    "website": "https://salesforce.com",
+    "hint": "salesforce.com",
+    "official_domains": [
+      "salesforce.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 2,
+    "name": "HubSpot",
+    "category": "CRM and Sales",
+    "website": "https://hubspot.com",
+    "hint": "hubspot.com",
+    "official_domains": [
+      "hubspot.com",
+      "developers.hubspot.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 3,
+    "name": "Pipedrive",
+    "category": "CRM and Sales",
+    "website": "https://pipedrive.com",
+    "hint": "pipedrive.com",
+    "official_domains": [
+      "pipedrive.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 4,
+    "name": "Attio",
+    "category": "CRM and Sales",
+    "website": "https://attio.com",
+    "hint": "attio.com",
+    "official_domains": [
+      "attio.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 5,
+    "name": "Twenty",
+    "category": "CRM and Sales",
+    "website": "https://twenty.com",
+    "hint": "twenty.com (open-source CRM)",
+    "official_domains": [
+      "twenty.com",
+      "github.com/twentyhq"
+    ],
+    "kind": "saas_api",
+    "notes": "Open-source CRM but hosted API; evidence may also live in the twentyhq GitHub org."
+  },
+  {
+    "id": 6,
+    "name": "Podio",
+    "category": "CRM and Sales",
+    "website": "https://podio.com",
+    "hint": "podio.com",
+    "official_domains": [
+      "podio.com",
+      "developers.podio.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Owned by Citrix/Cloud Software Group; developer docs on developers.podio.com."
+  },
+  {
+    "id": 7,
+    "name": "Zoho CRM",
+    "category": "CRM and Sales",
+    "website": "https://zoho.com/crm",
+    "hint": "zoho.com/crm",
+    "official_domains": [
+      "zoho.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Multiple data-center domains (zoho.eu, zoho.in) may host regional docs."
+  },
+  {
+    "id": 8,
+    "name": "Close",
+    "category": "CRM and Sales",
+    "website": "https://close.com",
+    "hint": "close.com",
+    "official_domains": [
+      "close.com",
+      "developer.close.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Name is generic; ensure results are for Close CRM."
+  },
+  {
+    "id": 9,
+    "name": "Copper",
+    "category": "CRM and Sales",
+    "website": "https://copper.com",
+    "hint": "copper.com",
+    "official_domains": [
+      "copper.com",
+      "developer.copper.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Copper CRM (formerly ProsperWorks); name is generic."
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "category": "CRM and Sales",
+    "website": "https://dealcloud.com",
+    "hint": "api.docs.dealcloud.com",
+    "official_domains": [
+      "dealcloud.com",
+      "intapp.com"
+    ],
+    "kind": "enterprise_platform",
+    "notes": "Intapp DealCloud; API access is customer/tenant-gated."
+  },
+  {
+    "id": 11,
+    "name": "Zendesk",
+    "category": "Support and Helpdesk",
+    "website": "https://zendesk.com",
+    "hint": "zendesk.com",
+    "official_domains": [
+      "zendesk.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 12,
+    "name": "Intercom",
+    "category": "Support and Helpdesk",
+    "website": "https://intercom.com",
+    "hint": "intercom.com",
+    "official_domains": [
+      "intercom.com",
+      "intercom.io"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 13,
+    "name": "Freshdesk",
+    "category": "Support and Helpdesk",
+    "website": "https://freshdesk.com",
+    "hint": "freshdesk.com",
+    "official_domains": [
+      "freshdesk.com",
+      "freshworks.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Docs at developers.freshdesk.com."
+  },
+  {
+    "id": 14,
+    "name": "Front",
+    "category": "Support and Helpdesk",
+    "website": "https://front.com",
+    "hint": "front.com",
+    "official_domains": [
+      "front.com",
+      "frontapp.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Name is generic; ensure results are for Front (frontapp)."
+  },
+  {
+    "id": 15,
+    "name": "Pylon",
+    "category": "Support and Helpdesk",
+    "website": "https://usepylon.com",
+    "hint": "usepylon.com",
+    "official_domains": [
+      "usepylon.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Name is generic; the hint domain is usepylon.com."
+  },
+  {
+    "id": 16,
+    "name": "LiveAgent",
+    "category": "Support and Helpdesk",
+    "website": "https://liveagent.com",
+    "hint": "liveagent.com",
+    "official_domains": [
+      "liveagent.com",
+      "qualityunit.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 17,
+    "name": "Plain",
+    "category": "Support and Helpdesk",
+    "website": "https://plain.com",
+    "hint": "plain.com",
+    "official_domains": [
+      "plain.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Name is generic; ensure results are for Plain support platform."
+  },
+  {
+    "id": 18,
+    "name": "Help Scout",
+    "category": "Support and Helpdesk",
+    "website": "https://helpscout.com",
+    "hint": "helpscout.com",
+    "official_domains": [
+      "helpscout.com",
+      "helpscout.net"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 19,
+    "name": "Gorgias",
+    "category": "Support and Helpdesk",
+    "website": "https://gorgias.com",
+    "hint": "gorgias.com",
+    "official_domains": [
+      "gorgias.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Developer docs at developers.gorgias.com."
+  },
+  {
+    "id": 20,
+    "name": "Gladly",
+    "category": "Support and Helpdesk",
+    "website": "https://gladly.com",
+    "hint": "gladly.com",
+    "official_domains": [
+      "gladly.com",
+      "gladly.qa"
+    ],
+    "kind": "saas_api",
+    "notes": "API docs may be gated behind customer login."
+  },
+  {
+    "id": 21,
+    "name": "Slack",
+    "category": "Communications and Messaging",
+    "website": "https://slack.com",
+    "hint": "slack.com",
+    "official_domains": [
+      "slack.com",
+      "slack.dev"
+    ],
+    "kind": "saas_api",
+    "notes": "Docs at api.slack.com / docs.slack.dev."
+  },
+  {
+    "id": 22,
+    "name": "Twilio",
+    "category": "Communications and Messaging",
+    "website": "https://twilio.com",
+    "hint": "twilio.com",
+    "official_domains": [
+      "twilio.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 23,
+    "name": "Zoho Cliq",
+    "category": "Communications and Messaging",
+    "website": "https://zoho.com/cliq",
+    "hint": "zoho.com/cliq",
+    "official_domains": [
+      "zoho.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Multiple data-center domains may host regional docs."
+  },
+  {
+    "id": 24,
+    "name": "Lark (Larksuite)",
+    "category": "Communications and Messaging",
+    "website": "https://larksuite.com",
+    "hint": "open.larksuite.com",
+    "official_domains": [
+      "larksuite.com",
+      "larksuite.cn",
+      "feishu.cn",
+      "larksuite.net"
+    ],
+    "kind": "saas_api",
+    "notes": "Lark international vs Feishu (China) are separate platforms; prefer open.larksuite.com."
+  },
+  {
+    "id": 25,
+    "name": "Pumble",
+    "category": "Communications and Messaging",
+    "website": "https://pumble.com",
+    "hint": "pumble.com",
+    "official_domains": [
+      "pumble.com",
+      "clockify.me"
+    ],
+    "kind": "saas_api",
+    "notes": "From the Clockify team; API may be limited."
+  },
+  {
+    "id": 26,
+    "name": "Discord",
+    "category": "Communications and Messaging",
+    "website": "https://discord.com",
+    "hint": "discord.com",
+    "official_domains": [
+      "discord.com",
+      "discord.dev",
+      "discordapp.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Developer docs at discord.com/developers."
+  },
+  {
+    "id": 27,
+    "name": "Telegram",
+    "category": "Communications and Messaging",
+    "website": "https://telegram.org",
+    "hint": "core.telegram.org",
+    "official_domains": [
+      "telegram.org",
+      "t.me"
+    ],
+    "kind": "saas_api",
+    "notes": "Two APIs: Bot API and TDLib/MTProto user API; specify which was researched."
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "category": "Communications and Messaging",
+    "website": "https://whatsapp.com",
+    "hint": "developers.facebook.com/docs/whatsapp",
+    "official_domains": [
+      "facebook.com",
+      "meta.com",
+      "whatsapp.com",
+      "fb.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Meta-hosted Cloud API; Business Platform requires Meta business verification for production."
+  },
+  {
+    "id": 29,
+    "name": "Aircall",
+    "category": "Communications and Messaging",
+    "website": "https://aircall.io",
+    "hint": "aircall.io",
+    "official_domains": [
+      "aircall.io"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 30,
+    "name": "Vonage",
+    "category": "Communications and Messaging",
+    "website": "https://vonage.com",
+    "hint": "developer.vonage.com",
+    "official_domains": [
+      "vonage.com",
+      "nexmo.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Formerly Nexmo; Ericsson-owned."
+  },
+  {
+    "id": 31,
+    "name": "Google Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://ads.google.com",
+    "hint": "developers.google.com/google-ads",
+    "official_domains": [
+      "google.com",
+      "googleapis.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Requires developer token approval; docs on developers.google.com."
+  },
+  {
+    "id": 32,
+    "name": "Meta Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://facebook.com/business",
+    "hint": "developers.facebook.com/docs/marketing-apis",
+    "official_domains": [
+      "facebook.com",
+      "meta.com",
+      "fb.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Marketing API; app review and business verification gates likely."
+  },
+  {
+    "id": 33,
+    "name": "LinkedIn Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://linkedin.com",
+    "hint": "learn.microsoft.com/linkedin/marketing",
+    "official_domains": [
+      "linkedin.com",
+      "learn.microsoft.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Docs hosted on learn.microsoft.com; Marketing Developer Platform access is partner-gated."
+  },
+  {
+    "id": 34,
+    "name": "GoHighLevel",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://gohighlevel.com",
+    "hint": "highlevel.stoplight.io",
+    "official_domains": [
+      "gohighlevel.com",
+      "highlevel.stoplight.io",
+      "leadconnectorhq.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Now branded HighLevel; docs on stoplight and marketplace.gohighlevel.com."
+  },
+  {
+    "id": 35,
+    "name": "Mailchimp",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://mailchimp.com",
+    "hint": "mailchimp.com/developer",
+    "official_domains": [
+      "mailchimp.com",
+      "intuit.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 36,
+    "name": "Klaviyo",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://klaviyo.com",
+    "hint": "developers.klaviyo.com",
+    "official_domains": [
+      "klaviyo.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 37,
+    "name": "systeme.io",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://systeme.io",
+    "hint": "systeme.io (funnel builder)",
+    "official_domains": [
+      "systeme.io"
+    ],
+    "kind": "saas_api",
+    "notes": "API documentation may be limited."
+  },
+  {
+    "id": 38,
+    "name": "Pinterest",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://pinterest.com",
+    "hint": "developers.pinterest.com",
+    "official_domains": [
+      "pinterest.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Trial access then standard access requires app review."
+  },
+  {
+    "id": 39,
+    "name": "Threads (Meta)",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://threads.net",
+    "hint": "developers.facebook.com/docs/threads",
+    "official_domains": [
+      "facebook.com",
+      "meta.com",
+      "threads.net",
+      "threads.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Meta Threads API; app review required."
+  },
+  {
+    "id": 40,
+    "name": "SendGrid",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://sendgrid.com",
+    "hint": "sendgrid.com",
+    "official_domains": [
+      "sendgrid.com",
+      "twilio.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Owned by Twilio; docs on twilio.com/docs/sendgrid."
+  },
+  {
+    "id": 41,
+    "name": "Shopify",
+    "category": "Ecommerce",
+    "website": "https://shopify.com",
+    "hint": "shopify.dev",
+    "official_domains": [
+      "shopify.dev",
+      "shopify.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 42,
+    "name": "WooCommerce",
+    "category": "Ecommerce",
+    "website": "https://woocommerce.com",
+    "hint": "woocommerce.com/document/woocommerce-rest-api",
+    "official_domains": [
+      "woocommerce.com",
+      "woocommerce.github.io",
+      "github.com/woocommerce"
+    ],
+    "kind": "saas_api",
+    "notes": "Self-hosted WordPress plugin; the API is per-store, no central hosted API."
+  },
+  {
+    "id": 43,
+    "name": "BigCommerce",
+    "category": "Ecommerce",
+    "website": "https://bigcommerce.com",
+    "hint": "developer.bigcommerce.com",
+    "official_domains": [
+      "bigcommerce.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 44,
+    "name": "Salesforce Commerce Cloud",
+    "category": "Ecommerce",
+    "website": "https://salesforce.com",
+    "hint": "developer.salesforce.com/docs/commerce",
+    "official_domains": [
+      "salesforce.com",
+      "demandware.net"
+    ],
+    "kind": "enterprise_platform",
+    "notes": "Distinguish sandbox/dev access from licensed production access."
+  },
+  {
+    "id": 45,
+    "name": "Magento (Adobe Commerce)",
+    "category": "Ecommerce",
+    "website": "https://business.adobe.com/products/magento",
+    "hint": "developer.adobe.com/commerce",
+    "official_domains": [
+      "adobe.com",
+      "magento.com"
+    ],
+    "kind": "enterprise_platform",
+    "notes": "Distinguish sandbox/dev access from licensed production access; Open Source edition is self-hosted."
+  },
+  {
+    "id": 46,
+    "name": "Squarespace",
+    "category": "Ecommerce",
+    "website": "https://squarespace.com",
+    "hint": "developers.squarespace.com",
+    "official_domains": [
+      "squarespace.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Commerce APIs require Commerce plan; OAuth requires approval."
+  },
+  {
+    "id": 47,
+    "name": "Ecwid",
+    "category": "Ecommerce",
+    "website": "https://ecwid.com",
+    "hint": "api-docs.ecwid.com",
+    "official_domains": [
+      "ecwid.com",
+      "lightspeedhq.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Owned by Lightspeed."
+  },
+  {
+    "id": 48,
+    "name": "Gumroad",
+    "category": "Ecommerce",
+    "website": "https://gumroad.com",
+    "hint": "gumroad.com/api",
+    "official_domains": [
+      "gumroad.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 49,
+    "name": "Amazon Selling Partner",
+    "category": "Ecommerce",
+    "website": "https://sell.amazon.com",
+    "hint": "developer-docs.amazon.com/sp-api",
+    "official_domains": [
+      "amazon.com",
+      "developer-docs.amazon.com"
+    ],
+    "kind": "saas_api",
+    "notes": "SP-API registration requires seller account and developer approval."
+  },
+  {
+    "id": 50,
+    "name": "fanbasis",
+    "category": "Ecommerce",
+    "website": "https://fanbasis.com",
+    "hint": "fanbasis.com",
+    "official_domains": [
+      "fanbasis.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Low documentation expected; prefer unknown over inference."
+  },
+  {
+    "id": 51,
+    "name": "DataForSEO",
+    "category": "Data, SEO and Scraping",
+    "website": "https://dataforseo.com",
+    "hint": "docs.dataforseo.com",
+    "official_domains": [
+      "dataforseo.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 52,
+    "name": "SE Ranking",
+    "category": "Data, SEO and Scraping",
+    "website": "https://seranking.com",
+    "hint": "seranking.com/api",
+    "official_domains": [
+      "seranking.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 53,
+    "name": "Ahrefs",
+    "category": "Data, SEO and Scraping",
+    "website": "https://ahrefs.com",
+    "hint": "ahrefs.com/api",
+    "official_domains": [
+      "ahrefs.com"
+    ],
+    "kind": "saas_api",
+    "notes": "API access tied to paid plans."
+  },
+  {
+    "id": 54,
+    "name": "MrScraper",
+    "category": "Data, SEO and Scraping",
+    "website": "https://mrscraper.com",
+    "hint": "docs.mrscraper.com",
+    "official_domains": [
+      "mrscraper.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 55,
+    "name": "Apify",
+    "category": "Data, SEO and Scraping",
+    "website": "https://apify.com",
+    "hint": "docs.apify.com",
+    "official_domains": [
+      "apify.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 56,
+    "name": "Firecrawl",
+    "category": "Data, SEO and Scraping",
+    "website": "https://firecrawl.dev",
+    "hint": "firecrawl.dev",
+    "official_domains": [
+      "firecrawl.dev",
+      "github.com/mendableai",
+      "github.com/firecrawl"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 57,
+    "name": "Bright Data",
+    "category": "Data, SEO and Scraping",
+    "website": "https://brightdata.com",
+    "hint": "brightdata.com",
+    "official_domains": [
+      "brightdata.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 58,
+    "name": "Sherlock",
+    "category": "Data, SEO and Scraping",
+    "website": "https://github.com/sherlock-project/sherlock",
+    "hint": "github.com/sherlock-project/sherlock",
+    "official_domains": [
+      "github.com/sherlock-project",
+      "sherlockproject.xyz"
+    ],
+    "kind": "oss_tool",
+    "notes": "Open-source CLI/OSS tool, not a SaaS API. Auth none; API type cli; judge buildability on whether it can be wrapped as an agent tool."
+  },
+  {
+    "id": 59,
+    "name": "Waterfall.io",
+    "category": "Data, SEO and Scraping",
+    "website": "https://waterfall.io",
+    "hint": "waterfall.io (contact/company intel)",
+    "official_domains": [
+      "waterfall.io"
+    ],
+    "kind": "saas_api",
+    "notes": "Low documentation expected; prefer unknown over inference."
+  },
+  {
+    "id": 60,
+    "name": "Clay",
+    "category": "Data, SEO and Scraping",
+    "website": "https://clay.com",
+    "hint": "clay.com",
+    "official_domains": [
+      "clay.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Name is generic; ensure results are for Clay (clay.com) data enrichment."
+  },
+  {
+    "id": 61,
+    "name": "GitHub",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://github.com",
+    "hint": "docs.github.com/rest",
+    "official_domains": [
+      "github.com",
+      "githubusercontent.com",
+      "github.blog"
+    ],
+    "kind": "saas_api",
+    "notes": "Docs on docs.github.com (subdomain of github.com)."
+  },
+  {
+    "id": 62,
+    "name": "Vercel",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://vercel.com",
+    "hint": "vercel.com/docs/rest-api",
+    "official_domains": [
+      "vercel.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 63,
+    "name": "Netlify",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://netlify.com",
+    "hint": "docs.netlify.com/api",
+    "official_domains": [
+      "netlify.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 64,
+    "name": "Cloudflare",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://cloudflare.com",
+    "hint": "developers.cloudflare.com/api",
+    "official_domains": [
+      "cloudflare.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 65,
+    "name": "Supabase",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://supabase.com",
+    "hint": "supabase.com/docs",
+    "official_domains": [
+      "supabase.com",
+      "supabase.io",
+      "github.com/supabase"
+    ],
+    "kind": "saas_api",
+    "notes": "Management API vs per-project REST API; specify which."
+  },
+  {
+    "id": 66,
+    "name": "Neo4j",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://neo4j.com",
+    "hint": "neo4j.com/docs/api",
+    "official_domains": [
+      "neo4j.com",
+      "github.com/neo4j"
+    ],
+    "kind": "saas_api",
+    "notes": "Database with drivers/HTTP APIs plus Aura API; specify which."
+  },
+  {
+    "id": 67,
+    "name": "Snowflake",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://snowflake.com",
+    "hint": "docs.snowflake.com",
+    "official_domains": [
+      "snowflake.com"
+    ],
+    "kind": "enterprise_platform",
+    "notes": "Account-based platform; no free public API without an account/trial."
+  },
+  {
+    "id": 68,
+    "name": "MongoDB Atlas",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://mongodb.com",
+    "hint": "mongodb.com/docs/atlas/api",
+    "official_domains": [
+      "mongodb.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Atlas Administration API vs Data API; specify which."
+  },
+  {
+    "id": 69,
+    "name": "Datadog",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://datadoghq.com",
+    "hint": "docs.datadoghq.com/api",
+    "official_domains": [
+      "datadoghq.com",
+      "datadoghq.eu"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 70,
+    "name": "Sentry",
+    "category": "Developer, Infra and Data platforms",
+    "website": "https://sentry.io",
+    "hint": "docs.sentry.io/api",
+    "official_domains": [
+      "sentry.io",
+      "github.com/getsentry"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 71,
+    "name": "Notion",
+    "category": "Productivity and Project Management",
+    "website": "https://notion.so",
+    "hint": "developers.notion.com",
+    "official_domains": [
+      "notion.so",
+      "notion.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 72,
+    "name": "Airtable",
+    "category": "Productivity and Project Management",
+    "website": "https://airtable.com",
+    "hint": "airtable.com/developers",
+    "official_domains": [
+      "airtable.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 73,
+    "name": "Linear",
+    "category": "Productivity and Project Management",
+    "website": "https://linear.app",
+    "hint": "developers.linear.app",
+    "official_domains": [
+      "linear.app"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 74,
+    "name": "Jira",
+    "category": "Productivity and Project Management",
+    "website": "https://atlassian.com/software/jira",
+    "hint": "developer.atlassian.com",
+    "official_domains": [
+      "atlassian.com",
+      "atlassian.net"
+    ],
+    "kind": "saas_api",
+    "notes": "Jira Cloud vs Data Center/Server REST APIs differ."
+  },
+  {
+    "id": 75,
+    "name": "Asana",
+    "category": "Productivity and Project Management",
+    "website": "https://asana.com",
+    "hint": "developers.asana.com",
+    "official_domains": [
+      "asana.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 76,
+    "name": "Monday.com",
+    "category": "Productivity and Project Management",
+    "website": "https://monday.com",
+    "hint": "developer.monday.com",
+    "official_domains": [
+      "monday.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 77,
+    "name": "ClickUp",
+    "category": "Productivity and Project Management",
+    "website": "https://clickup.com",
+    "hint": "clickup.com/api",
+    "official_domains": [
+      "clickup.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 78,
+    "name": "Coda",
+    "category": "Productivity and Project Management",
+    "website": "https://coda.io",
+    "hint": "coda.io/developers",
+    "official_domains": [
+      "coda.io"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 79,
+    "name": "Smartsheet",
+    "category": "Productivity and Project Management",
+    "website": "https://smartsheet.com",
+    "hint": "smartsheet.com/developers",
+    "official_domains": [
+      "smartsheet.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 80,
+    "name": "Harvest",
+    "category": "Productivity and Project Management",
+    "website": "https://getharvest.com",
+    "hint": "harvestapp.com (help.getharvest.com/api-v2)",
+    "official_domains": [
+      "getharvest.com",
+      "harvestapp.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Docs at help.getharvest.com/api-v2; OAuth on id.getharvest.com."
+  },
+  {
+    "id": 81,
+    "name": "Stripe",
+    "category": "Finance and Fintech",
+    "website": "https://stripe.com",
+    "hint": "stripe.com/docs/api",
+    "official_domains": [
+      "stripe.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 82,
+    "name": "Plaid",
+    "category": "Finance and Fintech",
+    "website": "https://plaid.com",
+    "hint": "plaid.com/docs",
+    "official_domains": [
+      "plaid.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Production access requires application approval."
+  },
+  {
+    "id": 83,
+    "name": "Binance",
+    "category": "Finance and Fintech",
+    "website": "https://binance.com",
+    "hint": "binance-docs.github.io",
+    "official_domains": [
+      "binance.com",
+      "binance-docs.github.io",
+      "github.com/binance"
+    ],
+    "kind": "saas_api",
+    "notes": "Docs hosted on GitHub Pages (binance-docs.github.io); several APIs (Spot, Futures, etc.); region restrictions (Binance.US separate)."
+  },
+  {
+    "id": 84,
+    "name": "Paygent Connect",
+    "category": "Finance and Fintech",
+    "website": "https://paygent.co.jp",
+    "hint": "paygent (NMI-powered)",
+    "official_domains": [
+      "paygent.co.jp",
+      "paygent.com",
+      "nmi.com",
+      "networkmerchants.com"
+    ],
+    "kind": "saas_api",
+    "notes": "Ambiguous vendor: hint says 'paygent (NMI-powered)'; domain unconfirmed. Low documentation expected; prefer unknown over inference."
+  },
+  {
+    "id": 85,
+    "name": "iPayX",
+    "category": "Finance and Fintech",
+    "website": "https://ipayx.ai",
+    "hint": "ipayx.ai/docs",
+    "official_domains": [
+      "ipayx.ai"
+    ],
+    "kind": "saas_api",
+    "notes": "Low documentation expected; prefer unknown over inference."
+  },
+  {
+    "id": 86,
+    "name": "QuickBooks",
+    "category": "Finance and Fintech",
+    "website": "https://quickbooks.intuit.com",
+    "hint": "developer.intuit.com",
+    "official_domains": [
+      "intuit.com",
+      "quickbooks.com"
+    ],
+    "kind": "saas_api",
+    "notes": "QuickBooks Online API via Intuit Developer."
+  },
+  {
+    "id": 87,
+    "name": "Xero",
+    "category": "Finance and Fintech",
+    "website": "https://xero.com",
+    "hint": "developer.xero.com",
+    "official_domains": [
+      "xero.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 88,
+    "name": "Brex",
+    "category": "Finance and Fintech",
+    "website": "https://brex.com",
+    "hint": "developer.brex.com",
+    "official_domains": [
+      "brex.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 89,
+    "name": "Ramp",
+    "category": "Finance and Fintech",
+    "website": "https://ramp.com",
+    "hint": "docs.ramp.com",
+    "official_domains": [
+      "ramp.com"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 90,
+    "name": "PitchBook",
+    "category": "Finance and Fintech",
+    "website": "https://pitchbook.com",
+    "hint": "pitchbook.com (research API)",
+    "official_domains": [
+      "pitchbook.com",
+      "morningstar.com"
+    ],
+    "kind": "enterprise_platform",
+    "notes": "Enterprise subscription data provider; API access sales-gated."
+  },
+  {
+    "id": 91,
+    "name": "NotebookLM",
+    "category": "AI, Research and Media-native",
+    "website": "https://notebooklm.google",
+    "hint": "cloud.google.com/gemini (Enterprise API)",
+    "official_domains": [
+      "google.com",
+      "notebooklm.google",
+      "googleapis.com"
+    ],
+    "kind": "enterprise_platform",
+    "notes": "Research the Enterprise API named in the hint (Google Cloud). Consumer NotebookLM has no public API."
+  },
+  {
+    "id": 92,
+    "name": "Otter AI",
+    "category": "AI, Research and Media-native",
+    "website": "https://otter.ai",
+    "hint": "help.otter.ai (MCP server)",
+    "official_domains": [
+      "otter.ai"
+    ],
+    "kind": "saas_api",
+    "notes": "Hint points to an MCP server; verify whether a public REST API exists."
+  },
+  {
+    "id": 93,
+    "name": "Fathom",
+    "category": "AI, Research and Media-native",
+    "website": "https://fathom.video",
+    "hint": "fathom.video",
+    "official_domains": [
+      "fathom.video",
+      "fathom.ai"
+    ],
+    "kind": "saas_api",
+    "notes": "Name is generic; ensure results are for Fathom AI meeting recorder."
+  },
+  {
+    "id": 94,
+    "name": "Consensus",
+    "category": "AI, Research and Media-native",
+    "website": "https://consensus.app",
+    "hint": "consensus.app (OAuth requested)",
+    "official_domains": [
+      "consensus.app"
+    ],
+    "kind": "saas_api",
+    "notes": "Hint says OAuth requested; public API existence unclear."
+  },
+  {
+    "id": 95,
+    "name": "Reducto",
+    "category": "AI, Research and Media-native",
+    "website": "https://reducto.ai",
+    "hint": "reducto.ai (document parsing)",
+    "official_domains": [
+      "reducto.ai"
+    ],
+    "kind": "saas_api",
+    "notes": ""
+  },
+  {
+    "id": 96,
+    "name": "Devin",
+    "category": "AI, Research and Media-native",
+    "website": "https://devin.ai",
+    "hint": "docs.devin.ai (MCP)",
+    "official_domains": [
+      "devin.ai",
+      "cognition.ai"
+    ],
+    "kind": "saas_api",
+    "notes": "Cognition product; hint points to MCP."
+  },
+  {
+    "id": 97,
+    "name": "higgsfield",
+    "category": "AI, Research and Media-native",
+    "website": "https://higgsfield.ai",
+    "hint": "higgsfield.ai/cli (content suite)",
+    "official_domains": [
+      "higgsfield.ai"
+    ],
+    "kind": "saas_api",
+    "notes": "Low documentation expected; prefer unknown over inference."
+  },
+  {
+    "id": 98,
+    "name": "Mermaid CLI",
+    "category": "AI, Research and Media-native",
+    "website": "https://github.com/mermaid-js/mermaid-cli",
+    "hint": "github.com/mermaid-js/mermaid-cli",
+    "official_domains": [
+      "github.com/mermaid-js",
+      "mermaid.js.org",
+      "mermaid.live"
+    ],
+    "kind": "cli",
+    "notes": "Open-source CLI, not a SaaS API. Auth none; API type cli; judge buildability on whether it can be wrapped as an agent tool."
+  },
+  {
+    "id": 99,
+    "name": "YouTube Transcript",
+    "category": "AI, Research and Media-native",
+    "website": "https://transcriptapi.com",
+    "hint": "transcriptapi.com",
+    "official_domains": [
+      "transcriptapi.com"
+    ],
+    "kind": "third_party_wrapper",
+    "notes": "Third-party wrapper (transcriptapi.com), not an official YouTube API; research the hinted provider and note this."
+  },
+  {
+    "id": 100,
+    "name": "Grain",
+    "category": "AI, Research and Media-native",
+    "website": "https://grain.com",
+    "hint": "grain.com (meeting notes)",
+    "official_domains": [
+      "grain.com",
+      "grain.co"
+    ],
+    "kind": "saas_api",
+    "notes": "Name is generic; ensure results are for Grain meeting recorder."
+  }
+]

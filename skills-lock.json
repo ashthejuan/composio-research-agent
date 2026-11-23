@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "skills": {
+    "build-with-exa": {
+      "source": "exa-labs/agent-skills",
+      "commit": "53c2b03941c619606d9d4c2d619bce5c3d15a380",
+      "sourceType": "github",
+      "skillPath": "skills/build-with-exa/SKILL.md",
+      "computedHash": "54d77c703d8c3b0809a753658ac1c7236fa26a887e9eaf9ffabe661ccb7cf91a"
+    },
+    "building-pydantic-ai-agents": {
+      "source": "pydantic/skills",
+      "commit": "98f591c0886eb11df0bdd57804419e11439efc93",
+      "sourceType": "github",
+      "skillPath": "skills/building-pydantic-ai-agents/SKILL.md",
+      "computedHash": "433337a7d3227af428621c007a01bceca0caf621ab1a770adc39754ad6cba06e"
+    },
+    "composio": {
+      "source": "ComposioHQ/composio",
+      "commit": "169505145741e3032c269ecb62a2a9f44e8806f3",
+      "sourceType": "github",
+      "skillPath": "skills/composio/SKILL.md",
+      "computedHash": "d668da2c58e55f438fe80a8a0bc8e274b886809715763c9bd804d6200aa87575"
+    },
+    "exa-search": {
+      "source": "affaan-m/ECC",
+      "commit": "4adeee6732a12d1540f49a4d50a38ce8c97f9a53",
+      "sourceType": "github",
+      "skillPath": "skills/exa-search/SKILL.md",
+      "computedHash": "a452d10d01c9fd5a8b3dd2cc3854d9afa1003f22b2f310d4c672354395cdb3e5"
+    },
+    "python-testing-patterns": {
+      "source": "wshobson/agents",
+      "commit": "51b9ae3ac68d9c236549a9b57f5dca7e6c0c168c",
+      "sourceType": "github",
+      "skillPath": "plugins/python-development/skills/python-testing-patterns/SKILL.md",
+      "computedHash": "8113c05a831d4872c9294b0df26a335c09af423ee2e23d8b9b6817b300d96796"
+    },
+    "research": {
+      "source": "mattpocock/skills",
+      "commit": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/research/SKILL.md",
+      "computedHash": "7662666af51f8b1672ed7d88360d4b82656da21bb7b11c49e956eeb3036b85d5"
+    }
+  }
+}
