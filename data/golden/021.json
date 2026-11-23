@@ -1,0 +1,55 @@
+{
+  "app_id": 21,
+  "app": "Slack",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:23.358991Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "url": "https://docs.slack.dev/authentication.md",
+      "quote": "Whether you’re handling OAuth 2.0, verifying requests, or setting up Sign in with Slack, we’ve got you covered.",
+      "note": "Bot/user/app tokens (xoxb-/xoxp-/xapp-) are sent as Bearer; obtained via OAuth 2.0 install."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://docs.slack.dev/tools/developer-sandboxes.md",
+      "quote": "Every developer enrolled in the Slack Developer Program is eligible to provision a basic sandbox.",
+      "note": "Free workspace or free sandbox, app created self-serve at api.slack.com/apps."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "marketplace_listing",
+      "url": "https://docs.slack.dev/distribution.md",
+      "quote": "apps intended for commercial distribution should be submitted and approved for listing in the Slack Marketplace.",
+      "note": "Two readings. (1) none: apps can be distributed ('unlisted') without Marketplace listing. (2) marketplace_listing: non-Marketplace commercially distributed apps get conversations.history/replies limited to 1 request/min and 15 objects for new installs; Marketplace review requires 10+ active workspace installs. Best guess: none for installability, with serious rate-limit penalty."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rpc_websocket"
+      ],
+      "url": "https://docs.slack.dev/apis/web-api.md",
+      "quote": "The Web API is a collection of HTTP RPC-style methods, all with URLs in the form https://slack.com/api/METHOD_FAMILY.method.",
+      "note": "Two readings. Docs state the Web API is 'HTTP RPC-style methods' and 'not a REST API', and also offer Socket Mode/Events API (websocket/HTTP). Best guess: rpc_websocket; a labeller treating HTTP JSON as rest would say rest."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://docs.slack.dev/ai/mcp-server.md",
+      "quote": "With the Slack MCP server, your integrated apps can search channels, send messages, and perform other Slack actions through MCP clients.",
+      "note": "Hosted by Slack; workspace admin approval for clients."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "technical",
+      "url": "https://docs.slack.dev/changelog/2025/05/29/rate-limit-changes-for-non-marketplace-apps.md",
+      "quote": "The new rate limits will be updated to allow 1 request per minute and will return a maximum of 15 objects per request.",
+      "note": "Biggest obstacle for a multi-tenant toolkit is rate limiting of unlisted apps (history/replies) unless Marketplace-approved. Could also be read as commercial/none."
+    }
+  }
+}

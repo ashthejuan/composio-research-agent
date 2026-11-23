@@ -1,0 +1,54 @@
+{
+  "app_id": 53,
+  "app": "Ahrefs",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:23.794630Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "api_key"
+      ],
+      "url": "https://docs.ahrefs.com/docs/api/reference/api-keys-creation-and-management",
+      "quote": "Provide it in the Authorization header when making requests: Authorization: Bearer YOUR_API_KEY",
+      "note": "API v3 uses a workspace API key sent as a Bearer header (api_key/bearer same class). OAuth exists only for the MCP server, not the REST API."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "paid_plan_required",
+      "url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "quote": "Ahrefs API is available on eligible paid plans . On all other plans, you'll still have access to a limited set of free test queries .",
+      "note": "Paid plan (Lite+) needed; only limited free test queries (ahrefs.com/yep/firehose targets) otherwise."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "quote": "To send requests to Ahrefs API, you'll need an API key.",
+      "note": "No app review, marketplace or partner step documented for API use; customer brings own paid plan and key."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "quote": "The reference contains an OpenAPI-compatible specification of each endpoint's request and response format.",
+      "note": "REST API v3 with OpenAPI spec."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://docs.ahrefs.com/docs/mcp/reference/introduction",
+      "quote": "Streamable HTTP : https://api.ahrefs.com/mcp/mcp",
+      "note": "Vendor-hosted remote MCP server on docs.ahrefs.com / api.ahrefs.com (paid plans Lite+)."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "commercial",
+      "url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "quote": "Ahrefs API is available on eligible paid plans .",
+      "note": "Paid subscription is the gating obstacle; technically straightforward REST + key."
+    }
+  }
+}

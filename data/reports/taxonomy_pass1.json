@@ -1,0 +1,261 @@
+{
+  "summary": {
+    "scored_report": "data/reports/accuracy_pass1.json",
+    "rules_sha256": "8d32f4df9c1988c6bef1029cd7ca24f4e724d102ac1c59edbf3297cf633ca4d3",
+    "n_tagged": 19,
+    "by_tag": {
+      "blocker_rubric": 7,
+      "under_recall": 6,
+      "gate_misread": 1,
+      "over_inference": 4,
+      "plan_misread": 1
+    },
+    "abstained_not_tagged": 38,
+    "note": "Tags are judgment calls by the author, based on the miss's golden label and agent value. blocker_rubric means the main_blocker_type definition is ambiguous, not a clear extraction error."
+  },
+  "misses": [
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "main_blocker_type",
+      "outcome": "wrong",
+      "golden": "none",
+      "agent": "technical",
+      "tag": "blocker_rubric",
+      "why": "Agent: technical; golden: none. Rubric ambiguity on what counts as a blocker"
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "auth_methods",
+      "outcome": "partial",
+      "golden": [
+        "oauth2",
+        "basic",
+        "api_key"
+      ],
+      "agent": [
+        "basic",
+        "oauth2"
+      ],
+      "tag": "under_recall",
+      "why": "Agent listed basic+oauth2; missed api_key the golden label confirms"
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "main_blocker_type",
+      "outcome": "wrong",
+      "golden": "commercial",
+      "agent": "access",
+      "tag": "blocker_rubric",
+      "why": "Agent: access; golden: commercial (paid per-seat plan)"
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "auth_methods",
+      "outcome": "partial",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "agent": [
+        "oauth2"
+      ],
+      "tag": "under_recall",
+      "why": "Agent listed oauth2 only; missed bearer_token"
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "production_gate",
+      "outcome": "wrong",
+      "golden": "marketplace_listing",
+      "agent": "none",
+      "tag": "gate_misread",
+      "why": "Agent said none; golden is marketplace_listing (unlisted-app rate limits)"
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "main_blocker_type",
+      "outcome": "wrong",
+      "golden": "technical",
+      "agent": "access",
+      "tag": "blocker_rubric",
+      "why": "Agent: access; golden: technical (rate-limit penalty)"
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "auth_methods",
+      "outcome": "partial",
+      "golden": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "agent": [
+        "oauth2"
+      ],
+      "tag": "under_recall",
+      "why": "Agent listed oauth2 only; missed bearer_token (System User token)"
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "auth_methods",
+      "outcome": "partial",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "agent": [
+        "oauth2"
+      ],
+      "tag": "under_recall",
+      "why": "Agent listed oauth2 only; missed bearer_token (System User token)"
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "main_blocker_type",
+      "outcome": "wrong",
+      "golden": "none",
+      "agent": "documentation",
+      "tag": "blocker_rubric",
+      "why": "Agent: documentation; golden: none"
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "auth_methods",
+      "outcome": "partial",
+      "golden": [
+        "api_key"
+      ],
+      "agent": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "tag": "over_inference",
+      "why": "Agent asserted bearer_token+oauth2; golden is API key only"
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "production_gate",
+      "outcome": "wrong",
+      "golden": "none",
+      "agent": "oauth_app_review",
+      "tag": "over_inference",
+      "why": "Agent asserted oauth_app_review; golden is none"
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "main_blocker_type",
+      "outcome": "wrong",
+      "golden": "commercial",
+      "agent": "access",
+      "tag": "blocker_rubric",
+      "why": "Agent: access; golden: commercial (paid plan)"
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "auth_methods",
+      "outcome": "partial",
+      "golden": [
+        "oauth2",
+        "bearer_token",
+        "jwt_service_account"
+      ],
+      "agent": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "tag": "under_recall",
+      "why": "Agent missed jwt_service_account (GitHub App JWT flow)"
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "api_type",
+      "outcome": "partial",
+      "golden": [
+        "graphql",
+        "rest"
+      ],
+      "agent": [
+        "rest"
+      ],
+      "tag": "under_recall",
+      "why": "Agent gave rest only; golden includes graphql (platform gateway)"
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "main_blocker_type",
+      "outcome": "wrong",
+      "golden": "none",
+      "agent": "access",
+      "tag": "blocker_rubric",
+      "why": "Agent: access; golden: none"
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "auth_methods",
+      "outcome": "partial",
+      "golden": [
+        "api_key",
+        "basic",
+        "bearer_token"
+      ],
+      "agent": [
+        "api_key",
+        "basic",
+        "bearer_token",
+        "oauth2"
+      ],
+      "tag": "over_inference",
+      "why": "Agent added oauth2 (Connect OAuth), which golden excludes as not own-credential auth"
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "credential_access",
+      "outcome": "wrong",
+      "golden": "paid_plan_required",
+      "agent": "self_serve_trial",
+      "tag": "plan_misread",
+      "why": "Agent said self_serve_trial; golden is paid_plan_required (per-user license)"
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "api_type",
+      "outcome": "partial",
+      "golden": [
+        "rest"
+      ],
+      "agent": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "tag": "over_inference",
+      "why": "Agent added rpc_websocket; golden is rest only"
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "main_blocker_type",
+      "outcome": "wrong",
+      "golden": "commercial",
+      "agent": "access",
+      "tag": "blocker_rubric",
+      "why": "Agent: access; golden: commercial"
+    }
+  ]
+}

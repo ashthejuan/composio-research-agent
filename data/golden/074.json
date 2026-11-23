@@ -1,0 +1,56 @@
+{
+  "app_id": 74,
+  "app": "Jira",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:24.089372Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "basic",
+        "oauth2"
+      ],
+      "url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+      "quote": "can authenticate themselves using basic authentication with an Atlassian account email address and API token .",
+      "note": "Jira Cloud: email+API token (basic) and OAuth 2.0 3LO. JWT (Connect apps) is for app frameworks, not own-credential calls. Data Center PATs excluded (Cloud scope)."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+      "quote": "can authenticate themselves using basic authentication with an Atlassian account email address and API token .",
+      "note": "API token/3LO app creation free in developer console; Jira Cloud has a free plan. Quote doesn't state plan pricing; judged from Atlassian free plan knowledge."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "oauth_app_review",
+      "url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+      "quote": "Users trying to install an unapproved OAuth 2.0 integration are warned that the app has not yet been reviewed by Atlassian.",
+      "note": "Sharing a 3LO app works without review but shows a warning; approval via Marketplace listing process. Also Atlassian says apps collecting API tokens violate its security requirements. Could be read as marketplace_listing."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "graphql",
+        "rest"
+      ],
+      "url": "https://developer.atlassian.com/platform/atlassian-graphql-api/",
+      "quote": "See the [GraphQL API](/platform/atlassian-graphql-api/graphql/) section for reference documentation for the Atlassian platform GraphQL API.",
+      "note": "rest vs rest+graphql. Jira Cloud REST v3 is the primary documented API. Atlassian also documents a platform GraphQL gateway that exposes Jira projects, listed as beta/limited. Best guess: [rest, graphql]."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/",
+      "quote": "Atlassian MCP server connects your AI agent to your Atlassian apps and work",
+      "note": "Atlassian-hosted remote MCP server covers Jira."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "technical",
+      "url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+      "quote": "Apps that collect API tokens or instruct customers to create individual 3LO apps don't comply with our Security requirements for cloud apps and Acceptable use policy .",
+      "note": "Self-serve access exists; difficulty is multi-tenant distribution via a single 3LO app (and Cloud vs DC differences). Alternative reading: access/gate via Marketplace review."
+    }
+  }
+}

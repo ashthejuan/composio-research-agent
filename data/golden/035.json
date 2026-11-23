@@ -1,0 +1,57 @@
+{
+  "app_id": 35,
+  "app": "Mailchimp",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:23.577181Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "api_key",
+        "oauth2",
+        "basic",
+        "bearer_token"
+      ],
+      "url": "https://mailchimp.com/developer/marketing/api-concepts/authentication.md",
+      "quote": "You can use either HTTP Basic Authentication or Bearer Authentication.",
+      "note": "API key (own account) and OAuth 2 access token (other users' accounts); both sent via HTTP Basic (anystring:token) or Bearer header."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://mailchimp.com/developer/marketing/build/get-started/create-an-account.md",
+      "quote": "To use the Marketing API, you need a Mailchimp account.",
+      "note": "Account creation is self-serve; docs say capabilities depend on plan level but do not state a paid plan is required to get an API key (free plan access inferred from account-only requirement)."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://mailchimp.com/developer/marketing/api-concepts/authentication/oauth-2.md",
+      "quote": "It's also a requirement for listing an integration in the Mailchimp Marketplace.",
+      "note": "OAuth apps are self-registered on the Registered Apps page; marketplace listing is optional (only for being listed), not required to be installable by users."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://mailchimp.com/developer/marketing/api-concepts/api-structure.md",
+      "quote": "The Marketing API generally follows REST conventions, with some deviations.",
+      "note": "OpenAPI-described REST. A CLI and SDKs exist but are wrappers."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://mailchimp.com/help/use-mailchimp-connector-claude",
+      "quote": "Connect Mailchimp to Claude to build marketing campaigns, generate omnichannel strategies, and manage your workflows through a simple conversation.",
+      "note": "Vendor-run Mailchimp connector (ai-inc.mailchimp.com/claude/mcp/v2) in Claude directory; developer docs also host a docs-search MCP server (not account actions)."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://mailchimp.com/developer/marketing/build/get-started/generate-your-api-key.md",
+      "quote": "An API key authenticates requests against your own Mailchimp account.",
+      "note": "Self-serve keys and OAuth app registration, no review gate."
+    }
+  }
+}

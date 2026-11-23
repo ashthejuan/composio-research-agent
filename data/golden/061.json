@@ -1,0 +1,57 @@
+{
+  "app_id": 61,
+  "app": "GitHub",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:23.941970Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "oauth2",
+        "bearer_token",
+        "jwt_service_account"
+      ],
+      "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "quote": "In most cases, you can use Authorization: Bearer or Authorization: token to pass a token. However, if you are passing a JSON web token (JWT), you must use Authorization: Bearer .",
+      "note": "PATs (bearer token), OAuth apps/GitHub App user tokens (oauth2), and GitHub App JWT signed with RS256 private key for app/installation auth. Basic with username+password no longer works for API."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://docs.github.com/en/get-started/learning-about-github/githubs-plans",
+      "quote": "With GitHub Free for personal accounts, you can work with unlimited collaborators on unlimited public repositories",
+      "note": "Free account can create PATs, OAuth apps and GitHub Apps."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "quote": "If you want to use the API for an organization or on behalf of another user, GitHub recommends that you use a GitHub App.",
+      "note": "Any GitHub App/OAuth app can be registered and installed by anyone; no GitHub review needed (Marketplace listing optional; org owners approve installs/OAuth access per org, which is customer-side)."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest",
+        "graphql"
+      ],
+      "url": "https://docs.github.com/en/graphql/guides/forming-calls-with-graphql",
+      "quote": "You can authenticate to the GraphQL API using a personal access token, GitHub App, or OAuth app.",
+      "note": "Both REST (docs.github.com/en/rest) and GraphQL documented."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://github.com/github/github-mcp-server",
+      "quote": "The remote GitHub MCP Server is hosted by GitHub and provides the easiest method for getting up and running.",
+      "note": "github/github-mcp-server, 'GitHub's official MCP Server'."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "quote": "You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+      "note": "Free self-serve credentials, official MCP, no gate."
+    }
+  }
+}

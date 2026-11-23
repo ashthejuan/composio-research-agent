@@ -1,0 +1,1283 @@
+{
+  "rules_sha256": "8d32f4df9c1988c6bef1029cd7ca24f4e724d102ac1c59edbf3297cf633ca4d3",
+  "pass": "pass1",
+  "scored_at": "2026-11-23T14:18:04.824908+00:00",
+  "git_commit": "850af47e6c58584bc2dd7253a240b630a1d1347f",
+  "provisional": false,
+  "incomplete": false,
+  "n_apps": 20,
+  "n_labels_missing": 0,
+  "labels_missing": [],
+  "records_missing": [],
+  "overall": {
+    "claims": 120,
+    "evaluated": 120,
+    "excluded": 0,
+    "correct": 63,
+    "wrong": 19,
+    "abstained": 38,
+    "partial": 9,
+    "accuracy": 52.5,
+    "wrong_rate": 15.83,
+    "abstain_rate": 31.67
+  },
+  "strict_auth_accuracy": 40.0,
+  "per_field": {
+    "auth_methods": {
+      "claims": 20,
+      "evaluated": 20,
+      "excluded": 0,
+      "correct": 11,
+      "wrong": 7,
+      "abstained": 2,
+      "partial": 7,
+      "accuracy": 55.0,
+      "wrong_rate": 35.0,
+      "abstain_rate": 10.0
+    },
+    "credential_access": {
+      "claims": 20,
+      "evaluated": 20,
+      "excluded": 0,
+      "correct": 8,
+      "wrong": 1,
+      "abstained": 11,
+      "partial": 0,
+      "accuracy": 40.0,
+      "wrong_rate": 5.0,
+      "abstain_rate": 55.0
+    },
+    "production_gate": {
+      "claims": 20,
+      "evaluated": 20,
+      "excluded": 0,
+      "correct": 5,
+      "wrong": 2,
+      "abstained": 13,
+      "partial": 0,
+      "accuracy": 25.0,
+      "wrong_rate": 10.0,
+      "abstain_rate": 65.0
+    },
+    "api_type": {
+      "claims": 20,
+      "evaluated": 20,
+      "excluded": 0,
+      "correct": 17,
+      "wrong": 2,
+      "abstained": 1,
+      "partial": 2,
+      "accuracy": 85.0,
+      "wrong_rate": 10.0,
+      "abstain_rate": 5.0
+    },
+    "mcp_official": {
+      "claims": 20,
+      "evaluated": 20,
+      "excluded": 0,
+      "correct": 17,
+      "wrong": 0,
+      "abstained": 3,
+      "partial": 0,
+      "accuracy": 85.0,
+      "wrong_rate": 0.0,
+      "abstain_rate": 15.0
+    },
+    "main_blocker_type": {
+      "claims": 20,
+      "evaluated": 20,
+      "excluded": 0,
+      "correct": 5,
+      "wrong": 7,
+      "abstained": 8,
+      "partial": 0,
+      "accuracy": 25.0,
+      "wrong_rate": 35.0,
+      "abstain_rate": 40.0
+    }
+  },
+  "per_app": {
+    "2": {
+      "app": "HubSpot",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 3,
+      "wrong": 1,
+      "abstained": 2,
+      "partial": 0,
+      "accuracy": 50.0,
+      "wrong_rate": 16.67,
+      "abstain_rate": 33.33,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "wrong"
+      }
+    },
+    "10": {
+      "app": "DealCloud",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 3,
+      "wrong": 0,
+      "abstained": 3,
+      "partial": 0,
+      "accuracy": 50.0,
+      "wrong_rate": 0.0,
+      "abstain_rate": 50.0,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "abstained"
+      }
+    },
+    "11": {
+      "app": "Zendesk",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 5,
+      "wrong": 1,
+      "abstained": 0,
+      "partial": 1,
+      "accuracy": 83.33,
+      "wrong_rate": 16.67,
+      "abstain_rate": 0.0,
+      "fields": {
+        "auth_methods": "wrong",
+        "credential_access": "correct",
+        "production_gate": "correct",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "correct"
+      }
+    },
+    "15": {
+      "app": "Pylon",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 3,
+      "wrong": 1,
+      "abstained": 2,
+      "partial": 0,
+      "accuracy": 50.0,
+      "wrong_rate": 16.67,
+      "abstain_rate": 33.33,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "wrong"
+      }
+    },
+    "21": {
+      "app": "Slack",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 3,
+      "wrong": 3,
+      "abstained": 0,
+      "partial": 1,
+      "accuracy": 50.0,
+      "wrong_rate": 50.0,
+      "abstain_rate": 0.0,
+      "fields": {
+        "auth_methods": "wrong",
+        "credential_access": "correct",
+        "production_gate": "wrong",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "wrong"
+      }
+    },
+    "28": {
+      "app": "WhatsApp Business",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 4,
+      "wrong": 1,
+      "abstained": 1,
+      "partial": 1,
+      "accuracy": 66.67,
+      "wrong_rate": 16.67,
+      "abstain_rate": 16.67,
+      "fields": {
+        "auth_methods": "wrong",
+        "credential_access": "abstained",
+        "production_gate": "correct",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "correct"
+      }
+    },
+    "32": {
+      "app": "Meta Ads",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 4,
+      "wrong": 1,
+      "abstained": 1,
+      "partial": 1,
+      "accuracy": 66.67,
+      "wrong_rate": 16.67,
+      "abstain_rate": 16.67,
+      "fields": {
+        "auth_methods": "wrong",
+        "credential_access": "abstained",
+        "production_gate": "correct",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "correct"
+      }
+    },
+    "35": {
+      "app": "Mailchimp",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 4,
+      "wrong": 0,
+      "abstained": 2,
+      "partial": 0,
+      "accuracy": 66.67,
+      "wrong_rate": 0.0,
+      "abstain_rate": 33.33,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "correct",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "abstained"
+      }
+    },
+    "49": {
+      "app": "Amazon Selling Partner",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 5,
+      "wrong": 0,
+      "abstained": 1,
+      "partial": 0,
+      "accuracy": 83.33,
+      "wrong_rate": 0.0,
+      "abstain_rate": 16.67,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "abstained",
+        "production_gate": "correct",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "correct"
+      }
+    },
+    "50": {
+      "app": "fanbasis",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 1,
+      "wrong": 1,
+      "abstained": 4,
+      "partial": 0,
+      "accuracy": 16.67,
+      "wrong_rate": 16.67,
+      "abstain_rate": 66.67,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "abstained",
+        "mcp_official": "abstained",
+        "main_blocker_type": "wrong"
+      }
+    },
+    "53": {
+      "app": "Ahrefs",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 3,
+      "wrong": 3,
+      "abstained": 0,
+      "partial": 1,
+      "accuracy": 50.0,
+      "wrong_rate": 50.0,
+      "abstain_rate": 0.0,
+      "fields": {
+        "auth_methods": "wrong",
+        "credential_access": "correct",
+        "production_gate": "wrong",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "wrong"
+      }
+    },
+    "58": {
+      "app": "Sherlock",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 1,
+      "wrong": 0,
+      "abstained": 5,
+      "partial": 0,
+      "accuracy": 16.67,
+      "wrong_rate": 0.0,
+      "abstain_rate": 83.33,
+      "fields": {
+        "auth_methods": "abstained",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "abstained",
+        "main_blocker_type": "abstained"
+      }
+    },
+    "61": {
+      "app": "GitHub",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 3,
+      "wrong": 1,
+      "abstained": 2,
+      "partial": 1,
+      "accuracy": 50.0,
+      "wrong_rate": 16.67,
+      "abstain_rate": 33.33,
+      "fields": {
+        "auth_methods": "wrong",
+        "credential_access": "correct",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "abstained"
+      }
+    },
+    "67": {
+      "app": "Snowflake",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 4,
+      "wrong": 0,
+      "abstained": 2,
+      "partial": 0,
+      "accuracy": 66.67,
+      "wrong_rate": 0.0,
+      "abstain_rate": 33.33,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "correct",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "abstained"
+      }
+    },
+    "74": {
+      "app": "Jira",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 2,
+      "wrong": 1,
+      "abstained": 3,
+      "partial": 1,
+      "accuracy": 33.33,
+      "wrong_rate": 16.67,
+      "abstain_rate": 50.0,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "wrong",
+        "mcp_official": "correct",
+        "main_blocker_type": "abstained"
+      }
+    },
+    "75": {
+      "app": "Asana",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 5,
+      "wrong": 1,
+      "abstained": 0,
+      "partial": 0,
+      "accuracy": 83.33,
+      "wrong_rate": 16.67,
+      "abstain_rate": 0.0,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "correct",
+        "production_gate": "correct",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "wrong"
+      }
+    },
+    "81": {
+      "app": "Stripe",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 2,
+      "wrong": 1,
+      "abstained": 3,
+      "partial": 1,
+      "accuracy": 33.33,
+      "wrong_rate": 16.67,
+      "abstain_rate": 50.0,
+      "fields": {
+        "auth_methods": "wrong",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "abstained"
+      }
+    },
+    "90": {
+      "app": "PitchBook",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 5,
+      "wrong": 0,
+      "abstained": 1,
+      "partial": 0,
+      "accuracy": 83.33,
+      "wrong_rate": 0.0,
+      "abstain_rate": 16.67,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "correct",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "correct",
+        "main_blocker_type": "correct"
+      }
+    },
+    "91": {
+      "app": "NotebookLM",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 2,
+      "wrong": 3,
+      "abstained": 1,
+      "partial": 1,
+      "accuracy": 33.33,
+      "wrong_rate": 50.0,
+      "abstain_rate": 16.67,
+      "fields": {
+        "auth_methods": "correct",
+        "credential_access": "wrong",
+        "production_gate": "abstained",
+        "api_type": "wrong",
+        "mcp_official": "correct",
+        "main_blocker_type": "wrong"
+      }
+    },
+    "98": {
+      "app": "Mermaid CLI",
+      "label_source": "confirmed",
+      "claims": 6,
+      "evaluated": 6,
+      "excluded": 0,
+      "correct": 1,
+      "wrong": 0,
+      "abstained": 5,
+      "partial": 0,
+      "accuracy": 16.67,
+      "wrong_rate": 0.0,
+      "abstain_rate": 83.33,
+      "fields": {
+        "auth_methods": "abstained",
+        "credential_access": "abstained",
+        "production_gate": "abstained",
+        "api_type": "correct",
+        "mcp_official": "abstained",
+        "main_blocker_type": "abstained"
+      }
+    }
+  },
+  "misses": [
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://developers.hubspot.com/docs/getting-started/account-types",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "production_gate",
+      "golden": "marketplace_listing",
+      "agent": "unknown",
+      "golden_url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview.md",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 2,
+      "app": "HubSpot",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "agent": "technical",
+      "golden_url": "https://developers.hubspot.com/docs/getting-started/account-types",
+      "agent_evidence_urls": [
+        "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "credential_access",
+      "golden": "contact_sales",
+      "agent": "unknown",
+      "golden_url": "https://api.docs.dealcloud.com/docs/apikeys",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://api.docs.dealcloud.com/docs/apikeys",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 10,
+      "app": "DealCloud",
+      "field": "main_blocker_type",
+      "golden": "access",
+      "agent": "unknown",
+      "golden_url": "https://api.docs.dealcloud.com/docs/apikeys",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 11,
+      "app": "Zendesk",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "basic",
+        "api_key"
+      ],
+      "agent": [
+        "basic",
+        "oauth2"
+      ],
+      "golden_url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+      "agent_evidence_urls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests",
+        "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "credential_access",
+      "golden": "paid_plan_required",
+      "agent": "unknown",
+      "golden_url": "https://www.usepylon.com/pricing",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://docs.usepylon.com/pylon-docs/developer/api.md",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 15,
+      "app": "Pylon",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "agent": "access",
+      "golden_url": "https://www.usepylon.com/pricing",
+      "agent_evidence_urls": [
+        "https://docs.usepylon.com/pylon-docs/developer/api"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "agent": [
+        "oauth2"
+      ],
+      "golden_url": "https://docs.slack.dev/authentication.md",
+      "agent_evidence_urls": [
+        "https://docs.slack.dev/authentication/installing-with-oauth/"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "production_gate",
+      "golden": "marketplace_listing",
+      "agent": "none",
+      "golden_url": "https://docs.slack.dev/distribution.md",
+      "agent_evidence_urls": [
+        "https://docs.slack.dev/authentication/installing-with-oauth/"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 21,
+      "app": "Slack",
+      "field": "main_blocker_type",
+      "golden": "technical",
+      "agent": "access",
+      "golden_url": "https://docs.slack.dev/changelog/2025/05/29/rate-limit-changes-for-non-marketplace-apps.md",
+      "agent_evidence_urls": [
+        "https://docs.slack.dev/authentication/installing-with-oauth/"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "auth_methods",
+      "golden": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "agent": [
+        "oauth2"
+      ],
+      "golden_url": "https://developers.facebook.com/docs/whatsapp/access-tokens",
+      "agent_evidence_urls": [
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api/"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 28,
+      "app": "WhatsApp Business",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "agent": [
+        "oauth2"
+      ],
+      "golden_url": "https://developers.facebook.com/docs/marketing-api/system-users",
+      "agent_evidence_urls": [
+        "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authorization"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 32,
+      "app": "Meta Ads",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://mailchimp.com/developer/marketing/api-concepts/authentication/oauth-2.md",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 35,
+      "app": "Mailchimp",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://mailchimp.com/developer/marketing/build/get-started/generate-your-api-key.md",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 49,
+      "app": "Amazon Selling Partner",
+      "field": "credential_access",
+      "golden": "partner_gated",
+      "agent": "unknown",
+      "golden_url": "https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview.md",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://commasdocs.com/",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://commasdocs.com/",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "agent": [
+        "unknown"
+      ],
+      "golden_url": "https://commasdocs.com/",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "mcp_official",
+      "golden": "yes",
+      "agent": "unknown",
+      "golden_url": "https://fanbasis.com",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 50,
+      "app": "fanbasis",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "agent": "documentation",
+      "golden_url": "https://commasdocs.com/",
+      "agent_evidence_urls": [
+        "https://dev-docs.fanbasis.com/login.html"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "auth_methods",
+      "golden": [
+        "api_key"
+      ],
+      "agent": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "golden_url": "https://docs.ahrefs.com/docs/api/reference/api-keys-creation-and-management",
+      "agent_evidence_urls": [
+        "https://docs.ahrefs.com/llms.txt",
+        "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "oauth_app_review",
+      "golden_url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "agent_evidence_urls": [
+        "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md",
+        "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 53,
+      "app": "Ahrefs",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "agent": "access",
+      "golden_url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+      "agent_evidence_urls": [
+        "https://docs.ahrefs.com/ahrefs-connect/docs/how-it-works.md"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "auth_methods",
+      "golden": [
+        "none"
+      ],
+      "agent": [
+        "unknown"
+      ],
+      "golden_url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "mcp_official",
+      "golden": "no_found",
+      "agent": "unknown",
+      "golden_url": "https://api.github.com/orgs/sherlock-project/repos",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 58,
+      "app": "Sherlock",
+      "field": "main_blocker_type",
+      "golden": "technical",
+      "agent": "unknown",
+      "golden_url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "auth_methods",
+      "golden": [
+        "oauth2",
+        "bearer_token",
+        "jwt_service_account"
+      ],
+      "agent": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "golden_url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "agent_evidence_urls": [
+        "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+        "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app?apiVersion=2022-11-28"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 61,
+      "app": "GitHub",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 67,
+      "app": "Snowflake",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "agent": "unknown",
+      "golden_url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "production_gate",
+      "golden": "oauth_app_review",
+      "agent": "unknown",
+      "golden_url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "api_type",
+      "golden": [
+        "graphql",
+        "rest"
+      ],
+      "agent": [
+        "rest"
+      ],
+      "golden_url": "https://developer.atlassian.com/platform/atlassian-graphql-api/",
+      "agent_evidence_urls": [
+        "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 74,
+      "app": "Jira",
+      "field": "main_blocker_type",
+      "golden": "technical",
+      "agent": "unknown",
+      "golden_url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 75,
+      "app": "Asana",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "agent": "access",
+      "golden_url": "https://developers.asana.com/docs/publish-your-app",
+      "agent_evidence_urls": [
+        "https://developers.asana.com/docs/publish-your-app"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "auth_methods",
+      "golden": [
+        "api_key",
+        "basic",
+        "bearer_token"
+      ],
+      "agent": [
+        "api_key",
+        "basic",
+        "bearer_token",
+        "oauth2"
+      ],
+      "golden_url": "https://docs.stripe.com/api/authentication",
+      "agent_evidence_urls": [
+        "https://docs.stripe.com/api/authentication",
+        "https://docs.stripe.com/api",
+        "https://docs.stripe.com/api",
+        "https://docs.stripe.com/stripe-apps/api-authentication/oauth"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://docs.stripe.com/api/authentication",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://docs.stripe.com/api",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 81,
+      "app": "Stripe",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://docs.stripe.com/api/authentication",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 90,
+      "app": "PitchBook",
+      "field": "production_gate",
+      "golden": "partner_program",
+      "agent": "unknown",
+      "golden_url": "https://pitchbook.com/help/pitchbook-api",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "credential_access",
+      "golden": "paid_plan_required",
+      "agent": "self_serve_trial",
+      "golden_url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "agent_evidence_urls": [
+        "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set-up-licensing"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "api_type",
+      "golden": [
+        "rest"
+      ],
+      "agent": [
+        "rest",
+        "rpc_websocket"
+      ],
+      "golden_url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "agent_evidence_urls": [
+        "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+        "https://developers.google.com/notebook/docs/mcp"
+      ],
+      "outcome": "partial",
+      "tag": null
+    },
+    {
+      "app_id": 91,
+      "app": "NotebookLM",
+      "field": "main_blocker_type",
+      "golden": "commercial",
+      "agent": "access",
+      "golden_url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "agent_evidence_urls": [
+        "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks"
+      ],
+      "outcome": "wrong",
+      "tag": null
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "auth_methods",
+      "golden": [
+        "none"
+      ],
+      "agent": [
+        "unknown"
+      ],
+      "golden_url": "https://github.com/mermaid-js/mermaid-cli",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "credential_access",
+      "golden": "self_serve_free",
+      "agent": "unknown",
+      "golden_url": "https://github.com/mermaid-js/mermaid-cli",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "production_gate",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://github.com/mermaid-js/mermaid-cli",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "mcp_official",
+      "golden": "no_found",
+      "agent": "unknown",
+      "golden_url": "https://github.com/mermaid-js/mermaid-cli",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    },
+    {
+      "app_id": 98,
+      "app": "Mermaid CLI",
+      "field": "main_blocker_type",
+      "golden": "none",
+      "agent": "unknown",
+      "golden_url": "https://github.com/mermaid-js/mermaid-cli",
+      "agent_evidence_urls": [],
+      "outcome": "abstained",
+      "tag": null
+    }
+  ],
+  "excluded": [],
+  "taxonomy": {}
+}

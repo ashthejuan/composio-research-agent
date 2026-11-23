@@ -1,0 +1,54 @@
+{
+  "app_id": 49,
+  "app": "Amazon Selling Partner",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:23.648790Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "oauth2"
+      ],
+      "url": "https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api.md",
+      "quote": "An LWA access token expires one hour after it is issued.",
+      "note": "Login with Amazon OAuth 2.0 (refresh token -> LWA access token); private apps self-authorize. Restricted operations use Restricted Data Tokens derived from LWA."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "partner_gated",
+      "url": "https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview.md",
+      "quote": "You must register as a Selling Partner API (SP-API) developer before you can register your Selling Partner API application.",
+      "note": "Two readings: partner_gated (developer profile application reviewed by Amazon, with extra architecture review for restricted roles) vs paid_plan_required (private seller apps need a professional selling account, a paid plan). Best guess: partner_gated. Evidence: https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview"
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "marketplace_listing",
+      "url": "https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview.md",
+      "quote": "public developers must list their app in the Amazon Selling Partner Appstore",
+      "note": "Public (multi-seller) apps must be listed on the Selling Partner Appstore; restricted roles also need architecture/security review."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://developer-docs.amazon.com/sp-api/docs/what-is-the-selling-partner-api.md",
+      "quote": "The Selling Partner API (SP-API) is a REST-based API",
+      "note": "Also Data Kiosk (GraphQL queries via REST endpoints) but primary type REST."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://raw.githubusercontent.com/amzn/selling-partner-api-samples/main/README.md",
+      "quote": "developer tools (including MCP servers and a local sandbox)",
+      "note": "Amazon-run github.com/amzn repo ships SP-API Dev Assistant, Workflow, and Data Kiosk MCP servers (local, npm)."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "access",
+      "url": "https://developer-docs.amazon.com/sp-api/docs/register-as-a-public-developer.md",
+      "quote": "Amazon evaluates developer applications through a comprehensive review process.",
+      "note": "Developer profile review, Appstore listing, and PII architecture review gate access."
+    }
+  }
+}

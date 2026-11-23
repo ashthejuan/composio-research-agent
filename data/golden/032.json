@@ -1,0 +1,55 @@
+{
+  "app_id": 32,
+  "app": "Meta Ads",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:23.504561Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "url": "https://developers.facebook.com/docs/marketing-api/system-users",
+      "quote": "System users represent servers or software making API calls to assets owned or managed by a Business Manager",
+      "note": "User access tokens via Facebook Login OAuth dialog (ads_management/ads_read) for third-party users; System User access tokens for own-business automation. Quote supports system-user tokens; OAuth quote is on /docs/marketing-api/overview/authorization ('standard Facebook oAuth flow' on system-users page too)."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+      "quote": "Automatically granted when you add the Marketing API product to your app.",
+      "note": "Limited access tier is automatic with a free developer app (needs an ad account). Limited tier is development-only."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "oauth_app_review",
+      "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+      "quote": "Heavily rate-limited per ad account. For development only. Not for production apps running for live advertisers.",
+      "note": "Full access tier requires App Review (and Business Verification for sensitive data) before production use for other advertisers."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://developers.facebook.com/docs/marketing-apis/",
+      "quote": "The Marketing API is a collection of Graph API endpoints and other features that can be used to help you advertise across Meta technologies.",
+      "note": "Graph API HTTP endpoints (REST-style)."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview",
+      "quote": "The ads MCP server is a Meta-hosted Model Context Protocol",
+      "note": "Official remote server at mcp.facebook.com/ads (open beta per docs)."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "access",
+      "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+      "quote": "Your tier is determined by whether your app has been approved through App Review.",
+      "note": "App Review for Full access tier is the main obstacle for production multi-tenant use."
+    }
+  }
+}

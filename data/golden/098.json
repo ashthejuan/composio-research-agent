@@ -1,0 +1,54 @@
+{
+  "app_id": 98,
+  "app": "Mermaid CLI",
+  "labeller": "ashthejuan",
+  "labelled_at": "2026-11-23T14:17:24.451580Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "none"
+      ],
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "mmdc -i input.mmd -o output.svg",
+      "note": "Local CLI; README documents no credentials."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "npm install -g @mermaid-js/mermaid-cli",
+      "note": "Open source (MIT)."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "It takes a mermaid definition file as input and generates an SVG/PNG/PDF file as output.",
+      "note": "Local tool, no gating."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "cli"
+      ],
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "This is a command-line interface (CLI) for",
+      "note": "A Node.js API also exists (README, not semver-covered) but CLI is primary; sdk_only not included."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "no_found",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "This is a command-line interface (CLI) for",
+      "note": "No MCP server in the mermaid-js GitHub org (checked repo list). However Mermaid Chart (mermaid.ai, the commercial company behind Mermaid) publishes an official Mermaid MCP Server at mcp.mermaid.ai requiring a Mermaid account. Whether that counts as 'vendor' for the OSS CLI is unclear. Best guess: no_found."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://github.com/mermaid-js/mermaid-cli",
+      "quote": "npm install -g @mermaid-js/mermaid-cli",
+      "note": "Easily wrapped as a local tool."
+    }
+  }
+}
