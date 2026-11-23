@@ -1,0 +1,55 @@
+{
+  "app_id": 28,
+  "app": "WhatsApp Business",
+  "labeller": "draft:claude-sonnet",
+  "labelled_at": "2026-11-23T14:01:02Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "bearer_token",
+        "oauth2"
+      ],
+      "url": "https://developers.facebook.com/docs/whatsapp/access-tokens",
+      "quote": "System user access tokens (“system tokens”) represent you, your business, organization, or people within your business or organization.",
+      "note": "Direct developers call Cloud API with long-lived System User tokens (Authorization: Bearer). Tech Providers get Business Integration System User tokens via Embedded Signup (OAuth-style code exchange); short-lived user tokens come from Facebook Login."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
+      "quote": "Make sure to retain both your test phone number ID and Messaging account ID for later use.",
+      "note": "Free Meta developer account + app gives a test phone number and token for development; production messaging is usage-priced but credentials are self-serve."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "oauth_app_review",
+      "url": "https://developers.facebook.com/docs/whatsapp/solution-providers/get-started-for-tech-providers",
+      "quote": "App Review grants you Advanced access to the following permissions, which are required to become a Tech Provider",
+      "note": "For a multi-tenant integrator serving other businesses: Tech Provider onboarding needs business verification plus App Review for Advanced access to whatsapp_business_messaging/management."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/overview",
+      "quote": "The WhatsApp Business Platform is built on Graph API and uses HTTP protocol.",
+      "note": "Graph API HTTP/JSON endpoints (REST-style). Not GraphQL."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://developers.facebook.com/documentation/mcp",
+      "quote": "Meta runs official remote Model Context Protocol (MCP) servers that bring Facebook, Instagram, WhatsApp, and Meta Ads capabilities to your agentic workflows.",
+      "note": "WhatsApp Business Tools MCP at mcp.facebook.com/whatsapp_business; focuses on account/number/template setup and test messaging."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "access",
+      "url": "https://developers.facebook.com/docs/whatsapp/solution-providers/get-started-for-tech-providers",
+      "quote": "To become a tech provider you need to verify your business with Meta",
+      "note": "Business verification + App Review is the main gate to serving customers' accounts. Direct own-account use would be 'none'; chosen reading is the multi-tenant one."
+    }
+  }
+}

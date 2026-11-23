@@ -1,0 +1,51 @@
+{
+ "app_id": 58,
+ "app": "Sherlock",
+ "labeller": "draft:claude-sonnet",
+ "labelled_at": "2026-11-23T13:57:21Z",
+ "fields": {
+  "auth_methods": {
+   "status": "labelled",
+   "value": [
+    "none"
+   ],
+   "url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+   "quote": "sherlock user1 user2 user3",
+   "note": "README documents running the local CLI with no credentials or API keys of any kind."
+  },
+  "credential_access": {
+   "status": "labelled",
+   "value": "self_serve_free",
+   "url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+   "quote": "pipx install sherlock-project",
+   "note": "Free MIT-licensed OSS install; no credentials needed."
+  },
+  "production_gate": {
+   "status": "labelled",
+   "value": "none",
+   "url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+   "quote": "MIT © Sherlock Project",
+   "note": "Self-run OSS tool; no third-party account/app review applies."
+  },
+  "api_type": {
+   "status": "labelled",
+   "value": [
+    "cli"
+   ],
+   "url": "https://api.github.com/repos/sherlock-project/sherlock/readme",
+   "quote": "usage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]",
+   "note": "CLI only. (A separate 'api' repo exists in the org: 'Api for sherlock module', not documented as a hosted API.)"
+  },
+  "mcp_official": {
+   "status": "labelled",
+   "value": "no_found",
+   "url": "https://api.github.com/orgs/sherlock-project/repos",
+   "quote": "Hunt down social media accounts by username across social networks",
+   "note": "Org repos listed: sherlock, api, sherlockproject.xyz, build, .github; no MCP server found in org or README."
+  },
+  "main_blocker_type": {
+   "status": "ambiguous",
+   "note": "none vs technical. Reading 1 none: free OSS CLI, trivially wrappable as a subprocess tool. Reading 2 technical: no hosted API, needs local runtime, output is file/text parsing and results are heuristic. Best guess: technical."
+  }
+ }
+}

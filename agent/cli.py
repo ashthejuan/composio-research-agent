@@ -139,6 +139,49 @@ def _status(args: argparse.Namespace) -> int:
     return 1 if st["failed"] else 0
 
 
+def _score(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from rich.console import Console
+    from rich.table import Table
+
+    from agent import accuracy
+
+    con = Console()
+    drafts = args.include_drafts
+    out = Path(args.out) if args.out else (
+        accuracy.provisional_report_path(args.pass_) if drafts
+        else accuracy.official_report_path(args.pass_))
+    if drafts:
+        con.print("[bold white on red] PROVISIONAL — drafts not human-verified [/]")
+        if accuracy.PROVISIONAL_MARK not in out.name:
+            print("error: --include-drafts output name must contain 'PROVISIONAL' "
+                  "(never an official report path)")
+            return 2
+    rep = accuracy.score(args.pass_, records_dir=Path(args.records_dir) if args.records_dir else None,
+                         include_drafts=drafts)
+    accuracy.write_report(rep, out)
+
+    t = Table(title=f"Accuracy {args.pass_}" + (" (PROVISIONAL)" if drafts else ""))
+    for c in ("field", "evaluated", "excl", "correct", "wrong", "partial", "abstained", "acc %"):
+        t.add_column(c, justify="right" if c != "field" else "left")
+
+    def row(name, d):
+        t.add_row(name, str(d["evaluated"]), str(d["excluded"]), str(d["correct"]), str(d["wrong"]),
+                  str(d["partial"]), str(d["abstained"]), "-" if d["accuracy"] is None else f"{d['accuracy']:.1f}")
+
+    for f, d in rep.per_field.items():
+        row(f, d)
+    row("OVERALL", rep.overall)
+    con.print(t)
+    con.print(f"strict auth accuracy: {rep.strict_auth_accuracy}  apps scored: {rep.n_apps}")
+    if rep.incomplete:
+        con.print(f"[yellow]INCOMPLETE[/yellow] labels missing: {rep.labels_missing} "
+                  f"records missing: {rep.records_missing}")
+    con.print(f"wrote {out}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="agent")
     sub = p.add_subparsers(dest="command", required=True)
@@ -178,6 +221,14 @@ def build_parser() -> argparse.ArgumentParser:
     st = sub.add_parser("status", help="summarise work records")
     st.add_argument("--pass", dest="pass_", default="pass1")
     st.set_defaults(func=_status)
+
+    sc = sub.add_parser("score", help="score a pass against the golden set (FR-08)")
+    sc.add_argument("--pass", dest="pass_", default="pass1")
+    sc.add_argument("--out", default=None)
+    sc.add_argument("--records-dir", default=None, help="override records dir (e.g. a work dir)")
+    sc.add_argument("--include-drafts", action="store_true",
+                    help="score against AI drafts: PROVISIONAL, written to a separate file")
+    sc.set_defaults(func=_score)
 
     # TODO later phases: research, verify, score, analyze, site
     return p

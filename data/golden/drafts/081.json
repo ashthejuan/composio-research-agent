@@ -1,0 +1,56 @@
+{
+  "app_id": 81,
+  "app": "Stripe",
+  "labeller": "draft:claude-sonnet",
+  "labelled_at": "2026-11-23T13:58:13+00:00",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "api_key",
+        "basic",
+        "bearer_token"
+      ],
+      "url": "https://docs.stripe.com/api/authentication",
+      "quote": "Provide your API key as the basic auth username value. You don’t need to provide a password.",
+      "note": "API key via HTTP Basic or Bearer header. Connect OAuth (for acting on connected accounts) excluded as not own-credentials; MCP agent keys are same class."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://docs.stripe.com/api/authentication",
+      "quote": "The Stripe API uses API keys to authenticate requests.",
+      "note": "Free account; test-mode/sandbox keys immediately. Live mode requires account activation (business verification) but no fee."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://docs.stripe.com/api",
+      "quote": "You can use the Stripe API in sandboxes without affecting your live data",
+      "note": "Users bring own API keys; no review needed. Stripe App Marketplace review (docs.stripe.com/stripe-apps/publish-app) applies only to UI Stripe Apps; Connect OAuth is an alternative path. Arguably ambiguous."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://docs.stripe.com/api",
+      "quote": "The Stripe API is organized around REST",
+      "note": ""
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://docs.stripe.com/mcp",
+      "quote": "The Stripe Model Context Protocol (MCP) server provides tools that AI agents can use to interact with the Stripe API",
+      "note": "Hosted at https://mcp.stripe.com (public preview)."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://docs.stripe.com/api/authentication",
+      "quote": "The Stripe API uses API keys to authenticate requests.",
+      "note": "No meaningful obstacle."
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+ "app_id": 11,
+ "app": "Zendesk",
+ "labeller": "draft:claude-sonnet",
+ "labelled_at": "2026-11-23T13:59:28Z",
+ "fields": {
+  "auth_methods": {
+   "status": "labelled",
+   "value": [
+    "oauth2",
+    "basic",
+    "api_key"
+   ],
+   "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+   "quote": "The Zendesk API supports OAuth authorization flows.",
+   "note": "OAuth access tokens (Bearer, global OAuth for multi-customer apps); API tokens (marked deprecated) are sent via Basic auth as email/token:api_token."
+  },
+  "credential_access": {
+   "status": "labelled",
+   "value": "self_serve_trial",
+   "url": "https://developer.zendesk.com/documentation/api-basics/getting-started/getting-a-trial-or-sponsored-account-for-development.md",
+   "quote": "You can try out the Zendesk platform with a free, 14-day trial account.",
+   "note": "Sponsored non-expiring dev account only for Marketplace partners; otherwise paid plan after trial."
+  },
+  "production_gate": {
+   "status": "ambiguous",
+   "note": "Two readings. (1) oauth_app_review: multi-customer apps must use a global OAuth client that Zendesk must approve ('If the request is approved, Zendesk converts your local OAuth client to a global OAuth client'). (2) partner_program: the request form only accepts d3v- sponsored accounts, which are reserved for Marketplace partners. Best guess: oauth_app_review."
+  },
+  "api_type": {
+   "status": "labelled",
+   "value": [
+    "rest"
+   ],
+   "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+   "quote": "curl https://obscura.zendesk.com/api/v2/users.json",
+   "note": "REST /api/v2. A GraphQL page exists only under the Sell sales-crm search reference."
+  },
+  "mcp_official": {
+   "status": "labelled",
+   "value": "yes",
+   "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-Zendesk-EAP",
+   "quote": "Zendesk Bridge provides a way to establish governed connections between the Zendesk MCP Server or Zendesk AI agents and external AI agents",
+   "note": "Vendor-run Zendesk MCP Server exists but is in early access program (EAP); counted as yes since it is vendor published per docs. No public GitHub MCP repo under github.com/zendesk."
+  },
+  "main_blocker_type": {
+   "status": "labelled",
+   "value": "access",
+   "url": "https://developer.zendesk.com/documentation/marketplace/building-a-marketplace-app/set-up-a-global-oauth-client.md",
+   "quote": "You must request a global OAuth client from Zendesk to create global OAuth tokens.",
+   "note": "Multi-tenant OAuth requires Zendesk-approved global client; sponsored accounts partner-only."
+  }
+ }
+}

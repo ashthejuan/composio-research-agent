@@ -1,0 +1,54 @@
+{
+  "app_id": 50,
+  "app": "fanbasis",
+  "labeller": "draft:claude-sonnet",
+  "labelled_at": "2026-11-23T14:01:02Z",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "api_key"
+      ],
+      "url": "https://commasdocs.com/",
+      "quote": "Every API request must include your API key in the x-api-key header.",
+      "note": "Docs live at commasdocs.com (FanBasis rebranded to Commas; fanbasis.com redirects to commas.com). Docs host is not in apps.json official_domains but the docs reference fanbasis.com endpoints and support@fanbasis.com."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://commasdocs.com/",
+      "quote": "you can start building right away using a sandbox API key from the sandbox dashboard",
+      "note": "Sandbox key is self-serve; production key requires account identity verification (not a paid plan)."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://commasdocs.com/",
+      "quote": "Once your account is verified, switch to your live API key to go live.",
+      "note": "Account verification only; no app review or partner program documented."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://commasdocs.com/",
+      "quote": "Every endpoint is served under the /public-api/ path on https://www.fanbasis.com",
+      "note": "REST over x-api-key; also a checkout JS/React SDK and a CLI documented as tooling."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://fanbasis.com",
+      "quote": "MCP beta Run Commas from your AI assistant.",
+      "note": "Official site advertises MCP (beta); docs describe a Commas MCP Connector with 44 tools (some client setups marked Coming Soon)."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://commasdocs.com/",
+      "quote": "Do I need to wait for account verification before I can start integrating? No",
+      "note": "Self-serve sandbox and docs; only caveat is non-obvious docs host after rebrand."
+    }
+  }
+}

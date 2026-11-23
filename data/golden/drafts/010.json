@@ -1,0 +1,52 @@
+{
+ "app_id": 10,
+ "app": "DealCloud",
+ "labeller": "draft:claude-sonnet",
+ "labelled_at": "2026-11-23T13:59:28Z",
+ "fields": {
+  "auth_methods": {
+   "status": "labelled",
+   "value": [
+    "oauth2",
+    "api_key"
+   ],
+   "url": "https://api.docs.dealcloud.com/docs/token",
+   "quote": "DealCloud uses the OAuth2 Client Credentials flow to generate a bearer token",
+   "note": "Per-user API key (enabled in profile) is exchanged for a 15-minute OAuth2 bearer token. MCP uses interactive OAuth 2.0 per user."
+  },
+  "credential_access": {
+   "status": "ambiguous",
+   "note": "Two readings. (1) admin_approval: API access needs a user in a group with the 'API' capability enabled by a site admin, then the user enables their API key in Profile. (2) contact_sales: DealCloud is an enterprise product with no public trial/pricing/self-serve signup, so a developer without a licensed tenant cannot obtain credentials at all. Best guess: admin_approval (given the access path is tenant-admin controlled)."
+  },
+  "production_gate": {
+   "status": "labelled",
+   "value": "none",
+   "url": "https://api.docs.dealcloud.com/docs/apikeys",
+   "quote": "To enable API access, ensure the intended user is assigned to a user group with the appropriate permissions.",
+   "note": "Per-tenant credentials; no app review, marketplace or partner agreement found in the public API docs (absence of evidence)."
+  },
+  "api_type": {
+   "status": "labelled",
+   "value": [
+    "rest"
+   ],
+   "url": "https://api.docs.dealcloud.com/docs",
+   "quote": "This site provides a comprehensive overview of our REST APIs, their capabilities, and available endpoints.",
+   "note": "Also SDKs and MCP server, but the API itself is REST/Swagger."
+  },
+  "mcp_official": {
+   "status": "labelled",
+   "value": "yes",
+   "url": "https://api.docs.dealcloud.com/mcp",
+   "quote": "The DealCloud MCP Server helps teams turn their DealCloud data into faster, higher-quality outcomes.",
+   "note": "Requires Celeste license (api.docs.dealcloud.com/mcp/getting-started)."
+  },
+  "main_blocker_type": {
+   "status": "labelled",
+   "value": "access",
+   "url": "https://api.docs.dealcloud.com/docs/apikeys",
+   "quote": "If you do not see the Admin section, contact your organization's admin or DealCloud Customer Success Manager (CSM) for assistance.",
+   "note": "Customer/tenant-gated; no public sandbox or self-serve path."
+  }
+ }
+}

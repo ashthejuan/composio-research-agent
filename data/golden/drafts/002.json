@@ -1,0 +1,52 @@
+{
+ "app_id": 2,
+ "app": "HubSpot",
+ "labeller": "draft:claude-sonnet",
+ "labelled_at": "2026-11-23T13:59:28Z",
+ "fields": {
+  "auth_methods": {
+   "status": "labelled",
+   "value": [
+    "oauth2",
+    "bearer_token"
+   ],
+   "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+   "quote": "OAuth is required for multiple accounts, while static auth access tokens are used for installing in a single account at a time.",
+   "note": "Static auth token is sent as Authorization: Bearer; developer hapikey is only for app-management endpoints."
+  },
+  "credential_access": {
+   "status": "labelled",
+   "value": "self_serve_free",
+   "url": "https://developers.hubspot.com/docs/getting-started/account-types",
+   "quote": "Developer test accounts are free HubSpot accounts with access to a 90-day trial of many enterprise features",
+   "note": "Free developer test accounts and free standard accounts; static-auth private app token is self-serve."
+  },
+  "production_gate": {
+   "status": "ambiguous",
+   "note": "Two readings. (1) marketplace_listing: in the new developer platform distribution=private allows max 10 allowlisted accounts; wider distribution uses distribution=marketplace, listing needs >=3 active installs and review. (2) none: docs say marketplace 'eligible for listing', and public OAuth apps historically install on any account without listing. Docs read do not state whether an unlisted marketplace-distribution app can install beyond 10 accounts. Best guess: none (listing optional)."
+  },
+  "api_type": {
+   "status": "labelled",
+   "value": [
+    "rest"
+   ],
+   "url": "https://developers.hubspot.com/docs/developer-tooling/platform/versioning.md",
+   "quote": "HubSpot developer projects and REST APIs are versioned based on when they were released.",
+   "note": "No GraphQL API found in the llms.txt docs index (CMS GraphQL for HubL not counted)."
+  },
+  "mcp_official": {
+   "status": "labelled",
+   "value": "yes",
+   "url": "https://developers.hubspot.com/mcp",
+   "quote": "HubSpot offers two distinct MCP (Model Context Protocol) servers",
+   "note": "Remote server https://mcp.hubspot.com and local developer MCP server, both run by HubSpot."
+  },
+  "main_blocker_type": {
+   "status": "labelled",
+   "value": "none",
+   "url": "https://developers.hubspot.com/docs/getting-started/account-types",
+   "quote": "You can create up to 10 test accounts to test apps and integrations without affecting any real HubSpot data.",
+   "note": "Free signup, standard OAuth, official MCP; no major obstacle."
+  }
+ }
+}

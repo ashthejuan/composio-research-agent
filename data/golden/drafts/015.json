@@ -1,0 +1,54 @@
+{
+ "app_id": 15,
+ "app": "Pylon",
+ "labeller": "draft:claude-sonnet",
+ "labelled_at": "2026-11-23T13:59:28Z",
+ "fields": {
+  "auth_methods": {
+   "status": "labelled",
+   "value": [
+    "bearer_token"
+   ],
+   "url": "https://docs.usepylon.com/pylon-docs/developer/api/authentication.md",
+   "quote": "Authorization: Bearer <token>",
+   "note": "Admin-created API tokens; no OAuth for the REST API (OAuth only for the MCP server)."
+  },
+  "credential_access": {
+   "status": "labelled",
+   "value": "paid_plan_required",
+   "url": "https://www.usepylon.com/pricing",
+   "quote": "Includes: Viewer seats Core support Out-of-the-box Analytics Automations Skills Broadcasts MCP API Integrations",
+   "note": "API listed as included in paid seats ($89/seat annual); no free tier or self-serve signup found, only Book a demo. Could be read as contact_sales."
+  },
+  "production_gate": {
+   "status": "labelled",
+   "value": "none",
+   "url": "https://docs.usepylon.com/pylon-docs/developer/api.md",
+   "quote": "Only Admin users can create API tokens.",
+   "note": "No OAuth app, marketplace or partner program for third-party integrators found (absence of evidence); each customer admin issues tokens."
+  },
+  "api_type": {
+   "status": "labelled",
+   "value": [
+    "rest"
+   ],
+   "url": "https://docs.usepylon.com/pylon-docs/developer/api/api-reference/me.md",
+   "quote": "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Pylon API.\",\"version\":\"1.0.0\"}",
+   "note": "OpenAPI-described HTTP API. An experimental CLI and SDKs also exist but are wrappers."
+  },
+  "mcp_official": {
+   "status": "labelled",
+   "value": "yes",
+   "url": "https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp.md",
+   "quote": "The Pylon MCP Server exposes Pylon data to AI tools that support the Model Context Protocol",
+   "note": "Hosted at mcp.usepylon.com."
+  },
+  "main_blocker_type": {
+   "status": "labelled",
+   "value": "commercial",
+   "url": "https://www.usepylon.com/pricing",
+   "quote": "You pay for the seats and AI credits your team uses, never per ticket.",
+   "note": "No free path to credentials; paid seats needed."
+  }
+ }
+}

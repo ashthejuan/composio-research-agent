@@ -1,0 +1,54 @@
+{
+  "app_id": 91,
+  "app": "NotebookLM",
+  "labeller": "draft:claude-sonnet",
+  "labelled_at": "2026-11-23T13:58:13+00:00",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "oauth2"
+      ],
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "The projects.locations.notebooks REST API methods on this page require an authenticated user account with an active Gemini Notebook Enterprise license.",
+      "note": "Google user OAuth access token (gcloud auth print-access-token) sent as Authorization: Bearer. Could also be read as bearer_token; no service-account path documented on page."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "paid_plan_required",
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+      "note": "Paid per-user license plus Google Cloud project. Note: a separate Public Preview Gemini Notebook API (developers.google.com/notebook) targets personal accounts and may be free; not the Enterprise API in scope."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "Grant the Cloud NotebookLM User role ( roles/discoveryengine.notebookLmUser ) to your user account.",
+      "note": "Only IAM role + license; no app review documented."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "The projects.locations.notebooks REST API methods on this page",
+      "note": "Preview (v1alpha)."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://developers.google.com/notebook/docs/mcp",
+      "quote": "The Gemini Notebook API provides a remote Model Context Protocol (MCP) server at https://notebook.googleapis.com/mcp",
+      "note": "Google-run MCP, but for the Gemini Notebook API which currently requires personal Google accounts (Workspace not yet supported); unclear it covers NotebookLM Enterprise notebooks."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "commercial",
+      "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "quote": "Get licenses for Gemini Notebook Enterprise and assign a license to your user account.",
+      "note": "Paid license + preview-only user-credential auth; could also be read as technical/access."
+    }
+  }
+}

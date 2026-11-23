@@ -1,0 +1,52 @@
+{
+  "app_id": 90,
+  "app": "PitchBook",
+  "labeller": "draft:claude-sonnet",
+  "labelled_at": "2026-11-23T13:58:13+00:00",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "api_key",
+        "bearer_token"
+      ],
+      "url": "https://pitchbook.com/help/pitchbook-api",
+      "quote": "help you establish the API connection through an API key or authentication token",
+      "note": "Page fetched via web.archive.org because live site is Cloudflare-blocked. Details of token type not public (endpoint docs behind platform login)."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "contact_sales",
+      "url": "https://pitchbook.com/help/pitchbook-api",
+      "quote": "Our API is a separate offering from the PitchBook Platform that requires a standalone contract agreement.",
+      "note": "Request goes to the Direct Data team; no self-serve."
+    },
+    "production_gate": {
+      "status": "ambiguous",
+      "note": "Customers hold their own contract + API key, so beyond credentials nothing extra (none); but a standalone commercial agreement is needed per customer and a multi-tenant integrator may need a data-redistribution/partner agreement (partner_program). Best guess: none."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://pitchbook.com/products/direct-access-data/api",
+      "quote": "Our RESTful API utilizes JSON and is system agnostic",
+      "note": "Via web.archive.org (live blocked)."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://claude.com/marketplace/connectors/pitchbook",
+      "quote": "Powered by our MCP server, PitchBook clients can seamlessly search and analyze firms, deals, funds, and key players",
+      "note": "Listing says Made by PitchBook; endpoint https://premium.mcp.pitchbook.com/mcp. Could not load pitchbook.com page itself (Cloudflare). Requires PitchBook subscription."
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "commercial",
+      "url": "https://pitchbook.com/help/pitchbook-api",
+      "quote": "Our API is a separate offering from the PitchBook Platform that requires a standalone contract agreement.",
+      "note": "Sales-gated contract; could also be read as access."
+    }
+  }
+}

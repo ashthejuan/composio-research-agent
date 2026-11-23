@@ -1,0 +1,55 @@
+{
+  "app_id": 75,
+  "app": "Asana",
+  "labeller": "draft:claude-sonnet",
+  "labelled_at": "2026-11-23T13:58:13+00:00",
+  "fields": {
+    "auth_methods": {
+      "status": "labelled",
+      "value": [
+        "oauth2",
+        "bearer_token"
+      ],
+      "url": "https://developers.asana.com/docs/authentication",
+      "quote": "A personal access token (PAT) is the quickest and simplest way to authenticate in the API.",
+      "note": "PAT (bearer), OAuth2 (bearer access tokens); Enterprise-only Service Accounts are also long-lived tokens (same class)."
+    },
+    "credential_access": {
+      "status": "labelled",
+      "value": "self_serve_free",
+      "url": "https://developers.asana.com/docs/overview",
+      "quote": "create a free account, or request a developer sandbox",
+      "note": "PATs are generated in the developer console of any account incl. free."
+    },
+    "production_gate": {
+      "status": "labelled",
+      "value": "oauth_app_review",
+      "url": "https://developers.asana.com/docs/publish-your-app",
+      "quote": "Make your app available to users in any Asana workspace, beyond your own organization or development environment",
+      "note": "Review needed to serve other workspaces via OAuth app."
+    },
+    "api_type": {
+      "status": "labelled",
+      "value": [
+        "rest"
+      ],
+      "url": "https://developers.asana.com/docs/overview",
+      "quote": "Asana apps use features like our rest API, app components, and webhooks.",
+      "note": "App components/webhooks are not separate api types per rules."
+    },
+    "mcp_official": {
+      "status": "labelled",
+      "value": "yes",
+      "url": "https://developers.asana.com/docs/using-asanas-mcp-server",
+      "quote": "Asana offers a Model Context Protocol (MCP) server that allows AI assistants and other applications to access the Asana Work Graph.",
+      "note": "https://mcp.asana.com/v2/mcp"
+    },
+    "main_blocker_type": {
+      "status": "labelled",
+      "value": "none",
+      "url": "https://developers.asana.com/docs/publish-your-app",
+      "quote": "Submitting your app for review is not required to obtain a token.",
+      "note": "Self-serve PAT/OAuth; review only for multi-workspace distribution."
+    }
+  }
+}
