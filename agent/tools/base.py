@@ -57,19 +57,50 @@ class NullCatalog:
         return "unknown", None
 
 
-def get_tools(backend: Optional[str] = None) -> tuple[SearchTool, ScrapeTool, CatalogTool]:
-    """Return (search, scrape, catalog). Catalog is Composio-backed whenever a key exists (AC-6)."""
+def resolve_backend(backend: Optional[str] = None) -> str:
+    """Concrete backend: "composio_mcp" (consumer key ck_), "composio_sdk" (project key ak_ / other), "direct".
+
+    "composio" auto-detects by key prefix: a Composio consumer key only authenticates the Composio
+    Connect MCP server (the SDK/REST answers 401), a project key only works with the SDK.
+    """
     s = get_settings()
     backend = backend or s.tool_backend
-    if backend not in ("composio", "direct"):
+    if backend not in ("composio", "composio_sdk", "direct"):
         raise ValueError(f"unknown tool backend {backend!r}")
+    if backend == "composio":
+        return "composio_mcp" if (s.composio_api_key or "").startswith("ck_") else "composio_sdk"
+    return backend
+
+
+def get_tools(backend: Optional[str] = None) -> tuple[SearchTool, ScrapeTool, CatalogTool]:
+    """Return (search, scrape, catalog).
+
+    Catalog: SDK toolkit listing (falls back to the public docs catalog) for project keys; the public
+    docs catalog ("composio_docs_catalog") for consumer keys or no key.
+    With env TOOL_FALLBACK=direct, Composio search/scrape are wrapped so that a missing connection or
+    repeated errors switch to the direct tools (logged once, counted per backend).
+    """
+    s = get_settings()
+    resolved = resolve_backend(backend)
     from agent.tools import composio_tools as ct
 
+    key = s.composio_api_key or ""
     catalog: CatalogTool = (
-        ct.FallbackCatalog(ct.ComposioCatalog(), ct.DocsCatalog()) if s.composio_api_key else ct.DocsCatalog()
+        ct.FallbackCatalog(ct.ComposioCatalog(), ct.DocsCatalog()) if key and not key.startswith("ck_")
+        else ct.DocsCatalog()
     )
-    if backend == "composio":
-        return ct.ComposioSearch(), ct.ComposioScrape(), catalog
     from agent.tools import direct_tools as dt
 
-    return dt.ExaSearch(), dt.HttpxScrape(), catalog
+    if resolved == "direct":
+        return dt.ExaSearch(), dt.HttpxScrape(), catalog
+    if resolved == "composio_mcp":
+        from agent.tools import composio_mcp as mcp
+
+        search, scrape = mcp.MCPSearch(), mcp.MCPScrape()
+    else:
+        search, scrape = ct.ComposioSearch(), ct.ComposioScrape()
+    from agent.tools import fallback as fb
+
+    if fb.fallback_mode() == "direct":
+        return (*fb.wrap(search, scrape, dt.ExaSearch(), dt.HttpxScrape(), primary_label=resolved), catalog)
+    return search, scrape, catalog

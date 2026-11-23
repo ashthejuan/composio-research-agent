@@ -273,6 +273,7 @@ async def _run_batch(apps: list[App], *, pass_: str, rpass: str, backend: str, c
             # cost is 0 unless EXTRACTOR_PRICE_IN/OUT (USD per 1M tokens) are set: say so explicitly
             "cost_priced": bool(os.environ.get("EXTRACTOR_PRICE_IN") or os.environ.get("EXTRACTOR_PRICE_OUT")),
             "cache": cache_stats,
+            "tool_backend_counts": _backend_counts(tools, backend, run_recs),
         },
         apps=[_summary(a, results[a.id]) for a in sorted(apps, key=lambda a: a.id) if a.id in results],
     )
@@ -280,6 +281,22 @@ async def _run_batch(apps: list[App], *, pass_: str, rpass: str, backend: str, c
     rdir.mkdir(parents=True, exist_ok=True)
     (rdir / f"run_{pass_}.json").write_text(manifest.model_dump_json(indent=2, by_alias=True) + "\n")
     return manifest
+
+
+def _backend_counts(tools, backend: Optional[str], run_recs: list[AppRecord]) -> dict[str, int]:
+    """Search/scrape calls per backend. Fallback wrappers (TOOL_FALLBACK=direct) count exactly; otherwise
+    every search/scrape call went through the one resolved backend (tool_calls minus 1 catalog call/app)."""
+    from agent.tools.base import resolve_backend
+    from agent.tools.fallback import backend_counts
+
+    counted = backend_counts(tools[0], tools[1])
+    if counted is not None:
+        return counted
+    try:
+        label = resolve_backend(backend)
+    except ValueError:
+        label = str(backend)
+    return {label: max(0, sum(r.run.tool_calls for r in run_recs) - len(run_recs)), "fallbacks": 0}
 
 
 # ------------------------------------------------------------------- freeze

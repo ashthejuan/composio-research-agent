@@ -42,29 +42,41 @@ async def _run() -> int:
     keys = {"COMPOSIO_API_KEY": s.composio_api_key, "OPENAI_API_KEY": s.openai_api_key,
             "META_API_KEY": s.meta_api_key, "EXA_API_KEY": s.exa_api_key}
     print("Keys:", ", ".join(f"{k}={'present' if v else 'missing'}" for k, v in keys.items()))
-    print(f"Backend: {s.tool_backend} | slugs: {COMPOSIO_TOOL_SLUGS}")
+    from agent.tools.base import resolve_backend
+
+    resolved = resolve_backend()
+    print(f"Backend: {s.tool_backend} -> {resolved} | slugs: {COMPOSIO_TOOL_SLUGS}"
+          f" | TOOL_FALLBACK={os.environ.get('TOOL_FALLBACK') or '(none)'}")
 
     search, scrape, catalog = get_tools()
     ok = {"search": False, "scrape": False, "catalog": False}
-    used = s.tool_backend
+    used = resolved
     query = "Linear API authentication"
     results = []
 
     async def do_search(tool):
         return await tool.search(query, n=5)
 
+    def served(tool) -> str:
+        """Which backend served the last call (fallback wrappers count per backend)."""
+        c = getattr(tool, "counts", None)
+        return f"{resolved}|counts={c.snapshot()}" if c is not None else resolved
+
     try:
-        if s.tool_backend == "composio" and not s.composio_api_key:
+        if resolved.startswith("composio") and not s.composio_api_key:
             print("SKIPPED: COMPOSIO_API_KEY missing (search/scrape via composio)")
             raise LookupError
         results = await do_search(search)
         ok["search"] = bool(results)
-        print(f"search[{used}]: {len(results)} results; top: {results[0].url if results else '-'}")
+        print(f"search[{served(search)}]: {len(results)} results; top: {results[0].url if results else '-'}; "
+              f"snippet chars={[len(r.snippet) for r in results]}")
     except LookupError:
         pass
     except Exception as e:
-        print(f"search[{used}] FAILED: {_err(e)}")
-    if not ok["search"] and s.tool_backend == "composio":
+        print(f"search[{resolved}] FAILED: {_err(e)}")
+        if type(e).__name__ in ("ComposioConnectionMissing", "ComposioUpstreamAuthError"):
+            print("  hint: (re)connect with a valid key: python -m agent composio connect exa")
+    if not ok["search"] and resolved.startswith("composio"):
         if s.exa_api_key:
             try:
                 d_search, d_scrape, _ = get_tools("direct")
@@ -77,10 +89,10 @@ async def _run() -> int:
         else:
             print("SKIPPED: direct search fallback (EXA_API_KEY missing)")
 
-    url = results[0].url if results else "https://developers.linear.app/docs"
+    url = results[0].url if results else "https://linear.app/developers/graphql"
     page = None
     for label, tool in ((used, scrape), ("direct", get_tools("direct")[1])):
-        if label == "composio" and not s.composio_api_key:
+        if label.startswith("composio") and not s.composio_api_key:
             print("SKIPPED: scrape via composio (COMPOSIO_API_KEY missing)")
             continue
         try:
@@ -95,19 +107,26 @@ async def _run() -> int:
             break
         print("  trying direct scrape fallback")
 
-    if not s.composio_api_key:
-        print("SKIPPED: catalog lookup (COMPOSIO_API_KEY missing)")
-    else:
-        try:
-            status, slug = await catalog.has_toolkit("Linear")
-            ok["catalog"] = status != "unknown"
-            print(f"catalog: Linear -> {status} ({slug})")
-            err = getattr(catalog, "last_error", None)
-            if err is not None:
-                print(f"catalog FAILED: {_err(err)}")
-        except Exception as e:
-            print(f"catalog FAILED: {_err(e)}")
+    try:
+        if not s.composio_api_key:
+            print("SKIPPED: catalog lookup (COMPOSIO_API_KEY missing)")
+            raise LookupError
+        status, slug = await catalog.has_toolkit("Linear")
+        ok["catalog"] = status != "unknown"
+        src = getattr(catalog, "source", "composio_catalog")
+        print(f"catalog[{src}]: Linear -> {status} ({slug})")
+        err = getattr(catalog, "last_error", None)
+        if err is not None:
+            print(f"catalog FAILED: {_err(err)}")
+    except LookupError:
+        pass
+    except Exception as e:
+        print(f"catalog FAILED: {_err(e)}")
 
+    from agent.config import verifier_model_hint
+
+    if hint := verifier_model_hint():
+        print(f"WARNING: {hint}")
     if s.meta_api_key:
         try:
             from agent.llm import verify_claim
@@ -132,7 +151,7 @@ async def _run() -> int:
     if ok["search"]:
         try:
             before = get_cache().hits
-            await do_search(get_tools(used)[0])
+            await do_search(get_tools("direct" if used == "direct" else None)[0])
             print(f"cache: re-run search {'HIT' if get_cache().hits > before else 'MISS'} {get_cache().stats()}")
         except Exception as e:
             print(f"cache re-run FAILED: {_err(e)}")

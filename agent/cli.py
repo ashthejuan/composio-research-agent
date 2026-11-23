@@ -17,6 +17,48 @@ def _smoke(_args: argparse.Namespace) -> int:
     return int(run_smoke())
 
 
+def _composio(args: argparse.Namespace) -> int:
+    import asyncio
+
+    from agent.config import get_settings
+    from agent.tools import composio_mcp as mcp
+
+    key = get_settings().composio_api_key or ""
+    if not key:
+        print("error: COMPOSIO_API_KEY missing")
+        return 2
+    if not key.startswith("ck_"):
+        print("error: `agent composio` needs a Composio consumer key (ck_...); project keys (ak_...) use the SDK")
+        return 2
+
+    async def run() -> int:
+        c = mcp.get_mcp_client()
+        try:
+            if args.composio_cmd == "status":
+                st = await c.connection_status(args.toolkits or ["exa", "firecrawl"])
+                for tk, info in st.items():
+                    flag = "ACTIVE" if info["active"] else "not active"
+                    print(f"{tk:<12} {flag:<11} status={info['status']} accounts={info.get('accounts', 0)}")
+                return 0  # informational; inactive toolkits are shown above
+            rc = 0
+            for tk in args.toolkits:
+                link = await c.initiate_connection(tk)
+                if link:
+                    print(f"{tk}: open this link to connect (expires in ~10 min):\n  {link}")
+                else:
+                    print(f"{tk}: no redirect link returned (already connected?)")
+                    rc = 1
+            return rc
+        finally:
+            await c.aclose()
+
+    try:
+        return asyncio.run(run())
+    except Exception as e:  # noqa: BLE001 - never a traceback, never a secret
+        print(f"error: {type(e).__name__}: {mcp.scrub(e)[:300]}")
+        return 1
+
+
 def select_apps(args: argparse.Namespace):
     from agent import registry
 
@@ -107,6 +149,15 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub.add_parser("smoke", help="Composio search + scrape smoke test").set_defaults(func=_smoke)
 
+    co = sub.add_parser("composio", help="Composio Connect (consumer key) connections")
+    co_sub = co.add_subparsers(dest="composio_cmd", required=True)
+    cs = co_sub.add_parser("status", help="connection status per toolkit (default: exa firecrawl)")
+    cs.add_argument("toolkits", nargs="*")
+    cs.set_defaults(func=_composio)
+    cc = co_sub.add_parser("connect", help="print an auth link for each toolkit")
+    cc.add_argument("toolkits", nargs="+")
+    cc.set_defaults(func=_composio)
+
     r = sub.add_parser("research", help="run the research pass over selected apps")
     g = r.add_mutually_exclusive_group(required=True)
     g.add_argument("--app", help="app name or id")
@@ -114,7 +165,7 @@ def build_parser() -> argparse.ArgumentParser:
     g.add_argument("--category", help="category name (substring ok)")
     g.add_argument("--all", action="store_true", help="all 100 apps")
     r.add_argument("--pass", dest="pass_", default="pass1")
-    r.add_argument("--backend", choices=["composio", "direct"], default=None)
+    r.add_argument("--backend", choices=["composio", "composio_sdk", "direct"], default=None)
     r.add_argument("--concurrency", type=int, default=None)
     r.add_argument("--refresh", action="store_true", help="bypass tool cache and redo existing records")
     r.add_argument("--no-skip", action="store_true", help="re-run apps that already have a record")
