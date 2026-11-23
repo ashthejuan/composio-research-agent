@@ -42,6 +42,13 @@
       "sourceType": "github",
       "skillPath": "skills/engineering/research/SKILL.md",
       "computedHash": "7662666af51f8b1672ed7d88360d4b82656da21bb7b11c49e956eeb3036b85d5"
+    },
+    "scandinavian-design": {
+      "source": "ericzakariasson/scandinavian-design",
+      "commit": "295742307b97fa0fb848f9be2d6e229ca517c736",
+      "sourceType": "github",
+      "skillPath": "skills/scandinavian-design/SKILL.md",
+      "computedHash": "4af699dd7c6717f3a10d76c2a3b5f78b49c639d33fbe435c84de7efacbb92de1"
     }
   }
 }
