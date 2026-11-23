@@ -682,10 +682,12 @@
     "website": "https://fanbasis.com",
     "hint": "fanbasis.com",
     "official_domains": [
-      "fanbasis.com"
+      "fanbasis.com",
+      "commas.com",
+      "commasdocs.com"
     ],
     "kind": "saas_api",
-    "notes": "Low documentation expected; prefer unknown over inference."
+    "notes": "Rebranded to Commas (commas.com / commasdocs.com); low documentation expected, prefer unknown over inference."
   },
   {
     "id": 51,
