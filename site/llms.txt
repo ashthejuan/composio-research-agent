@@ -22,12 +22,12 @@ Each item in apps.json is an AppRecord:
 - Technically blocked: 1
 
 ## Key Findings
-- 56 of 100 apps offer free self-serve developer access, yet 16 of those still require an app review, marketplace listing, or partner program before serving multi-tenant customers.
-- 89 of 100 apps already publish an official MCP server, including 15 apps that do not yet have a Composio toolkit.
-- 66 of 100 apps score as Easy Wins (8–10/10 with no commercial gate); 9 of them currently lack a Composio toolkit and can be built without BD outreach.
-- 12 of 100 apps trigger a commercial gate (partner-gated, contact-sales, or partner program) — 5 without Composio coverage — led by Finance and Fintech (4 apps).
-- 'access' is the most common integration blocker across the catalog (48 of 100 apps, 48%).
-- 91 of 100 apps expose REST APIs and 74 support OAuth2 (37 of those with documented production gates), while 64 apps support two or more authentication methods.
+- 56 of 100 apps let a developer get credentials for free, but 16 of those still need an app review, marketplace listing, or partner program before you can serve many customers.
+- 89 of 100 apps publish an official MCP server. 15 of those are not in the Composio catalog yet — ready coverage opportunities.
+- 66 of 100 apps look ready to integrate today (score 8–10, no partnership gate). 9 of those are still missing from Composio.
+- 12 of 100 apps require a partnership, sales contact, or partner program before you can build — 5 of those are not in Composio yet. The densest category is Finance and Fintech (4 apps).
+- The most common blocker is getting developer credentials (paid plans, admin approval, or partner signup) (48 of 100 apps, 48%).
+- 91 of 100 apps expose a REST API and 74 support OAuth 2.0 (37 of those still document an extra gate before production). 64 apps offer two or more ways to authenticate.
 
 ## Accuracy & Verification Methodology
 - Golden set: 20 stratified apps (2 per category, 120 evaluated claims across 6 fields), human-confirmed from primary documentation.
@@ -35,7 +35,7 @@ Each item in apps.json is an AppRecord:
 - Pass 1 (raw research agent): 52.5%
 - Pass 2 (automated L1-L6 verification, independent Meta Muse Spark verifier + targeted re-research): 54.17%
 - Final (human-corrected on golden disagreements, reported separately): 100.0%
-- Holdout: skipped_per_prd_cut_line_1 — 5 holdout apps (Zoho CRM, Vonage, Squarespace, Paygent Connect, Grain) were not human-labelled per PRD §12 cut line #1; this is disclosed on the case-study page.
+- Holdout: skipped_per_prd_cut_line_1 — 5 apps were kept out of the hand-checked sample (Zoho CRM, Vonage, Squarespace, Paygent Connect, Grain). They are still in the full 100-app dataset; only the accuracy score above was measured on the 20 apps I labelled by hand.
 
 ## Repository
 https://github.com/ashthejuan/composio-research-agent

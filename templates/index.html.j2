@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>App Intelligence Research Agent — 100-App Composio Integration Audit</title>
-  <meta name="description" content="Evidence-backed integration and buildability audit of 100 applications across 10 categories for Composio.">
+  <title>Which of 100 apps are ready for Composio toolkits?</title>
+  <meta name="description" content="Research report on auth, API access, MCP coverage, and build readiness across 100 apps — with evidence, accuracy checks, and honest misses.">
   <style>
     /* Scandinavian Design System: strictly neutral alpha-black on #FFFFFF / alpha-white on #0A0A0A.
        Zero warm/cool gray casts, zero gradients, zero heavy shadows, zero all-caps chrome. */
@@ -23,7 +23,6 @@
       --solid-bg: #000000;
       --solid-ink: #ffffff;
 
-      /* Semantic status colors (always paired with text labels) */
       --ok-ink: #15803d;
       --ok-bg: rgb(21 128 61 / 8%);
       --warn-ink: #a16207;
@@ -37,8 +36,9 @@
       --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       --radius: 8px;
       --radius-pill: 999px;
-      --max-w: 1120px;
+      --max-w: 1180px;
       --gutter: 48px;
+      --toc-w: 220px;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -48,15 +48,14 @@
         --surface-alt: rgb(255 255 255 / 4.5%);
         --surface-row: rgb(255 255 255 / 3%);
         --ink-1: #ffffff;
-        --ink-2: rgb(255 255 255 / 60%);
-        --ink-3: rgb(255 255 255 / 50%);
+        --ink-2: rgb(255 255 255 / 56%);
+        --ink-3: rgb(255 255 255 / 46%);
         --border: rgb(255 255 255 / 11%);
         --border-strong: rgb(255 255 255 / 20%);
         --hover: rgb(255 255 255 / 9%);
         --pressed: rgb(255 255 255 / 14%);
         --solid-bg: #ffffff;
         --solid-ink: #0a0a0a;
-
         --ok-ink: #4ade80;
         --ok-bg: rgb(74 222 128 / 12%);
         --warn-ink: #fbbf24;
@@ -74,15 +73,14 @@
       --surface-alt: rgb(255 255 255 / 4.5%);
       --surface-row: rgb(255 255 255 / 3%);
       --ink-1: #ffffff;
-      --ink-2: rgb(255 255 255 / 60%);
-      --ink-3: rgb(255 255 255 / 50%);
+      --ink-2: rgb(255 255 255 / 56%);
+      --ink-3: rgb(255 255 255 / 46%);
       --border: rgb(255 255 255 / 11%);
       --border-strong: rgb(255 255 255 / 20%);
       --hover: rgb(255 255 255 / 9%);
       --pressed: rgb(255 255 255 / 14%);
       --solid-bg: #ffffff;
       --solid-ink: #0a0a0a;
-
       --ok-ink: #4ade80;
       --ok-bg: rgb(74 222 128 / 12%);
       --warn-ink: #fbbf24;
@@ -117,7 +115,6 @@
 
     .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
 
-    /* Header */
     .topbar {
       position: sticky;
       top: 0;
@@ -130,36 +127,27 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      min-height: 56px;
-      flex-wrap: wrap;
+      min-height: 52px;
       padding: 8px 0;
     }
     .brand {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: -0.01em;
       text-decoration: none;
-      white-space: nowrap;
+      color: var(--ink-1);
     }
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .nav a {
-      text-decoration: none;
+    .brand-meta {
       font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-2);
-      padding: 6px 10px;
-      border-radius: var(--radius);
+      color: var(--ink-3);
+      font-weight: 400;
+      margin-left: 10px;
     }
-    .nav a:hover { color: var(--ink-1); background: var(--hover); }
     .topbar-actions {
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
     .export-links {
       display: flex;
@@ -197,11 +185,119 @@
     }
     .btn:hover { background: var(--hover); }
     .btn:active { background: var(--pressed); }
+    .btn--solid {
+      background: var(--solid-bg);
+      color: var(--solid-ink);
+      border-color: var(--solid-bg);
+    }
+    .btn--solid:hover { opacity: 0.9; background: var(--solid-bg); }
 
-    /* Chapters */
-    .chapter { padding: 80px 0; }
-    .chapter--alt { background: var(--surface-alt); }
-    .chapter-head { max-width: 68ch; margin-bottom: 36px; }
+    /* Report cover */
+    .cover {
+      padding: 72px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cover-kicker {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-3);
+      margin: 0 0 16px;
+    }
+    .cover h1 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      max-width: 22ch;
+    }
+    .cover-lead {
+      margin: 0 0 28px;
+      font-size: 17px;
+      color: var(--ink-2);
+      max-width: 62ch;
+    }
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      max-width: 820px;
+    }
+    .meta-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-3);
+      margin-bottom: 4px;
+    }
+    .meta-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-1);
+    }
+
+    /* Report shell: sticky ToC + body */
+    .report-shell {
+      display: grid;
+      grid-template-columns: var(--toc-w) minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+      padding: 40px 0 0;
+    }
+    .toc {
+      position: sticky;
+      top: 68px;
+      padding-bottom: 40px;
+      max-height: 720px;
+      overflow-y: auto;
+    }
+    .toc-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-3);
+      margin: 0 0 12px;
+    }
+    .toc ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .toc li { margin: 0; }
+    .toc a {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 8px;
+      padding: 8px 0;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink-2);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .toc a:hover { color: var(--ink-1); background: var(--hover); }
+    .toc-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+    .toc-desc {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-3);
+    }
+    .report-body { min-width: 0; padding-bottom: 48px; }
+
+    .chapter {
+      padding: 56px 0;
+      scroll-margin-top: 72px;
+    }
+    .chapter + .chapter { border-top: 1px solid var(--border); }
+    .chapter-head { max-width: 68ch; margin-bottom: 28px; }
     .chapter-num {
       font-family: var(--font-mono);
       font-size: 13px;
@@ -209,17 +305,9 @@
       color: var(--ink-3);
       margin-bottom: 8px;
     }
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(30px, 4vw, 44px);
-      font-weight: 500;
-      line-height: 1.1;
-      letter-spacing: -0.025em;
-    }
-    h1 .sub { color: var(--ink-2); }
     h2 {
       margin: 0 0 10px;
-      font-size: clamp(22px, 2.5vw, 28px);
+      font-size: clamp(22px, 2.4vw, 28px);
       font-weight: 500;
       line-height: 1.15;
       letter-spacing: -0.02em;
@@ -230,20 +318,19 @@
       font-weight: 500;
       line-height: 1.3;
     }
-    .lead { margin: 0; font-size: 16px; color: var(--ink-2); max-width: 64ch; }
+    .lead { margin: 0; font-size: 15px; color: var(--ink-2); max-width: 64ch; }
 
-    /* Key-number strip */
     .kpi-strip {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 24px;
-      padding: 28px 0;
-      margin: 36px 0 40px;
+      padding: 24px 0;
+      margin: 0 0 36px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
     .kpi-val {
-      font-size: clamp(24px, 2.6vw, 32px);
+      font-size: clamp(22px, 2.4vw, 30px);
       font-weight: 500;
       line-height: 1.1;
       letter-spacing: -0.02em;
@@ -261,18 +348,17 @@
       color: var(--ink-3);
     }
 
-    /* Headline list */
     .headline-list {
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px 48px;
+      gap: 28px 40px;
     }
     .headline-item {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       align-items: flex-start;
     }
     .headline-idx {
@@ -294,7 +380,6 @@
       color: var(--ink-2);
     }
 
-    /* Opportunity matrix */
     .bucket-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -348,6 +433,7 @@
       border-color: var(--solid-bg);
     }
     .chip--gap:hover { opacity: 0.88; background: var(--solid-bg); }
+    .chip--hidden { display: none; }
     .chip-score {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -358,7 +444,7 @@
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       font-size: 13px;
       color: var(--ink-2);
     }
@@ -371,13 +457,57 @@
       vertical-align: middle;
     }
 
-    /* Charts */
+    .view-tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
+      margin-bottom: 20px;
+      padding: 12px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .view-tools label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+      cursor: pointer;
+    }
+    .view-tools input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--ink-1);
+    }
+    .view-tools select {
+      height: 32px;
+      padding: 0 8px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .view-tools .tool-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+    }
+    .view-tools .tool-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--border-strong);
+    }
+
     .chart-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 40px 48px;
-      margin-bottom: 48px;
+      gap: 36px 40px;
+      margin-bottom: 40px;
     }
+    .chart-block[hidden] { display: none; }
     .chart-block h3 { margin-bottom: 4px; }
     .chart-sub { margin: 0 0 16px; font-size: 13px; color: var(--ink-2); }
     .bar-row {
@@ -409,11 +539,10 @@
       color: var(--ink-1);
     }
 
-    .split-2 > *, .bucket-grid > *, .chart-grid > *, .detail-grid > *, .kpi-strip > *, .headline-list > * {
+    .split-2 > *, .bucket-grid > *, .chart-grid > *, .detail-grid > *, .kpi-strip > *, .headline-list > *, .cover-meta > * {
       min-width: 0;
     }
 
-    /* Tables & Heatmap */
     .table-wrap {
       width: 100%;
       max-width: 100%;
@@ -451,8 +580,8 @@
       font-variant-numeric: tabular-nums;
       border-radius: 4px;
     }
+    th.col-hidden, td.col-hidden { display: none; }
 
-    /* Status badges (color + text + dot) */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -478,12 +607,11 @@
     .badge--solid { color: var(--solid-ink); background: var(--solid-bg); }
     .badge--solid::before { display: none; }
 
-    /* Filters */
     .filter-bar {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .filter-bar input, .filter-bar select {
       height: 36px;
@@ -503,8 +631,12 @@
       font-size: 13px;
       color: var(--ink-2);
     }
+    .filter-meta .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-    /* Explorer rows */
     .exp-row { cursor: pointer; }
     .exp-row:nth-child(4n+1) { background: var(--surface-row); }
     .exp-row:hover { background: var(--hover); }
@@ -540,15 +672,13 @@
     }
     .claim-meta { font-size: 12px; color: var(--ink-3); word-break: break-word; }
 
-    /* Two-column editorial splits */
     .split-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 40px 48px;
+      gap: 36px 40px;
       margin-top: 28px;
     }
 
-    /* Disclosure / details */
     details {
       margin-top: 20px;
       border-top: 1px solid var(--border);
@@ -562,7 +692,6 @@
       padding: 4px 0;
     }
 
-    /* Code blocks */
     pre {
       margin: 12px 0 0;
       padding: 16px;
@@ -576,21 +705,33 @@
     }
     code { font-family: var(--font-mono); font-size: 0.9em; }
 
-    /* Inline SVG pipeline */
     .pipeline-wrap {
       width: 100%;
       overflow-x: auto;
-      padding: 16px 0;
+      margin: 8px 0 32px;
+      padding: 20px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface-alt);
     }
     .pipeline-svg {
       display: block;
       width: 100%;
-      min-width: 720px;
+      min-width: 760px;
       height: auto;
+      color: var(--ink-1);
+    }
+    .arch-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      margin: -16px 0 28px;
+      font-size: 13px;
+      color: var(--ink-2);
     }
 
     footer {
-      padding: 40px 0;
+      padding: 32px 0;
       border-top: 1px solid var(--border);
       font-size: 13px;
       color: var(--ink-2);
@@ -603,38 +744,49 @@
       gap: 16px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       :root { --gutter: 24px; }
-      .chapter { padding: 56px 0; }
+      .report-shell { grid-template-columns: 1fr; gap: 0; padding-top: 16px; }
+      .toc {
+        position: static;
+        max-height: none;
+        margin-bottom: 8px;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--surface-alt);
+      }
+      .toc ol {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 16px;
+      }
+      .toc a { border-bottom: none; padding: 6px 0; }
+      .toc-desc { display: none; }
+      .cover { padding: 48px 0 32px; }
+      .cover-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .chapter { padding: 40px 0; }
       .kpi-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .headline-list, .bucket-grid, .chart-grid, .split-2, .detail-grid { grid-template-columns: 1fr; }
-      .nav { display: none; }
+      .brand-meta { display: none; }
     }
-    @media (max-width: 480px) {
-      .kpi-strip { grid-template-columns: 1fr; }
+    @media (max-width: 560px) {
+      .cover-meta, .kpi-strip { grid-template-columns: 1fr; }
+      .toc ol { grid-template-columns: 1fr; }
       .bar-row { grid-template-columns: 112px minmax(0, 1fr) 36px; }
+      .view-tools .tool-sep { display: none; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#headlines">App Intelligence Audit</a>
-      <nav class="nav" aria-label="Page sections">
-        <a href="#headlines">Headlines</a>
-        <a href="#opportunities">Opportunities</a>
-        <a href="#patterns">Patterns</a>
-        <a href="#explorer">Explorer</a>
-        <a href="#verification">Verification</a>
-        <a href="#wrong">Where we were wrong</a>
-        <a href="#architecture">How it was built</a>
-        <a href="#reproduce">Proof</a>
-      </nav>
+      <a class="brand" href="#cover">App Intelligence Audit <span class="brand-meta">Report</span></a>
       <div class="topbar-actions">
-        <div class="export-links" aria-label="Agent-consumable exports">
-          <a href="apps.json">apps.json</a>
-          <a href="apps.csv">apps.csv</a>
-          <a href="llms.txt">llms.txt</a>
+        <div class="export-links" aria-label="Download the dataset">
+          <a href="apps.json" title="Full dataset as JSON">JSON</a>
+          <a href="apps.csv" title="Full dataset as CSV">CSV</a>
+          <a href="llms.txt" title="Machine-readable summary">Guide</a>
         </div>
         <button type="button" class="btn" id="theme-toggle" aria-label="Toggle light and dark theme">Theme</button>
       </div>
@@ -642,619 +794,818 @@
   </header>
 
   <main>
-    <!-- 1. Headline patterns -->
-    <section id="headlines" class="chapter">
+    <section id="cover" class="cover">
       <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">01 / Headline patterns</div>
-          <h1>
-            Integration intelligence across {{ analytics.summary.total_apps }} applications.
-            <span class="sub">Evidence-backed, independently verified, and scored without LLMs.</span>
-          </h1>
-          <p class="lead">
-            Every claim carries a primary-source URL and verbatim quote, passes six automated verification loops (L1–L6) with an independent Meta Muse Spark verifier, and maps deterministically into Composio buildability buckets.
-          </p>
-        </div>
-
-        <div class="kpi-strip">
+        <p class="cover-kicker">Composio · App research report</p>
+        <h1>Which of {{ analytics.summary.total_apps }} apps are ready to turn into agent tools?</h1>
+        <p class="cover-lead">
+          Composio turns apps into tools AI agents can call. Before building a toolkit, you need to know how each app authenticates, whether a developer can sign up alone, what the API looks like, and what blocks shipping.
+          I researched all {{ analytics.summary.total_apps }} apps with an agent, checked every answer against the docs, and ranked what is ready to build versus what needs outreach.
+        </p>
+        <div class="cover-meta">
           <div>
-            <div class="kpi-val">{{ analytics.summary.total_apps }}</div>
-            <div class="kpi-label">Apps audited</div>
-            <div class="kpi-note">10 categories · {{ analytics.summary.composio_available }} in Composio catalog</div>
+            <div class="meta-label">What I studied</div>
+            <div class="meta-value">{{ analytics.summary.total_apps }} apps across 10 categories</div>
           </div>
           <div>
-            <div class="kpi-val">{{ analytics.summary.self_serve_free }}%</div>
-            <div class="kpi-label">Self-serve free dev access</div>
-            <div class="kpi-note">{{ analytics.distributions.production_gate.gated_despite_free_dev }} still hit production gates</div>
+            <div class="meta-label">How I worked</div>
+            <div class="meta-value">Agent research, then six automated checks</div>
           </div>
           <div>
-            <div class="kpi-val">{{ analytics.summary.oauth2_supported }}%</div>
-            <div class="kpi-label">Support OAuth 2.0</div>
-            <div class="kpi-note">{{ analytics.distributions.auth_methods.multi_method_apps }} offer 2+ auth methods</div>
+            <div class="meta-label">Hand-checked accuracy</div>
+            <div class="meta-value">{{ "%.0f"|format(acc1.overall.accuracy) }}% draft → {{ "%.0f"|format(acc2.overall.accuracy) }}% after checks → {{ "%.0f"|format(accf.overall.accuracy) }}% final</div>
           </div>
           <div>
-            <div class="kpi-val">
-              {{ "%.1f"|format(acc1.overall.accuracy) }}% → {{ "%.1f"|format(acc2.overall.accuracy) }}% → {{ "%.1f"|format(accf.overall.accuracy) }}%
-            </div>
-            <div class="kpi-label">Golden accuracy (P1 → P2 → Final)</div>
-            <div class="kpi-note">20 apps (120 claims) · Final is human-corrected</div>
+            <div class="meta-label">Already in Composio</div>
+            <div class="meta-value">{{ analytics.summary.composio_available }} of {{ analytics.summary.total_apps }} apps</div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <ol class="headline-list">
-          {% for h in analytics.headlines %}
-          <li class="headline-item">
-            <span class="headline-idx">0{{ loop.index }}</span>
-            <div>
-              <div class="headline-title">{{ h.title }}</div>
-              <p class="headline-text">{{ h.text }}</p>
-            </div>
-          </li>
-          {% endfor %}
+    <div class="wrap report-shell">
+      <nav class="toc" id="toc" aria-label="Table of contents">
+        <p class="toc-label">Contents</p>
+        <ol>
+          <li><a href="#headlines"><span class="toc-num">01</span><span>Key findings<span class="toc-desc">Patterns across all 100 apps</span></span></a></li>
+          <li><a href="#opportunities"><span class="toc-num">02</span><span>What to build next<span class="toc-desc">Easy wins vs outreach</span></span></a></li>
+          <li><a href="#patterns"><span class="toc-num">03</span><span>Charts<span class="toc-desc">Auth, access, and MCP</span></span></a></li>
+          <li><a href="#explorer"><span class="toc-num">04</span><span>All {{ analytics.summary.total_apps }} apps<span class="toc-desc">Filter and open the evidence</span></span></a></li>
+          <li><a href="#verification"><span class="toc-num">05</span><span>How I checked accuracy<span class="toc-desc">Hand sample and automated checks</span></span></a></li>
+          <li><a href="#wrong"><span class="toc-num">06</span><span>Where I was wrong<span class="toc-desc">Honest misses and hard apps</span></span></a></li>
+          <li><a href="#architecture"><span class="toc-num">07</span><span>How the agent works<span class="toc-desc">Pipeline and human steps</span></span></a></li>
+          <li><a href="#reproduce"><span class="toc-num">08</span><span>Try it yourself<span class="toc-desc">Live run link and source</span></span></a></li>
         </ol>
-      </div>
-    </section>
+      </nav>
 
-    <!-- 2. Opportunity matrix -->
-    <section id="opportunities" class="chapter chapter--alt">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">02 / Opportunity matrix</div>
-          <h2>Four deterministic buckets, commercial gates separated</h2>
-          <p class="lead">
-            Scores (0–10) are computed in Python from the five-dimension FR-04 rubric. Commercial gates (partner-gated, contact-sales, or partner program) route apps to Needs outreach regardless of technical score. Click any app chip to inspect its evidence and score breakdown.
-          </p>
-        </div>
-
-        <div class="legend-row">
-          <span><span class="legend-swatch" style="background: var(--solid-bg);"></span>No Composio toolkit yet (immediate gap)</span>
-          <span><span class="legend-swatch" style="border: 1px solid var(--border-strong); background: var(--surface);"></span>Existing Composio toolkit</span>
-        </div>
-
-        <div class="bucket-grid">
-          <div class="bucket-col">
-            <div class="bucket-head">
-              <h3>Easy wins</h3>
-              <span class="bucket-count">{{ analytics.opportunities.easy_wins_all|length }}</span>
-            </div>
-            <p class="bucket-desc">
-              Score 8–10 with no commercial gate. <strong>{{ analytics.opportunities.easy_wins_without_composio|length }} lack a Composio toolkit</strong> and are ready to build without BD outreach.
-            </p>
-            <div class="chip-wrap">
-              {% for a in analytics.opportunities.easy_wins_all %}
-              <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" title="Score {{ a.score }}/10 · {{ a.category }} · Composio: {{ a.composio_toolkit }}">
-                {{ a.app }} <span class="chip-score">{{ a.score }}</span>
-              </button>
-              {% endfor %}
-            </div>
-          </div>
-
-          <div class="bucket-col">
-            <div class="bucket-head">
-              <h3>Needs outreach / BD</h3>
-              <span class="bucket-count">{{ analytics.opportunities.outreach_targets|length }}</span>
-            </div>
-            <p class="bucket-desc">
-              Commercial gate present (partner-gated, contact-sales, or partner program). <strong>{{ analytics.opportunities.outreach_without_composio|length }} lack a Composio toolkit</strong>.
-            </p>
-            <div class="chip-wrap">
-              {% for a in analytics.opportunities.outreach_targets %}
-              <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" title="Score {{ a.score }}/10 · {{ a.credential_access }} / {{ a.production_gate }}">
-                {{ a.app }} <span class="chip-score">{{ a.score }}</span>
-              </button>
-              {% endfor %}
-            </div>
-          </div>
-
-          <div class="bucket-col">
-            <div class="bucket-head">
-              <h3>Moderate effort</h3>
-              <span class="bucket-count">{{ analytics.opportunities.moderate|length }}</span>
-            </div>
-            <p class="bucket-desc">
-              Score 5–7 with no commercial gate (paid plans, narrower APIs, CLI wrappers, or missing official MCP).
-            </p>
-            <div class="chip-wrap">
-              {% for a in analytics.opportunities.moderate %}
-              <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" title="Score {{ a.score }}/10 · {{ a.category }}">
-                {{ a.app }} <span class="chip-score">{{ a.score }}</span>
-              </button>
-              {% endfor %}
-            </div>
-          </div>
-
-          <div class="bucket-col">
-            <div class="bucket-head">
-              <h3>Technically blocked</h3>
-              <span class="bucket-count">{{ analytics.opportunities.technically_blocked|length }}</span>
-            </div>
-            <p class="bucket-desc">
-              Score 0–4 with no commercial gate (no public API documentation or NDA-gated specs).
-            </p>
-            <div class="chip-wrap">
-              {% for a in analytics.opportunities.technically_blocked %}
-              <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" title="Score {{ a.score }}/10 · {{ a.main_blocker_text }}">
-                {{ a.app }} <span class="chip-score">{{ a.score }}</span>
-              </button>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Pattern charts -->
-    <section id="patterns" class="chapter">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">03 / Pattern charts</div>
-          <h2>Distributions and category access heatmap</h2>
-          <p class="lead">
-            All charts render directly from the embedded dataset with zero external CDN dependencies, so the page stays fully functional offline.
-          </p>
-        </div>
-
-        <div class="chart-grid" id="pattern-charts"></div>
-
-        <div style="margin-top: 16px;">
-          <h3>Category × credential access matrix</h3>
-          <p class="chart-sub">Count of apps per category (10 apps each) across credential access tiers.</p>
-          <div class="table-wrap" id="heatmap-wrap"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Findings explorer -->
-    <section id="explorer" class="chapter chapter--alt">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">04 / Findings explorer</div>
-          <h2>All {{ analytics.summary.total_apps }} apps with claim-level evidence</h2>
-          <p class="lead">
-            Filter by any dimension and click any row to inspect verbatim quotes, evidence URLs, verification loop ledgers (L1–L6), and the deterministic score breakdown. Unknown and low-confidence values are explicitly labelled.
-          </p>
-        </div>
-
-        <div class="filter-bar">
-          <input type="search" id="f-search" placeholder="Search app, category, blocker..." aria-label="Search apps">
-          <select id="f-category" aria-label="Filter by category"><option value="">All categories</option></select>
-          <select id="f-bucket" aria-label="Filter by bucket">
-            <option value="">All buckets</option>
-            <option value="easy_win">Easy win</option>
-            <option value="moderate">Moderate</option>
-            <option value="needs_outreach">Needs outreach</option>
-            <option value="technically_blocked">Technically blocked</option>
-          </select>
-          <select id="f-verdict" aria-label="Filter by verdict">
-            <option value="">All verdicts</option>
-            <option value="easy">Easy (8–10)</option>
-            <option value="moderate">Moderate (5–7)</option>
-            <option value="difficult">Difficult (3–4)</option>
-            <option value="blocked">Blocked (0–2)</option>
-          </select>
-          <select id="f-auth" aria-label="Filter by auth method"><option value="">All auth methods</option></select>
-          <select id="f-access" aria-label="Filter by credential access"><option value="">All credential access</option></select>
-          <select id="f-gate" aria-label="Filter by production gate"><option value="">All production gates</option></select>
-          <select id="f-api" aria-label="Filter by API type"><option value="">All API types</option></select>
-          <select id="f-mcp" aria-label="Filter by official MCP">
-            <option value="">All official MCP</option>
-            <option value="yes">Official MCP: yes</option>
-            <option value="no_found">Official MCP: none found</option>
-            <option value="unknown">Official MCP: unknown</option>
-          </select>
-          <select id="f-composio" aria-label="Filter by Composio toolkit">
-            <option value="">All Composio status</option>
-            <option value="available">Composio: available</option>
-            <option value="unavailable">Composio: unavailable</option>
-          </select>
-          <select id="f-vstatus" aria-label="Filter by verification status">
-            <option value="">All verification states</option>
-            <option value="all_supported">All known claims supported</option>
-            <option value="has_flagged">Has partial / insufficient / contradicted</option>
-          </select>
-        </div>
-
-        <div class="filter-meta">
-          <span id="explorer-count">Showing 100 of 100 apps</span>
-          <button type="button" class="btn" id="f-reset">Reset filters</button>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>App</th>
-                <th>Category</th>
-                <th class="num">Score</th>
-                <th>Bucket</th>
-                <th>Auth</th>
-                <th>Access</th>
-                <th>Prod gate</th>
-                <th>MCP</th>
-                <th>Composio</th>
-                <th>Confidence</th>
-              </tr>
-            </thead>
-            <tbody id="explorer-body"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Verification -->
-    <section id="verification" class="chapter">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">05 / Verification &amp; accuracy</div>
-          <h2>Measured against a 20-app human-confirmed golden set</h2>
-          <p class="lead">
-            All three passes are scored with the exact same frozen rules file (<code>{{ acc2.rules_sha256[:12] }}…</code>). Pass 2 is strictly automated (no human edits). Final is reported separately and labelled as human-corrected.
-          </p>
-        </div>
-
-        <div class="split-2">
-          <div>
-            <h3>Per-field accuracy progression</h3>
-            <p class="chart-sub">20 golden apps × 6 evaluated fields = 120 claims (0 excluded).</p>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Field</th>
-                    <th class="num">Pass 1 (raw)</th>
-                    <th class="num">Pass 2 (auto)</th>
-                    <th class="num">Delta</th>
-                    <th class="num">Final (human)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for fname in acc1.per_field.keys() %}
-                  {% set p1 = acc1.per_field[fname].accuracy %}
-                  {% set p2 = acc2.per_field[fname].accuracy %}
-                  {% set pf = accf.per_field[fname].accuracy %}
-                  {% set diff = p2 - p1 %}
-                  <tr>
-                    <td><code>{{ fname }}</code></td>
-                    <td class="num">{{ "%.1f"|format(p1) }}%</td>
-                    <td class="num">{{ "%.1f"|format(p2) }}%</td>
-                    <td class="num">{% if diff > 0 %}+{% endif %}{{ "%.1f"|format(diff) }} pp</td>
-                    <td class="num">{{ "%.1f"|format(pf) }}%</td>
-                  </tr>
-                  {% endfor %}
-                  <tr style="font-weight: 500;">
-                    <td>Overall (120 claims)</td>
-                    <td class="num">{{ "%.1f"|format(acc1.overall.accuracy) }}%</td>
-                    <td class="num">{{ "%.2f"|format(acc2.overall.accuracy) }}%</td>
-                    <td class="num">+{{ "%.2f"|format(acc2.overall.accuracy - acc1.overall.accuracy) }} pp</td>
-                    <td class="num">{{ "%.1f"|format(accf.overall.accuracy) }}%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div>
-            <h3>Verification loops (L1–L6) across all 100 apps</h3>
-            <p class="chart-sub">1,600 total claims checked; golden attribution shows fixes credited per loop.</p>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Loop</th>
-                    <th class="num">Checked</th>
-                    <th class="num">Flagged</th>
-                    <th class="num">Changed</th>
-                    <th class="num">Golden fixes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for lp in ["L1", "L2", "L3", "L4", "L5", "L6"] %}
-                  {% set d = loop_stats.all_claims.loops[lp] %}
-                  <tr>
-                    <td><code>{{ lp }}</code></td>
-                    <td class="num">{{ d.claims_checked }}</td>
-                    <td class="num">{{ d.flagged }}</td>
-                    <td class="num">{{ d.values_changed }}</td>
-                    <td class="num">{{ attribution.errors_caught_per_loop.credited[lp] }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-            <p class="kpi-note" style="margin-top: 10px;">
-              Golden transitions (Pass 1 → Pass 2): {{ attribution.transitions.fixed or 0 }} fixed, {{ attribution.transitions.regressed or 0 }} regressed, {{ attribution.transitions.abstained_to_wrong or 0 }} abstained → wrong, {{ attribution.transitions.unchanged_correct or 0 }} unchanged correct.
+      <div class="report-body">
+        <!-- 1. Headline patterns -->
+        <section id="headlines" class="chapter">
+          <div class="chapter-head">
+            <div class="chapter-num">01 / Key findings</div>
+            <h2>What stands out across all {{ analytics.summary.total_apps }} apps</h2>
+            <p class="lead">
+              Six patterns computed from the full dataset. Every number on this page comes from the research results — nothing was typed in by hand.
             </p>
           </div>
-        </div>
 
-        <div class="split-2">
-          <div>
-            <h3>Holdout disclosure</h3>
-            <p class="headline-text">{{ analytics.holdout.note }}</p>
+          <div class="kpi-strip">
+            <div>
+              <div class="kpi-val">{{ analytics.summary.total_apps }}</div>
+              <div class="kpi-label">Apps researched</div>
+              <div class="kpi-note">10 categories · {{ analytics.summary.composio_available }} already in Composio</div>
+            </div>
+            <div>
+              <div class="kpi-val">{{ analytics.summary.self_serve_free }}%</div>
+              <div class="kpi-label">Free developer signup</div>
+              <div class="kpi-note">{{ analytics.distributions.production_gate.gated_despite_free_dev }} of those still need approval to ship</div>
+            </div>
+            <div>
+              <div class="kpi-val">{{ analytics.summary.oauth2_supported }}%</div>
+              <div class="kpi-label">Support OAuth 2.0</div>
+              <div class="kpi-note">{{ analytics.distributions.auth_methods.multi_method_apps }} offer more than one auth method</div>
+            </div>
+            <div>
+              <div class="kpi-val">
+                {{ "%.0f"|format(acc1.overall.accuracy) }}% → {{ "%.0f"|format(acc2.overall.accuracy) }}% → {{ "%.0f"|format(accf.overall.accuracy) }}%
+              </div>
+              <div class="kpi-label">Accuracy on a hand-checked sample</div>
+              <div class="kpi-note">20 apps · draft → after checks → final after my edits</div>
+            </div>
           </div>
-          <div>
-            <h3>Disclosed changes (Pass 1 → Pass 2)</h3>
-            <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2);">
-              {% for ch in changes[:6] %}
-              <li style="margin-bottom: 6px;">{{ ch.text }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
 
-        <details>
-          <summary>Golden-set hits &amp; misses table (all 120 claims — Pass 1 vs Pass 2 vs Golden)</summary>
-          <div style="margin: 12px 0;">
-            <select id="golden-filter" aria-label="Filter golden claims" style="height: 34px; padding: 0 10px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface);">
-              <option value="all">All 120 claims</option>
-              <option value="fixed">Fixed in Pass 2 ({{ attribution.transitions.fixed or 0 }})</option>
-              <option value="regressed">Regressed in Pass 2 ({{ attribution.transitions.regressed or 0 }})</option>
-              <option value="abstained_to_wrong">Abstained → wrong ({{ attribution.transitions.abstained_to_wrong or 0 }})</option>
-              <option value="misses">All Pass 2 non-correct</option>
+          <ol class="headline-list">
+            {% for h in analytics.headlines %}
+            <li class="headline-item">
+              <span class="headline-idx">0{{ loop.index }}</span>
+              <div>
+                <div class="headline-title">{{ h.title }}</div>
+                <p class="headline-text">{{ h.text }}</p>
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+        </section>
+
+        <!-- 2. Opportunity matrix -->
+        <section id="opportunities" class="chapter">
+          <div class="chapter-head">
+            <div class="chapter-num">02 / What to build next</div>
+            <h2>Ready to build, needs outreach, or blocked</h2>
+            <p class="lead">
+              Each app gets a readiness score from 0–10 based on docs quality, auth, how you get credentials, API surface, and MCP. If the vendor requires a partnership or sales contact, the app lands in “Needs outreach” even when the API is strong. Click any app to see the evidence.
+            </p>
+          </div>
+
+          <div class="view-tools" role="group" aria-label="Opportunity view controls">
+            <label><input type="checkbox" id="opp-gaps-only"> Show only apps not yet in Composio</label>
+            <span class="tool-sep" aria-hidden="true"></span>
+            <div class="tool-group">
+              <label for="opp-bucket-filter">Show</label>
+              <select id="opp-bucket-filter" aria-label="Filter opportunity buckets">
+                <option value="">All groups</option>
+                <option value="easy">Easy wins</option>
+                <option value="outreach">Needs outreach</option>
+                <option value="moderate">Moderate effort</option>
+                <option value="blocked">Technically blocked</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="legend-row">
+            <span><span class="legend-swatch" style="background: var(--solid-bg);"></span>Not in Composio yet</span>
+            <span><span class="legend-swatch" style="border: 1px solid var(--border-strong); background: var(--surface);"></span>Already in Composio</span>
+          </div>
+
+          <div class="bucket-grid">
+            <div class="bucket-col" data-opp-bucket="easy">
+              <div class="bucket-head">
+                <h3>Easy wins</h3>
+                <span class="bucket-count" data-opp-count>{{ analytics.opportunities.easy_wins_all|length }}</span>
+              </div>
+              <p class="bucket-desc">
+                Score 8–10 and no partnership wall. <strong>{{ analytics.opportunities.easy_wins_without_composio|length }} are not in Composio yet</strong> — the clearest places to build next.
+              </p>
+              <div class="chip-wrap">
+                {% for a in analytics.opportunities.easy_wins_all %}
+                <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" data-composio="{{ a.composio_toolkit }}" title="Score {{ a.score }}/10 · {{ a.category }} · Composio: {{ a.composio_toolkit }}">
+                  {{ a.app }} <span class="chip-score">{{ a.score }}</span>
+                </button>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="bucket-col" data-opp-bucket="outreach">
+              <div class="bucket-head">
+                <h3>Needs outreach</h3>
+                <span class="bucket-count" data-opp-count>{{ analytics.opportunities.outreach_targets|length }}</span>
+              </div>
+              <p class="bucket-desc">
+                Vendor requires a partnership, sales contact, or partner program. <strong>{{ analytics.opportunities.outreach_without_composio|length }} are not in Composio yet</strong>.
+              </p>
+              <div class="chip-wrap">
+                {% for a in analytics.opportunities.outreach_targets %}
+                <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" data-composio="{{ a.composio_toolkit }}" title="Score {{ a.score }}/10 · {{ a.credential_access }} / {{ a.production_gate }}">
+                  {{ a.app }} <span class="chip-score">{{ a.score }}</span>
+                </button>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="bucket-col" data-opp-bucket="moderate">
+              <div class="bucket-head">
+                <h3>Moderate effort</h3>
+                <span class="bucket-count" data-opp-count>{{ analytics.opportunities.moderate|length }}</span>
+              </div>
+              <p class="bucket-desc">
+                Score 5–7: doable, but expect paid plans, a narrower API, a CLI wrapper, or no official MCP server.
+              </p>
+              <div class="chip-wrap">
+                {% for a in analytics.opportunities.moderate %}
+                <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" data-composio="{{ a.composio_toolkit }}" title="Score {{ a.score }}/10 · {{ a.category }}">
+                  {{ a.app }} <span class="chip-score">{{ a.score }}</span>
+                </button>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="bucket-col" data-opp-bucket="blocked">
+              <div class="bucket-head">
+                <h3>Technically blocked</h3>
+                <span class="bucket-count" data-opp-count>{{ analytics.opportunities.technically_blocked|length }}</span>
+              </div>
+              <p class="bucket-desc">
+                Score 0–4: little or no public API documentation, or specs locked behind an NDA.
+              </p>
+              <div class="chip-wrap">
+                {% for a in analytics.opportunities.technically_blocked %}
+                <button type="button" class="chip {% if a.composio_toolkit != 'available' %}chip--gap{% endif %}" data-jump-app="{{ a.app_id }}" data-composio="{{ a.composio_toolkit }}" title="Score {{ a.score }}/10 · {{ a.main_blocker_text }}">
+                  {{ a.app }} <span class="chip-score">{{ a.score }}</span>
+                </button>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Pattern charts -->
+        <section id="patterns" class="chapter">
+          <div class="chapter-head">
+            <div class="chapter-num">03 / Charts</div>
+            <h2>How auth and access break down</h2>
+            <p class="lead">
+              Toggle charts on or off to focus on what you care about. Every chart is built from the same {{ analytics.summary.total_apps }}-app dataset on this page.
+            </p>
+          </div>
+
+          <div class="view-tools" role="group" aria-label="Chart visibility">
+            <span class="tool-group">
+              <label><input type="checkbox" class="chart-toggle" data-chart="auth" checked> How apps authenticate</label>
+              <label><input type="checkbox" class="chart-toggle" data-chart="access" checked> How you get credentials</label>
+              <label><input type="checkbox" class="chart-toggle" data-chart="gate" checked> Extra gates to ship</label>
+              <label><input type="checkbox" class="chart-toggle" data-chart="mcp" checked> MCP &amp; Composio</label>
+              <label><input type="checkbox" id="heatmap-toggle" checked> Category heatmap</label>
+            </span>
+          </div>
+
+          <div class="chart-grid" id="pattern-charts"></div>
+
+          <div id="heatmap-block">
+            <h3>By category: how hard is it to get credentials?</h3>
+            <p class="chart-sub">Each category has 10 apps. Darker cells mean more apps in that access tier.</p>
+            <div class="table-wrap" id="heatmap-wrap"></div>
+          </div>
+        </section>
+
+        <!-- 4. Findings explorer -->
+        <section id="explorer" class="chapter">
+          <div class="chapter-head">
+            <div class="chapter-num">04 / All {{ analytics.summary.total_apps }} apps</div>
+            <h2>Browse every app and open the source behind each answer</h2>
+            <p class="lead">
+              Filter and sort to focus the table. Click a row to see the docs quote and URL for each fact, plus how the readiness score was calculated. Values the agent could not confirm are marked unknown.
+            </p>
+          </div>
+
+          <div class="filter-bar">
+            <input type="search" id="f-search" placeholder="Search by app, category, or blocker..." aria-label="Search apps">
+            <select id="f-category" aria-label="Filter by category"><option value="">All categories</option></select>
+            <select id="f-bucket" aria-label="Filter by group">
+              <option value="">All groups</option>
+              <option value="easy_win">Easy win</option>
+              <option value="moderate">Moderate</option>
+              <option value="needs_outreach">Needs outreach</option>
+              <option value="technically_blocked">Technically blocked</option>
+            </select>
+            <select id="f-verdict" aria-label="Filter by score band">
+              <option value="">All score bands</option>
+              <option value="easy">Easy (8–10)</option>
+              <option value="moderate">Moderate (5–7)</option>
+              <option value="difficult">Difficult (3–4)</option>
+              <option value="blocked">Blocked (0–2)</option>
+            </select>
+            <select id="f-auth" aria-label="Filter by auth method"><option value="">All auth methods</option></select>
+            <select id="f-access" aria-label="Filter by how you get credentials"><option value="">Any credential path</option></select>
+            <select id="f-gate" aria-label="Filter by ship gate"><option value="">Any ship gate</option></select>
+            <select id="f-api" aria-label="Filter by API type"><option value="">All API types</option></select>
+            <select id="f-mcp" aria-label="Filter by official MCP">
+              <option value="">Any official MCP</option>
+              <option value="yes">Has official MCP</option>
+              <option value="no_found">No official MCP found</option>
+              <option value="unknown">Official MCP unknown</option>
+            </select>
+            <select id="f-composio" aria-label="Filter by Composio coverage">
+              <option value="">Any Composio status</option>
+              <option value="available">In Composio</option>
+              <option value="unavailable">Not in Composio</option>
+            </select>
+            <select id="f-vstatus" aria-label="Filter by evidence strength">
+              <option value="">Any evidence strength</option>
+              <option value="all_supported">All known answers fully supported</option>
+              <option value="has_flagged">Has weak or disputed evidence</option>
             </select>
           </div>
+
+          <div class="view-tools" role="group" aria-label="Explorer view controls">
+            <div class="tool-group">
+              <label for="f-sort">Sort</label>
+              <select id="f-sort" aria-label="Sort explorer rows">
+                <option value="id-asc">App id ↑</option>
+                <option value="id-desc">App id ↓</option>
+                <option value="score-desc">Score ↓</option>
+                <option value="score-asc">Score ↑</option>
+                <option value="name-asc">Name A–Z</option>
+                <option value="name-desc">Name Z–A</option>
+                <option value="category-asc">Category A–Z</option>
+              </select>
+            </div>
+            <span class="tool-sep" aria-hidden="true"></span>
+            <div class="tool-group" id="col-toggles" aria-label="Column visibility">
+              <label><input type="checkbox" class="col-toggle" data-col="score" checked> Score</label>
+              <label><input type="checkbox" class="col-toggle" data-col="bucket" checked> Group</label>
+              <label><input type="checkbox" class="col-toggle" data-col="auth" checked> Auth</label>
+              <label><input type="checkbox" class="col-toggle" data-col="access" checked> Credentials</label>
+              <label><input type="checkbox" class="col-toggle" data-col="gate" checked> Ship gate</label>
+              <label><input type="checkbox" class="col-toggle" data-col="mcp" checked> MCP</label>
+              <label><input type="checkbox" class="col-toggle" data-col="composio" checked> Composio</label>
+              <label><input type="checkbox" class="col-toggle" data-col="confidence" checked> Confidence</label>
+            </div>
+          </div>
+
+          <div class="filter-meta">
+            <span id="explorer-count">Showing 100 of 100 apps</span>
+            <div class="actions">
+              <button type="button" class="btn" id="f-export">Download this view as CSV</button>
+              <button type="button" class="btn" id="f-reset">Clear filters</button>
+            </div>
+          </div>
+
           <div class="table-wrap">
-            <table>
+            <table id="explorer-table">
               <thead>
                 <tr>
-                  <th>App</th>
-                  <th>Field</th>
-                  <th>Golden</th>
-                  <th>Pass 1</th>
-                  <th>Pass 2</th>
-                  <th>Transition</th>
-                  <th>Loops</th>
+                  <th data-col="id">#</th>
+                  <th data-col="app">App</th>
+                  <th data-col="category">Category</th>
+                  <th class="num" data-col="score">Score</th>
+                  <th data-col="bucket">Group</th>
+                  <th data-col="auth">Auth</th>
+                  <th data-col="access">Credentials</th>
+                  <th data-col="gate">Ship gate</th>
+                  <th data-col="mcp">Official MCP</th>
+                  <th data-col="composio">In Composio?</th>
+                  <th data-col="confidence">Confidence</th>
                 </tr>
               </thead>
-              <tbody id="golden-body"></tbody>
+              <tbody id="explorer-body"></tbody>
             </table>
           </div>
-        </details>
-      </div>
-    </section>
+        </section>
 
-    <!-- 6. Where we were wrong -->
-    <section id="wrong" class="chapter chapter--alt">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">06 / Where we were wrong</div>
-          <h2>Regressions, abstentions, and apps that defeated the agent</h2>
-          <p class="lead">
-            Automated verification improved overall accuracy by +{{ "%.2f"|format(acc2.overall.accuracy - acc1.overall.accuracy) }} pp, but introduced {{ wrong.regressions|length }} regressions on multi-value auth sets and {{ wrong.abstained_to_wrong|length }} abstained → wrong guesses. {{ wrong.total_corrections }} golden-set claims required human correction for the final snapshot.
-          </p>
-        </div>
+        <!-- 5. Verification -->
+        <section id="verification" class="chapter">
+          {% set field_labels = {
+            "auth_methods": "Auth methods",
+            "credential_access": "How you get credentials",
+            "production_gate": "Extra gate to ship",
+            "api_type": "API type",
+            "mcp_official": "Official MCP",
+            "main_blocker_type": "Main blocker"
+          } %}
+          {% set loop_labels = {
+            "L1": "Schema & consistency",
+            "L2": "Docs link still works",
+            "L3": "Quote matches the page",
+            "L4": "Re-read page in a browser",
+            "L5": "Second model reviews the claim",
+            "L6": "Targeted re-research"
+          } %}
+          <div class="chapter-head">
+            <div class="chapter-num">05 / How I checked accuracy</div>
+            <h2>I labelled 20 apps by hand; automation improved the draft</h2>
+            <p class="lead">
+              I hand-checked 20 apps (120 facts) against the real docs. The agent’s first draft scored {{ "%.0f"|format(acc1.overall.accuracy) }}%. After six automated checks it rose to {{ "%.0f"|format(acc2.overall.accuracy) }}%. The final {{ "%.0f"|format(accf.overall.accuracy) }}% figure includes my corrections and is labelled separately so the automated gain stays honest.
+            </p>
+          </div>
 
-        <div class="split-2">
-          <div>
-            <h3>Pass 2 regressions ({{ wrong.regressions|length }})</h3>
-            <p class="chart-sub">Correct in Pass 1, wrong in Pass 2 — all caused by L6 replacing a multi-method auth set from a narrower page.</p>
+          <div class="split-2">
+            <div>
+              <h3>Accuracy by fact type</h3>
+              <p class="chart-sub">20 hand-checked apps × 6 facts each = 120 answers.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Fact</th>
+                      <th class="num">First draft</th>
+                      <th class="num">After checks</th>
+                      <th class="num">Change</th>
+                      <th class="num">Final (my edits)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for fname in acc1.per_field.keys() %}
+                    {% set p1 = acc1.per_field[fname].accuracy %}
+                    {% set p2 = acc2.per_field[fname].accuracy %}
+                    {% set pf = accf.per_field[fname].accuracy %}
+                    {% set diff = p2 - p1 %}
+                    <tr>
+                      <td>{{ field_labels.get(fname, fname) }}</td>
+                      <td class="num">{{ "%.0f"|format(p1) }}%</td>
+                      <td class="num">{{ "%.0f"|format(p2) }}%</td>
+                      <td class="num">{% if diff > 0 %}+{% endif %}{{ "%.1f"|format(diff) }} pts</td>
+                      <td class="num">{{ "%.0f"|format(pf) }}%</td>
+                    </tr>
+                    {% endfor %}
+                    <tr style="font-weight: 500;">
+                      <td>Overall (120 answers)</td>
+                      <td class="num">{{ "%.0f"|format(acc1.overall.accuracy) }}%</td>
+                      <td class="num">{{ "%.0f"|format(acc2.overall.accuracy) }}%</td>
+                      <td class="num">+{{ "%.1f"|format(acc2.overall.accuracy - acc1.overall.accuracy) }} pts</td>
+                      <td class="num">{{ "%.0f"|format(accf.overall.accuracy) }}%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <h3>What each automated check did</h3>
+              <p class="chart-sub">Ran on every fact across all 100 apps. “Sample fixes” counts how many hand-checked answers that check improved.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Check</th>
+                      <th class="num">Reviewed</th>
+                      <th class="num">Flagged</th>
+                      <th class="num">Changed</th>
+                      <th class="num">Sample fixes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for lp in ["L1", "L2", "L3", "L4", "L5", "L6"] %}
+                    {% set d = loop_stats.all_claims.loops[lp] %}
+                    <tr>
+                      <td>{{ loop_labels[lp] }}</td>
+                      <td class="num">{{ d.claims_checked }}</td>
+                      <td class="num">{{ d.flagged }}</td>
+                      <td class="num">{{ d.values_changed }}</td>
+                      <td class="num">{{ attribution.errors_caught_per_loop.credited[lp] }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <p class="kpi-note" style="margin-top: 10px;">
+                On the hand-checked sample, automated checks fixed {{ attribution.transitions.fixed or 0 }} answers, made {{ attribution.transitions.regressed or 0 }} worse, filled {{ attribution.transitions.abstained_to_wrong or 0 }} previous unknowns incorrectly, and left {{ attribution.transitions.unchanged_correct or 0 }} already-correct answers alone.
+              </p>
+            </div>
+          </div>
+
+          <div class="split-2">
+            <div>
+              <h3>Apps left out of the hand-checked sample</h3>
+              <p class="headline-text">{{ analytics.holdout.note }}</p>
+            </div>
+            <div>
+              <h3>What changed between draft and checked results</h3>
+              <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2);">
+                <li style="margin-bottom: 6px;">I corrected FanBasis / Commas domain redirects after confirming the rebrand in public docs.</li>
+                <li style="margin-bottom: 6px;">I added six automated checks (schema, live links, quote matching, browser re-read, second-model review, and targeted re-research).</li>
+                <li style="margin-bottom: 6px;">I did not retune the first-draft research prompts against the hand-checked answers — verification was added as a separate stage.</li>
+                <li style="margin-bottom: 6px;">Overall sample accuracy rose from {{ "%.1f"|format(acc1.overall.accuracy) }}% to {{ "%.1f"|format(acc2.overall.accuracy) }}% before any human edits to the final dataset.</li>
+              </ul>
+            </div>
+          </div>
+
+          <details>
+            <summary>Every hand-checked answer (120 rows) — draft vs checked vs human label</summary>
+            <div style="margin: 12px 0;">
+              <select id="golden-filter" aria-label="Filter hand-checked answers" style="height: 34px; padding: 0 10px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--surface);">
+                <option value="all">All 120 answers</option>
+                <option value="fixed">Fixed by checks ({{ attribution.transitions.fixed or 0 }})</option>
+                <option value="regressed">Made worse by checks ({{ attribution.transitions.regressed or 0 }})</option>
+                <option value="abstained_to_wrong">Unknown filled incorrectly ({{ attribution.transitions.abstained_to_wrong or 0 }})</option>
+                <option value="misses">Still wrong after checks</option>
+              </select>
+            </div>
             <div class="table-wrap">
               <table>
                 <thead>
-                  <tr><th>App</th><th>Field</th><th>Pass 1 → Pass 2</th><th>Golden</th></tr>
-                </thead>
-                <tbody>
-                  {% for r in wrong.regressions %}
                   <tr>
-                    <td>{{ r.app }}</td>
-                    <td><code>{{ r.field }}</code></td>
-                    <td><code>{{ r.before_value }}</code> → <code>{{ r.after_value }}</code></td>
-                    <td><code>{{ r.golden }}</code></td>
+                    <th>App</th>
+                    <th>Fact</th>
+                    <th>My label</th>
+                    <th>First draft</th>
+                    <th>After checks</th>
+                    <th>What happened</th>
+                    <th>Which checks</th>
+                  </tr>
+                </thead>
+                <tbody id="golden-body"></tbody>
+              </table>
+            </div>
+          </details>
+
+          <details>
+            <summary>Technical change log (for engineers who want the file-level detail)</summary>
+            <ul style="margin: 12px 0 0; padding-left: 18px; font-size: 13px; color: var(--ink-2);">
+              {% for ch in changes %}
+              <li style="margin-bottom: 8px;">{{ ch.text }}</li>
+              {% endfor %}
+            </ul>
+          </details>
+        </section>
+
+        <!-- 6. Where I was wrong -->
+        <section id="wrong" class="chapter">
+          <div class="chapter-head">
+            <div class="chapter-num">06 / Where I was wrong</div>
+            <h2>Mistakes I’m not hiding</h2>
+            <p class="lead">
+              Automated checks raised sample accuracy by {{ "%.1f"|format(acc2.overall.accuracy - acc1.overall.accuracy) }} points, but also made {{ wrong.regressions|length }} previously correct answers worse and filled {{ wrong.abstained_to_wrong|length }} unknowns with the wrong value. {{ wrong.total_corrections }} hand-checked facts still needed me to edit the final dataset.
+            </p>
+          </div>
+
+          <div class="split-2">
+            <div>
+              <h3>Made worse by automated checks ({{ wrong.regressions|length }})</h3>
+              <p class="chart-sub">These were correct in the first draft. Re-research replaced a full auth list with a narrower answer from a different docs page.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>App</th><th>Fact</th><th>Draft → after checks</th><th>My label</th></tr>
+                  </thead>
+                  <tbody>
+                    {% for r in wrong.regressions %}
+                    <tr>
+                      <td>{{ r.app }}</td>
+                      <td>{{ r.field.replace('_', ' ') }}</td>
+                      <td>{{ r.before_value }} → {{ r.after_value }}</td>
+                      <td>{{ r.golden }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 style="margin-top: 28px;">Guessed instead of staying unknown ({{ wrong.abstained_to_wrong|length }})</h3>
+              <p class="chart-sub">The draft said “unknown.” Checks filled in an answer that disagreed with the human label.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>App</th><th>Fact</th><th>Agent guess</th><th>My label</th></tr>
+                  </thead>
+                  <tbody>
+                    {% for r in wrong.abstained_to_wrong %}
+                    <tr>
+                      <td>{{ r.app }}</td>
+                      <td>{{ r.field.replace('_', ' ') }}</td>
+                      <td>{{ r.after_value }}</td>
+                      <td>{{ r.golden }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <h3>Apps that were hard to research</h3>
+              <p class="chart-sub">Thin public docs, NDA-gated specs, or unusual shapes (CLI tools, open-source projects).</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>App</th><th>Group</th><th class="num">Score</th><th class="num">Unknown facts</th></tr>
+                  </thead>
+                  <tbody>
+                    {% for a in wrong.hard_apps %}
+                    <tr>
+                      <td><button type="button" class="chip" data-jump-app="{{ a.app_id }}">{{ a.app }}</button></td>
+                      <td>{{ a.bucket.replace("_", " ") }}</td>
+                      <td class="num">{{ a.score }}/10</td>
+                      <td class="num">{{ a.eval_unknowns }}/6</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 style="margin-top: 28px;">Facts still marked unknown (all 100 apps)</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Fact</th><th class="num">Unknown count</th></tr></thead>
+                  <tbody>
+                    {% for u in wrong.unknown_by_field %}
+                    <tr><td>{{ u.field.replace('_', ' ') }}</td><td class="num">{{ u.unknown_count }}</td></tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. How it was built -->
+        <section id="architecture" class="chapter">
+          <div class="chapter-head">
+            <div class="chapter-num">07 / How the agent works</div>
+            <h2>Research first, check second, score without guessing</h2>
+            <p class="lead">
+              One model researches each app and must cite a docs quote. A second, independent model helps verify those answers. Readiness scores and the four build groups are calculated in plain code — no model picks the score.
+            </p>
+          </div>
+
+          <div class="pipeline-wrap">
+            <svg class="pipeline-svg" viewBox="0 0 920 420" role="img" aria-labelledby="arch-title arch-desc">
+              <title id="arch-title">Agent architecture flowchart</title>
+              <desc id="arch-desc">
+                App list feeds research. Six automated checks verify each answer, with optional re-research.
+                Verified answers are scored into build groups and published in this report.
+              </desc>
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="currentColor" fill-opacity="0.45"/>
+                </marker>
+                <marker id="arr-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="currentColor" fill-opacity="0.28"/>
+                </marker>
+              </defs>
+
+              <!-- Main stage boxes -->
+              <g fill="var(--canvas, #fff)" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.25">
+                <rect x="20" y="28" width="150" height="72" rx="8"/>
+                <rect x="220" y="28" width="170" height="72" rx="8"/>
+                <rect x="440" y="16" width="220" height="96" rx="8"/>
+                <rect x="710" y="28" width="170" height="72" rx="8"/>
+                <rect x="710" y="160" width="170" height="72" rx="8"/>
+              </g>
+
+              <!-- Pass 2 loop panel -->
+              <g fill="none" stroke="currentColor" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="4 3">
+                <rect x="40" y="160" width="620" height="220" rx="10"/>
+              </g>
+              <text x="56" y="182" fill="currentColor" fill-opacity="0.45" font-family="ui-monospace, Menlo, monospace" font-size="11" font-weight="500">Automated checks on every answer</text>
+
+              <!-- Loop boxes -->
+              <g fill="var(--canvas, #fff)" stroke="currentColor" stroke-opacity="0.22" stroke-width="1">
+                <rect x="56" y="200" width="88" height="56" rx="6"/>
+                <rect x="160" y="200" width="88" height="56" rx="6"/>
+                <rect x="264" y="200" width="88" height="56" rx="6"/>
+                <rect x="368" y="200" width="88" height="56" rx="6"/>
+                <rect x="472" y="200" width="88" height="56" rx="6"/>
+                <rect x="576" y="200" width="68" height="56" rx="6"/>
+              </g>
+
+              <!-- L6 re-search box -->
+              <g fill="var(--canvas, #fff)" stroke="currentColor" stroke-opacity="0.28" stroke-width="1.25">
+                <rect x="472" y="300" width="172" height="52" rx="6"/>
+              </g>
+
+              <!-- Flow arrows: main -->
+              <g fill="none" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.4" marker-end="url(#arr)">
+                <line x1="170" y1="64" x2="218" y2="64"/>
+                <line x1="390" y1="64" x2="438" y2="64"/>
+                <line x1="660" y1="64" x2="708" y2="64"/>
+                <line x1="795" y1="100" x2="795" y2="158"/>
+              </g>
+
+              <!-- Into loops -->
+              <g fill="none" stroke="currentColor" stroke-opacity="0.32" stroke-width="1.2" marker-end="url(#arr-muted)">
+                <path d="M 550 112 L 550 148 L 100 148 L 100 198"/>
+              </g>
+
+              <!-- Loop sequence -->
+              <g fill="none" stroke="currentColor" stroke-opacity="0.32" stroke-width="1.1" marker-end="url(#arr-muted)">
+                <line x1="144" y1="228" x2="158" y2="228"/>
+                <line x1="248" y1="228" x2="262" y2="228"/>
+                <line x1="352" y1="228" x2="366" y2="228"/>
+                <line x1="456" y1="228" x2="470" y2="228"/>
+                <line x1="560" y1="228" x2="574" y2="228"/>
+              </g>
+
+              <!-- L5 → L6 re-search; L6 back to research; out to score -->
+              <g fill="none" stroke="currentColor" stroke-opacity="0.32" stroke-width="1.2" marker-end="url(#arr-muted)">
+                <path d="M 516 256 L 516 298"/>
+                <path d="M 472 326 L 300 326 L 300 100 L 390 100"/>
+                <path d="M 644 228 L 680 228 L 680 196 L 710 196"/>
+              </g>
+
+              <!-- Labels: main stages -->
+              <g fill="currentColor" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif">
+                <text x="36" y="56" font-size="13" font-weight="500">1. App list</text>
+                <text x="36" y="76" font-size="11.5" fill-opacity="0.58">100 apps &amp; domains</text>
+                <text x="36" y="92" font-size="11.5" fill-opacity="0.58">Composio catalog lookup</text>
+
+                <text x="236" y="56" font-size="13" font-weight="500">2. Research</text>
+                <text x="236" y="76" font-size="11.5" fill-opacity="0.58">Search &amp; read docs</text>
+                <text x="236" y="92" font-size="11.5" fill-opacity="0.58">Every answer needs a quote</text>
+
+                <text x="456" y="48" font-size="13" font-weight="500">3. Verify</text>
+                <text x="456" y="68" font-size="11.5" fill-opacity="0.58">Six automated checks</text>
+                <text x="456" y="84" font-size="11.5" fill-opacity="0.58">Second model reviews claims</text>
+                <text x="456" y="100" font-size="11.5" fill-opacity="0.58">May re-research weak answers</text>
+
+                <text x="726" y="56" font-size="13" font-weight="500">4. Score</text>
+                <text x="726" y="76" font-size="11.5" fill-opacity="0.58">0–10 readiness score</text>
+                <text x="726" y="92" font-size="11.5" fill-opacity="0.58">Four build groups</text>
+
+                <text x="726" y="188" font-size="13" font-weight="500">5. This report</text>
+                <text x="726" y="208" font-size="11.5" fill-opacity="0.58">Findings + evidence</text>
+                <text x="726" y="224" font-size="11.5" fill-opacity="0.58">Downloadable dataset</text>
+              </g>
+
+              <!-- Loop labels -->
+              <g fill="currentColor" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="11">
+                <text x="68" y="222" font-weight="500">1</text>
+                <text x="68" y="240" fill-opacity="0.55">Schema</text>
+                <text x="172" y="222" font-weight="500">2</text>
+                <text x="172" y="240" fill-opacity="0.55">Live link</text>
+                <text x="276" y="222" font-weight="500">3</text>
+                <text x="276" y="240" fill-opacity="0.55">Quote</text>
+                <text x="380" y="222" font-weight="500">4</text>
+                <text x="380" y="240" fill-opacity="0.55">Browser</text>
+                <text x="484" y="222" font-weight="500">5</text>
+                <text x="484" y="240" fill-opacity="0.55">Review</text>
+                <text x="588" y="222" font-weight="500">6</text>
+                <text x="588" y="240" fill-opacity="0.55">Re-do</text>
+
+                <text x="488" y="322" font-weight="500" font-size="12">Optional re-research</text>
+                <text x="488" y="340" fill-opacity="0.55" font-size="11">Fresh docs → back into research</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="arch-legend">
+            <span>Solid path: research → verify → score → report</span>
+            <span>Dashed panel: six checks on every answer</span>
+            <span>Feedback: weak answers can be researched again</span>
+          </div>
+
+          <div class="split-2">
+            <div>
+              <h3>How Composio was used — and where I fell back</h3>
+              <p class="headline-text" style="margin-bottom: 12px;">
+                Whether each app already has a Composio toolkit comes from the public Composio catalog (1,843 toolkits) — looked up by name, not guessed by a model.
+              </p>
+              <p class="headline-text">
+                I intended search and page-fetch to run through Composio’s tool layer. The provided consumer key could not authenticate those calls, so I switched the agent to the same search and fetch tools directly, with on-disk caching ({{ run1.totals.tool_calls }} research calls, {{ run2.totals.tool_calls }} re-research calls during verification).
+              </p>
+            </div>
+
+            <div>
+              <h3>Where I had to step in ({{ human_log.total }} times)</h3>
+              <p class="chart-sub">Grouped by why I intervened.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Theme</th><th class="num">Times</th></tr></thead>
+                  <tbody>
+                    {% for t in human_log.by_theme %}
+                    <tr><td>{{ t.theme }}</td><td class="num">{{ t.count }}</td></tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <details>
+            <summary>Full human-intervention log ({{ human_log.total }} entries)</summary>
+            <div class="table-wrap" style="margin-top: 12px;">
+              <table>
+                <thead><tr><th>Date</th><th>App</th><th>Theme</th><th>Reason</th><th>Action</th></tr></thead>
+                <tbody>
+                  {% for e in human_log.entries %}
+                  <tr>
+                    <td style="white-space: nowrap;">{{ e.when }}</td>
+                    <td>{{ e.app }}</td>
+                    <td style="white-space: nowrap;">{{ e.theme }}</td>
+                    <td>{{ e.reason }}</td>
+                    <td>{{ e.action }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>
               </table>
             </div>
+          </details>
+        </section>
 
-            <h3 style="margin-top: 28px;">Abstained → wrong in Pass 2 ({{ wrong.abstained_to_wrong|length }})</h3>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr><th>App</th><th>Field</th><th>Pass 2 guess</th><th>Golden</th></tr>
-                </thead>
-                <tbody>
-                  {% for r in wrong.abstained_to_wrong %}
-                  <tr>
-                    <td>{{ r.app }}</td>
-                    <td><code>{{ r.field }}</code></td>
-                    <td><code>{{ r.after_value }}</code></td>
-                    <td><code>{{ r.golden }}</code></td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div>
-            <h3>Apps with low docs, high unknowns, or blocks</h3>
-            <p class="chart-sub">Apps where public documentation was sparse, NDA-gated, or atypical (CLI / OSS).</p>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr><th>App</th><th>Bucket</th><th class="num">Score</th><th class="num">Unknowns</th></tr>
-                </thead>
-                <tbody>
-                  {% for a in wrong.hard_apps %}
-                  <tr>
-                    <td><button type="button" class="chip" data-jump-app="{{ a.app_id }}">{{ a.app }}</button></td>
-                    <td>{{ a.bucket.replace("_", " ") }}</td>
-                    <td class="num">{{ a.score }}/10</td>
-                    <td class="num">{{ a.eval_unknowns }}/6</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-
-            <h3 style="margin-top: 28px;">Remaining abstentions by field (Final, N=100)</h3>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Field</th><th class="num">Unknown count</th></tr></thead>
-                <tbody>
-                  {% for u in wrong.unknown_by_field %}
-                  <tr><td><code>{{ u.field }}</code></td><td class="num">{{ u.unknown_count }}</td></tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. How it was built -->
-    <section id="architecture" class="chapter">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">07 / How it was built</div>
-          <h2>Two-stage agent pipeline with deterministic scoring</h2>
-          <p class="lead">
-            Research extraction uses <code>{{ run1.extractor_model }}</code>; independent verification uses Meta Muse Spark (<code>{{ run2.totals.verifier_models[0] }}</code>); scoring, buckets, and analytics are pure Python with zero LLM involvement.
-          </p>
-        </div>
-
-        <div class="pipeline-wrap">
-          <svg class="pipeline-svg" viewBox="0 0 960 130" role="img" aria-label="Pipeline diagram from Registry through Pass 1 Research, Pass 2 L1-L6 Verification, Deterministic Scoring, and Static Site">
-            <defs>
-              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" fill="currentColor" opacity="0.5"/>
-              </marker>
-            </defs>
-            <g fill="none" stroke="currentColor" stroke-opacity="0.22" stroke-width="1">
-              <rect x="4" y="20" width="142" height="86" rx="8"/>
-              <rect x="178" y="20" width="160" height="86" rx="8"/>
-              <rect x="370" y="20" width="186" height="86" rx="8"/>
-              <rect x="588" y="20" width="170" height="86" rx="8"/>
-              <rect x="790" y="20" width="166" height="86" rx="8"/>
-            </g>
-            <g fill="none" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2" marker-end="url(#arr)">
-              <line x1="146" y1="63" x2="176" y2="63"/>
-              <line x1="338" y1="63" x2="368" y2="63"/>
-              <line x1="556" y1="63" x2="586" y2="63"/>
-              <line x1="758" y1="63" x2="788" y2="63"/>
-            </g>
-            <g fill="currentColor" font-family="Inter, -apple-system, sans-serif">
-              <text x="18" y="46" font-size="13" font-weight="500">1. Registry</text>
-              <text x="18" y="66" font-size="11.5" opacity="0.62">100 apps, domains</text>
-              <text x="18" y="84" font-size="11.5" opacity="0.62">Composio catalog</text>
-
-              <text x="192" y="46" font-size="13" font-weight="500">2. Pass 1 research</text>
-              <text x="192" y="66" font-size="11.5" opacity="0.62">Exa + httpx cache</text>
-              <text x="192" y="84" font-size="11.5" opacity="0.62">Cited claims only</text>
-
-              <text x="384" y="46" font-size="13" font-weight="500">3. Pass 2 verify (L1–L6)</text>
-              <text x="384" y="66" font-size="11.5" opacity="0.62">Rules, liveness, fuzzy quote</text>
-              <text x="384" y="84" font-size="11.5" opacity="0.62">Muse Spark + L6 re-search</text>
-
-              <text x="602" y="46" font-size="13" font-weight="500">4. Score &amp; analyze</text>
-              <text x="602" y="66" font-size="11.5" opacity="0.62">Deterministic 0–10 rubric</text>
-              <text x="602" y="84" font-size="11.5" opacity="0.62">4 buckets + 6 headlines</text>
-
-              <text x="804" y="46" font-size="13" font-weight="500">5. Static site</text>
-              <text x="804" y="66" font-size="11.5" opacity="0.62">index.html + JSON</text>
-              <text x="804" y="84" font-size="11.5" opacity="0.62">apps.csv + llms.txt</text>
-            </g>
-          </svg>
-        </div>
-
-        <div class="split-2">
-          <div>
-            <h3>Composio tool usage &amp; fallback transparency</h3>
-            <p class="headline-text" style="margin-bottom: 12px;">
-              Composio toolkit coverage for all 100 apps comes deterministically from the public Composio catalog (<code>docs.composio.dev/toolkits</code>, 1,843 slugs) with zero LLM guessing.
-            </p>
-            <p class="headline-text">
-              The provided Composio consumer key (<code>ck_…</code>) returned 401 on backend SDK/MCP execution for Exa, so per PRD §3 the tool abstraction switched cleanly via config (<code>TOOL_BACKEND=direct</code>) to direct Exa + httpx clients with disk caching ({{ run1.totals.tool_calls }} Pass-1 tool calls, {{ run2.totals.tool_calls }} Pass-2 L6 tool calls).
+        <!-- 8. Proof & reproduce -->
+        <section id="reproduce" class="chapter">
+          <div class="chapter-head">
+            <div class="chapter-num">08 / Try it yourself</div>
+            <h2>Re-run research for one app without cloning anything</h2>
+            <p class="lead">
+              Everything a reviewer needs is on this page: findings, evidence, accuracy, and honest misses. If you want to see the agent run live, use the button below. The source repo is optional reading, not required to understand the results.
             </p>
           </div>
 
-          <div>
-            <h3>Human-intervention log summary ({{ human_log.total }} entries)</h3>
-            <p class="chart-sub">Every point where a human stepped in, grouped by theme.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Theme</th><th class="num">Interventions</th></tr></thead>
-                <tbody>
-                  {% for t in human_log.by_theme %}
-                  <tr><td>{{ t.theme }}</td><td class="num">{{ t.count }}</td></tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+          <div class="split-2">
+            <div>
+              <h3>Live run</h3>
+              <p class="headline-text" style="margin-bottom: 16px;">
+                Open the GitHub Action, type an app name (for example Linear), and start the workflow. It researches that one app and uploads the result.
+              </p>
+              <p style="margin: 0 0 16px;">
+                <a class="btn btn--solid" href="{{ workflow_url }}" target="_blank" rel="noopener" style="text-decoration: none;">Run research on one app</a>
+              </p>
+              <p class="headline-text">
+                Source and README (optional): <a href="{{ repo_url }}" target="_blank" rel="noopener">{{ repo_url }}</a>
+              </p>
             </div>
-          </div>
-        </div>
 
-        <details>
-          <summary>Full human-intervention log ({{ human_log.total }} entries from data/human_log.md)</summary>
-          <div class="table-wrap" style="margin-top: 12px;">
-            <table>
-              <thead><tr><th>Date</th><th>App</th><th>Theme</th><th>Reason</th><th>Action</th></tr></thead>
-              <tbody>
-                {% for e in human_log.entries %}
-                <tr>
-                  <td style="white-space: nowrap;">{{ e.when }}</td>
-                  <td>{{ e.app }}</td>
-                  <td style="white-space: nowrap;">{{ e.theme }}</td>
-                  <td>{{ e.reason }}</td>
-                  <td>{{ e.action }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- 8. Proof & reproduce -->
-    <section id="reproduce" class="chapter chapter--alt">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div class="chapter-num">08 / Proof &amp; reproduce</div>
-          <h2>Run one app or rebuild the entire dataset</h2>
-          <p class="lead">
-            All snapshots (<code>data/pass1</code>, <code>data/pass2</code>, <code>data/final</code>), golden labels, and reports are committed in the repository alongside a GitHub Actions manual trigger.
-          </p>
-        </div>
-
-        <div class="split-2">
-          <div>
-            <h3>Links &amp; single-app run</h3>
-            <p class="headline-text" style="margin-bottom: 12px;">
-              Repository: <a href="{{ repo_url }}" target="_blank" rel="noopener">{{ repo_url }}</a><br>
-              Runnable trigger: <a href="{{ workflow_url }}" target="_blank" rel="noopener">GitHub Actions — research.yml</a> (manual <code>workflow_dispatch</code> with app name input).
-            </p>
-            <pre><code># Single-app research + claim table
-python -m agent research --app "Linear"
-
-# Full pipeline from frozen pass 1 -> site
+            <div>
+              <h3>What a single-app run produces</h3>
+              <p class="chart-sub">Same shape of output you see when you expand a row in section 04.</p>
+              <ul style="margin: 0; padding-left: 18px; font-size: 14px; color: var(--ink-2);">
+                <li style="margin-bottom: 6px;">Category and one-line description</li>
+                <li style="margin-bottom: 6px;">Auth methods and how to get credentials</li>
+                <li style="margin-bottom: 6px;">API type, MCP status, and Composio coverage</li>
+                <li style="margin-bottom: 6px;">Readiness score, build group, and the docs quote behind each answer</li>
+              </ul>
+              <details style="margin-top: 16px;">
+                <summary>Commands for engineers who want to run locally</summary>
+                <pre><code>python -m agent research --app "Linear"
 python -m agent verify --all --from pass1 --to pass2
-python -m agent freeze --pass pass2
 python -m agent finalize
 python -m agent analyze
 python -m agent site</code></pre>
+              </details>
+            </div>
           </div>
-
-          <div>
-            <h3>Sample CLI output (<code>python -m agent analyze</code>)</h3>
-            <pre><code>apps={{ analytics.summary.total_apps }} buckets={{ analytics.distributions.bucket }} sanity_ok={{ analytics.sanity_checks.all_passed }}
-{% for h in analytics.headlines[:4] %}  {{ loop.index }}. {{ h.text }}
-{% endfor %}</code></pre>
-          </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer>
     <div class="wrap footer-inner">
-      <span>App Intelligence Research Agent · {{ analytics.summary.total_apps }} apps · Frozen rules <code>{{ acc2.rules_sha256[:12] }}</code></span>
+      <span>App intelligence report · {{ analytics.summary.total_apps }} apps researched · accuracy checked on a 20-app sample</span>
       <span class="export-links">
-        <a href="apps.json">apps.json</a>
-        <a href="apps.csv">apps.csv</a>
-        <a href="llms.txt">llms.txt</a>
+        <a href="apps.json" title="Full dataset as JSON">JSON</a>
+        <a href="apps.csv" title="Full dataset as CSV">CSV</a>
+        <a href="llms.txt" title="Machine-readable summary">Guide</a>
       </span>
     </div>
   </footer>
@@ -1265,8 +1616,8 @@ python -m agent site</code></pre>
       const DATA = JSON.parse(document.getElementById("dataset").textContent);
       const RECORDS = DATA.records;
       const ANALYTICS = DATA.analytics;
+      let filteredCache = RECORDS.slice();
 
-      // Theme toggle
       const root = document.documentElement;
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme === "dark" || savedTheme === "light") root.setAttribute("data-theme", savedTheme);
@@ -1279,8 +1630,49 @@ python -m agent site</code></pre>
       });
 
       const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-      const fmtLabel = (s) => String(s || "unknown").replace(/_/g, " ");
-      const fmtVal = (v) => Array.isArray(v) ? v.join(", ") : (v && typeof v === "object" ? `${v.type}: ${v.text}` : String(v ?? "unknown"));
+      const LABEL = {
+        easy_win: "Easy win",
+        moderate: "Moderate",
+        needs_outreach: "Needs outreach",
+        technically_blocked: "Technically blocked",
+        supported: "Supported",
+        partially_supported: "Partly supported",
+        contradicted: "Contradicted",
+        insufficient: "Insufficient",
+        unknown: "Unknown",
+        available: "In Composio",
+        unavailable: "Not in Composio",
+        self_serve_free: "Free self-serve",
+        self_serve_trial: "Self-serve trial",
+        paid_plan_required: "Paid plan",
+        admin_approval: "Admin approval",
+        partner_gated: "Partner gated",
+        contact_sales: "Contact sales",
+        partner_program: "Partner program",
+        oauth_app_review: "OAuth app review",
+        marketplace_listing: "Marketplace listing",
+        none: "None",
+        no_found: "None found",
+        yes: "Yes",
+        oauth2: "OAuth 2.0",
+        api_key: "API key",
+        basic: "Basic auth",
+        bearer_token: "Bearer token",
+        fixed: "Fixed by checks",
+        regressed: "Made worse",
+        abstained_to_wrong: "Guessed wrong",
+        unchanged_correct: "Stayed correct",
+        unchanged_wrong: "Stayed wrong",
+        auth_methods: "Auth methods",
+        credential_access: "Credentials",
+        production_gate: "Ship gate",
+        api_type: "API type",
+        mcp_official: "Official MCP",
+        main_blocker: "Main blocker",
+        main_blocker_type: "Main blocker",
+      };
+      const fmtLabel = (s) => LABEL[s] || String(s || "unknown").replace(/_/g, " ");
+      const fmtVal = (v) => Array.isArray(v) ? v.map(fmtLabel).join(", ") : (v && typeof v === "object" ? `${fmtLabel(v.type)}: ${v.text}` : fmtLabel(v ?? "unknown"));
 
       function statusBadge(status) {
         const cls = status === "supported" ? "badge--ok"
@@ -1298,8 +1690,7 @@ python -m agent site</code></pre>
         return `<span class="badge ${cls}">${esc(fmtLabel(bucket))}</span>`;
       }
 
-      // 3. Pattern charts (offline CSS bars)
-      function renderBarChart(title, sub, entries, total) {
+      function renderBarChart(id, title, sub, entries, total) {
         const rows = entries.map(([k, v]) => {
           const pct = total ? Math.round((100 * v) / total) : 0;
           const muted = k === "unknown" || k === "no_found" ? "bar-fill--muted" : "";
@@ -1309,7 +1700,7 @@ python -m agent site</code></pre>
             <span class="bar-val">${v}</span>
           </div>`;
         }).join("");
-        return `<div class="chart-block"><h3>${esc(title)}</h3><p class="chart-sub">${esc(sub)}</p>${rows}</div>`;
+        return `<div class="chart-block" data-chart-id="${id}"><h3>${esc(title)}</h3><p class="chart-sub">${esc(sub)}</p>${rows}</div>`;
       }
 
       const d = ANALYTICS.distributions;
@@ -1317,18 +1708,28 @@ python -m agent site</code></pre>
       const sortDesc = (obj) => Object.entries(obj || {}).sort((a, b) => b[1] - a[1]);
 
       document.getElementById("pattern-charts").innerHTML = [
-        renderBarChart("Authentication methods", `${d.auth_methods.multi_method_apps} of ${n} apps support 2+ auth methods (apps can appear in multiple bars).`, sortDesc(d.auth_methods.by_method), n),
-        renderBarChart("Credential access", "How a developer obtains credentials to start building.", sortDesc(d.credential_access), n),
-        renderBarChart("Production gate", `${d.production_gate.gated_despite_free_dev} free-dev apps still require a production gate before serving multi-tenant users.`, sortDesc(d.production_gate.by_value), n),
-        renderBarChart("MCP & Composio coverage", `${ANALYTICS.mcp_vs_composio.official_mcp_without_composio.length} apps with an official MCP server lack a Composio toolkit.`, [
-          ["Official MCP (yes)", d.mcp_official.yes || 0],
-          ["Composio toolkit", d.composio_toolkit.available || 0],
-          ["Third-party MCP (yes)", d.mcp_third_party.yes || 0],
-          ["Official MCP, no Composio", ANALYTICS.mcp_vs_composio.official_mcp_without_composio.length],
+        renderBarChart("auth", "How apps authenticate", `${d.auth_methods.multi_method_apps} of ${n} apps offer two or more auth methods (an app can appear in more than one bar).`, sortDesc(d.auth_methods.by_method), n),
+        renderBarChart("access", "How you get credentials", "Can a developer sign up alone, or is a paid plan / admin / partner required?", sortDesc(d.credential_access), n),
+        renderBarChart("gate", "Extra gates before you can ship", `${d.production_gate.gated_despite_free_dev} apps with free developer signup still need review or a partner program to serve many customers.`, sortDesc(d.production_gate.by_value), n),
+        renderBarChart("mcp", "MCP servers and Composio coverage", `${ANALYTICS.mcp_vs_composio.official_mcp_without_composio.length} apps already ship an official MCP server but are not in Composio yet.`, [
+          ["Has official MCP", d.mcp_official.yes || 0],
+          ["In Composio catalog", d.composio_toolkit.available || 0],
+          ["Has third-party MCP", d.mcp_third_party.yes || 0],
+          ["Official MCP, not in Composio", ANALYTICS.mcp_vs_composio.official_mcp_without_composio.length],
         ], n),
       ].join("");
 
-      // Heatmap: Category x Credential Access
+      function applyChartVisibility() {
+        document.querySelectorAll(".chart-toggle").forEach((cb) => {
+          const block = document.querySelector(`.chart-block[data-chart-id="${cb.dataset.chart}"]`);
+          if (block) block.hidden = !cb.checked;
+        });
+        const heat = document.getElementById("heatmap-block");
+        if (heat) heat.hidden = !document.getElementById("heatmap-toggle").checked;
+      }
+      document.querySelectorAll(".chart-toggle").forEach((cb) => cb.addEventListener("change", applyChartVisibility));
+      document.getElementById("heatmap-toggle").addEventListener("change", applyChartVisibility);
+
       const accessCols = ["self_serve_free", "self_serve_trial", "paid_plan_required", "admin_approval", "partner_gated", "contact_sales", "unknown"];
       const mat = ANALYTICS.matrices.category_x_credential_access;
       const heatRows = Object.entries(mat).map(([cat, row]) => {
@@ -1345,7 +1746,27 @@ python -m agent site</code></pre>
         <tbody>${heatRows}</tbody>
       </table>`;
 
-      // 4. Findings explorer
+      function applyOppFilters() {
+        const gapsOnly = document.getElementById("opp-gaps-only").checked;
+        const bucket = document.getElementById("opp-bucket-filter").value;
+        document.querySelectorAll("[data-opp-bucket]").forEach((col) => {
+          const showCol = !bucket || col.dataset.oppBucket === bucket;
+          col.style.display = showCol ? "" : "none";
+          if (!showCol) return;
+          let visible = 0;
+          col.querySelectorAll(".chip[data-jump-app]").forEach((chip) => {
+            const isGap = chip.dataset.composio !== "available";
+            const show = !gapsOnly || isGap;
+            chip.classList.toggle("chip--hidden", !show);
+            if (show) visible += 1;
+          });
+          const countEl = col.querySelector("[data-opp-count]");
+          if (countEl) countEl.textContent = String(visible);
+        });
+      }
+      document.getElementById("opp-gaps-only").addEventListener("change", applyOppFilters);
+      document.getElementById("opp-bucket-filter").addEventListener("change", applyOppFilters);
+
       const selCat = document.getElementById("f-category");
       const selAuth = document.getElementById("f-auth");
       const selAccess = document.getElementById("f-access");
@@ -1360,6 +1781,29 @@ python -m agent site</code></pre>
       uniq(RECORDS.flatMap((r) => r.claims.api_type.value)).forEach((v) => selApi.add(new Option(fmtLabel(v), v)));
 
       const openApps = new Set();
+      const colVisible = {
+        score: true, bucket: true, auth: true, access: true,
+        gate: true, mcp: true, composio: true, confidence: true,
+      };
+
+      function applyColumnVisibility() {
+        document.querySelectorAll("#explorer-table [data-col]").forEach((el) => {
+          const key = el.getAttribute("data-col");
+          if (key === "id" || key === "app" || key === "category") {
+            el.classList.remove("col-hidden");
+            return;
+          }
+          el.classList.toggle("col-hidden", !colVisible[key]);
+        });
+      }
+
+      document.querySelectorAll(".col-toggle").forEach((cb) => {
+        cb.addEventListener("change", () => {
+          colVisible[cb.dataset.col] = cb.checked;
+          applyColumnVisibility();
+        });
+      });
+
       function renderDetail(r) {
         const claimsHtml = Object.entries(r.claims).map(([name, c]) => {
           const evs = (c.evidence || []).slice(0, 2).map((e) =>
@@ -1367,10 +1811,10 @@ python -m agent site</code></pre>
           ).join("");
           const loops = (c.verification?.loops || []).map((l) => `${l.loop}:${l.result}`).join(" · ");
           return `<div class="claim-item">
-            <div class="claim-top"><span class="claim-name">${esc(name)}</span>${statusBadge(c.verification?.status || "unknown")}</div>
+            <div class="claim-top"><span class="claim-name">${esc(fmtLabel(name))}</span>${statusBadge(c.verification?.status || "unknown")}</div>
             <div class="claim-val">${esc(fmtVal(c.value))}</div>
             ${evs || '<div class="claim-meta">No evidence (unknown)</div>'}
-            ${loops ? `<div class="claim-meta">Ledger: ${esc(loops)}</div>` : ""}
+            ${loops ? `<div class="claim-meta">Checks: ${esc(loops)}</div>` : ""}
           </div>`;
         }).join("");
 
@@ -1379,14 +1823,30 @@ python -m agent site</code></pre>
           `<tr><td>${esc(fmtLabel(k))}</td><td class="num">${v.score}/2</td><td>${esc(v.driver)}</td></tr>`
         ).join("");
         return `<div class="detail-grid">
-          <div><h3>Claims &amp; evidence</h3>${claimsHtml}</div>
+          <div><h3>Answers and the docs behind them</h3>${claimsHtml}</div>
           <div>
-            <h3>Buildability breakdown (${r.buildability.score}/10 · ${esc(fmtLabel(r.buildability.verdict))})</h3>
-            <p class="chart-sub">Commercial gate: <strong>${r.buildability.commercial_gate ? "Yes" : "No"}</strong> · Bucket: <strong>${esc(fmtLabel(r.buildability.bucket))}</strong></p>
-            <table><thead><tr><th>Dimension</th><th class="num">Pts</th><th>Driver</th></tr></thead><tbody>${bdRows}</tbody></table>
-            ${r.errors?.length ? `<p class="claim-meta" style="margin-top:12px;">Notes/errors: ${esc(r.errors.join("; "))}</p>` : ""}
+            <h3>Why the score is ${r.buildability.score}/10 (${esc(fmtLabel(r.buildability.verdict))})</h3>
+            <p class="chart-sub">Needs partnership or sales contact: <strong>${r.buildability.commercial_gate ? "Yes" : "No"}</strong> · Group: <strong>${esc(fmtLabel(r.buildability.bucket))}</strong></p>
+            <table><thead><tr><th>Factor</th><th class="num">Points</th><th>Why</th></tr></thead><tbody>${bdRows}</tbody></table>
+            ${r.errors?.length ? `<p class="claim-meta" style="margin-top:12px;">Notes: ${esc(r.errors.join("; "))}</p>` : ""}
           </div>
         </div>`;
+      }
+
+      function sortRecords(list) {
+        const mode = document.getElementById("f-sort").value;
+        const sorted = list.slice();
+        const cmpStr = (a, b) => String(a).localeCompare(String(b));
+        sorted.sort((a, b) => {
+          if (mode === "id-desc") return b.app_id - a.app_id;
+          if (mode === "score-desc") return b.buildability.score - a.buildability.score || a.app_id - b.app_id;
+          if (mode === "score-asc") return a.buildability.score - b.buildability.score || a.app_id - b.app_id;
+          if (mode === "name-asc") return cmpStr(a.app, b.app);
+          if (mode === "name-desc") return cmpStr(b.app, a.app);
+          if (mode === "category-asc") return cmpStr(a.claims.category.value, b.claims.category.value) || cmpStr(a.app, b.app);
+          return a.app_id - b.app_id;
+        });
+        return sorted;
       }
 
       function renderExplorer() {
@@ -1420,32 +1880,34 @@ python -m agent site</code></pre>
           return true;
         });
 
-        document.getElementById("explorer-count").textContent = `Showing ${filtered.length} of ${RECORDS.length} apps`;
+        filteredCache = sortRecords(filtered);
+        document.getElementById("explorer-count").textContent = `Showing ${filteredCache.length} of ${RECORDS.length} apps`;
         const tbody = document.getElementById("explorer-body");
-        tbody.innerHTML = filtered.map((r) => {
+        tbody.innerHTML = filteredCache.map((r) => {
           const c = r.claims;
           const isOpen = openApps.has(r.app_id);
           const confCls = r.record_confidence === "high" ? "badge--ok" : r.record_confidence === "medium" ? "badge--warn" : "badge--unk";
           const compBadge = r.composio_toolkit.value === "available"
-            ? `<span class="badge badge--ok">available</span>`
-            : `<span class="badge badge--solid">gap</span>`;
+            ? `<span class="badge badge--ok">In Composio</span>`
+            : `<span class="badge badge--solid">Not in Composio</span>`;
           return `<tr class="exp-row" data-app-id="${r.app_id}" id="app-row-${r.app_id}">
-            <td class="num">${r.app_id}</td>
-            <td><strong>${esc(r.app)}</strong></td>
-            <td>${esc(c.category.value)}</td>
-            <td class="num">${r.buildability.score}/10</td>
-            <td>${bucketBadge(r.buildability.bucket)}</td>
-            <td>${esc(c.auth_methods.value.join(", "))}</td>
-            <td>${c.credential_access.value === "unknown" ? '<span class="badge badge--unk">unknown</span>' : esc(fmtLabel(c.credential_access.value))}</td>
-            <td>${c.production_gate.value === "unknown" ? '<span class="badge badge--unk">unknown</span>' : esc(fmtLabel(c.production_gate.value))}</td>
-            <td>${esc(fmtLabel(c.mcp_official.value))}</td>
-            <td>${compBadge}</td>
-            <td><span class="badge ${confCls}">${esc(r.record_confidence)}</span></td>
+            <td class="num" data-col="id">${r.app_id}</td>
+            <td data-col="app"><strong>${esc(r.app)}</strong></td>
+            <td data-col="category">${esc(c.category.value)}</td>
+            <td class="num" data-col="score">${r.buildability.score}/10</td>
+            <td data-col="bucket">${bucketBadge(r.buildability.bucket)}</td>
+            <td data-col="auth">${esc(c.auth_methods.value.join(", "))}</td>
+            <td data-col="access">${c.credential_access.value === "unknown" ? '<span class="badge badge--unk">unknown</span>' : esc(fmtLabel(c.credential_access.value))}</td>
+            <td data-col="gate">${c.production_gate.value === "unknown" ? '<span class="badge badge--unk">unknown</span>' : esc(fmtLabel(c.production_gate.value))}</td>
+            <td data-col="mcp">${esc(fmtLabel(c.mcp_official.value))}</td>
+            <td data-col="composio">${compBadge}</td>
+            <td data-col="confidence"><span class="badge ${confCls}">${esc(r.record_confidence)}</span></td>
           </tr>
           <tr class="exp-detail ${isOpen ? "is-open" : ""}" data-detail-id="${r.app_id}">
             <td colspan="11">${isOpen ? renderDetail(r) : ""}</td>
           </tr>`;
         }).join("");
+        applyColumnVisibility();
       }
 
       document.getElementById("explorer-body").addEventListener("click", (ev) => {
@@ -1464,7 +1926,7 @@ python -m agent site</code></pre>
         }
       });
 
-      ["f-search", "f-category", "f-bucket", "f-verdict", "f-auth", "f-access", "f-gate", "f-api", "f-mcp", "f-composio", "f-vstatus"].forEach((id) => {
+      ["f-search", "f-category", "f-bucket", "f-verdict", "f-auth", "f-access", "f-gate", "f-api", "f-mcp", "f-composio", "f-vstatus", "f-sort"].forEach((id) => {
         document.getElementById(id).addEventListener("input", renderExplorer);
         document.getElementById(id).addEventListener("change", renderExplorer);
       });
@@ -1472,10 +1934,40 @@ python -m agent site</code></pre>
         ["f-search", "f-category", "f-bucket", "f-verdict", "f-auth", "f-access", "f-gate", "f-api", "f-mcp", "f-composio", "f-vstatus"].forEach((id) => {
           document.getElementById(id).value = "";
         });
+        document.getElementById("f-sort").value = "id-asc";
         renderExplorer();
       });
 
-      // Chip jump-to-app
+      document.getElementById("f-export").addEventListener("click", () => {
+        const cols = ["app_id", "app", "category", "score", "bucket", "verdict", "auth_methods", "credential_access", "production_gate", "mcp_official", "composio_toolkit", "confidence"];
+        const lines = [cols.join(",")];
+        filteredCache.forEach((r) => {
+          const c = r.claims;
+          const row = [
+            r.app_id,
+            `"${String(r.app).replace(/"/g, '""')}"`,
+            `"${String(c.category.value).replace(/"/g, '""')}"`,
+            r.buildability.score,
+            r.buildability.bucket,
+            r.buildability.verdict,
+            `"${c.auth_methods.value.join("; ")}"`,
+            c.credential_access.value,
+            c.production_gate.value,
+            c.mcp_official.value,
+            r.composio_toolkit.value,
+            r.record_confidence,
+          ];
+          lines.push(row.join(","));
+        });
+        const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `apps-filtered-${filteredCache.length}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
       document.addEventListener("click", (ev) => {
         const btn = ev.target.closest("[data-jump-app]");
         if (!btn) return;
@@ -1487,7 +1979,6 @@ python -m agent site</code></pre>
         if (row) row.scrollIntoView({ behavior: "smooth", block: "center" });
       });
 
-      // 5. Golden hits & misses table
       const goldenClaims = DATA.attribution?.claims || [];
       function renderGolden() {
         const mode = document.getElementById("golden-filter").value;
@@ -1515,6 +2006,8 @@ python -m agent site</code></pre>
 
       renderExplorer();
       renderGolden();
+      applyChartVisibility();
+      applyOppFilters();
     })();
   </script>
 </body>

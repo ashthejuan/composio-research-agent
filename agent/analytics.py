@@ -138,6 +138,15 @@ def _build_headlines(data: dict[str, Any]) -> list[dict[str, Any]]:
     # Top concrete blocker type (excluding unknown/none if any concrete blocker exists)
     concrete_blockers = [b for b in data["blockers"]["by_type"] if b["type"] not in (UNKNOWN, "none")]
     top_blocker = concrete_blockers[0] if concrete_blockers else {"type": "unknown", "count": 0, "pct": 0.0}
+    blocker_labels = {
+        "access": "getting developer credentials (paid plans, admin approval, or partner signup)",
+        "commercial": "needing a sales conversation or partnership before you can ship",
+        "technical": "a technical limit in the API itself",
+        "documentation": "thin or missing public documentation",
+        "unknown": "an unclear blocker",
+        "none": "no major blocker",
+    }
+    blocker_plain = blocker_labels.get(top_blocker["type"], top_blocker["type"].replace("_", " "))
 
     rest_n = data["distributions"]["api_type"].get("rest", 0)
     multi_auth = auth["multi_method_apps"]
@@ -145,26 +154,26 @@ def _build_headlines(data: dict[str, Any]) -> list[dict[str, Any]]:
     specs = [
         (
             "free_dev_vs_production_gates",
-            "Free developer access hides production gates",
-            "{free_dev} of {n} apps offer free self-serve developer access, yet {free_but_gated} of those still require an app review, marketplace listing, or partner program before serving multi-tenant customers.",
+            "Free signup often still blocks shipping to customers",
+            "{free_dev} of {n} apps let a developer get credentials for free, but {free_but_gated} of those still need an app review, marketplace listing, or partner program before you can serve many customers.",
             {"free_dev": free_dev, "n": n, "free_but_gated": free_but_gated},
         ),
         (
             "mcp_adoption_vs_composio",
-            "Official MCP servers are mainstream — and reveal coverage gaps",
-            "{mcp_off} of {n} apps already publish an official MCP server, including {mcp_no_comp} apps that do not yet have a Composio toolkit.",
+            "Most apps already ship an official MCP server",
+            "{mcp_off} of {n} apps publish an official MCP server. {mcp_no_comp} of those are not in the Composio catalog yet — ready coverage opportunities.",
             {"mcp_off": mcp_off, "n": n, "mcp_no_comp": mcp_no_comp},
         ),
         (
             "easy_wins_gap",
-            "Immediate easy-win build opportunities without Composio coverage",
-            "{easy_total} of {n} apps score as Easy Wins (8–10/10 with no commercial gate); {easy_no_comp} of them currently lack a Composio toolkit and can be built without BD outreach.",
+            "Easy wins you can build without a sales call",
+            "{easy_total} of {n} apps look ready to integrate today (score 8–10, no partnership gate). {easy_no_comp} of those are still missing from Composio.",
             {"easy_total": easy_total, "n": n, "easy_no_comp": easy_no_comp},
         ),
         (
             "outreach_and_commercial_gates",
-            "Commercial gates force BD outreach regardless of API quality",
-            "{outreach_total} of {n} apps trigger a commercial gate (partner-gated, contact-sales, or partner program) — {outreach_no_comp} without Composio coverage — led by {top_outreach_cat} ({top_outreach_n} apps).",
+            "Some apps need outreach no matter how good the API is",
+            "{outreach_total} of {n} apps require a partnership, sales contact, or partner program before you can build — {outreach_no_comp} of those are not in Composio yet. The densest category is {top_outreach_cat} ({top_outreach_n} apps).",
             {
                 "outreach_total": outreach_total,
                 "n": n,
@@ -175,10 +184,10 @@ def _build_headlines(data: dict[str, Any]) -> list[dict[str, Any]]:
         ),
         (
             "dominant_blocker",
-            "Top integration blocker across the catalog",
-            "'{blocker_type}' is the most common integration blocker across the catalog ({blocker_count} of {n} apps, {blocker_pct:.0f}%).",
+            "The most common reason an app is hard to integrate",
+            "The most common blocker is {blocker_plain} ({blocker_count} of {n} apps, {blocker_pct:.0f}%).",
             {
-                "blocker_type": top_blocker["type"],
+                "blocker_plain": blocker_plain,
                 "blocker_count": top_blocker["count"],
                 "n": n,
                 "blocker_pct": top_blocker["pct"],
@@ -186,8 +195,8 @@ def _build_headlines(data: dict[str, Any]) -> list[dict[str, Any]]:
         ),
         (
             "oauth_and_multi_auth",
-            "REST + OAuth2 dominate, with multi-method auth common",
-            "{rest_n} of {n} apps expose REST APIs and {oauth2} support OAuth2 ({oauth2_gated} of those with documented production gates), while {multi_auth} apps support two or more authentication methods.",
+            "REST and OAuth 2.0 are the default pattern",
+            "{rest_n} of {n} apps expose a REST API and {oauth2} support OAuth 2.0 ({oauth2_gated} of those still document an extra gate before production). {multi_auth} apps offer two or more ways to authenticate.",
             {
                 "rest_n": rest_n,
                 "n": n,
@@ -351,8 +360,9 @@ def compute_analytics(
             "status": "skipped_per_prd_cut_line_1",
             "holdout_ids": list(G.HOLDOUT_IDS),
             "note": (
-                f"{len(G.HOLDOUT_IDS)} holdout apps{names_str} were not "
-                "human-labelled per PRD §12 cut line #1; this is disclosed on the case-study page."
+                f"{len(G.HOLDOUT_IDS)} apps were kept out of the hand-checked sample"
+                f"{names_str}. They are still in the full 100-app dataset; only the accuracy "
+                "score above was measured on the 20 apps I labelled by hand."
             ),
         }
 

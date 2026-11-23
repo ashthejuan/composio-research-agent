@@ -186,7 +186,7 @@ def _compute_wrong_section(
     corrections: Optional[dict[str, Any]],
     taxonomy: Optional[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Assemble honest 'Where we were wrong' data from frozen reports and final records."""
+    """Assemble honest 'Where I was wrong' data from frozen reports and final records."""
     regressions = (attribution or {}).get("regressions", [])
     abstained_to_wrong = [
         c for c in (attribution or {}).get("claims", [])

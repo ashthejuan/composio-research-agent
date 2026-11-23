@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T15:20:37.344007+00:00",
+  "generated_at": "2026-11-23T16:16:31.640216+00:00",
   "summary": {
     "total_apps": 100,
     "scored_apps": 100,
@@ -3727,14 +3727,14 @@
       84,
       100
     ],
-    "note": "5 holdout apps (Zoho CRM, Vonage, Squarespace, Paygent Connect, Grain) were not human-labelled per PRD \u00a712 cut line #1; this is disclosed on the case-study page."
+    "note": "5 apps were kept out of the hand-checked sample (Zoho CRM, Vonage, Squarespace, Paygent Connect, Grain). They are still in the full 100-app dataset; only the accuracy score above was measured on the 20 apps I labelled by hand."
   },
   "headlines": [
     {
       "id": "free_dev_vs_production_gates",
-      "title": "Free developer access hides production gates",
-      "text": "56 of 100 apps offer free self-serve developer access, yet 16 of those still require an app review, marketplace listing, or partner program before serving multi-tenant customers.",
-      "template": "{free_dev} of {n} apps offer free self-serve developer access, yet {free_but_gated} of those still require an app review, marketplace listing, or partner program before serving multi-tenant customers.",
+      "title": "Free signup often still blocks shipping to customers",
+      "text": "56 of 100 apps let a developer get credentials for free, but 16 of those still need an app review, marketplace listing, or partner program before you can serve many customers.",
+      "template": "{free_dev} of {n} apps let a developer get credentials for free, but {free_but_gated} of those still need an app review, marketplace listing, or partner program before you can serve many customers.",
       "values": {
         "free_dev": 56,
         "n": 100,
@@ -3743,9 +3743,9 @@
     },
     {
       "id": "mcp_adoption_vs_composio",
-      "title": "Official MCP servers are mainstream \u2014 and reveal coverage gaps",
-      "text": "89 of 100 apps already publish an official MCP server, including 15 apps that do not yet have a Composio toolkit.",
-      "template": "{mcp_off} of {n} apps already publish an official MCP server, including {mcp_no_comp} apps that do not yet have a Composio toolkit.",
+      "title": "Most apps already ship an official MCP server",
+      "text": "89 of 100 apps publish an official MCP server. 15 of those are not in the Composio catalog yet \u2014 ready coverage opportunities.",
+      "template": "{mcp_off} of {n} apps publish an official MCP server. {mcp_no_comp} of those are not in the Composio catalog yet \u2014 ready coverage opportunities.",
       "values": {
         "mcp_off": 89,
         "n": 100,
@@ -3754,9 +3754,9 @@
     },
     {
       "id": "easy_wins_gap",
-      "title": "Immediate easy-win build opportunities without Composio coverage",
-      "text": "66 of 100 apps score as Easy Wins (8\u201310/10 with no commercial gate); 9 of them currently lack a Composio toolkit and can be built without BD outreach.",
-      "template": "{easy_total} of {n} apps score as Easy Wins (8\u201310/10 with no commercial gate); {easy_no_comp} of them currently lack a Composio toolkit and can be built without BD outreach.",
+      "title": "Easy wins you can build without a sales call",
+      "text": "66 of 100 apps look ready to integrate today (score 8\u201310, no partnership gate). 9 of those are still missing from Composio.",
+      "template": "{easy_total} of {n} apps look ready to integrate today (score 8\u201310, no partnership gate). {easy_no_comp} of those are still missing from Composio.",
       "values": {
         "easy_total": 66,
         "n": 100,
@@ -3765,9 +3765,9 @@
     },
     {
       "id": "outreach_and_commercial_gates",
-      "title": "Commercial gates force BD outreach regardless of API quality",
-      "text": "12 of 100 apps trigger a commercial gate (partner-gated, contact-sales, or partner program) \u2014 5 without Composio coverage \u2014 led by Finance and Fintech (4 apps).",
-      "template": "{outreach_total} of {n} apps trigger a commercial gate (partner-gated, contact-sales, or partner program) \u2014 {outreach_no_comp} without Composio coverage \u2014 led by {top_outreach_cat} ({top_outreach_n} apps).",
+      "title": "Some apps need outreach no matter how good the API is",
+      "text": "12 of 100 apps require a partnership, sales contact, or partner program before you can build \u2014 5 of those are not in Composio yet. The densest category is Finance and Fintech (4 apps).",
+      "template": "{outreach_total} of {n} apps require a partnership, sales contact, or partner program before you can build \u2014 {outreach_no_comp} of those are not in Composio yet. The densest category is {top_outreach_cat} ({top_outreach_n} apps).",
       "values": {
         "outreach_total": 12,
         "n": 100,
@@ -3778,11 +3778,11 @@
     },
     {
       "id": "dominant_blocker",
-      "title": "Top integration blocker across the catalog",
-      "text": "'access' is the most common integration blocker across the catalog (48 of 100 apps, 48%).",
-      "template": "'{blocker_type}' is the most common integration blocker across the catalog ({blocker_count} of {n} apps, {blocker_pct:.0f}%).",
+      "title": "The most common reason an app is hard to integrate",
+      "text": "The most common blocker is getting developer credentials (paid plans, admin approval, or partner signup) (48 of 100 apps, 48%).",
+      "template": "The most common blocker is {blocker_plain} ({blocker_count} of {n} apps, {blocker_pct:.0f}%).",
       "values": {
-        "blocker_type": "access",
+        "blocker_plain": "getting developer credentials (paid plans, admin approval, or partner signup)",
         "blocker_count": 48,
         "n": 100,
         "blocker_pct": 48.0
@@ -3790,9 +3790,9 @@
     },
     {
       "id": "oauth_and_multi_auth",
-      "title": "REST + OAuth2 dominate, with multi-method auth common",
-      "text": "91 of 100 apps expose REST APIs and 74 support OAuth2 (37 of those with documented production gates), while 64 apps support two or more authentication methods.",
-      "template": "{rest_n} of {n} apps expose REST APIs and {oauth2} support OAuth2 ({oauth2_gated} of those with documented production gates), while {multi_auth} apps support two or more authentication methods.",
+      "title": "REST and OAuth 2.0 are the default pattern",
+      "text": "91 of 100 apps expose a REST API and 74 support OAuth 2.0 (37 of those still document an extra gate before production). 64 apps offer two or more ways to authenticate.",
+      "template": "{rest_n} of {n} apps expose a REST API and {oauth2} support OAuth 2.0 ({oauth2_gated} of those still document an extra gate before production). {multi_auth} apps offer two or more ways to authenticate.",
       "values": {
         "rest_n": 91,
         "n": 100,

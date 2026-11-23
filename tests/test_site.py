@@ -37,12 +37,27 @@ def test_build_site_outputs_and_structure(tmp_path):
     assert len(embedded["records"]) == 100
     assert embedded["analytics"]["sanity_checks"]["all_passed"] is True
 
+    # Cover + ToC precede the 8 FR-11 sections (report layout)
+    assert 'id="cover"' in index_html
+    assert 'id="toc"' in index_html
+    assert "Table of contents" in index_html or "Contents" in index_html
+
     # All 8 FR-11 sections exist in order
     section_ids = ["headlines", "opportunities", "patterns", "explorer", "verification", "wrong", "architecture", "reproduce"]
     positions = [index_html.index(f'id="{sid}"') for sid in section_ids]
     assert positions == sorted(positions)
+    assert index_html.index('id="cover"') < positions[0]
+    assert index_html.index('id="toc"') < positions[0]
 
     # Scandinavian design guardrails: no uppercase CSS transform, no external CDN script required
     assert "text-transform: uppercase" not in index_html
     assert "cdnjs.cloudflare.com" not in index_html
     assert "human-corrected" in index_html.lower()
+    assert "Download this view as CSV" in index_html
+    assert "Agent architecture flowchart" in index_html
+    assert "Rules fingerprint" not in index_html
+    # Cover + section leads should be reviewer-facing (not PRD / commit jargon)
+    cover = index_html.split('id="toc"', 1)[0]
+    assert "PRD" not in cover
+    assert "rules_sha" not in cover
+    assert "hand-checked" in index_html.lower() or "hand-checked" in index_html
